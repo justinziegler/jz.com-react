@@ -200,19 +200,24 @@ ul {
   filter: invert(18%) sepia(42%) saturate(3316%) hue-rotate(309deg) brightness(97%) contrast(89%);
 }
 %filterCat2 {
-  filter: invert(6%) sepia(78%) saturate(6389%) hue-rotate(297deg) brightness(88%) contrast(90%);
+  // filter: invert(6%) sepia(78%) saturate(6389%) hue-rotate(297deg) brightness(88%) contrast(90%);
+  filter: invert(20%) sepia(79%) saturate(1791%) hue-rotate(327deg) brightness(98%) contrast(87%);
 }
 %filterCat3 {
   filter: invert(33%) sepia(10%) saturate(7463%) hue-rotate(331deg) brightness(96%) contrast(101%);
 }
 %filterCat4 {
-  filter: invert(65%) sepia(89%) saturate(3751%) hue-rotate(338deg) brightness(103%) contrast(104%);
+  // filter: invert(65%) sepia(89%) saturate(3751%) hue-rotate(338deg) brightness(103%) contrast(104%);
+  filter: invert(41%) sepia(80%) saturate(3402%) hue-rotate(348deg) brightness(98%) contrast(82%);
 }
 %filterWhite {
   filter: invert(100%) sepia(9%) saturate(3135%) hue-rotate(250deg) brightness(111%) contrast(100%);
 }
 %filterEggplant {
   filter: invert(6%) sepia(75%) saturate(3719%) hue-rotate(279deg) brightness(83%) contrast(107%);
+}
+%filterPurple {
+  filter: invert(6%) sepia(78%) saturate(6389%) hue-rotate(297deg) brightness(88%) contrast(90%);
 }
 
 $eggplant: #2a0136;
@@ -221,12 +226,6 @@ $purple: #5e0f5b;
 $lipstick: #932755;
 $flame: #C93B30;
 $orange: #FF7132;
-// Original Palette
-$cat2: $purple;
-$cat1-5: #781b58;
-$cat1: $lipstick;
-$cat3: $flame;
-$cat4: $orange;
 
 $color1: $purple;
 $color2: #781b58;
@@ -235,6 +234,12 @@ $color4: #ae3143;
 $color5: $flame;
 $color6: #e45631;
 $color7: $orange;
+
+// Original Palette
+$cat1: $lipstick;
+$cat2: $color4;
+$cat3: $flame;
+$cat4: $color6;
 // // Steeltones
 // $cat2: #65768c;
 // $cat1: #404b59;
@@ -487,16 +492,16 @@ $bg: transparent;
   $xx: 15px;
   $xxx: 320px;
   background-image: linear-gradient(to bottom, 
-    $cat2 0%,
-    $cat2 calc(100% - 214px),
+    $color1 0%,
+    $color1 calc(100% - 214px),
     $eggplant calc(100% - 214px),
     $eggplant calc(100% - $xx),
     $white calc(100% - $xx),
     $white 100%);
   @include mq(xs) {
     background-image: linear-gradient(to bottom, 
-    $cat2 0%,
-    $cat2 calc(100% - 250px),
+    $color1 0%,
+    $color1 calc(100% - 250px),
     $eggplant calc(100% - 250px),
     $eggplant calc(100% - $xx),
     $white calc(100% - $xx),
@@ -510,8 +515,8 @@ $bg: transparent;
     right: 0;
     bottom: calc(50vh + 70px);
     background-image: linear-gradient(to bottom, 
-    $cat2 0%,
-    $cat2 calc(100% - $xxx),
+    $purple 0%,
+    $purple calc(100% - $xxx),
     $eggplant calc(100% - $xxx),
     $eggplant calc(100% - $xx),
     $white calc(100% - $xx),
@@ -529,7 +534,7 @@ $bg: transparent;
     background-size:  30px;
     background-repeat: repeat-x;
     background-position: 50% 100%;
-    @extend %filterCat2;
+    @extend %filterPurple;
     @include mq(xs) {
       background-size: 36px;
     }
@@ -545,7 +550,7 @@ $bg: transparent;
     top: 13px;
     bottom: 5px;
     z-index: -1;
-    border-bottom: 8px solid tint($cat2, 27%);
+    border-bottom: 8px solid tint($purple, 27%);
   }
   span {
     &.arrow {
@@ -657,7 +662,7 @@ $bg: transparent;
       right: 16px;
       bottom: -1px;
       height: 4px;
-      background: tint($cat2, 54%);
+      background: tint($purple, 54%);
       z-index: -1;
       &::before {
         content: '';
@@ -666,7 +671,7 @@ $bg: transparent;
         left: 8px;
         right: 8px;
         height: 2px;
-        background: tint($cat2, 81%);
+        background: tint($purple, 81%);
         border-radius: 0 0 0 2px;
       }
     }
@@ -1422,6 +1427,7 @@ $y: 1.618;
   }
 }
 #recently {
+  position: relative;
   @include mq(xmd) {
     display: none;
   }
