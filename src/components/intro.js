@@ -6,12 +6,19 @@ function Intro() {
     <p>
       I'm a <strong>front-end developer</strong> with an eye for detail and <br />
       a knack for building eye-catching user experiences.
-      { mobile && 
-        <span>
+      { !mobile &&
+        <>
           <br />
-          Come back on a tablet (or larger) screen to<br /> 
-          check out some of my recent projects.
-        </span> 
+          Keep scrolling to view some recent projects, or<br /> 
+          visit my  <a href="https://github.com/justinziegler" rel="noreferrer" target="_blank">Github</a> for code examples.
+        </>
+      }
+      { mobile && 
+        <>
+          <br />
+          Come back on a larger screen to view some recent<br /> 
+          projects, or visit my <a href="https://github.com/justinziegler" rel="noreferrer" target="_blank">Github</a> for code examples.
+        </> 
       }
     </p>
   );

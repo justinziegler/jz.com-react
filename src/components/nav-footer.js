@@ -14,26 +14,32 @@ function NavFooter() {
       title: 'Recent Work',
       link: '#',
       target: '#recently',
-      class: 'cat1',
+      class: 'recent',
+    },
+    {
+      title: 'Github',
+      link: 'https://github.com/justinziegler',
+      target: '_blank',
+      class: 'gh'
     },
     {
       title: 'Resume',
       link: require('../pdf/JustinZiegler-Resume2023.pdf'),
       target: '_blank',
-      class: 'cat2'
+      class: 'resume'
     },
     {
       title: 'LinkedIn',
       link: 'https://linkedin.com/in/jzieglersb',
       target: '_blank',
-      class: 'cat3'
+      class: 'li'
     },
     {
       title: 'Email',
       email: 'justin.ziegler@gmail.com',
       link: 'mailto:justin.ziegler@gmail.com',
       target: '',
-      class: 'cat4'
+      class: 'email'
     }
   ];
   const navLinks = navLinkData.map(x => 

@@ -223,9 +223,18 @@ $flame: #C93B30;
 $orange: #FF7132;
 // Original Palette
 $cat2: $purple;
+$cat1-5: #781b58;
 $cat1: $lipstick;
 $cat3: $flame;
 $cat4: $orange;
+
+$color1: $purple;
+$color2: #781b58;
+$color3: $lipstick;
+$color4: #ae3143;
+$color5: $flame;
+$color6: #e45631;
+$color7: $orange;
 // // Steeltones
 // $cat2: #65768c;
 // $cat1: #404b59;
@@ -789,53 +798,55 @@ nav {
           padding: 0 5px;
         }
       }
-      &.cat1 {
+      &.recent {
         @include mq(xmd) {
           display: none;
         }
         button {
-          border-bottom-color: $cat1;
+          border-bottom-color: $color2;
           &::before {
-            background-color: $cat1;
+            background-color: $color2;
           }
         }
       }
-      &.cat2 {
+      &.gh {
         a {
-          border-bottom-color: $cat1;
-          @include mq(md) {
-            border-bottom-color: $cat2;
-          }
+          border-bottom-color: $color3;
           &:hover {
-            background-color: $cat1;
-            @include mq(md) {
-              background-color: $cat2;
-            }
+            background-color: $color3;
           }
           &::before {
-            background-color: $cat1;
-            @include mq(md) {
-              background-color: $cat2;
-            }
+            background-color: $color3;
           }
         }
       }
-      &.cat3 {
+      &.resume {
         a {
-          border-bottom-color: $cat3;
+          border-bottom-color: $color4;
           &:hover {
-            background: $cat3;
+            background-color: $color4;
           }
           &::before {
-            background-color: $cat3;
+            background-color: $color4;
           }
         }
       }
-      &.cat4 {
+      &.li {
         a {
-          border-bottom-color: $cat4;
+          border-bottom-color: $color5;
+          &:hover {
+            background: $color5;
+          }
           &::before {
-            background-color: $cat4;
+            background-color: $color5;
+          }
+        }
+      }
+      &.email {
+        a {
+          border-bottom-color: $color6;
+          &::before {
+            background-color: $color6;
           }
           span {
             &.email {
@@ -848,7 +859,7 @@ nav {
             }
           }
           &:hover, &:focus {
-            background: $cat4;
+            background: $color6;
             .email {
               width: 150px;
             }
