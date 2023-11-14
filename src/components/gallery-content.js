@@ -301,106 +301,106 @@ const galleryContent = [
     link: 'https://lull.com/checkout/payment',
     tools: ['HTML', 'Nunjucks', 'jQuery', 'SCSS / CSS', 'Photoshop', 'Imgix']
   },
-  {
-    id: 22,
-    group: 'more',
-    category: 'more',
-    class: 'divider',
-    images: '',
-    content: 
-      <div>
-        <h2>Less Recently<span></span></h2>
-        <p>Here is a selection of sites I designed & developed for earlier employers.</p>
-      </div>
-  },
-  {
-    id: 23,
-    group: 'bg',
-    category: 'more',
-    class: 'cat4',
-    images: ['bg/bg.png'],
-    title: 'Baby Genius',
-    type: 'Website',
-    description: 'Storefront and subscription audio / video streaming site. Built in Drupal Commerce.',
-    tools: ['HTML', 'Drupal Commerce', 'CSS', 'Photoshop']
-  },
-  {
-    id: 24,
-    group: 'dh',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/dh.png'],
-    title: 'DreamHome',
-    type: 'Website',
-    description: 'Website for the Merchandise Mart\'s annual DreamHome event.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 25,
-    group: 'mm',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/60654.png'],
-    title: 'The Mart Center',
-    type: 'Website',
-    description: 'Informational website for a property management company.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 26,
-    group: 'nbm',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/nbm.png'],
-    title: 'National Bridal Market',
-    type: 'Website',
-    description: 'Website for the Merchandise Mart\'s annual bridal industry showcase.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 27,
-    group: 'ad',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/ad.png'],
-    title: 'Architects & Designers Building',
-    type: 'Website',
-    description: 'Informational website for a home furnishings event and showroom property.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 28,
-    group: 'lxh',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/lxh.png'],
-    title: 'LuxeHome',
-    type: 'Website',
-    description: 'Website for the Merchandise Mart\'s annual LuxeHome event.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 29,
-    group: 'mmdc',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/mmdc.png'],
-    title: 'Merchandise Mart Design Center',
-    type: 'Website',
-    description: 'Informational website for a home furnishings event and showroom property.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 30,
-    group: 'wdc',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/wdc.png'],
-    title: 'Washington Design Center',
-    type: 'Website',
-    description: 'Informational website for a home furnishings event and showroom property.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  }
+  // {
+  //   id: 22,
+  //   group: 'more',
+  //   category: 'more',
+  //   class: 'divider',
+  //   images: '',
+  //   content: 
+  //     <div>
+  //       <h2>Less Recently<span></span></h2>
+  //       <p>Here is a selection of sites I designed & developed for earlier employers.</p>
+  //     </div>
+  // },
+  // {
+  //   id: 23,
+  //   group: 'bg',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['bg/bg.png'],
+  //   title: 'Baby Genius',
+  //   type: 'Website',
+  //   description: 'Storefront and subscription audio / video streaming site. Built in Drupal Commerce.',
+  //   tools: ['HTML', 'Drupal Commerce', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 24,
+  //   group: 'dh',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/dh.png'],
+  //   title: 'DreamHome',
+  //   type: 'Website',
+  //   description: 'Website for the Merchandise Mart\'s annual DreamHome event.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 25,
+  //   group: 'mm',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/60654.png'],
+  //   title: 'The Mart Center',
+  //   type: 'Website',
+  //   description: 'Informational website for a property management company.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 26,
+  //   group: 'nbm',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/nbm.png'],
+  //   title: 'National Bridal Market',
+  //   type: 'Website',
+  //   description: 'Website for the Merchandise Mart\'s annual bridal industry showcase.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 27,
+  //   group: 'ad',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/ad.png'],
+  //   title: 'Architects & Designers Building',
+  //   type: 'Website',
+  //   description: 'Informational website for a home furnishings event and showroom property.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 28,
+  //   group: 'lxh',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/lxh.png'],
+  //   title: 'LuxeHome',
+  //   type: 'Website',
+  //   description: 'Website for the Merchandise Mart\'s annual LuxeHome event.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 29,
+  //   group: 'mmdc',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/mmdc.png'],
+  //   title: 'Merchandise Mart Design Center',
+  //   type: 'Website',
+  //   description: 'Informational website for a home furnishings event and showroom property.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // },
+  // {
+  //   id: 30,
+  //   group: 'wdc',
+  //   category: 'more',
+  //   class: 'cat4',
+  //   images: ['mm/wdc.png'],
+  //   title: 'Washington Design Center',
+  //   type: 'Website',
+  //   description: 'Informational website for a home furnishings event and showroom property.',
+  //   tools: ['HTML', 'CSS', 'Photoshop']
+  // }
 ]
 
 export { galleryContent };

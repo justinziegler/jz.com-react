@@ -197,24 +197,42 @@ ul {
   @include dot-gradient(#000);
 }
 %filterCat1 {
-  filter: invert(18%) sepia(42%) saturate(3316%) hue-rotate(309deg) brightness(97%) contrast(89%);
+  // filter: invert(18%) sepia(42%) saturate(3316%) hue-rotate(309deg) brightness(97%) contrast(89%);
+  // filter: invert(12%) sepia(53%) saturate(6207%) hue-rotate(318deg) brightness(95%) contrast(110%);
+  // filter: invert(12%) sepia(94%) saturate(6223%) hue-rotate(273deg) brightness(65%) contrast(116%);
+  // filter: invert(11%) sepia(88%) saturate(7226%) hue-rotate(282deg) brightness(70%) contrast(111%);
+  filter: invert(18%) sepia(86%) saturate(2685%) hue-rotate(180deg) brightness(95%) contrast(85%);
 }
 %filterCat2 {
   // filter: invert(6%) sepia(78%) saturate(6389%) hue-rotate(297deg) brightness(88%) contrast(90%);
-  filter: invert(20%) sepia(79%) saturate(1791%) hue-rotate(327deg) brightness(98%) contrast(87%);
+  // filter: invert(20%) sepia(79%) saturate(1791%) hue-rotate(327deg) brightness(98%) contrast(87%);
+  // filter: invert(15%) sepia(64%) saturate(5480%) hue-rotate(292deg) brightness(78%) contrast(88%);
+  // filter: invert(15%) sepia(72%) saturate(3822%) hue-rotate(270deg) brightness(90%) contrast(100%);
+  // filter: invert(14%) sepia(79%) saturate(7337%) hue-rotate(286deg) brightness(72%) contrast(112%);
+  filter: invert(65%) sepia(60%) saturate(390%) hue-rotate(121deg) brightness(92%) contrast(89%);
 }
 %filterCat3 {
-  filter: invert(33%) sepia(10%) saturate(7463%) hue-rotate(331deg) brightness(96%) contrast(101%);
+  // filter: invert(33%) sepia(10%) saturate(7463%) hue-rotate(331deg) brightness(96%) contrast(101%);
+  // filter: invert(28%) sepia(24%) saturate(7432%) hue-rotate(253deg) brightness(80%) contrast(91%);
+  // filter: invert(29%) sepia(54%) saturate(1847%) hue-rotate(259deg) brightness(87%) contrast(93%);
+  // filter: invert(17%) sepia(91%) saturate(3373%) hue-rotate(285deg) brightness(76%) contrast(123%);
+  filter: invert(85%) sepia(8%) saturate(1659%) hue-rotate(73deg) brightness(106%) contrast(84%);
 }
 %filterCat4 {
   // filter: invert(65%) sepia(89%) saturate(3751%) hue-rotate(338deg) brightness(103%) contrast(104%);
-  filter: invert(41%) sepia(80%) saturate(3402%) hue-rotate(348deg) brightness(98%) contrast(82%);
+  // filter: invert(41%) sepia(80%) saturate(3402%) hue-rotate(348deg) brightness(98%) contrast(82%);
+  // filter: invert(28%) sepia(38%) saturate(4369%) hue-rotate(232deg) brightness(103%) contrast(101%);
+  // filter: invert(55%) sepia(17%) saturate(2497%) hue-rotate(253deg) brightness(72%) contrast(76%);
+  // filter: invert(12%) sepia(85%) saturate(6920%) hue-rotate(296deg) brightness(81%) contrast(107%);
+  filter: invert(99%) sepia(93%) saturate(428%) hue-rotate(30deg) brightness(97%) contrast(104%);
 }
 %filterWhite {
   filter: invert(100%) sepia(9%) saturate(3135%) hue-rotate(250deg) brightness(111%) contrast(100%);
 }
 %filterEggplant {
-  filter: invert(6%) sepia(75%) saturate(3719%) hue-rotate(279deg) brightness(83%) contrast(107%);
+  // filter: invert(6%) sepia(75%) saturate(3719%) hue-rotate(279deg) brightness(83%) contrast(107%);
+  // filter: invert(10%) sepia(28%) saturate(7468%) hue-rotate(286deg) brightness(101%) contrast(116%);
+  filter: invert(10%) sepia(13%) saturate(6780%) hue-rotate(173deg) brightness(88%) contrast(99%);
 }
 %filterPurple {
   filter: invert(6%) sepia(78%) saturate(6389%) hue-rotate(297deg) brightness(88%) contrast(90%);
@@ -313,17 +331,42 @@ $cat4: $color6;
 // $cat3: #93AEBF;
 // $cat4: #D5E5F2;
 // $eggplant: #012340;
+// $cat1: #551580;
+// $cat2: #552baa;
+// $cat3: #5540d5;
+// $cat4: #5555ff;
+// $eggplant: #550055;
+// $cat1: #aa0055;
+// $cat2: #8e1c8e;
+// $cat3: #7139c6;
+// $cat4: #5555ff;
+// $eggplant: #550055;
+// $cat1: #7100aa;
+// $cat2: #8400aa;
+// $cat3: #9700aa;
+// $cat4: #aa00aa;
+// $eggplant: #550055;
+// $cat1: #b2bebf;
+// $cat2: #889c9b;
+// $cat3: #486966;
+// $cat4: #bd2a2e;
+// $eggplant: #3b3936;
+$cat1: #13678a;
+$cat2: #45c4b0;
+$cat3: #9aeba3;
+$cat4: #dafdba;
+$eggplant: #012030;
 $primary-bg: $eggplant;
 
-:root {
-  --primary-bg-color: #{$eggplant};
-  --secondary-bg-color: #{$purple};
-  --cat1: #{$lipstick};
-  --cat2: #{$orange};
-  --cat2Tint: tint(#{$orange}, 20%);
-  --cat3: #{$flame};
-  --cat4: #{$purple};
-}
+// :root {
+//   --primary-bg-color: #{$eggplant};
+//   --secondary-bg-color: #{$purple};
+//   --cat1: #{$lipstick};
+//   --cat2: #{$orange};
+//   --cat2Tint: tint(#{$orange}, 20%);
+//   --cat3: #{$flame};
+//   --cat4: #{$purple};
+// }
 
 h1 {
   color: $eggplant;
@@ -534,7 +577,8 @@ $bg: transparent;
     background-size:  30px;
     background-repeat: repeat-x;
     background-position: 50% 100%;
-    @extend %filterPurple;
+    // @extend %filterPurple;
+    @extend %filterCat1;
     @include mq(xs) {
       background-size: 36px;
     }
