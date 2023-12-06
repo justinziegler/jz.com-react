@@ -2,26 +2,6 @@ import React from 'react';
 
 const galleryContent = [
   {
-    id: 1,
-    group: 'recently',
-    category: 'products',
-    class: 'divider',
-    images: '',
-    content: 
-      <div>
-        <h2>Recently<span></span></h2>
-        <p>
-          I spent the last few years building and refining the web presence of a bedding startup.<br /> 
-          After joining the company in its first year, I worked on every corner of the website<br /> 
-          as the product catalog slowly grew from one line to more than fifteen.
-        </p>
-        <p>
-          The following slides contain a few of my favorite recent projects.<br /> 
-          Many more examples of my work can be seen at <a href="https://lull.com" rel="noopener noreferrer" target="_blank">lull.com</a>.
-        </p>
-      </div>
-  },
-  {
     id: 2,
     group: 'shop',
     category: 'products',

@@ -358,73 +358,63 @@ $cat4: #dafdba;
 $eggplant: #012030;
 $primary-bg: $eggplant;
 
-// :root {
-//   --primary-bg-color: #{$eggplant};
-//   --secondary-bg-color: #{$purple};
-//   --cat1: #{$lipstick};
-//   --cat2: #{$orange};
-//   --cat2Tint: tint(#{$orange}, 20%);
-//   --cat3: #{$flame};
-//   --cat4: #{$purple};
-// }
-
-h1 {
-  color: $eggplant;
+h1, h2 {
+  color: $white;
   font-size: 120px;
   font-family: 'Boogaloo', sans;
 }
-h2 {
-  font-size: 90px;
-  line-height: 1;
-  position: relative;
-  color: #fff;
-  padding-left: 4px;
-  margin: 25px 0 30px 0;
-  width: 100%;
-  font-family: 'Boogaloo', sans;
-  text-align: left;
-  z-index: 1;
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 15px;
-    z-index: -1;
-    background-color: $cat1;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    left: 8px;
-    right: 0;
-    top: 13px;
-    bottom: 5px;
-    z-index: -1;
-    border-bottom: 8px solid tint($cat1, 27%);
-  }
-  span {
-    position: absolute;
-    left: 16px;
-    right: 0;
-    bottom: -1px;
-    height: 4px;
-    background: tint($cat1, 54%);
-    z-index: -1;
-    // border-radius: 0 0 0 4px;
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 8px;
-      right: 0;
-      height: 2px;
-      background: tint($cat1, 81%);
-      border-radius: 0 0 0 2px;
-    }
-  }
-}
+// h2 {
+//   font-size: 90px;
+//   line-height: 1;
+//   position: relative;
+//   color: #fff;
+//   padding-left: 4px;
+//   margin: 25px 0 30px 0;
+//   width: 100%;
+//   font-family: 'Boogaloo', sans;
+//   text-align: left;
+//   z-index: 1;
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     bottom: 15px;
+//     z-index: -1;
+//     background-color: $cat1;
+//   }
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     left: 8px;
+//     right: 0;
+//     top: 13px;
+//     bottom: 5px;
+//     z-index: -1;
+//     border-bottom: 8px solid tint($cat1, 27%);
+//   }
+//   span {
+//     position: absolute;
+//     left: 16px;
+//     right: 0;
+//     bottom: -1px;
+//     height: 4px;
+//     background: tint($cat1, 54%);
+//     z-index: -1;
+//     // border-radius: 0 0 0 4px;
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       bottom: -4px;
+//       left: 8px;
+//       right: 0;
+//       height: 2px;
+//       background: tint($cat1, 81%);
+//       border-radius: 0 0 0 2px;
+//     }
+//   }
+// }
 a {
   &:hover {
     text-decoration: none;
@@ -436,7 +426,19 @@ body {
 }
 
 main {
+  // margin-top: calc(50% - 620px);
+  // background-color: purple;
+  padding-bottom: 300px; // delete
+  display: flex;
+}
+article {
+  display: flex;
   width: 100%;
+}
+.main-content {
+  background-color: #781b58;
+  padding-bottom: 300px;
+  margin-left: 240px;
 }
 $x: 240px;
 $y: 158px; // width of purple column
@@ -534,22 +536,22 @@ $bg: transparent;
   // background-color: $eggplant;
   $xx: 15px;
   $xxx: 320px;
-  background-image: linear-gradient(to bottom, 
-    $color1 0%,
-    $color1 calc(100% - 214px),
-    $eggplant calc(100% - 214px),
-    $eggplant calc(100% - $xx),
-    $white calc(100% - $xx),
-    $white 100%);
-  @include mq(xs) {
-    background-image: linear-gradient(to bottom, 
-    $color1 0%,
-    $color1 calc(100% - 250px),
-    $eggplant calc(100% - 250px),
-    $eggplant calc(100% - $xx),
-    $white calc(100% - $xx),
-    $white 100%);
-  }
+  // background-image: linear-gradient(to bottom, 
+  //   $cat1 0%,
+  //   $cat1 calc(100% - 214px),
+  //   $eggplant calc(100% - 214px),
+  //   $eggplant calc(100% - $xx),
+  //   $white calc(100% - $xx),
+  //   $white 100%);
+  // @include mq(xs) {
+  //   background-image: linear-gradient(to bottom, 
+  //   $cat1 0%,
+  //   $cat1 calc(100% - 250px),
+  //   $eggplant calc(100% - 250px),
+  //   $eggplant calc(100% - $xx),
+  //   $white calc(100% - $xx),
+  //   $white 100%);
+  // }
   @include mq(md) {
     height: auto;
     position: absolute;
@@ -558,10 +560,10 @@ $bg: transparent;
     right: 0;
     bottom: calc(50vh + 70px);
     background-image: linear-gradient(to bottom, 
-    $purple 0%,
-    $purple calc(100% - $xxx),
-    $eggplant calc(100% - $xxx),
-    $eggplant calc(100% - $xx),
+    $cat1 0%,
+    $cat1 calc(100% - $xxx),
+    $white calc(100% - $xxx),
+    $white calc(100% - $xx),
     $white calc(100% - $xx),
     $white 100%);
   }
@@ -586,16 +588,16 @@ $bg: transparent;
       background-size:  48px;
     }
   }
-  &::after {
-    content: '';
-    position: absolute;
-    left: 8px;
-    right: 8px;
-    top: 13px;
-    bottom: 5px;
-    z-index: -1;
-    border-bottom: 8px solid tint($purple, 27%);
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   left: 8px;
+  //   right: 8px;
+  //   top: 13px;
+  //   bottom: 5px;
+  //   z-index: -1;
+  //   border-bottom: 8px solid tint($cat1, 27%);
+  // }
   span {
     &.arrow {
       @include mq(xmd) {
@@ -645,33 +647,13 @@ $bg: transparent;
       $bg 100%);
       @include mq(lg) { 
         bottom: -90px;        
-        background-image: linear-gradient(to right, 
-          transparent 0%, 
-          transparent calc(50% + 300px), 
-          #962756 calc(50% + 300px), 
-          #962756 calc(50% + 300px + 2px), 
-          #a6476f calc(50% + 300px + 2px), 
-          #a6476f calc(50% + 300px + 4px), 
-          #962756 calc(50% + 300px + 4px), 
-          #962756 calc(50% + 300px + 6px), 
-          #a6476f calc(50% + 300px + 6px), 
-          #962756 calc(50% + 300px + 7px), 
-          #962756 calc(50% + 480px), 
-          #a6476f calc(50% + 480px), 
-          #962756 calc(50% + 481px), 
-          #962756 calc(50% + 482px), 
-          #a6476f calc(50% + 482px), 
-          #a6476f calc(50% + 484px), 
-          #962756 calc(50% + 484px), 
-          #962756 calc(50% + 487px), 
-          transparent calc(50% + 487px), 
-          transparent 100%);
-
         $x: 300px;
         $z: 487px;
         background-image: linear-gradient(to right, 
           $bg 0%,
-          $bg calc(50% + $x),
+          $bg calc(50% + ($x - 10px)),
+          $white calc(50% + ($x - 10px)),
+          $white calc(50% + $x),
           $cat1 calc(50% + $x), 
           $cat1 calc(50% + ($x + 2px)), 
     
@@ -696,29 +678,77 @@ $bg: transparent;
           $cat1 calc(50% + ($z - 3px)),
     
           $cat1 calc(50% + $z),
-          $bg calc(50% + $z),
+          $white calc(50% + $z),
+          $white calc(50% + ($z + 10px)),
+          $bg calc(50% + ($z + 10px)),
           $bg 100%);
       }
     }
-    &.fade-out {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: -1px;
-      height: 4px;
-      background: tint($purple, 54%);
-      z-index: -1;
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 8px;
-        right: 8px;
-        height: 2px;
-        background: tint($purple, 81%);
-        border-radius: 0 0 0 2px;
-      }
-    }
+    // &.fade-out {
+      // position: absolute;
+      // left: 16px;
+      // right: 16px;
+      // bottom: -1px;
+      // height: 4px;
+      // background: tint($purple, 54%);
+      // z-index: -1;
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   bottom: -4px;
+      //   left: 8px;
+      //   right: 8px;
+      //   height: 2px;
+      //   background: tint($purple, 81%);
+      //   border-radius: 0 0 0 2px;
+      // }
+    // }
+  }
+}
+.about-footer {
+  position: relative;
+  @include mq(md) {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: calc(50vh + 70px);
+  }
+  &::before, &::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  &::before {
+    top: 0;
+    bottom: 48px;
+    z-index: 1;
+    @extend %dot-gradient;
+    background-size:  32px;
+    background-repeat: repeat-x;
+    background-position: 50% 0%;
+    // @extend %filterPurple;
+    @extend %filterEggplant;
+    transform: rotate(180deg);
+  }
+  &::after {
+    top: calc(100% - 48px);
+    bottom: 0;
+    background-color: $eggplant;
+  }
+}
+.outline {
+  position: absolute;
+  width: 10px;
+  background: $white;
+  top: 0;
+  bottom: 0;
+  left: calc(50% + 290px);
+  z-index: 2;
+  &.right {
+    left: calc(50% + 480px);
   }
 }
 
@@ -746,6 +776,76 @@ header {
   color: $primary-bg;
 }
 nav {
+  &.nav {
+    position: fixed;
+    top: 0;
+    left: calc(50% - 610px);
+    bottom: 0;
+    width: 190px;
+    background-color: $cat1;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    
+    h1 {
+      font-size: 46px;
+      line-height: 1;
+      margin: 90px 0 0 0;
+    }
+    h2 {
+      background: none;
+      font-size: 24px;
+    }
+  }
+  .nav-content {
+    height: 620px;
+    width: 100%;
+    background: pink;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: calc(50% - 120px);
+    justify-content: flex-start;
+  }
+  $logo-height-xl: 240px;
+  .logo-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    height: $logo-height-xl;
+  }
+  .logo {
+    position: absolute;
+    left: -30px;
+    right: -30px;
+    height: $logo-height-xl;
+    background-color: $cat3;
+    top: 0;
+    border-radius: 50%;
+  }
+  .nav-links {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      font-size: 2rem;
+      line-height: 1.8;
+      margin: 10px 0;
+    }
+    a {
+      color: $cat1;
+      border-bottom: solid 2px $white;
+      transition: .2s;
+      &:hover {
+        border-bottom-color: transparent;
+        text-decoration: none;
+      }
+    }
+  }
+  //
+
   &.nav-footer {
     position: fixed;
     bottom: 0;
@@ -1427,6 +1527,7 @@ $y: 1.618;
   position: relative;
   transition: .4s;
   padding: 100px 15px 85px 15px;
+  z-index: 3;
   @include mq(xmd) {
     display: none;
   }
@@ -1489,14 +1590,12 @@ $y: 1.618;
   @include mq(lg) {
     $x: 190px;
     $y: 10px;
-    $z: 250px;
+    $z: 195px;
     background-image: linear-gradient(to bottom, 
-      $bg 0%,
-      $bg calc(50% - $x),
-      $eggplant calc(50% - $x), 
+      $eggplant 0, 
       $eggplant calc(50% + $z),
-      #fff calc(50% + $z),
-      #fff 100%);
+      $cat1 calc(50% + $z),
+      $cat1 100%);
   }
   .col-one {
     box-shadow: 0 0 60px 60px rgba($eggplant,.05);
@@ -1520,34 +1619,35 @@ $y: 1.618;
     background-size:  18px;
     background-repeat: repeat-x;
     background-position: 50% 52px;
-    // @extend %filterCat2;
     transform: rotate(180deg);
     transition: .2s;
+    z-index: 0;
+    @extend %filterCat1;
     @include mq(lg) {
-      background-position: 50% 61px;
-      background-size:  20px;
+      background-position: 50% 115px;
+      background-size:  24px;
     }
   }
-  &[data-current='cat1'] {
-    &::before {
-      @extend %filterCat1;
-    }
-  }
-  &[data-current='recently'], &[data-current='cat2'] {
-    &::before {
-      @extend %filterCat2;
-    }
-  }
-  &[data-current='cat3'] {
-    &::before {
-      @extend %filterCat3;
-    }
-  }
-  &[data-current='cat4'] {
-    &::before {
-      @extend %filterCat4;
-    }
-  }
+  // &[data-current='cat1'] {
+  //   &::before {
+  //     @extend %filterCat1;
+  //   }
+  // }
+  // &[data-current='recently'], &[data-current='cat2'] {
+  //   &::before {
+  //     @extend %filterCat2;
+  //   }
+  // }
+  // &[data-current='cat3'] {
+  //   &::before {
+  //     @extend %filterCat3;
+  //   }
+  // }
+  // &[data-current='cat4'] {
+  //   &::before {
+  //     @extend %filterCat4;
+  //   }
+  // }
 }
 $z: calc(($x / $y) / $y);
 .col-three {

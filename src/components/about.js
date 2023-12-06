@@ -20,6 +20,10 @@ function About() {
           { !mobile && <NavScroll /> }
         </div>
       </div>
+      <div className="about-footer">
+        <div className="outline"></div>
+        <div className="outline right"></div>
+      </div>
     </section>
   );
 }
