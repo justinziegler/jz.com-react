@@ -1,19 +1,23 @@
-import NavFooter from './components/nav-footer.js';
-import About from './components/about.js';
-import Recently from './components/recently.js';
-import { mobile } from './components/constants.js';
-import './App.css';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { Home } from './pages/00-home';
+import { HolidayMode } from './pages/01-holiday-mode';
+
 import './scss/app.scss';
 
 function App() {
   
   return (
-    <div className="App">
-      <NavFooter />
-      <About />
-      { !mobile && <Recently /> }
-      { !mobile && <div className="background"></div> }
-    </div>
+    <Router>
+        <Routes>
+            <Route exact path="/" element={ <Home /> } />
+            <Route path="/holiday-mode" element={ <HolidayMode /> } />
+        </Routes>
+    </Router>
   );
 }
 
