@@ -1,7 +1,8 @@
 import React from 'react';
+import { mobile } from '../components/constants.js';
 
 function Intro() {
-  const mobile = window.innerWidth < 992;
+  // const mobile = window.innerWidth < 992;
   return (
     <p>
       I'm a <strong>front-end developer</strong> with an eye for detail and <br />

@@ -34,13 +34,6 @@
        url(Avenir900Black.woff) format('woff');
 }
 
-/* Manrope Font */
-@font-face {
-  font-family: 'Manrope';
-  font-weight: 400;
-  src: url(Manrope-Regular.ttf) format("truetype");
-}
-
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

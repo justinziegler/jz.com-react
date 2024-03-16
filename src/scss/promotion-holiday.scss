@@ -552,7 +552,7 @@ main {
 			}
 		}
 	}
-	div[class^="swiper-container"] {
+	.swiper {
 		height: 535px;
 		z-index: 10;
 		overflow: visible;
