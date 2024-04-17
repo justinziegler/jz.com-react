@@ -16,8 +16,8 @@ const galleryContent = [
           as the product catalog slowly grew from one line to more than fifteen.
         </p>
         <p>
-          The following slides contain a few of my favorite recent projects.<br /> 
-          Many more examples of my work can be seen at <a href="https://lull.com" rel="noopener noreferrer" target="_blank">lull.com</a>.
+          The following slides contain a few of my favorite recent projects.<br />
+          Thanks for visiting!
         </p>
       </div>
   },
