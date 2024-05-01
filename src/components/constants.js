@@ -14,12 +14,7 @@ const cats = [
     title: 'Checkout',
     target: 15,
     class: 'cat3'
-  },
-  {
-    title: 'More',
-    target: 21,
-    class: 'cat4'
-  },
+  }
 ]
 const scrollTime = (e) => {
   e.preventDefault();
