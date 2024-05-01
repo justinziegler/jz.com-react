@@ -70,18 +70,6 @@ function GalleryInfo(props) {
                 
                 <div className="info">
                   { x.description !== '' && <p>{ x.description }</p> }
-                  { x.link !== null && (
-                    <ul className="site-link">
-                      <li key={ x.group }><a href={ x.link } rel="noopener noreferrer" target="_blank">Visit page</a> &raquo;
-                      { (x.type === 'Checkout Page' && x.group !== 'cart') && 
-                        <span>
-                          <br />
-                          (requires an item added to cart)
-                        </span>
-                      }
-                      </li>
-                    </ul>
-                  )}
                 </div>
               </>
             }
