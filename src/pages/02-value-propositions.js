@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { isElementInViewport, onVisibilityChange } from '../components/in-viewport.js';
 import { nextSlide, prevSlide, setActive, slideshowDots } from '../components/slideshow.js';
 
@@ -27,6 +28,11 @@ const items = [
     details: 'Aliquam erat volutpat. Suspendisse vitae lectus id massa tristique mattis. Nunc consectetur luctus augue sed'
   }
 ]
+
+const Slide = ({ isActive, onClick}) => {
+  return <div onClick={ onClick }> {isActive ? 'Active' : 'Not active'}</div>
+}
+
 
 
 export const ValuePropositions = () => {
@@ -92,10 +98,10 @@ export const ValuePropositions = () => {
     e.target.setAttribute('data-active', true);
   }
 
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeElement, setActiveElement] = useState(0);
 
 const updateActiveElement = (id) => {
-  setActiveSlide(activeElement !== id ? id : 0);
+    setActiveElement(activeElement !== id ? id : 0);
 }
   return (
     <>
@@ -108,20 +114,20 @@ const updateActiveElement = (id) => {
                 <div className="stage">
                   { items.map(function(item, index){
                     const active = this.state.activeIndex === index; 
-                    <div 
-                      data-slide={`${index + 1}`} 
-                      data-active={ active } 
-                      key={ `slide-${ index + 1}`}
-                      role={ role }
-                      tabIndex={ tabIndex }
-                      onClick={handleClick.bind(this, index, this.props)}
-                      >
-                      <h4>{ item.title }</h4>
-                      <div className="content">
-                        <p>{ item.details }</p>
-                      </div>
-                    </div>
-                    
+                    // <div 
+                    //   data-slide={`${index + 1}`} 
+                    //   data-active={ active } 
+                    //   key={ `slide-${ index + 1}`}
+                    //   role={ role }
+                    //   tabIndex={ tabIndex }
+                    //   onClick={handleClick.bind(this, index, this.props)}
+                    //   >
+                    //   <h4>{ item.title }</h4>
+                    //   <div className="content">
+                    //     <p>{ item.details }</p>
+                    //   </div>
+                    // </div>
+                    <Slide active={ index === activeElement} onClick={() => updateActiveElement(index)} />
                   })}
                 </div>
                 <div className="dots">
