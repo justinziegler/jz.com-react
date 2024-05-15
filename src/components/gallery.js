@@ -3,6 +3,32 @@ import { galleryContent } from './gallery-content.js';
 import { Navigation, Thumbs, Controller } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+function navigateTOC(slide) {
+
+}
+
+function GalleryTOC(props) {
+  const toc = [];
+  galleryContent.forEach(item => {
+    if (item.groupSlide === 1) {
+      toc.push(item);
+    }
+  })
+  return (
+    <ul className="gallery-contents">
+      { toc.map(y =>
+        <li data-group-name={ y.group } className={ y.class } key={ `galleryTOC${y.id}` }>
+          <a href="./" 
+            target={ y.id - 1 }
+            onClick={ props.navigateGallery }>
+            <span>{ y.title }</span>
+          </a>
+        </li>
+      )}
+    </ul>
+  )
+}
+
 function Gallery(props) {
   return (
     <Swiper
@@ -29,9 +55,7 @@ function Gallery(props) {
         >
           { x.content }
           { x.class === 'divider' &&
-            <button className="btn-continue" onClick={ props.nextSlide }>
-              <span>Continue</span>
-            </button>
+            <GalleryTOC navigateGallery={ props.navigateGallery } />
           }
           { x.images.length === 1 && 
             <img 

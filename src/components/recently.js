@@ -39,8 +39,9 @@ function Recently () {
   function navigateGallery(event) {
     event.preventDefault();
     const slideTarget = Number(event.target.target);
+    console.log('slideTarget', slideTarget)
     if (slideTarget !== gallerySwiper.activeIndex) {
-      setCurrentGroup(event.target.className);
+      // setCurrentGroup(event.target.className);
       gallerySwiper.slideTo(slideTarget);
     }
   }
@@ -71,6 +72,7 @@ function Recently () {
     slides.forEach(slide => {
       slide.classList.remove('companion-slide');
     })
+    console.log('currentIndex', currentIndex)
     const currentGroupSlide = thumbsSwiper.slides[currentIndex].getAttribute('data-group-slide');
     currentGroupSlide === '1' && nextSlide.classList.add('companion-slide');
     currentGroupSlide === '2' && prevSlide.classList.add('companion-slide');
@@ -103,6 +105,7 @@ function Recently () {
                 />
               </div>
               <div className="gallery-nav prev" data-current={ currentGroup }></div>
+              <div className="gallery-nav next" data-current={ currentGroup }></div>
             </div>
 
             <div className="col-one">
@@ -115,12 +118,12 @@ function Recently () {
                 nextSlide={ nextSlide }
                 prevSlide={ prevSlide }
                 handleShow={ handleShow }
+                navigateGallery={ navigateGallery }
               />
               <Thumbnails 
                 currentGroup={ currentGroup } 
                 setThumbsSwiper={setThumbsSwiper} 
               />
-              <div className="gallery-nav next" data-current={ currentGroup }></div>
             </div>
             
           </div>

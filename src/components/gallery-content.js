@@ -6,10 +6,11 @@ const galleryContent = [
     group: 'recently',
     category: 'products',
     class: 'divider',
+    groupSlide: 0,
     images: '',
     content: 
       <div>
-        <h2>Recently<span></span></h2>
+        {/* <h2>Recent Work<span></span></h2>
         <p>
           I spent the last few years building and refining the web presence of a bedding startup.<br /> 
           After joining the company in its first year, I worked on every corner of the website<br /> 
@@ -18,7 +19,7 @@ const galleryContent = [
         <p>
           The following slides contain a few of my favorite recent projects.<br />
           Thanks for visiting!
-        </p>
+        </p> */}
       </div>
   },
   {
