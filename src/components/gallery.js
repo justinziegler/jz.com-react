@@ -3,9 +3,14 @@ import { galleryContent } from './gallery-content.js';
 import { Navigation, Thumbs, Controller } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-function navigateTOC(slide) {
-
-}
+const startButton = [
+  {
+    id: 2,
+    group: 'start',
+    class: 'divider',
+    title: 'Start from Beginning »'
+  }
+]
 
 function GalleryTOC(props) {
   const toc = [];
@@ -14,18 +19,21 @@ function GalleryTOC(props) {
       toc.push(item);
     }
   })
+  toc.push(startButton[0]);
+  console.log('toc', toc)
   return (
-    <ul className="gallery-contents">
+    <div className="case-studies">
       { toc.map(y =>
-        <li data-group-name={ y.group } className={ y.class } key={ `galleryTOC${y.id}` }>
+        <div data-group-name={ y.group } className={ `${y.class} item`} key={ `galleryTOC${y.id}` }>
           <a href="./" 
             target={ y.id - 1 }
+            title={ y.title }
             onClick={ props.navigateGallery }>
-            <span>{ y.title }</span>
+            <span className="case-title">{ y.title }</span>
           </a>
-        </li>
+        </div>
       )}
-    </ul>
+    </div>
   )
 }
 

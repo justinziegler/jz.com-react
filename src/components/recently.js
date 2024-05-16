@@ -108,7 +108,7 @@ function Recently () {
               <div className="gallery-nav next" data-current={ currentGroup }></div>
             </div>
 
-            <div className="col-one">
+            <div className="col-one" data-current={ currentGroup }>
               <Gallery
                 currentGroup={ currentGroup} 
                 thumbsSwiper={ thumbsSwiper } 

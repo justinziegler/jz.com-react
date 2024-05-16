@@ -972,20 +972,12 @@ nav {
     background-color: $white;
     padding: 10px 3px 10px 10px;
     border-bottom: none;
-    // border-radius: 24px 24px 0 0;
-    // box-shadow: 0 0 4px 4px rgba($eggplant, .25);
-    // &[data-current='cat1'] {
-    //   border-color: $cat1;
-    // }
-    // &[data-current='cat2'] {
-    //   border-color: $cat2;
-    // }
-    // &[data-current='cat3'] {
-    //   border-color: $cat3;
-    // }
-    // &[data-current='cat4'], &[data-current='recently'] {
-    //   border-color: $cat4;
-    // }
+    position: relative;
+    top: 0;
+    transition: .2s;
+    &[data-current='recently'] {
+      top: 60px;
+    }
     p {
       margin: 15px 0 0 0;
     }
@@ -1092,6 +1084,9 @@ nav {
     width: calc(100% - 20px);
     border-top: none;
     flex-shrink: 0;
+    position: relative;
+    transition: .2s;
+    top: 0;
     &[data-current='cat2'] {
       border-color: $cat2;
     }
@@ -1104,18 +1099,19 @@ nav {
     @include mq(lg) {
       height: 102px;
     }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: $white;
-      z-index: 2;
-      transition: .2s;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 100%;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   background-color: $white;
+    //   z-index: 2;
+    //   transition: .2s;
+    // }
     &[data-current='recently'] {
+      top: 102px;
       &::before {
         top: 0;
       }
@@ -1355,6 +1351,7 @@ $y: 1.618;
   width: 100%;
   flex-shrink: 0;
   position: relative;
+  overflow: hidden;
   @include mq(xs) {
     flex-direction: row;
     align-items: flex-end;
@@ -1487,12 +1484,17 @@ $y: 1.618;
   }
   .col-one {
     box-shadow: 0 0 60px 60px rgba($eggplant,.05);
-    background-color: #fff;
+    background-color: rgba($white, 1);
+    transition: .2s;
     @include mq(xlg) {
       width: 580px;
     }
     @include mq(lg) {
       margin-right: 40px;
+    }
+    &[data-current='recently'] {
+      box-shadow: 0 0 0 0 rgba($eggplant, 0);
+      background-color: rgba($white, 0);
     }
   }
 }
@@ -2765,7 +2767,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   }
 }
 
-.swiper.thumbs, .gallery-contents {
+.swiper.thumbs, .case-studies {
   [data-group-name='shop'] {
     background-image: url('../img/thumbs/products/shop.jpg');
   }
@@ -2820,6 +2822,9 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   [data-group-name='wdc'] {
     background-image: url('../img/thumbs/mm/wdc.jpg');
   }
+  [data-group-name='start'] {
+    background-image: url('../img/thumbs/collage01.jpg');
+  }
 }
 
 .case-studies {
@@ -2843,8 +2848,11 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   padding-bottom: 30%;
   flex: 1 1 calc(50% - 1.5rem);
   @include mq(xs) {
-    background-size: 100%;
-    padding-bottom: 22%;
+    // background-size: 100%;
+    padding-bottom: 20.5%;
+    flex: 1 1 calc((100% / 4) - 4.5rem);
+  }
+  &.cat1 {
     flex: 1 1 calc((100% / 3) - 3rem);
   }
   &:last-of-type {
@@ -2855,7 +2863,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
         background-repeat: no-repeat;
         background-size: 20%;
         @include chevron(#000);
-        @extend %filterNavy;
+        @extend %filterEggplant;
         top: 0;
         left: 0;
         right: 0;
@@ -2871,7 +2879,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
       }
       &:hover {
         &:before, &::after {
-          @extend %filterTeal;
+          @extend %filterCat1;
         }
       }
     }
@@ -2882,25 +2890,25 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
     left: 0;
     right: 0;
     bottom: 0;
-    border: solid 4px rgba($navy, .8);
+    border: solid 4px rgba($eggplant, .8);
     transition: .2s;
     &:hover {
-      border: solid 4px shade($teal, 10%);
+      border: solid 4px shade($cat1, 10%);
       .case-number {
-        background-color: shade($teal, 10%);
+        background-color: shade($cat1, 10%);
         color: $white;
       }
       .case-title {
         
-        background-color: rgba(shade($teal, 10%), 1);
+        background-color: rgba(shade($cat1, 10%), 1);
       }
     }
     span {
       display: block;
     }
     .case-number {
-      background-color: rgba($navy, .8);
-      color: $teal;
+      background-color: rgba($eggplant, .8);
+      color: $cat1;
       width: vwp(24px);
       height: vwp(24px);
       font-size: vwp(12px);
@@ -2932,7 +2940,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba($navy, .8);
+      background-color: rgba($eggplant, .8);
       color: $white;
       font-weight: 500;
       display: flex;

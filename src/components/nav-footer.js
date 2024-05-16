@@ -5,7 +5,7 @@ function NavFooter() {
   const navLinkData = [
     {
       title: 'Justin Ziegler',
-      location: 'Santa Barbara, CA',
+      location: 'Recent Work',
       link: '',
       target: '',
       class: 'title'
