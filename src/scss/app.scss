@@ -809,12 +809,11 @@ nav {
           padding: vwl(1px) 0 0 0;
         }
         @include mq(sm) {
-          font-size: 18px;
-          padding: 8px 15px 15px 15px;
+          font-size: 20px;
+          padding: 6px 15px 15px 15px;
         }
-        .bullet {
+        span {
           color: $cat1;
-          padding: 0 5px;
         }
       }
       &.recent {
@@ -1351,7 +1350,6 @@ $y: 1.618;
   width: 100%;
   flex-shrink: 0;
   position: relative;
-  overflow: hidden;
   @include mq(xs) {
     flex-direction: row;
     align-items: flex-end;
@@ -1372,7 +1370,7 @@ $y: 1.618;
     font-size: vwp(14px);
     color: $eggplant;
     line-height: 1.4;
-    text-align: right;
+    text-align: left;
     margin: vwp(30px) vwp(10px) 0 vwp(10px);
     @include mq(xs) {
       font-size: vwl(14px);
@@ -1394,9 +1392,13 @@ $y: 1.618;
     }
     a {
       color: $cat1;
-      font-weight: 700;
+      // font-weight: 700;
       border-bottom: solid 2px $cat1;
       transition: .2s;
+      font-family: 'Boogaloo', sans;
+      font-size: 107.5%;
+      // position: relative;
+      line-height: 1;
       &:hover, &:focus {
         border-color: transparent;
         text-decoration: none;
@@ -1460,7 +1462,7 @@ $y: 1.618;
     display: none;
   }
   transition: .2s;
-  $x: 150px;
+  $x: 163px;
   $y: 10px;
   $z: 235px;
   background-image: linear-gradient(to bottom, 
@@ -1486,9 +1488,7 @@ $y: 1.618;
     box-shadow: 0 0 60px 60px rgba($eggplant,.05);
     background-color: rgba($white, 1);
     transition: .2s;
-    @include mq(xlg) {
-      width: 580px;
-    }
+    overflow: hidden;
     @include mq(lg) {
       margin-right: 40px;
     }
@@ -1523,7 +1523,7 @@ $y: 1.618;
     }
   }
   &::after {
-    background-position: 50% 52px;
+    background-position: 50% 115px;
     // @extend %filterCat2;
     @extend %filterWhite;
     transition: .2s;
@@ -1680,10 +1680,13 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
     //   z-index: 20;
     // }
     li {
-      flex-basis: calc(33% - 7px);
+      flex-basis: calc(33% - 5px);
       position: relative;
       font-family: 'Boogaloo', sans;
       transition: .2s;
+      @include mq(lg) {
+        flex-basis: calc(33% - 7px);
+      }
       > div {
         position: absolute;
         top: 0;
@@ -1713,12 +1716,12 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
         color: $white;
         border-radius: 50%;
         font-weight: 500;
-        font-size: 22px;
+        font-size: 18px;
         position: relative;
         user-select: none;
         font-family: inherit;
         cursor: pointer;
-        padding: 41px 0;
+        padding: 31px 0;
         line-height: 1;
         // box-shadow: 0 0 0 0 rgba(#fff, 1);
         background-color: $cat1;
@@ -2010,7 +2013,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   transition: .2s;
   // margin-left: 45px;
   border: solid 1px transparent;  
-  margin: 20px 45px 0 40px;
+  margin: 20px 35px 0 30px;
   @include mq(lg) {
     margin: 30px 45px 0 15px;
   }
@@ -2122,7 +2125,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
     position: relative;
     z-index: 1;
     @include mq(xlg) {
-      font-size: 20px;
+      font-size: 19px;
     }
     .title {
       font-family: 'Boogaloo', sans;
@@ -2143,11 +2146,11 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   }
   .details {
     display: flex;
-    column-gap: 10px;
+    column-gap: 5px;
     align-items: center;
     color: $cat1;
     // border-radius: 2px;
-    padding: 15px 15px 10px 15px;
+    padding: 15px 10px 10px 10px;
     justify-content: space-between;
     position: relative;
     margin: 15px 0 5px 0;
@@ -2155,6 +2158,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
     z-index: 0;
     @include mq(lg) {
       padding: 15px 15px 10px 20px;
+      column-gap: 10px;
     }
     &::before, &::after {
       content: '';
@@ -2415,13 +2419,15 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   &.prev, &.next {
     color: $primary-bg;
     
-    width: 32px;
+    width: 22px;
     height: 90px;
     // filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
     transition: .2s;
     opacity: 0;
     cursor: pointer;
-    // position: relative;
+    @include mq(lg) {
+      width: 32px;
+    }
     
     &::before, &::after {
       content: '';
@@ -2850,7 +2856,7 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
   @include mq(xs) {
     // background-size: 100%;
     padding-bottom: 20.5%;
-    flex: 1 1 calc((100% / 4) - 4.5rem);
+    flex: 1 1 calc((100% / 4) - 4rem);
   }
   &.cat1 {
     flex: 1 1 calc((100% / 3) - 3rem);
@@ -2892,6 +2898,8 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
     bottom: 0;
     border: solid 4px rgba($eggplant, .8);
     transition: .2s;
+    z-index: 1;
+    &[data-highlighted='true'],
     &:hover {
       border: solid 4px shade($cat1, 10%);
       .case-number {
@@ -2954,11 +2962,12 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
         padding: vwl(5px) vwp(4px) 0 vwp(4px);
       }
       @include mq(sm) {
-        font-size: 1.5rem;
-        padding: .5rem 1rem 0rem 1rem;
+        font-size: 1.45rem;
+        padding: .5rem .5rem 0rem .5rem;
       }
       @include mq(lg) {
         font-size: 1.6rem;
+        padding: .5rem 1rem 0rem 1rem;
       }
     }
   }
