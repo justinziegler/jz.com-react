@@ -88,49 +88,7 @@ function Recently () {
 
   return (
     <section id="recently">
-      <div className="recently-background" data-current={ currentGroup }>
-        <div className="container">
-          <div className="content row">
-            <div className="col-two" data-current={ currentGroup }>
-              <div className="row">
-                <GalleryNav currentGroup={ currentGroup} navigateGallery={ navigateGallery } />
-                <GalleryInfo 
-                  currentGroup={ currentGroup} 
-                  setInfoSwiper={ setInfoSwiper } 
-                  gallerySwiper={ gallerySwiper }
-                  nextSlide={ nextSlide }
-                  prevSlide={ prevSlide }
-                />
-              </div>
-              <div className="gallery-nav prev" data-current={ currentGroup }></div>
-            </div>
-
-            <div className="col-one">
-              <Gallery
-                currentGroup={ currentGroup} 
-                thumbsSwiper={ thumbsSwiper } 
-                setGallerySwiper={ setGallerySwiper }
-                infoSwiper={ infoSwiper }
-                galleryUpdate={ galleryUpdate }
-                nextSlide={ nextSlide }
-                prevSlide={ prevSlide }
-                handleShow={ handleShow }
-              />
-              <Thumbnails 
-                currentGroup={ currentGroup } 
-                setThumbsSwiper={setThumbsSwiper} 
-              />
-              <div className="gallery-nav next" data-current={ currentGroup }></div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-      <GalleryModal 
-        show={ show } 
-        handleClose={ handleClose } 
-        modal={ modal }
-      />
+      
     </section>
   );
 }

@@ -2780,3 +2780,87 @@ $z: calc(((($x / $y) / $y) / $y) / $y);
     cursor: pointer;
   }
 }
+body {
+  background-color: #000;
+}
+#obra {
+  width: 1280px;
+  height: 1920px;
+  margin: 0 auto;
+  background-image: url('../img/obradinn.png');
+  background-size: cover;
+  position: relative;
+  ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  li {
+    position: absolute;
+    background: rgba(#000, 80%);
+    font-size: 16px;
+    color: #fff;
+    padding: 2px 5px 4px 5px;
+    line-height: 1;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    &.confirmed {
+      
+      background: rgba(shade($green, 20%), 90%);
+    }
+    span {
+      display: inline-block;
+      padding: 0 2px;
+
+    }
+    &:hover {
+      a {
+        display: inline-block;
+      }
+    }
+  }
+  a {
+    color: #000;
+    background-color: #fff;
+    border-radius: 2px;
+    font-size: 14px;
+    margin: 0 2px;
+    padding: 0 2px;
+    display: none;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    &.active {
+      background-color: $green;
+      color: #fff;
+      display: inline-block;
+      &[data-last='true'] {
+        background-color: $cat3;
+      }
+    }
+  }
+}
+#under-way {
+  width: 100%;
+  height: 850px;
+}
+#royalty {
+  position: absolute;
+  z-index: 1;
+  background: rgba($cat1, 20%);
+  width: 600px;
+  height: 400px;
+  right: -23px;
+  top: 580px;
+  transform: rotate(-7deg);
+}
+#justice {
+  width: 100%;
+  height: 1050px;
+}
+.scenes {
+  display: flex;
+  flex-direction: row;
+}
