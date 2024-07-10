@@ -26,4 +26,17 @@ const scrollTime = (e) => {
   document.querySelector('#recently')
   .scrollIntoView({ behavior: 'smooth', block: 'end' })
 }
-export { mobile, cats, scrollTime };
+// new stuff below
+const directory = [
+  '/',
+  'holiday-mode',
+  'value-props',
+  'mattress-animation',
+  'tiktok',
+  'product-display',
+  'bed-frame',
+  'sheets',
+  'cart'
+]
+
+export { mobile, cats, scrollTime, directory };
