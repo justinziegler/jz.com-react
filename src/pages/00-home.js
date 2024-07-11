@@ -1,6 +1,8 @@
 import { directory } from '../components/constants';
 import { pageDetails, navLinks } from '../components/content.js';
 import { getNextPage } from '../components/utils.js';
+import collage from '../assets/holiday-promotion/collage01.jpg';
+import '../scss/case-studies.scss';
 
 function Home(props) {
   let title = 'Case Studies';
@@ -31,7 +33,7 @@ function Home(props) {
   const startHere = {
     url: startHereUrl,
     title: 'Start from Beginning »',
-    background: '../assets/holiday-promotion/collage01.jpg'
+    background: collage
   }
   caseStudies.push(startHere);
   console.log('caseStudies', caseStudies)
@@ -57,9 +59,6 @@ function Home(props) {
     ],
   }
   
-  console.log('home', home)
-
-  let caseNumber = 1;
   return (
     <section className="case-study">
       <div className="container">
