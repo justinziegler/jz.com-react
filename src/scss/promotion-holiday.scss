@@ -14,6 +14,8 @@
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
+@import "bootstrap/modals";
+@import "bootstrap/modals-custom";
 
 @import "partials/variables";
 @import "partials/mixins";
@@ -48,6 +50,11 @@
 @media (max-width: 543px) {
 	.hidden-xxs {
 		display: none !important;
+	}
+}
+.visible-xxs {
+	@include mq(xs) {
+		display: none!important;
 	}
 }
 
@@ -535,12 +542,13 @@ main {
 			height: 100%;
 		}
 		.vp {
-			display: none;
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
+			opacity: 1;
+			transition: .3s;
 			@include mq(sm) {
 				padding-top: 60px;
 			}
@@ -549,6 +557,9 @@ main {
 			}
 			@include mq(lg) {
 				padding-top: 100px;
+			}
+			&[data-active='false'] {
+				opacity: 0;
 			}
 		}
 	}
@@ -838,7 +849,7 @@ main {
 	}
 }
 
-.know-lull {
+.know-us {
 	background-color: #80bcde;
 	padding-top: 15px;
 	@include mq(md) {

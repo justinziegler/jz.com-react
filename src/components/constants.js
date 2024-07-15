@@ -1,4 +1,5 @@
 const mobile = window.innerWidth < 992;
+const vpMobile = (window.screen.width <= 500 && window.screen.height <= 880);
 const cats = [
   {
     title: 'Products',
@@ -39,4 +40,4 @@ const directory = [
   'cart'
 ]
 
-export { mobile, cats, scrollTime, directory };
+export { mobile, vpMobile, cats, scrollTime, directory };
