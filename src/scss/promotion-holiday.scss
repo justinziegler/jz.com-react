@@ -1109,7 +1109,7 @@ main {
 		@include mq(lg) {
 			font-size: 3rem;
 		}
-		> a {
+		> div {
 			position: relative;
 			display: block;
 			color: $white;

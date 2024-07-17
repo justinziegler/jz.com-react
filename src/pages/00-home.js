@@ -1,6 +1,6 @@
 import { directory } from '../components/constants';
-import { pageDetails, navLinks } from '../components/content.js';
-import { getNextPage } from '../components/utils.js';
+import { pageDetails, navLinks } from '../components/content';
+import { getNextPage } from '../components/utils/getNextPage';
 import collage from '../assets/holiday-promotion/collage01.jpg';
 import '../scss/case-studies.scss';
 

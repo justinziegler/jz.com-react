@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'lazysizes';
+import { getProductSkus } from '../components/utils/getProductSkus';
 import Hero from '../components/01-holiday-mode/hero';
 import ValueProps from '../components/01-holiday-mode/value-props';
 import KnowUs from '../components/01-holiday-mode/know-us';
@@ -8,6 +9,9 @@ import '../scss/promotion-holiday-mode.scss';
 import '../scss/promotion-holiday.scss';
 import { holidayModeThumb } from "../components/content";
 import ValuePropsDeux from '../components/01-holiday-mode/value-props-deux';
+import Financing from '../components/01-holiday-mode/financing';
+import SizeGuide from '../components/01-holiday-mode/size-guide';
+import DIY from '../components/01-holiday-mode/diy';
 
 let vmodal = {
   image: holidayModeThumb,
@@ -15,13 +19,10 @@ let vmodal = {
 }
 
 let video = '';
+const discountActual = 70;
 
 function HolidayMode () {
-  
-  let holidayMode = true;
-
-  let videoimage = '';
-  
+  let holidayMode = true; 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = (e) => {
@@ -32,6 +33,7 @@ function HolidayMode () {
     console.log('vmodal', vmodal);
     setShow(true);
   }
+  const skus = getProductSkus(1, discountActual);
 
   
   return (
@@ -48,6 +50,9 @@ function HolidayMode () {
         <KnowUs
           handleShow={ handleShow } />
         <ValuePropsDeux />
+        <Financing skus={ skus } />
+        <SizeGuide skus={ skus } />
+        <DIY />
         <VideoModal 
           show={ show }
           handleClose={ handleClose } 

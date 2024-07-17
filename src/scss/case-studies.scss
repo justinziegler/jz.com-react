@@ -408,7 +408,7 @@ $bg: transparent;
   .thumbnails {
     display: flex;
     flex-direction: column;
-    @include background-image(radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
+    @include background-image(radial-gradient(center, ellipse farthest-corner, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
     justify-content: center;
     @include mq(xsm) {
       flex-wrap: wrap;

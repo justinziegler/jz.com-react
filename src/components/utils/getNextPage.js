@@ -1,5 +1,4 @@
-import React from 'react';
-import { directory } from './constants';
+import { directory } from '../constants';
 
 export function getNextPage(pageUrl) {
   let nextPage;
