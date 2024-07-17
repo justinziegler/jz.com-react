@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SlideContent from './value-props-slide-content.js';
+import ValuePropsSlideContent from './value-props-slide-content.js';
 import ValuePropsGallery from './value-props-gallery';
 
 function ValueProps() {
@@ -15,7 +15,7 @@ function ValueProps() {
       <a name="top-section" className="anchor"></a>
       <div className="container">
         <div className="row">
-          <SlideContent currentIndex={ currentIndex } />
+          <ValuePropsSlideContent currentIndex={ currentIndex } />
           <ValuePropsGallery
             setVPSwiper={ setVPSwiper }
             vpUpdate={ vpUpdate }

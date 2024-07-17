@@ -1,4 +1,7 @@
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 import { videos } from "./content";
+import VideoModal from '../video-modal';
 
 function KnowUs(props) {
   return (
@@ -13,6 +16,8 @@ function KnowUs(props) {
           </div>
         </div>
       </div>
+      <VideoModal show={ props.show }
+        handleClose={ props.handleClose } modal={ props.modal } />
     </div>
   )
 }

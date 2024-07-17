@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import Modal from 'react-bootstrap/Modal';
 
 function VideoModal(props) {
   return (
     <Modal 
-      className="image-overlay" 
       show={ props.show } 
-      onHide={ props.handleClose } >
-      <Modal.Header closeButton></Modal.Header>
+      onHide={ props.handleClose }
+      size="xl" >
+      {/* <Modal.Header closeButton></Modal.Header> */}
       <Modal.Body>
-        {/* <img src={ props.modal.image } alt={ props.modal.title } data-mobile={ props.modal.mobile } /> */}
         <div className="embed-container">
-          <iframe src={ props.modal.videoSrc } className="video" frameBorder="0" allowFullScreen></iframe>
+          <iframe id="videoframe" src={ props.video } className="video" frameBorder="0" allowFullScreen></iframe>
         </div>
       </Modal.Body>
     </Modal>

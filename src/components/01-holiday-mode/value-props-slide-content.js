@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { vpMobile } from '../constants';
 
-function SlideContent(props) {
+function ValuePropsSlideContent(props) {
  return (
   <div className="slide-content col-xs-6">
 
@@ -26,7 +26,7 @@ function SlideContent(props) {
       { vpMobile ? 
         <>
           <h2>The Mattress Worth <span>Obsessing Over</span></h2>
-          <p>Fall asleep fast, stay asleep,<br class="visible-xs" /> and wake up ready to take on the day.</p>
+          <p>Fall asleep fast, stay asleep,<br className="visible-xs" /> and wake up ready to take on the day.</p>
         </> :
         <>
           <h2>More Sleep <span>More Happy</span></h2>
@@ -38,4 +38,4 @@ function SlideContent(props) {
  )
 }
 
-export default SlideContent;
+export default ValuePropsSlideContent;

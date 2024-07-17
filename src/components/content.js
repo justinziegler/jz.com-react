@@ -1,4 +1,4 @@
-import holidayMode from '../assets/holiday-promotion/carousel01-mob-vp.jpg';
+import holidayModeThumb from '../assets/holiday-promotion/carousel01-mob-vp.jpg';
 import valueProps from '../assets/luxe-vp-couple-md.jpg'
 import exploded from '../assets/exploded-thumb.jpg'
 import tiktok from '../assets/promos/tiktok-02.jpg'
@@ -12,7 +12,7 @@ const pageDetails = [
     title: 'Holiday Mode',
     url: 'holiday-mode',
     intro: 'Several times a year we would theme key pages on the site for different holiday sales, then return them to normal after the holiday. In an effort to make this process less time-consuming, I developed Holiday Mode for the site. With Holiday Mode, we were able to switch between regular and holiday content by simply updating one variable. Use the links below to toggle between the two versions. ',
-    background: holidayMode
+    background: holidayModeThumb
   },
   {
     title: 'Value Propositions',
@@ -86,4 +86,4 @@ const navLinks = [
   }
 ]
 
-export { pageDetails, navLinks };
+export { pageDetails, navLinks, holidayModeThumb };
