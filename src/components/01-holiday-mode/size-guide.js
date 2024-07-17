@@ -3,7 +3,6 @@ import React from 'react';
 
 function SizeGuide(props) {
   const skus = props.skus;
-
   return (
     <div className="size-guide">
       <div className="specs panel-group" id="specs" role="tablist" aria-multiselectable="true">
@@ -20,8 +19,8 @@ function SizeGuide(props) {
           >
             <div className="panel-body">
               <div className="row">
-                { skus.map(p => 
-                  <div className="col-xs-6 col-sm-4">
+                { skus.map((p, index) => 
+                  <div className="col-xs-6 col-sm-4" key={ `sz${index}` }>
                     <p><b>{ p.name }</b><br />
                     { p.w } x { p.l } x { p.h }<br />
                     { p.weight }</p>

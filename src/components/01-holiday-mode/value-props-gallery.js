@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { vpMobile } from '../constants';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectFlip } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-flip';
 
 function ValuePropsGallery(props) {
   let valueProps = [
@@ -34,13 +31,12 @@ function ValuePropsGallery(props) {
   if (vpMobile) {
     valueProps = valueProps.concat(vpMobileContent);
   } 
-  console.log('vpMobile', vpMobile)
   valueProps.push(vp);
   
   return (
     <>
       <Swiper
-        modules={[EffectFlip]} effect="flip"
+        modules={[EffectFlip, Pagination]} effect="flip"
         className="col-xs-12 col-sm-5 col-lg-4 col-lg-offset-1"
         flipEffect={{
             slideShadows: false

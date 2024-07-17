@@ -36,7 +36,6 @@ function Home(props) {
     background: collage
   }
   caseStudies.push(startHere);
-  console.log('caseStudies', caseStudies)
   const home = {
     title: title,
     p: {

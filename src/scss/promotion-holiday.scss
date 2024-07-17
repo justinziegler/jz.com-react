@@ -1308,7 +1308,7 @@ main {
 		line-height: 1;
 	}
 	.swiper-container-reviews {
-		padding-bottom: 15px;
+		padding-bottom: 30px;
 		&::before, &::after {
 			content: '';
 			position: absolute;
@@ -1337,10 +1337,12 @@ main {
 			}
 		}
 	}
-	.swiper-pagination {
+	// .swiper-pagination {
+	.swiper-horizontal>.swiper-pagination-bullets {
 		left: 50%;
 		transform: translateX(-50%);
-		&-bullet {
+		bottom: 0;
+		.swiper-pagination-bullet {
 			width: 12px;
 			height: 12px;
 			margin: 0 5px;
