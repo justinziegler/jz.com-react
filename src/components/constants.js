@@ -28,16 +28,6 @@ const scrollTime = (e) => {
   .scrollIntoView({ behavior: 'smooth', block: 'end' })
 }
 // new stuff below
-const directory = [
-  '/',
-  'holiday-mode',
-  'value-props',
-  'mattress-animation',
-  'tiktok',
-  'product-display',
-  'bed-frame',
-  'sheets',
-  'cart'
-]
 
-export { mobile, vpMobile, cats, scrollTime, directory };
+
+export { mobile, vpMobile, cats, scrollTime };

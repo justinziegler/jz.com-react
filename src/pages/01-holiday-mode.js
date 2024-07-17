@@ -41,6 +41,7 @@ function HolidayMode () {
             <li>Fix ValueProps on mobile</li>
             <li>Fix swiper pagination</li>
             <li>Change heading weight</li>
+            <li>Lock screen position on modal show?</li>
           </ul>
         </div>
         <Hero holidayMode={ holidayMode } />

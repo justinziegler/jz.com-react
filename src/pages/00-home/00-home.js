@@ -1,8 +1,8 @@
-import { directory } from '../components/constants';
-import { pageDetails, navLinks } from '../components/content';
-import { getNextPage } from '../components/utils/getNextPage';
-import collage from '../assets/holiday-promotion/collage01.jpg';
-import '../scss/case-studies.scss';
+import { directory } from '../../components/data/directory';
+import { pageDetails, navLinks } from './content';
+import { getNextPage } from '../../components/utils/getNextPage';
+import collage from '../../assets/holiday-promotion/collage01.jpg';
+import '../../scss/case-studies.scss';
 
 function Home(props) {
   let title = 'Case Studies';

@@ -1,4 +1,4 @@
-import { directory } from '../constants';
+import { directory } from '../data/directory';
 
 export function getNextPage(pageUrl) {
   let nextPage;

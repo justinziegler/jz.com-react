@@ -1,11 +1,11 @@
-import holidayModeThumb from '../assets/holiday-promotion/carousel01-mob-vp.jpg';
-import valueProps from '../assets/luxe-vp-couple-md.jpg'
-import exploded from '../assets/exploded-thumb.jpg'
-import tiktok from '../assets/promos/tiktok-02.jpg'
-import productDisplay from '../assets/sheets/closeup-making-bed.jpg'
-import frame from '../assets/frame/couple-in-bed-mobile.jpg'
-import sheets from '../assets/sheets/photo-parachute.jpg'
-import cart from '../assets/wood-frame-2.jpg'
+import holidayModeThumb from '../../assets/holiday-promotion/carousel01-mob-vp.jpg';
+import valueProps from '../../assets/luxe-vp-couple-md.jpg'
+import exploded from '../../assets/exploded-thumb.jpg'
+import tiktok from '../../assets/promos/tiktok-02.jpg'
+import productDisplay from '../../assets/sheets/closeup-making-bed.jpg'
+import frame from '../../assets/frame/couple-in-bed-mobile.jpg'
+import sheets from '../../assets/sheets/photo-parachute.jpg'
+import cart from '../../assets/wood-frame-2.jpg'
 
 const pageDetails = [
   {
