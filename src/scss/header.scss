@@ -1,12 +1,36 @@
 @import "compass";
 
 // Core variables and mixins
-@import "bootstrap/variables";
+// @import "bootstrap/variables";
 @import "bootstrap/mixins";
 @import "partials/svg";
 @import "partials/variables";
 @import "partials/mixins";
 @import 'partials/layout';
+@import "bootstrap5/variables";
+@import "bootstrap5/transitions";
+
+$eggplant: #2a0136;
+$purple: #5e0f5b;
+// $lipstick: #962756;
+$lipstick: #932755;
+$flame: #C93B30;
+$orange: #FF7132;
+
+$teal: #56dbd6;
+
+$color1: shade($teal, 10%);
+$color2: shade($teal, 20%);
+$color3:  shade($teal, 30%);
+$color4:  shade($teal, 40%);
+$color5: $flame;
+$color6: #e45631;
+$color7: $orange;
+
+$cat1: $lipstick;
+$cat2: $color4;
+$cat3: $flame;
+$cat4: $color6;
 
 $height: 50px;
 
@@ -259,7 +283,7 @@ $height: 50px;
       text-align: center;
       padding: 0 0 vwp(15px) 0;
       @include mq(xsm) {
-        display: none;
+        // display: none;
         position: absolute;
         top: 100%;
         background-color: $navy;
@@ -676,10 +700,10 @@ $height: 50px;
     transition: .2s;
     border-left: solid 1px $teal;
     border-right: solid 1px $teal;
-    @include mq(xsm) {
-      width: 100%;
+    // @include mq(xsm) {
+    //   width: 100%;
       // padding: 1.5rem 30px 0 15px;
-    }
+    // }
     // @include mq(xxs) {
     // }
   }

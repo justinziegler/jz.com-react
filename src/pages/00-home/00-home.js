@@ -58,14 +58,14 @@ function Home(props) {
     nextPage: nextPage,
     navLinks: navLinks,
     headerIntro: [
-      <p>ADD SKILL LIST UNDER LEFT HEADING</p>,
-      <p>I am a web developer who spent the last few years building and refining the web presence of a bedding startup. After joining the company in its first year, I worked on every corner of the website as the product catalog slowly grew from one line to more than fifteen.</p>,
-      <p>The links included here contain a few of my favorite recent projects. Code samples for everything on this site can be found on <a href="https://github.com/justinziegler" target="_blank" tabindex="0">my Github</a>. Thanks for visiting!</p>
+      <p key="intro1">ADD SKILL LIST UNDER LEFT HEADING</p>,
+      <p key="intro2">I am a web developer who spent the last few years building and refining the web presence of a bedding startup. After joining the company in its first year, I worked on every corner of the website as the product catalog slowly grew from one line to more than fifteen.</p>,
+      <p key="intro3">The links included here contain a few of my favorite recent projects. Code samples for everything on this site can be found on <a href="https://github.com/justinziegler" target="_blank" tabIndex="0">my Github</a>. Thanks for visiting!</p>
     ],
   }
   
   return (
-    <>
+    <main>
       <Header page={ page } />
       <section className="case-study">
         <div className="container">
@@ -76,7 +76,7 @@ function Home(props) {
             <div className="case-studies">
               { caseStudies.map((cs, index) =>
                 <div className="item" 
-                  style={{ backgroundImage: `url('${ cs.background }')` }}>
+                  style={{ backgroundImage: `url('${ cs.background }')` }} key={ `cs${ index }`}>
                   <a href={ cs.url } title={ cs.title }>
                     { index !== caseStudies.length - 1 && 
                       <span className="case-number">0{ cs.pageId }.</span>
@@ -92,7 +92,7 @@ function Home(props) {
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }
 

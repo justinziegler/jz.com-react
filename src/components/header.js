@@ -1,11 +1,28 @@
-
+import React, { useState } from 'react';
+import Collapse from 'react-bootstrap/Collapse';
 
 function Header(props) {
   const p = props.page;
 
+  const root = document.getElementById('root');
   
+
+  // const [collapse, setCollapse] = useState(false);
+  // const handleRestore = () => setCollapse(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = (e) => {
+    e.preventDefault();
+    setOpen(!open);
+  }
+  const [openHamburger, setOpenHamburger] = useState(false);
+  const handleOpenHamburger = (e) => {
+    e.preventDefault();
+    setOpenHamburger(!openHamburger);
+  }
+
+
   return (
-    <nav id="nav" data-collapsed="false" data-current-page={ p.pageUrl }>
+    <nav id="nav" data-collapsed={ !open } data-current-page={ p.pageUrl }>
       <div className="nav-container">
         <div className="nav-col left">
             { p.pageUrl !== '/' &&
@@ -17,22 +34,28 @@ function Header(props) {
           </div>
         
         <div className="nav-col right">
-          <a href="#" className="hamburger">
+          <a href="#" 
+            className="hamburger" 
+            onClick={ handleOpenHamburger }
+            aria-controls="nav-links"
+            aria-expanded={ openHamburger }>
             <span></span>
             <span></span>
             <span></span>
           </a>
-          <ul> 
-            { p.navLinks.map(x =>
-              <li className={ x.class }>
-                { x.target !== '' ?
-                  <a href={ x.link }  target="_blank" tabindex="0">{ x.title }</a>
-                  :
-                  <a href={ x.link }  tabindex="0">{ x.title }</a>
-                }
-              </li>
-            )}
-          </ul>
+          <Collapse in={ openHamburger }>
+            <ul class="nav-links"> 
+              { p.navLinks.map((x, index) =>
+                <li className={ x.class } key={ `navlink${index}`}>
+                  { x.target !== '' ?
+                    <a href={ x.link }  target="_blank" tabIndex="0">{ x.title }</a>
+                    :
+                    <a href={ x.link }  tabIndex="0">{ x.title }</a>
+                  }
+                </li>
+              )}
+            </ul>
+          </Collapse>
         </div>
       </div>
 
@@ -48,7 +71,13 @@ function Header(props) {
             }
 
             <div className="expand">
-              <a href="#" className="toggle-description">
+              <a
+                href="/"
+                className="toggleLink"                
+                onClick={ handleOpen }
+                aria-controls="case-study"
+                aria-expanded={ open }
+              >
                 &nbsp;<span className="arrow">&raquo;</span>
               </a>
             </div>
@@ -78,33 +107,36 @@ function Header(props) {
           </div>
         </div>
         
-        <div className="case-study">
-          <div className="case-study-content">
-            { p.headerIntro.map(item =>
-                 item 
-            )}
-            { p.headerBullets !== undefined &&
-              <ul className="project-details">
-                { p.headerBullets.map(bullet =>
-                  <li>
-                    { bullet
-                      // had 'safe' 
-                    }
-                  </li>
-                )}
-              </ul>
-            }
-            {p.toggleLinks !== undefined &&
-              <ul className="toggle-links">
-                { p.toggleLinks.map((item, index) =>
-                  <li><a href="./" data-active={ index === 0 } data-target={ item.link }>
-                    <span>{ item.title }</span>
-                  </a></li>
-                )}
-              </ul>
-            }
+        <Collapse in={ open }>
+          <div className="case-study">
+            <div className="case-study-content">
+              { p.headerIntro.map(item =>
+                  item 
+              )}
+              
+              { p.headerBullets !== undefined &&
+                <ul className="project-details">
+                  { p.headerBullets.map((bullet, index) =>
+                    <li key={ `bullet${ index }`}>
+                      { bullet
+                        // had 'safe' 
+                      }
+                    </li>
+                  )}
+                </ul>
+              }
+              {p.toggleLinks !== undefined &&
+                <ul className="toggle-links">
+                  { p.toggleLinks.map((item, index) =>
+                    <li key={ `link${ index }`}><a href="./" data-active={ index === 0 } data-target={ item.link }>
+                      <span>{ item.title }</span>
+                    </a></li>
+                  )}
+                </ul>
+              }
+            </div>
           </div>
-        </div>
+        </Collapse>
       </div>
     </nav>
   )
