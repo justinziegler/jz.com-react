@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { Suspense, lazy } from "react";
 const Home = lazy(() => import('./pages/00-home/00-home'));
-const HolidayMode = lazy(() => import('./pages/01-holiday-mode'));
+const HolidayMode = lazy(() => import('./pages/01-holiday-mode/holiday-mode'));
 
 function App() {
   return (

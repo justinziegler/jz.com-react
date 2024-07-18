@@ -3,7 +3,8 @@
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
-@import "bootstrap/modals-custom";
+@import "bootstrap/grid";
+// @import "bootstrap/modals-custom";
 @import "partials/svg";
 @import "partials/variables";
 @import "partials/mixins";
@@ -20,6 +21,18 @@
 }
 %filterTeal {
   filter: invert(73%) sepia(16%) saturate(1283%) hue-rotate(129deg) brightness(86%) contrast(91%);
+}
+
+html {
+  font-size: 10px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {
@@ -288,7 +301,7 @@ $bg: transparent;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  width: 100%;
+  // width: 100%;
   z-index: 1;
   padding: 0 30px;
   // @include mq(xssm) {
@@ -739,7 +752,7 @@ $bg: transparent;
       }
     }
     .case-title {
-      width: 100%;
+      // width: 100%;
       position: absolute;
       left: 0;
       right: 0;

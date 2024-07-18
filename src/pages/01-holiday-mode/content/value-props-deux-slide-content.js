@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { vpMobile } from '../constants';
+import { vpMobile } from '../../../components/constants';
 
 function ValuePropsDeuxSlideContent(props) {
  return (

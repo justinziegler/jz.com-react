@@ -1,4 +1,4 @@
-import { preventDefault } from "../utils/preventDefault";
+import { preventDefault } from "../../../components/utils/preventDefault";
 
 function Footer(props) {
   return (

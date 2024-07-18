@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { preventDefault } from '../utils/preventDefault';
+import { preventDefault } from '../../../components/utils/preventDefault';
 
 function Financing(props) {
   let monthlyPayment = 0;
