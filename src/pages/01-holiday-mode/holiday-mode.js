@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'lazysizes';
 import { getProductSkus } from '../../components/utils/getProductSkus';
+import Main from '../../components/main';
 import Hero from './content/hero';
 import ValueProps from './content/value-props';
 import KnowUs from './content/know-us';
@@ -18,11 +19,31 @@ import 'swiper/css/effect-flip';
 import '../../scss/promotion-holiday-mode.scss';
 import '../../scss/promotion-holiday.scss';
 
+const page = {
+  pageUrl: 'holiday-mode',
+  header: true,
+  headerTitle: 'Holiday Mode',
+  headerIntro: [
+    'Several times a year we would theme key pages on the site for different holiday sales, then return them to normal after the holiday. In an effort to make this process less time-consuming, I developed Holiday Mode for the site. With Holiday Mode, we were able to switch between regular and holiday content by simply updating one variable.',
+    'Use the links below to toggle between the two versions.'
+  ],
+  toggleLinks: [
+    {
+      link: 'holiday-mode-enabled',
+      title: 'Holiday Mode On',
+    },
+    {
+      link: 'holiday-mode-disabled',
+      title: 'Holiday Mode Off',
+    }
+  ]
+}
+
 let video = '';
 const discountActual = 70;
 
 function HolidayMode () {
-  let holidayMode = true; 
+  const [holidayMode, setHolidayMode] = useState(true);
   const mobile = (window.screen.width <= 500 && window.screen.height <= 880);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -35,14 +56,16 @@ function HolidayMode () {
   return (
     <>
       <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet"></link>
-      <main>
+      <Main page={ page }>
         <div className="to-do">
           <ul>
             <li>Fix ValueProps on mobile</li>
             <li>Fix swiper pagination</li>
             <li>Change heading weight</li>
             <li>Lock screen position on modal show?</li>
+            <li> make sure lazysizes works</li>
           </ul>
+          <a href="#" onClick={ () => setHolidayMode(!holidayMode) }>HolidayMode toggle</a>
         </div>
         <Hero holidayMode={ holidayMode } />
 
@@ -66,7 +89,7 @@ function HolidayMode () {
           video={ video } 
         />
         <Footer />
-      </main>
+      </Main>
     </>
   )
 }

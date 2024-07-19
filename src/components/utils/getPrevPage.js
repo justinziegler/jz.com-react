@@ -1,5 +1,6 @@
+import { directory } from '../data/directory';
+
 export function getPrevPage(pageUrl) {
-  const directory = await module.exports.getDirectory();
   let prevPage;
   directory.forEach(item => {
     if (pageUrl === item) {

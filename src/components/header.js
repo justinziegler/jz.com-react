@@ -1,28 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Collapse from 'react-bootstrap/Collapse';
+import { navLinks } from './nav-links';
+import { getPageId } from './utils/getPageId';
+import { getPrevPage } from './utils/getPrevPage';
+import { getNextPage } from './utils/getNextPage';
+import '../scss/header.scss';
 
 function Header(props) {
   const p = props.page;
-
-  const root = document.getElementById('root');
-  
-
-  // const [collapse, setCollapse] = useState(false);
-  // const handleRestore = () => setCollapse(false);
-  const [open, setOpen] = useState(false);
-  const handleOpen = (e) => {
-    e.preventDefault();
-    setOpen(!open);
-  }
-  const [openHamburger, setOpenHamburger] = useState(false);
-  const handleOpenHamburger = (e) => {
-    e.preventDefault();
-    setOpenHamburger(!openHamburger);
-  }
-
+  const pageId = getPageId(p.pageUrl);
+  const prevPage = getPrevPage(p.pageUrl);
+  const nextPage = getNextPage(p.pageUrl);
 
   return (
-    <nav id="nav" data-collapsed={ !open } data-current-page={ p.pageUrl }>
+    <nav id="nav" data-collapsed={ !props.open } data-current-page={ p.pageUrl }>
       <div className="nav-container">
         <div className="nav-col left">
             { p.pageUrl !== '/' &&
@@ -36,16 +27,16 @@ function Header(props) {
         <div className="nav-col right">
           <a href="#" 
             className="hamburger" 
-            onClick={ handleOpenHamburger }
+            onClick={ props.handleOpenHamburger }
             aria-controls="nav-links"
-            aria-expanded={ openHamburger }>
+            aria-expanded={ props.openHamburger }>
             <span></span>
             <span></span>
             <span></span>
           </a>
-          <Collapse in={ openHamburger }>
-            <ul class="nav-links"> 
-              { p.navLinks.map((x, index) =>
+          <Collapse in={ props.openHamburger }>
+            <ul className="nav-links"> 
+              { navLinks.map((x, index) =>
                 <li className={ x.class } key={ `navlink${index}`}>
                   { x.target !== '' ?
                     <a href={ x.link }  target="_blank" tabIndex="0">{ x.title }</a>
@@ -64,7 +55,7 @@ function Header(props) {
           <div>
             { p.pageUrl !== '/' &&
               <div className="prev">
-                <a href={ p.prevPage }>
+                <a href={ prevPage }>
                   &laquo; Back
                 </a>
               </div>
@@ -74,17 +65,17 @@ function Header(props) {
               <a
                 href="/"
                 className="toggleLink"                
-                onClick={ handleOpen }
+                onClick={ props.handleOpen }
                 aria-controls="case-study"
-                aria-expanded={ open }
+                aria-expanded={ props.open }
               >
                 &nbsp;<span className="arrow">&raquo;</span>
               </a>
             </div>
 
-            { p.nextPage !== undefined &&
+            { nextPage !== undefined &&
               <div className="next">
-                <a href={ p.nextPage }>
+                <a href={ nextPage }>
                   { p.pageUrl === '/' ?
                     <span>Start</span>
                   :
@@ -98,29 +89,26 @@ function Header(props) {
           <div>
             <h3>
               <span className="number">
-                { p.pageId < 10 &&
+                { pageId < 10 &&
                   0
                 }
-                { p.pageId }.
+                { pageId }.
               </span> { p.headerTitle }
             </h3>
           </div>
         </div>
         
-        <Collapse in={ open }>
+        <Collapse in={ props.open }>
           <div className="case-study">
             <div className="case-study-content">
               { p.headerIntro.map(item =>
                   item 
               )}
-              
               { p.headerBullets !== undefined &&
                 <ul className="project-details">
                   { p.headerBullets.map((bullet, index) =>
                     <li key={ `bullet${ index }`}>
-                      { bullet
-                        // had 'safe' 
-                      }
+                      { bullet }
                     </li>
                   )}
                 </ul>
