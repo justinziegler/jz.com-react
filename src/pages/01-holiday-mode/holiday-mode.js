@@ -21,22 +21,12 @@ import '../../scss/promotion-holiday.scss';
 
 const page = {
   pageUrl: 'holiday-mode',
-  header: true,
   headerTitle: 'Holiday Mode',
   headerIntro: [
     'Several times a year we would theme key pages on the site for different holiday sales, then return them to normal after the holiday. In an effort to make this process less time-consuming, I developed Holiday Mode for the site. With Holiday Mode, we were able to switch between regular and holiday content by simply updating one variable.',
     'Use the links below to toggle between the two versions.'
   ],
-  toggleLinks: [
-    {
-      link: 'holiday-mode-enabled',
-      title: 'Holiday Mode On',
-    },
-    {
-      link: 'holiday-mode-disabled',
-      title: 'Holiday Mode Off',
-    }
-  ]
+  toggleLinks: true
 }
 
 let video = '';
@@ -56,10 +46,10 @@ function HolidayMode () {
   return (
     <>
       <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet"></link>
-      <Main page={ page }>
+      <Main page={ page } holidayMode={ holidayMode } setHolidayMode={ setHolidayMode }>
         <div className="to-do">
           <ul>
-            <li>Fix ValueProps on mobile</li>
+            <li>Fix ValueProps on mobile / width issue</li>
             <li>Fix swiper pagination</li>
             <li>Change heading weight</li>
             <li>Lock screen position on modal show?</li>

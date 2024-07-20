@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import { navLinks } from './nav-links';
 import { getPageId } from './utils/getPageId';
@@ -113,14 +113,21 @@ function Header(props) {
                   )}
                 </ul>
               }
-              {p.toggleLinks !== undefined &&
-                <ul className="toggle-links">
-                  { p.toggleLinks.map((item, index) =>
-                    <li key={ `link${ index }`}><a href="./" data-active={ index === 0 } data-target={ item.link }>
-                      <span>{ item.title }</span>
-                    </a></li>
-                  )}
-                </ul>
+              {p.toggleLinks && 
+                <div className="toggle-links">
+                  { p.pageUrl === 'holiday-mode' ?
+                    <>
+                      <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode }>
+                        Holiday Mode On
+                      </button>
+                      <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode }>
+                        Holiday Mode Off
+                      </button>
+                    </>
+                  :
+                    <>Farts</>
+                  }
+                </div>
               }
             </div>
           </div>

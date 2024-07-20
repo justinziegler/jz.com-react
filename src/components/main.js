@@ -5,11 +5,14 @@ function Main(props) {
   const p = props.page;
   const { children } = props;
 
+  // Page details
   const [open, setOpen] = useState(true);
   const handleOpen = (e) => {
     e.preventDefault();
     setOpen(!open);
   }
+
+  // Hamburger menu
   const [openHamburger, setOpenHamburger] = useState(false);
   const handleOpenHamburger = (e) => {
     e.preventDefault();
@@ -28,11 +31,13 @@ function Main(props) {
         handleOpen={ handleOpen }
         handleOpenHamburger={ handleOpenHamburger }
         openHamburger={ openHamburger }
+        holidayMode={ props.holidayMode } 
+        setHolidayMode={ props.setHolidayMode }
       />
       <main onClick={ resetHeader }>
         { children }
         { p.header && p.pageUrl !== '/' &&
-          <div className="header-overlay"></div>
+          <div className="header-overlay" data-visible={ open }></div>
         }
       </main>
     </>
