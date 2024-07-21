@@ -4,7 +4,9 @@ import { navLinks } from './nav-links';
 import { getPageId } from './utils/getPageId';
 import { getPrevPage } from './utils/getPrevPage';
 import { getNextPage } from './utils/getNextPage';
+
 import '../scss/header.scss';
+import '../css/bootstrap-grid.css';
 
 function Header(props) {
   const p = props.page;
