@@ -3,8 +3,12 @@ import Main from '../../components/main';
 import '../../scss/product-display.scss'
 import '../../scss/promotion-mattress-animation.scss'
 import '../../scss/promotion-value-propositions.scss'
+import SwipeIt from '../../js/swipe-it'
+import { onVisibilityChange } from '../../components/utils/onVisibilityChange';
+import { prevSlide, nextSlide, setActive, slideshowDots } from '../../components/utils/slideShow';
 
 function ValuePropositions () {
+  // Try replacing SwipeIt with https://www.npmjs.com/package/react-swipeable
   const page = {
     pageUrl: 'value-props',
     headerTitle: 'Value Propositions',
@@ -29,7 +33,61 @@ function ValuePropositions () {
       title: 'Easy Financing Available',
       details: 'Aliquam erat volutpat. Suspendisse vitae lectus id massa tristique mattis. Nunc consectetur luctus augue sed'
     }
+
   ]
+  const mobile = window.innerWidth < 768;
+  const stageItems = document.querySelectorAll('.made-simple .stage > div');
+  const btns = document.querySelectorAll('.made-simple .dots button');
+
+  const frame = document.querySelector('.made-simple .frame');
+  const dotsContainer = document.querySelector('.made-simple .dots');
+
+  var handler = onVisibilityChange(frame, function() {
+    frame.classList.add('autoplay');
+  });
+  // if (window.addEventListener) {
+  //   addEventListener('DOMContentLoaded', handler, false);
+  //   addEventListener('load', handler, false);
+  //   addEventListener('scroll', handler, false);
+  //   addEventListener('resize', handler, false);
+  // } else if (window.attachEvent)  {
+  //   attachEvent('onDOMContentLoaded', handler); // Internet Explorer 9+ :(
+  //   attachEvent('onload', handler);
+  //   attachEvent('onscroll', handler);
+  //   attachEvent('onresize', handler);
+  // }
+
+  // const madeSimple = new SwipeIt('.made-simple .frame');
+
+  // madeSimple
+  // .on('swipeLeft',function(e) {
+  //   frame.classList.remove('autoplay');
+  //   nextSlide(e.target);
+  // })
+  // .on('swipeRight',function(e){
+  //   frame.classList.remove('autoplay');
+  //   prevSlide(e.target);
+  // });
+
+  // btns.forEach(btn => {
+  //   btn.addEventListener('click', event => {
+  //     frame.classList.remove('autoplay');
+  //     slideshowDots(btn, dotsContainer);
+  //   })
+  // });
+
+  // stageItems.forEach(item => { 
+  //   item.addEventListener('click', event => {
+  //     if (window.innerWidth > 767) {
+  //       stageItems.forEach(s => { s.setAttribute('data-active', false); });
+  //       item.setAttribute('data-active', true);
+  //       const slide = item.dataset.slide;
+  //       const dot = item.closest('.frame').querySelector(`.dots button[data-slide="${slide}"]`);
+  //       slideshowDots(dot, dotsContainer);
+  //     }
+  //   })
+  // })
+
   return (
     <Main page={ page }>
       <section className="made-simple">
@@ -40,7 +98,13 @@ function ValuePropositions () {
               <div className="frame" data-current="1">
                 <div className="stage">
                   { items.map((item, index) =>
-                    <div data-slide={ index + 1 } data-active={ index === 0} key={ `item${ index}` }>
+                    <div 
+                      data-slide={ index + 1 } 
+                      data-active={ index === 0} 
+                      key={ `item${ index}` }
+                      tabIndex={ mobile ? -1 : 0 }
+                      role={ mobile ? 'none' : 'button'}
+                    >
                       <h4>{ item.title }</h4>
                       <div className="content">
                         <p>{ item.details }</p>
@@ -54,7 +118,7 @@ function ValuePropositions () {
                       data-active={ index === 0 }
                       role="button" 
                       key={ `btn${index}`}
-                      tabIndex="0"
+                      tabIndex={ mobile ? 0 : -1 }
                       >
                     </button>
                   )}

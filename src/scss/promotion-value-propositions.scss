@@ -56,13 +56,13 @@
       bottom: 0;
       @include filter-gradient(#f8f8f8, #00f8f8f8, horizontal);
       @include background-image(
-        linear-gradient(left, rgba(#f8f8f8, 1) 0%, rgba(#f8f8f8, 0) 100%)
+        linear-gradient(to right, rgba(#f8f8f8, 1) 0%, rgba(#f8f8f8, 0) 100%)
       );
     }
     @include mq(sm) {
       @include filter-gradient(#f8f8f8, #00f8f8f8, horizontal);
       @include background-image(
-        linear-gradient(left, rgba(#f8f8f8, 1) 0%, rgba(#f8f8f8, 0) 100%)
+        linear-gradient(to right, rgba(#f8f8f8, 1) 0%, rgba(#f8f8f8, 0) 100%)
       );
       left: calc(50% - 75px);
       width: 90px;

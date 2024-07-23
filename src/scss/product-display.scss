@@ -873,7 +873,7 @@ a {
       }
     }
   }
-  &.long-title {
+  &[data-long-title='true'] {
     li {
       @include mq(xmd) {
         line-height: 1.15;

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import Main from '../../components/main';
 
-function ProductDisplay () {
-  const page = {
-    pageUrl: 'product-display',
+import React, { useState } from 'react';
+import { getProductConfig } from '../../components/utils/getProductConfig';
+import ProductDisplay from '../../components/productDisplay';
+
+function Mattress () {
+  const pageDetails = {
+    pageUrl: 'mattress',
     headerTitle: 'Product Display Template',
     headerIntro: [
       <p>The links below highlight the features of a Product Display module that I developed to support a line of bedding products.</p>,
@@ -14,11 +16,11 @@ function ProductDisplay () {
     ],
     toggleLinks: true
   }
+  let page = getProductConfig(pageDetails);
+  console.log('page', page)
   return (
-    <Main page={ page }>
-      <h1>Product Display</h1>
-    </Main>
+    <ProductDisplay page={ page } />
   )
 }
 
-export default ProductDisplay;
+export default Mattress;
