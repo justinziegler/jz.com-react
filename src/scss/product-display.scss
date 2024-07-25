@@ -800,7 +800,7 @@ a {
       outline: solid shade(#dfdcd7, 25%) 1px;
       outline-offset: 1px;
     }
-    &[data-out-of-stock='true'] {
+    &[data-outofstock='true'] {
       background: #e3e1df;
       color: #9f9f9f;
       position: relative;
@@ -852,6 +852,10 @@ a {
       color: #fff;
       border-color: $navy;
     }
+    .selected-item,
+    .selected-price {
+      pointer-events: none;
+    } 
     .selected-price {
       font-size: 1.2rem;
       @include mq(xsm) {

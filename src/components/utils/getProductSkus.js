@@ -8,9 +8,11 @@ import { getProductName } from './getProductName';
 import { getShortName } from './getShortName';
 import { setDisplayColor } from './setDisplayColor';
 
-export function getProductSkus(catId, discount) {
+export function getProductSkus(catIds, discount) {
   const items = [];
-  products.forEach(p => p.catId === catId && items.push(p));
+  catIds.forEach(catId =>
+    products.forEach(p => p.catId === catId && items.push(p))
+  )
 	let skus = [];
 	items.forEach(item => { 
     let price = item.price;

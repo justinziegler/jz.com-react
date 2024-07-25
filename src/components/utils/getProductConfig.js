@@ -1,20 +1,23 @@
 import { getProductSkus } from './getProductSkus';
-import { numberWithCommas} from './numberWithCommas'
 import { getPageId } from "./getPageId";
-
+import { getShortName } from './getShortName';
+import { getProductName } from './getProductName';
+import { getColorName } from './getColorName';
+import { numberWithCommas} from './numberWithCommas'
 
 
 export function getProductConfig(pageDetails) {
-  const skus = getProductSkus(pageDetails.pageUrl);
+  const skus = getProductSkus(pageDetails.catIds, pageDetails.discountActual);
   const pageId = getPageId(pageDetails.pageUrl);
-  const mattressPage = [
+  const pageMattress = [
     {
       skus: skus,
-      catIds: [1],
+      catIds: pageDetails.catIds,
       defaultCatId: 1,
       defaultProductType: 'MA',
       catSizes: 6,
       catType: 'mattress',
+      discountActual: pageDetails.discountActual,
       comboPage: false,
       comboProductModal: false,
       comboProductAccordion: false,
@@ -63,9 +66,82 @@ export function getProductConfig(pageDetails) {
       headerTitle: pageDetails.headerTitle,
       headerIntro: pageDetails.headerIntro
     }
-  ]
+  ] // end pageMattress
+  
+  const pageFrame = [
+    {
+      skus: skus,
+      catIds: pageDetails.catIds,
+      defaultCatId: 40,
+      defaultProductType: 'UU',
+      shortName: getShortName('UU'),
+      catSizes: 6,
+      discountActual: pageDetails.discountActual,
+      bundle: false,
+      bundleIds: [],
+      comboPage: true,
+      comboProductModal: false,
+      comboProductButtonTitles: false,
+      comboProductButtonLabels: true,
+      comboProduct: [
+        {
+          toggleTitle: false,
+          comboProductId: 41,
+          comboProductType: 'TU',
+          shortName: getShortName('TU'),
+          discount: 200
+        }
+      ],
+      productType: 'frame',
+      gallerySlides: 5,
+      galleryDimensions: 5,
+      longTitle: false,
+      heading: getProductName('UU'),
+      subheading: 'Elevate your bedroom with a modern classic.',
+      ratings: [
+        { stars: true,
+          total: numberWithCommas(3500),
+          average: 4.3,
+          tooltip: true,
+          tooltipFootnote: '*Reviews based on all Bed Frames'
+        }
+      ],
+      deliveryWindowText: 'Ships in 1&ndash;4 business days',
+      readyToShipMessage: true,
+      sizeGuide: [
+        {
+          show: true,
+          productName: getProductName('UU'),
+          mattressModal: false,
+          dimensionsLink: false
+        }
+      ],
+      productDimensions: false,
+      colorSelection: true,
+      colorDisplayOrder: [ 
+        { color: 'CS', colorName: getColorName('CS') }, 
+        { color: 'DS', colorName: getColorName('DS') },
+      ],
+      defaultColor: 'CS',
+      defaultColorName: getColorName('CS'),
+      qtySelection: false,
+      maxQty: 1,
+      productImage: '../assets/frame/gallery-straighton-withluxe-TU-CS.jpg',
+      financingSection: true,
+      scripts: [
+        'nav',
+        'modal.bootstrap',
+        'swiper-lite',
+        'tippy',
+        'lazysizes.min'
+      ],
+      headerTitle: pageDetails.headerTitle,
+      headerIntro: pageDetails.headerIntro,
+      headerBullets: pageDetails.headerBullets
+  }]
 	switch (pageDetails.pageUrl) {
-    case 'mattress': return mattressPage[0];
+    case 'mattress': return pageMattress[0];
+    case 'frame': return pageFrame[0];
   }
 }
 
@@ -142,82 +218,82 @@ export function getProductConfig(pageDetails) {
 // }
 
 // module.exports.frame = async function (ctx) {
-//   const p = [
-//     {
-//       skus: ctx.skus,
-//       catIds: [40, 41],
-//       defaultCatId: 40,
-//       defaultProductType: 'UU',
-//       shortName: utils.getShortName('UU'),
-//       catSizes: 6,
-//       bundle: false,
-//       bundleIds: [],
-//       comboPage: true,
-//       comboProductModal: false,
-//       comboProductButtonTitles: false,
-//       comboProductButtonLabels: true,
-//       comboProduct: [
-//         {
-//           toggleTitle: false,
-//           comboProductTitle: '',
-//           comboProductId: 41,
-//           comboProductType: 'TU',
-//           shortName: utils.getShortName('TU'),
-//           discount: ctx.discountActual
-//         }
-//       ],
-//       productType: 'frame',
-//       gallerySlides: 5,
-//       galleryDimensions: 5,
-//       longTitle: false,
-//       heading: utils.getProductName('UU'),
-//       subheading: 'Elevate your bedroom with a modern classic.',
-//       ratings: [
-//         { stars: true,
-//           total: await utils.numberWithCommas(3500),
-//           average: 4.3,
-//           tooltip: true,
-//           tooltipFootnote: '*Reviews based on all Bed Frames'
-//         }
-//       ],
-//       deliveryWindowText: 'Ships in 1&ndash;4 business days',
-//       readyToShipMessage: true,
-//       sizeGuide: [
-//         {
-//           show: true,
-//           productName: utils.getProductName('UU'),
-//           mattressModal: false,
-//           dimensionsLink: false
-//         }
-//       ],
-//       productDimensions: false,
-//       colorSelection: true,
-//       colorDisplayOrder: [ 
-//         { color: 'CS', colorName: utils.getColorName('CS') }, 
-//         { color: 'DS', colorName: utils.getColorName('DS') },
-//       ],
-//       defaultColor: 'CS',
-//       defaultColorName: utils.getColorName('CS'),
-//       qtySelection: false,
-//       maxQty: 1,
-//       productImage: '../assets/frame/gallery-straighton-withluxe-TU-CS.jpg',
-//       financingSection: true,
-//       scripts: [
-//         'nav',
-//         'modal.bootstrap',
-//         'swiper-lite',
-//         'tippy',
-//         'lazysizes.min'
-//       ],
-//       header: ctx.q[0].header,
-//       pageId: ctx.q[0].pageId,
-//       pageUrl: ctx.q[0].pageUrl,
-//       prevPage: ctx.q[0].prevPage,
-//       nextPage: ctx.q[0].nextPage,
-//       headerTitle: ctx.q[0].headerTitle,
-//       headerIntro: ctx.q[0].headerIntro,
-//       headerBullets: ctx.q[0].headerBullets
-//   }]
+  // const p = [
+  //   {
+  //     skus: ctx.skus,
+  //     catIds: [40, 41],
+  //     defaultCatId: 40,
+  //     defaultProductType: 'UU',
+  //     shortName: utils.getShortName('UU'),
+  //     catSizes: 6,
+  //     bundle: false,
+  //     bundleIds: [],
+  //     comboPage: true,
+  //     comboProductModal: false,
+  //     comboProductButtonTitles: false,
+  //     comboProductButtonLabels: true,
+  //     comboProduct: [
+  //       {
+  //         toggleTitle: false,
+  //         comboProductTitle: '',
+  //         comboProductId: 41,
+  //         comboProductType: 'TU',
+  //         shortName: utils.getShortName('TU'),
+  //         discount: ctx.discountActual
+  //       }
+  //     ],
+  //     productType: 'frame',
+  //     gallerySlides: 5,
+  //     galleryDimensions: 5,
+  //     longTitle: false,
+  //     heading: utils.getProductName('UU'),
+  //     subheading: 'Elevate your bedroom with a modern classic.',
+  //     ratings: [
+  //       { stars: true,
+  //         total: await utils.numberWithCommas(3500),
+  //         average: 4.3,
+  //         tooltip: true,
+  //         tooltipFootnote: '*Reviews based on all Bed Frames'
+  //       }
+  //     ],
+  //     deliveryWindowText: 'Ships in 1&ndash;4 business days',
+  //     readyToShipMessage: true,
+  //     sizeGuide: [
+  //       {
+  //         show: true,
+  //         productName: utils.getProductName('UU'),
+  //         mattressModal: false,
+  //         dimensionsLink: false
+  //       }
+  //     ],
+  //     productDimensions: false,
+  //     colorSelection: true,
+  //     colorDisplayOrder: [ 
+  //       { color: 'CS', colorName: utils.getColorName('CS') }, 
+  //       { color: 'DS', colorName: utils.getColorName('DS') },
+  //     ],
+  //     defaultColor: 'CS',
+  //     defaultColorName: utils.getColorName('CS'),
+  //     qtySelection: false,
+  //     maxQty: 1,
+  //     productImage: '../assets/frame/gallery-straighton-withluxe-TU-CS.jpg',
+  //     financingSection: true,
+  //     scripts: [
+  //       'nav',
+  //       'modal.bootstrap',
+  //       'swiper-lite',
+  //       'tippy',
+  //       'lazysizes.min'
+  //     ],
+  //     header: ctx.q[0].header,
+  //     pageId: ctx.q[0].pageId,
+  //     pageUrl: ctx.q[0].pageUrl,
+  //     prevPage: ctx.q[0].prevPage,
+  //     nextPage: ctx.q[0].nextPage,
+  //     headerTitle: ctx.q[0].headerTitle,
+  //     headerIntro: ctx.q[0].headerIntro,
+  //     headerBullets: ctx.q[0].headerBullets
+  // }]
 //   return p;
 // }
 
