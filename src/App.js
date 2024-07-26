@@ -13,8 +13,9 @@ const TiktokMimic = lazy(() => import('./pages/04-tiktok-mimic/tiktok-mimic'));
 const ProductDisplay = lazy(() => import('./pages/05-product-display/01-product-display'));
 const Mattress = lazy(() => import('./pages/05-product-display/02-mattress'));
 const Frame = lazy(() => import('./pages/05-product-display/03-frame'));
+const Sheets = lazy(() => import('./pages/05-product-display/04-sheets'));
 const BedFrame = lazy(() => import('./pages/06-bed-frame/bed-frame'));
-const Sheets = lazy(() => import('./pages/07-sheets/sheets'));
+// const Sheets = lazy(() => import('./pages/07-sheets/sheets'));
 const Cart = lazy(() => import('./pages/08-cart/cart'));
 
 function App() {

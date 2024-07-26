@@ -4,8 +4,6 @@ function Ratings(props) {
   const p = props.page;
   const ratings = p.ratings[0];
   const ratingsStars = ratings.stars;
-  console.log('ratings', ratings)
-  console.log('ratingsStars', ratingsStars)
   return (
     <>
       { ratingsStars &&

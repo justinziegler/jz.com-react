@@ -10,7 +10,7 @@ function ColorSelect(props) {
   return (
     <ul 
       className={ `color-select ${ addlClass }`}
-      data-active-color={ p.defaultColorName }>
+      data-active-color={ props.activeColorName }>
       { colors.map((c, index) =>
         <li 
           className='color' 
@@ -18,7 +18,8 @@ function ColorSelect(props) {
           tabIndex='0' 
           data-color={ c.color }
           data-color-name={ c.colorName }
-          data-active={ c.color === p.defaultColor }
+          data-active={ c.color === props.activeColor }
+          onClick={ props.handleColor }
           key={ `colorselect${ index }`}
         >
           <span className='sr-only'>{ c.colorName }</span>

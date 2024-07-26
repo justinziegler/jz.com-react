@@ -1,3 +1,5 @@
+import Dimensions from "./dimensions";
+
 function SizeSelect(props) {
   const p = props.page;
   let additionalClass = '';
@@ -6,13 +8,11 @@ function SizeSelect(props) {
   for (let i = 1; i <= p.maxQty; i++) {
     p.skus.forEach((item, index) => {
       let displayRule = 'none'
-      console.log('item.type', item.type)
-      console.log('item.defaultProductType', item.defaultProductType)
       if ((item.type === p.defaultProductType) && (item.color === p.defaultColor) || (!p.colorSelection)) {
         displayRule = 'list-item'
       }
       Items.push(
-        <li data-sku={ item.sku }
+        <button data-sku={ item.sku }
           data-name={ item.name }
           data-type={ item.type }
           data-color={ item.color }
@@ -29,15 +29,19 @@ function SizeSelect(props) {
           className={ additionalClass } 
           role={ item.outOfStock ? 'none' : 'button' } 
           tabIndex={ item.outOfStock ? -1 : 0 }
-          onClick={ props.selectSize }
-          data-active={ index === 0 }
+          onClick={ props.handleSize }
+          data-active={ item.sku === props.sku }
+          data-visible={
+            item.color === props.color && item.type === props.activeType
+          }
           key={ `sizeselect-${ index }`}
-          style={{ display: displayRule }}
+          // style={{ display: displayRule }}
         > 
           <div className='selected-item'>
             { item.sizeName }
           </div>
           <div className='selected-price'>
+            { item.sku }<br />
             <span>
               <span className='sr-only'>Now Priced at</span>
               ${ item.salePrice * i }
@@ -52,11 +56,11 @@ function SizeSelect(props) {
               </>
             }
           </div>	
-        </li>
+        </button>
       )
     });
+    
   }
-
   return (
     <>
       <div className='product-details row'>
@@ -65,16 +69,7 @@ function SizeSelect(props) {
             { p.productDimensions ?
               <div className='dimensions left-col col-xs-8'>
                 <p><strong>Dimensions: </strong>
-                  { p.skus.map(item =>
-                    <span data-sku={ item.sku } style={{ display: 'none' }}>
-                      { item.w } x { item.l } 
-                      { item.h !== undefined && 
-                        <>
-                          x { item.h }
-                        </>
-                      }
-                    </span>
-                  )}
+                  <Dimensions page={ props.page } sku={ props.sku } setSku={ props.setSku } />
                 </p>
               </div>
               :
@@ -100,10 +95,66 @@ function SizeSelect(props) {
         }
       </div>	
 
-      <ul className='size-select grid clearfix' data-long-title={ p.longTitle }>
-        { Items }
-      </ul>
+      <div className='size-select grid clearfix' data-long-title={ p.longTitle }>
+        {/* { Items } */}
+        {
+          [...Array(p.maxQty).keys()].map(key => 
+            <>
+              {
+                p.skus.map((item, index) =>
+                  <button data-sku={ item.sku }
+                    data-name={ item.name }
+                    data-type={ item.type }
+                    data-color={ item.color }
+                    data-color-name={ item.colorName }
+                    data-color-selection={ p.colorSelection }
+                    data-size={ item.size }
+                    data-size-name={ item.sizeName }
+                    data-product-cat-sizes={ p.catSizes }
+                    data-price={ item.salePrice * (key + 1) }
+                    data-outofstock={ item.outOfStock }
+                    data-quantity={ key + 1 }
+                    data-bundle={ p.bundle }
+                    data-discount={ item.discount } 
+                    className={ additionalClass } 
+                    role={ item.outOfStock ? 'none' : 'button' } 
+                    tabIndex={ item.outOfStock ? -1 : 0 }
+                    onClick={ props.handleSize }
+                    data-active={ item.type === props.activeType && item.color === props.activeColor && item.size === props.activeSize }
+                    data-visible={
+                      item.type === props.activeType && item.color === props.activeColor
+                    }
+                    key={ `sizeselect-${ index }`}
+                    // style={{ display: displayRule }}
+                  > 
+                    <div className='selected-item'>
+                      { item.sizeName }
+                    </div>
+                    <div className='selected-price'>
+                      { item.sku }<br />
+                      <span>
+                        <span className='sr-only'>Now Priced at</span>
+                        ${ item.salePrice * (key + 1) }
+                      </span>
+                      { item.discount !== 0 &&
+                        <>
+                          &nbsp;
+                          <span className='original-price'>
+                            <span className='sr-only'>Originally Priced at</span>
+                            ${ item.price * (key + 1)  }
+                          </span>
+                        </>
+                      }
+                    </div>	
+                  </button>
+                )
+              }
+            </>
+          )
+        }
+      </div>
       <div className='clearfix'></div>
+
     </>
   )
 }

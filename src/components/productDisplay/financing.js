@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 
 function Financing(props) {
   const p = props.page;
@@ -8,13 +9,12 @@ function Financing(props) {
     p.skus.forEach((item, index) => {
       let displayRule = 'none'
       if (index === 0) displayRule = 'block'
-      console.log('item', item)
       Items.push(
         <div 
-          data-index={ index }
           data-sku={ item.sku }
           key={ `financing${ index }`}
-          style={{ display: displayRule }}
+          data-visible={ item.sku === props.activeSku }
+          data-propssku={ props.sku }
         >
           <p className='price' 
             data-sku={ item.sku } 

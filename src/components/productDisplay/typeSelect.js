@@ -55,10 +55,11 @@ function TypeSelect(props) {
     getType(catId)
     Items.push(
       <li data-type={ type }
-        data-type-name={ typeName }
-        data-active={ type === p.defaultProductType }
+        data-typename={ typeName }
+        data-active={ type === props.activeType }
         role='button' 
         tabIndex='0'
+        onClick={ props.handleType }
         key={ `typeselect${ index }`}
       >
         <span className={ !p.comboProductButtonTitles && 'sr-only'}>
@@ -78,7 +79,7 @@ function TypeSelect(props) {
   })
   return (
   <ul className={ `type-select ${ addlClass }` }
-    data-active-type={ p.shortName }
+    data-active-type={ props.activeTypeName }
     data-label={ p.comboProductButtonLabels }
     data-product-types={ p.catIds.length }>
     { Items }

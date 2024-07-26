@@ -478,6 +478,11 @@ a {
   }
   .dimensions {
     padding-right: 0;
+    span {
+      &[data-visible='false'] {
+        display: none;
+      }
+    }
   }
 }
 .star-ratings {
@@ -707,7 +712,7 @@ a {
     margin: 0 0 20px 0;
   }
 
-  li {
+  button {
     background: $white;
     width: 31%;
     border: solid 1px #dfdcd7;
@@ -741,6 +746,9 @@ a {
     }
     @include mq(lg) {
       font-size: 1.8rem;
+    }
+    &[data-visible='false'] {
+      display: none;
     }
     &[data-type='PW'],
     &[data-type='FP'],
@@ -916,6 +924,11 @@ a {
     @include mq(xxs) {
       padding-top: vwp(10px);
       margin-bottom: vwp(15px);
+    }
+  }
+  > div {
+    &[data-visible=false] {
+      display: none;
     }
   }
   p {

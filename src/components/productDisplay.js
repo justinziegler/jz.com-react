@@ -15,7 +15,6 @@ function ProductDisplay(props) {
   const skus = p.skus
 
   let wrap = false;
-  console.log('p.colorSelection', p.colorSelection)
   if (p.colorSelection) {
     if (p.qtySelection || p.catIds.length > 1) wrap = true;
   }
@@ -31,76 +30,74 @@ function ProductDisplay(props) {
   }
   
   let defaultSku = '';
-  skus.forEach(item => {
-    if (!item.outofstock && defaultSku == '') {
-      defaultSku = item.sku
-      console.log('defaultSku', defaultSku)
-    }
-  })
-  
-  const [sku, setSku] = useState(defaultSku);
-  const selectSize = (e) => {
-    e.preventDefault();
-    let oos = e.target.dataset.outofstock === 'true';
-    console.log('oos', oos)
-    if (!oos) {
-      console.log('hello')
-      const sizes = document.querySelectorAll('.size-select li');
-      sizes.forEach(size => {
-        size.setAttribute('data-active', false);
+  let defaultType = '' 
+  let defaultTypeName = ''
+  let defaultSize = '';
+  let defaultColor = p.defaultColor;
+  const [pageLoaded, setPageLoaded] = useState(false);
+
+  function loadPage() {
+    console.log('pageLoaded', pageLoaded)
+    if (!pageLoaded) {
+      skus.forEach(item => {
+        if (!item.outofstock && defaultSku == '') {
+          defaultType = p.defaultProductType
+          defaultTypeName = item.name
+          defaultSku = item.sku
+          defaultSize = item.size
+          console.log('defaultSku', defaultSku)
+          console.log('defaultType', defaultType)
+          console.log('defaultColor', p.defaultColor)
+          console.log('defaultSize', defaultSize)
+          console.log('!!!!!!!')
+        }
       })
-      e.target.setAttribute('data-active', true);
-
-      setSku(e.target.dataset.sku);
-
-      selectedProduct.sku = e.target.dataset.sku;
-      selectedProduct.name = e.target.dataset.name;
-      selectedProduct.type = e.target.dataset.type;
-      selectedProduct.size = e.target.dataset.size;
-      selectedProduct.price = e.target.dataset.price;
-      selectedProduct.colorName = e.target.dataset.colorName;
-      console.log('selectedProduct', selectedProduct)
+      setPageLoaded(true);
     }
   }
+  loadPage();
+  
+  const [activeSku, setActiveSku] = useState(defaultSku);
+  const [activeType, setActiveType] = useState(defaultType)
+  const [activeTypeName, setActiveTypeName] = useState(defaultTypeName)
+  const [activeColor, setActiveColor] = useState(p.defaultColor)
+  const [activeColorName, setActiveColorName] = useState(p.defaultColorName)
+  const [activeSize, setActiveSize] = useState(defaultSize)
+  console.log('activeType', activeType)
+  console.log('activeColor', activeColor)
+  console.log('activeColorName', activeColorName)
+  console.log('activeSize', activeSize)
+  const prefix = 'XX'
+  const handleSku = () => {
+    setActiveSku(`${ prefix }-${ activeType }-${ activeColor }-${ activeSize }`);
+    console.log('handlesku', activeSku)
+  }
+  const handleSize = (e) => {
+    let outofstock = e.target.dataset.outofstock === 'true';
+    if (!outofstock) {
+      setActiveSize(e.target.dataset.size);
+      setActiveSku(`${ prefix }-${ activeType }-${ activeColor }-${ e.target.dataset.size }`);
+      console.log('handlesize: activeSize', activeSize)
+      console.log('handlesize: activeSku', activeSku)
+    }
+  }
+  const handleColor = (e) => {
+    setActiveColor(e.target.dataset.color)
+    setActiveColorName(e.target.dataset.colorName)
+    console.log('activeColor', activeColor)
+    handleSku();
+  }
+  const handleType = (e) => {
+    // const utype = e.target.dataset.type
+    setActiveType(e.target.dataset.type)
+    setActiveTypeName(e.target.dataset.typename)
+    console.log('e.target.dataset.type', e.target.dataset.type)
+    console.log('activeType', activeType)
+    console.log('activeTypeName', activeTypeName)
+    handleSku();
+  }
 
-  console.log('selectedProduct2', selectedProduct)
 
-  // page load
-  // sizes.forEach(size => {
-  //   console.log('selectedProduct1', selectedProduct.sku)
-  //   if ((size.dataset.active)) {
-      // selectedProduct.sku = size.dataset.sku;
-      // selectedProduct.name = size.dataset.name;
-      // selectedProduct.type = size.dataset.type;
-      // selectedProduct.size = size.dataset.size;
-      // selectedProduct.price = size.dataset.price;
-      // selectedProduct.colorName = size.dataset.colorName;
-  //     size.setAttribute('data-active', true);
-  //     console.log('selectedProduct3', selectedProduct)
-  //   }
-  // })
-  // function loadPage() {
-    // skus.forEach(item => {
-    //   if ((!item.outofstock) && (selectedProduct.sku === 'empty')) {
-    //     // selectedProduct.sku = item.sku;
-    //     // selectedProduct.name = item.name;
-    //     // selectedProduct.type = item.type;
-    //     // selectedProduct.size = item.size;
-    //     // selectedProduct.price = item.price;
-    //     // selectedProduct.colorName = item.colorName;
-    //     setSku()
-    //   }
-    // })
-  //   const dimensions = document.querySelectorAll('.dimensions span');
-  //   dimensions.forEach(d => {
-  //     d.setAttribute('style', 'display: none');
-  //   })
-  //   const selectedDimensions = document.querySelector(`.dimensions span[data-sku=${ selectedProduct.sku }]`);
-  //   // selectedDimensions.setAttribute('style', 'display: inline');
-  // }
-  // loadPage();
-  // console.log('skus', skus)
-  // console.log('selectedProduct3', selectedProduct.sku)
 
   return (
     <main data-active-type='none' data-active-color='none' data-active-size='none'>	
@@ -126,10 +123,26 @@ function ProductDisplay(props) {
                       data-comparison-accordion={ p.comboProductAccordion }
                       data-comparison-accordion-active={ false }
                     >
-                      <SizeSelect page={ props.page } selectSize={ selectSize } />
+                      <SizeSelect 
+                        page={ props.page } 
+                        activeSku={ activeSku } 
+                        setActiveSku={ setActiveSku } 
+                        handleSku={ handleSku }
+                        activeSize={ activeSize }
+                        setActiveSize={ setActiveSize }
+                        handleSize={ handleSize } 
+                        activeType={ activeType }
+                        activeColor={ activeColor }
+                      />
 
                       { p.colorSelection &&
-                        <ColorSelect page={ props.page } />
+                        <ColorSelect 
+                          page={ props.page } 
+                          activeColor={ activeColor } 
+                          activeColorName={ activeColorName } 
+                          setActiveColor={ setActiveColor }
+                          handleColor={ handleColor }
+                        />
                       }
 
                       { p.qtySelection &&
@@ -137,12 +150,19 @@ function ProductDisplay(props) {
                       }
 
                       { p.comboPage &&
-                        <TypeSelect page={ props.page } />
+                        <TypeSelect 
+                          page={ props.page } 
+                          activeType={ activeType } 
+                          setActiveType={ setActiveType }
+                          activeTypeName={ activeTypeName } 
+                          setActiveTypeName={ setActiveTypeName }
+                          handleType={ handleType }
+                        />
                       } 
                     </div>                
                   
                     {/* {{- _blocks.tooltips(p) -}}  */}              
-                    <Financing page={ props.page } />
+                    <Financing page={ props.page } activeSku={ activeSku } setActiveSku={ setActiveSku } />
 
                     {/* {% if p.upsell %}
                       {{- _blocks.upsells(p) -}}
