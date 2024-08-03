@@ -1,3 +1,4 @@
+import React from 'react';
 import Dimensions from "./dimensions";
 
 function SizeSelect(props) {
@@ -62,22 +63,22 @@ function SizeSelect(props) {
     
   }
   return (
-    <>
-      <div className='product-details row'>
+    <React.Fragment key='size-select'>
+      <div className='product-details row' >
         { p.showSizeGuide ?
-          <>
+          <React.Fragment key='product-details'>
             { p.productDimensions ?
-              <div className='dimensions left-col col-xs-8'>
+              <div className='dimensions left-col col-xs-8'  key='product-details01'>
                 <p><strong>Dimensions: </strong>
                   <Dimensions page={ props.page } sku={ props.sku } setSku={ props.setSku } />
                 </p>
               </div>
               :
-              <div className='delivery-window left-col col-xs-8'>
+              <div className='delivery-window left-col col-xs-8' key='product-details02'>
                 <p>{ p.deliveryWindowText }</p>
               </div>
             }
-            <div className='size-guide right-col col-xs-4'>
+            <div className='size-guide right-col col-xs-4' key='product-details03'>
               <p><a data-toggle='modal' role='button' tabIndex='0' 
               // save for later
                 // {% if sizeGuide.mattressModal %}
@@ -87,9 +88,9 @@ function SizeSelect(props) {
                 // {% endif %}
                 href='#'>Size Guide</a></p>
             </div>
-          </>
+          </React.Fragment>
         :
-          <div className="delivery-window left-col col-xs-12">
+          <div className="delivery-window left-col col-xs-12" key='product-details04'>
             <p>{ p.deliveryWindowText }</p>
           </div>
         }
@@ -99,7 +100,7 @@ function SizeSelect(props) {
         {/* { Items } */}
         {
           [...Array(p.maxQty).keys()].map(key => 
-            <>
+            <React.Fragment key='size-select-grid'>
               {
                 p.skus.map((item, index) =>
                   <button data-sku={ item.sku }
@@ -149,13 +150,13 @@ function SizeSelect(props) {
                   </button>
                 )
               }
-            </>
+            </React.Fragment>
           )
         }
       </div>
       <div className='clearfix'></div>
 
-    </>
+      </React.Fragment>
   )
 }
 

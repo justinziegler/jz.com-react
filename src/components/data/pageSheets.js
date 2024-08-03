@@ -125,7 +125,7 @@ const pageSheets = [
         skus: pillowcaseSkus,
         catIds: [34, 35, 36],
         catSizes: 2,
-        defaultCatId: 35,
+        defaultCatId: 36,
         category: 'bedding',
         slug: 'pillowcase',
         name: 'Add a Pillowcase Set',

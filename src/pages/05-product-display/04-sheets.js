@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { getProductConfig } from '../../components/utils/getProductConfig';
 import ProductDisplay from '../../components/productDisplay';
 import '../../scss/product-display-color+quantity.scss'
+import '../../scss/product-display-upsell-list.scss'
 
 function Sheets () {
   let page = getProductConfig('sheets');

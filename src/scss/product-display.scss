@@ -9,6 +9,8 @@
 @import 'partials/snippets/video-embed';
 @import 'partials/snippets/lull-button-new';
 @import 'partials/snippets/max-width-1920';
+@import "bootstrap5/variables";
+@import "bootstrap5/transitions";
 
 $imgixDefaults: '?auto=format,compress&q=50';
 
