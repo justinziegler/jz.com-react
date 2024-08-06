@@ -44,6 +44,7 @@ function getInitialSelection(p) {
           initialItem.size = item.size
           initialItem.price = item.price
           initialItem.salePrice = item.salePrice
+          initialItem.catSizes = u.catSizes
           initialItem.active = false
         }
       })
@@ -71,26 +72,42 @@ function ProductDisplay(props) {
   const [activeColor, setActiveColor] = useState(initial.color)
   const [activeColorName, setActiveColorName] = useState(initial.colorName)
   const [activeSize, setActiveSize] = useState(initial.size)
-  const [cart, setCart] = useState(initial)
+  // const [cart, setCart] = useState(initial)
   console.log('activeType', activeType)
   console.log('activeColor', activeColor)
-  console.log('activeColorName', activeColorName)
+  // console.log('activeColorName', activeColorName)
   console.log('activeSize', activeSize)
 
 
-  // let cart = {
-  //   sku: activeSku,
-  //   type: activeType,
-  //   typeName: activeTypeName,
-  //   size: activeSize,
-  //   price: '',
-  //   colorName: activeColorName,
-  //   upsells: initialUpsells
+  // const [upsell0Sku, setUpsell0Sku] = useState('')
+  // const [activeUpsellSku1, setActiveUpsellSku1] = useState('')
+  // const [activeUpsellType0, setActiveUpsellType0] = useState('')
+  // const [activeUpsellType1, setActiveUpsellType1] = useState('')
+  // const [activeUpsellColor0, setActiveUpsellColor0] = useState('')
+  // const [activeUpsellColor1, setActiveUpsellColor1] = useState('')
+  const [upsell0Active, setUpsell0Active] = useState(false)
+  const [upsell1Active, setActiveUpsell1] = useState(false)
+  const [upsell0Sku, setUpsell0Sku] = useState(initial.upsells[0].sku)
+  const [upsell1Sku, setUpsell1Sku] = useState(initial.upsells[1].sku)
+  const [activeUpsellType0, setActiveUpsellType0] = useState(initial.upsells[0].type)
+  const [activeUpsellType1, setActiveUpsellType1] = useState(initial.upsells[1].type)
+  const [activeUpsellColor0, setActiveUpsellColor0] = useState(initial.upsells[0].color)
+  const [activeUpsellColor1, setActiveUpsellColor1] = useState(initial.upsells[1].color)
+  const [upsellSize0, setUpsellSize0] = useState(getUpsellSize(activeSize, initial.upsells[0].catSizes))
+  const [upsellSize1, setUpsellSize1] = useState(getUpsellSize(activeSize, initial.upsells[1].catSizes))
+  const upsell0CatSizes = initial.upsells[0].catSizes
+  const upsell1CatSizes = initial.upsells[1].catSizes
+  const [showOptions0, setShowOptions0] = useState(false)
+  const [showOptions1, setShowOptions1] = useState(false)
 
-  // }
-  console.log('cart!', cart)
-
-  
+  console.log('upsell0Active', upsell0Active)
+  console.log('upsell1Active', upsell1Active)
+  console.log('upsell0Sku', upsell0Sku)
+  console.log('upsell1Sku', upsell1Sku)
+  console.log('activeUpsellColor0', activeUpsellColor0)
+  console.log('activeUpsellColor1', activeUpsellColor1)
+  console.log('upsellSize0', upsellSize0)
+  console.log('upsellSize1', upsellSize1)
 
   const prefix = 'XX'
   const handleSku = () => {
@@ -104,6 +121,15 @@ function ProductDisplay(props) {
       setActiveSku(`${ prefix }-${ activeType }-${ activeColor }-${ e.target.dataset.size }`);
       console.log('handlesize: activeSize', activeSize)
       console.log('handlesize: activeSku', activeSku)
+      if (p.upsells !== undefined) {
+        const size0 = getUpsellSize(e.target.dataset.size, upsell0CatSizes)
+        console.log('size0', size0)
+        setUpsellSize0(size0)
+
+        const size1 = getUpsellSize(e.target.dataset.size, upsell1CatSizes)
+        console.log('size1', size1)
+        setUpsellSize0(size1)
+      }
     }
   }
   const handleColor = (e) => {
@@ -122,55 +148,54 @@ function ProductDisplay(props) {
     handleSku();
   }
 
-  
-  const [activeUpsellSku0, setActiveUpsellSku0] = useState('')
-  const [activeUpsellSku1, setActiveUpsellSku1] = useState('')
-  const [showOptions0, setShowOptions0] = useState(false)
-  const [showOptions1, setShowOptions1] = useState(false)
+  // we can set these
+
 
   const handleActiveUpsell = (e) => {
     e.preventDefault();
-    console.log('handleUposellActive', cart.upsells[0])
     console.log('e.target.dataset.index', e.target.dataset.index)
     const index = Number(e.target.dataset.index)
-    // switch (index) {
-    //   case 0: setActiveUpsellSku0(e.target.dataset.sku)
-    //   case 1: setActiveUpsellSku1(e.target.dataset.sku)
-    // }
     if (index === 0) {
-      if (activeUpsellSku0.length) {
-        setActiveUpsellSku0('')
-        setShowOptions0(false)
-      } else {
-        setActiveUpsellSku0(e.target.dataset.sku)
-        setShowOptions0(true)
-      }
+      setUpsell0Active(!upsell0Active)
+      setShowOptions0(!showOptions0)
       console.log('index = 0')
     } else if (index === 1) {
-      if (activeUpsellSku1.length) {
-        setActiveUpsellSku1('')
-        setShowOptions1(false)
-      } else {
-        setActiveUpsellSku1(e.target.dataset.sku)
-        setShowOptions1(true)
-      }
+      setActiveUpsell1(!upsell1Active)
+      setShowOptions1(!showOptions1)
       console.log('index = 1')
     }
-    console.log('activeUpsell0', activeUpsellSku0)
-    console.log('activeUpsell1', activeUpsellSku1)
   }
 
-  
-  // const handleUpsell = (e) => {
-  //   console.log('handleUpsell', handleUpsell)
-  //   e.target.setAttribute('data-default-state', true)
-  //   const active = e.target.dataset.active === 'true'
-  //   console.log('handleUpsell active:', active);
-  //   e.target.setAttribute('data-active', !active)
-  //   // console.log('handleUpsell active2:', active);
-  // }
+  const handleUpsellSku = (index) => {
+    console.log('handleUpsellSku index', index)
+    if (index === 0) {
+      setUpsell0Sku(`${ prefix }-${ activeUpsellType0 }-${ activeUpsellColor0 }-${ upsellSize0 }`)
+      console.log('handleUpsellsku0', upsell0Sku)
+    } else if (index === 1) {
+      setUpsell1Sku(`${ prefix }-${ activeUpsellType1 }-${ activeUpsellColor1 }-${ upsellSize1 }`)
+      console.log('handleUpsellsku1', upsell1Sku)
+    }
+  }
+  const handleUpsellColor = (e) => {
+    const index = Number(e.target.dataset.index)
+    const color = e.target.dataset.color
+    if (index === 0) {
+      setActiveUpsellColor0(color)
+      setUpsell0Sku(`${ prefix }-${ activeUpsellType0 }-${ color }-${ upsellSize0 }`)
+      console.log('handleUpsellColor got hre')
+      console.log('color', color)
+    } else if (index === 1) {
+      setActiveUpsellColor1(color)
+      setUpsell1Sku(`${ prefix }-${ activeUpsellType1 }-${ color }-${ upsellSize1 }`)
+    }
+    // handleUpsellSku(index);
+    console.log('handleUpsellColor')
+    console.log('e.target.dataset.color', e.target.dataset.color)
+    console.log('activeUpsellColor0', activeUpsellColor0)
+  }
 
-  
+  console.log('game over man!')
+  console.log('')
 
 
   return (
@@ -244,10 +269,21 @@ function ProductDisplay(props) {
                         activeType={ activeType }
                         activeColor={ activeColor } 
                         activeSize={ activeSize } 
-                        cart={ cart }
+                        // cart={ cart }
                         handleActiveUpsell={ handleActiveUpsell }
-                        activeUpsellSku0={ activeUpsellSku0 }
-                        activeUpsellSku1={ activeUpsellSku1 }
+                        handleUpsellColor={ handleUpsellColor }
+                        upsell0Active={ upsell0Active }
+                        upsell1Active={ upsell1Active }
+                        setUpsell0Active={ setUpsell0Active }
+                        setActiveUpsell1={ setActiveUpsell1 }
+                        upsell0Sku={ upsell0Sku }
+                        upsell1Sku={ upsell1Sku }
+                        activeUpsellColor0={ activeUpsellColor0 }
+                        activeUpsellColor1={ activeUpsellColor1 }
+                        setActiveUpsellColor0={ setActiveUpsellColor0 }
+                        setActiveUpsellColor1={ setActiveUpsellColor1 }
+                        upsellSize0={ upsellSize0 }
+                        upsellSize1={ upsellSize1 }
                         showOptions0={ showOptions0 }
                         showOptions1={ showOptions1 }
                       />

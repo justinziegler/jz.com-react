@@ -11,10 +11,7 @@ function Upsells(props) {
   if (upsells.length > 1) {
     singleUpsell = false
     additionalClass = 'multiple'
-  }
-  console.log('skus', upsells)
-
-  
+  }  
 
   return (
     <div className='col-xs-12'>
@@ -48,17 +45,20 @@ function Upsells(props) {
                     data-color-name={ item.colorName }
                     data-size={ item.size }
                     data-size-name={ item.sizeName }
-                    data-active={ index === 0 ? 
-                                  props.activeUpsellSku0 === item.sku :
-                                  props.activeUpsellSku1 === item.sku
-                                }
+                    data-active={ 
+                      index === 0 ? 
+                      props.upsell0active :
+                      props.upsell1active
+                    }
                     data-out-of-stock={ item.outOfStock }
                     data-price={ item.salePrice }
                     onClick={ props.handleActiveUpsell }
                     role='button' tabIndex='0'
                     aria-label={ u.name }
                     data-visible={
-                      item.sku === props.cart.upsells[index].sku
+                      index === 0 ? 
+                      props.upsell0Sku === item.sku :
+                      props.upsell1Sku === item.sku
                     }
                     data-index={ index }
                     aria-controls={ `options` }
@@ -114,54 +114,74 @@ function Upsells(props) {
               </ul>
               {/* Color Selection */}
               { u.colorSelection &&
-                // <Collapse in={ props.upsellActiveSku0 }>
+                <Collapse in={ index === 0 ? props.showOptions0 : props.showOptions1 }>
                   <div className='options' data-visible={ index === 0 ? props.showOptions0 : props.showOptions1 }>
-                    <ul className='color-select'>
-                      { u.colorDisplayOrder.map((c, index) =>
-                        <li data-color={ c.color } role='button' tabIndex='0' 
+                    <div className='color-select'>
+                      { u.colorDisplayOrder.map(c =>
+                        <button data-color={ c.color } role='button' tabIndex='0' 
                           className='color' 
-                          data-active={ index === 0}
+                          data-active={ 
+                            index === 0 ?
+                            c.color === props.activeUpsellColor0 :
+                            c.color === props.activeUpsellColor1
+                          }
+                          data-index={ index }
+                          onClick={ props.handleUpsellColor }
                           key={ `color-select${ u.catId }${ c.color }${ index }` }
                         >
-                          { props.upsellActiveSku0 } asdf
-                        </li>
+                        </button>
                       )}
-                    </ul>
+                    </div>
 
                     { u.catIds.length > 1 &&
-                      <ul className='type-select'>
+                      <div className='type-select'>
                         { u.catIds.map(catId =>
                           <React.Fragment key={ `type-select-${catId}` }>
                             { u.skus.map(item =>
-                              <li data-sku={ item.sku }
-                                data-type={ item.type }
-                                data-color={ item.color }
-                                data-size={ item.sku.slice(9) }
-                                data-active={ catId == u.defaultCatId && item.color == u.defaultColor } 
-                                role='button' 
-                                tabIndex='0'
-                                key={ `type-select-${ item.sku }${ index }` }
-                                style={{ display: 'none' }}
-                              >
-                              <div className='selected-item'>
-                                { item.shortName }
-                              </div>
-                              <div className='selected-price'>
-                                  <span className='price'>
-                                    ${ item.salePrice }
-                                  </span>
-                                  { item.discount !== 0 &&
-                                    <span className='original-price'> ${ item.price }</span>
+                              item.catId === catId &&
+                              <React.Fragment key={ `type-select-${item.sku}` }>
+                                <button data-sku={ item.sku }
+                                  data-type={ item.type }
+                                  data-color={ item.color }
+                                  data-size={ item.sku.slice(9) }
+                                  data-active={ 
+                                    index === 0 ?
+                                      item.sku === props.upsell0Sku
+                                    :
+                                      item.sku === props.upsell1Sku
+                                  } 
+                                  role='button' 
+                                  tabIndex='0'
+                                  key={ `type-select-${ item.sku }${ index }` }
+                                  data-visible={
+                                    index === 0 ?
+                                      item.color === props.activeUpsellColor0 &&
+                                      item.size === props.upsellSize0
+                                    :
+                                      item.color === props.activeUpsellColor1 && 
+                                      item.size === props.upsellSize1
                                   }
-                              </div>
-                            </li>
+                                >
+                                  <div className='selected-item'>
+                                    { item.shortName }
+                                  </div>
+                                  <div className='selected-price'>
+                                      <span className='price'>
+                                        ${ item.salePrice }
+                                      </span>
+                                      { item.discount !== 0 &&
+                                        <span className='original-price'> ${ item.price }</span>
+                                      }
+                                  </div>
+                                </button>
+                              </React.Fragment>
                             )}
                           </React.Fragment>
                         )}
-                      </ul>
+                      </div>
                     }
                   </div>
-                // </Collapse>
+                </Collapse>
               }
             </li>		
           )}

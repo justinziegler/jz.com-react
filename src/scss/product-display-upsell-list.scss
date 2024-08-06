@@ -629,7 +629,7 @@
     .type-select {
       padding: 0;
       margin: 0;
-      li {
+      button {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -651,6 +651,9 @@
           &:hover {
             background: #0b2836;
           }
+        }
+        &[data-visible=false] {
+          display: none;
         }
         &[data-type='OD'],
         &[data-type='OP'] {

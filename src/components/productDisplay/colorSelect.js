@@ -8,11 +8,11 @@ function ColorSelect(props) {
   }
   const colors = p.colorDisplayOrder;
   return (
-    <ul 
+    <div 
       className={ `color-select ${ addlClass }`}
       data-active-color={ props.activeColorName }>
       { colors.map((c, index) =>
-        <li 
+        <button 
           className='color' 
           role='button' 
           tabIndex='0' 
@@ -23,9 +23,9 @@ function ColorSelect(props) {
           key={ `colorselect${ index }`}
         >
           <span className='sr-only'>{ c.colorName }</span>
-        </li>
+        </button>
       )}
-    </ul>
+    </div>
   )
 }
 

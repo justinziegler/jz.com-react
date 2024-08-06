@@ -210,9 +210,9 @@ $imgixCrop: '&fit=crop&crop=focalpoint';
   }
 }
 
-li.color,
-.quantity-select li,
-.product-selection .type-select li {
+button.color,
+.quantity-select button,
+.product-selection .type-select button {
   user-select: none;
   &::before {
     content: '';
@@ -488,7 +488,7 @@ li.color,
   .color-select {
     &[data-active-color='Cold Stone'] {
       + .type-select {
-        li {
+        button {
           &[data-type='UU'] {
             background-image: url('../assets/frame/swatch-UU-CS.jpg?w=286&h=84&fp-y=0');
           }
@@ -500,7 +500,7 @@ li.color,
     }
     &[data-active-color='Desert Sand'] {
       + .type-select {
-        li {
+        button {
           &[data-type='UU'] {
             background-image: url('../assets/frame/swatch-UU-DS.jpg?w=286&h=84&fp-y=0');
           }
