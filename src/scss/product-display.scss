@@ -722,7 +722,7 @@ a {
     padding: 10px 5px 5px 5px;
     list-style: none;
     line-height: 1.2;
-    text-align: center;
+    align-items: center;
     cursor: pointer;
     user-select: none;
     font-weight: 700;
@@ -1678,16 +1678,18 @@ a {
 
 .cart-contents {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 90px;
+  left: 30px;
   background: rgba(0, 0, 0, .7);
-  
+  // pointer-events: none;
   transition: .3s;
-  opacity: 0;
+  // opacity: 0;
   font-size: 16px;
   font-weight: 700;
   border-radius: 8px;
   z-index: 100;
+  padding-right: 20px;
+  // position: relative; 
   @include mq(xsm) {
     font-size: vwl(14px);
     left: 15px;
@@ -1695,6 +1697,27 @@ a {
   }
   @include mq(xxs) {
     font-size: vwp(12px);
+  }
+  &[data-visible=false] {
+    opacity: 0;
+    pointer-events: none;
+  }
+  button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    @include x(#999);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    &:hover, &:focus {
+      outline: none;
+    }
   }
   ul {
     margin: 0;
@@ -1726,5 +1749,21 @@ a {
         margin-top: vwp(10px);
       }
     }
+  }
+  p {
+    color: #fff;
+    text-align: right;
+  }
+}
+.cart-overlay {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  &[data-visible=false] {
+    display: none
   }
 }

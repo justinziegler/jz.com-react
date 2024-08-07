@@ -33,7 +33,7 @@ function SizeSelect(props) {
           onClick={ props.handleSize }
           data-active={ item.sku === props.sku }
           data-visible={
-            item.color === props.color && item.type === props.activeType
+            item.color === props.color && item.type === props.type
           }
           key={ `sizeselect-${ index }`}
           // style={{ display: displayRule }}
@@ -110,7 +110,7 @@ function SizeSelect(props) {
                     data-color-name={ item.colorName }
                     data-color-selection={ p.colorSelection }
                     data-size={ item.size }
-                    data-size-name={ item.sizeName }
+                    data-sizename={ item.sizeName }
                     data-product-cat-sizes={ p.catSizes }
                     data-price={ item.salePrice * (key + 1) }
                     data-outofstock={ item.outOfStock }
@@ -121,9 +121,9 @@ function SizeSelect(props) {
                     role={ item.outOfStock ? 'none' : 'button' } 
                     tabIndex={ item.outOfStock ? -1 : 0 }
                     onClick={ props.handleSize }
-                    data-active={ item.type === props.activeType && item.color === props.activeColor && item.size === props.activeSize }
+                    data-active={ item.type === props.type && item.color === props.activeColor && item.size === props.size }
                     data-visible={
-                      item.type === props.activeType && item.color === props.activeColor
+                      item.type === props.type && item.color === props.activeColor
                     }
                     key={ `sizeselect-${ index }`}
                     // style={{ display: displayRule }}

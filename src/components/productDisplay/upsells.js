@@ -26,29 +26,19 @@ function Upsells(props) {
           { upsells.map((u, index) =>
             
             <li className='item' 
-              data-type={ 'xType' } 
-              data-product-cat-sizes={ u.catSizes }
-              data-match-color={ u.matchColor } 
               data-color-selection={ u.colorSelection }
-              data-slug={ u.slug }
-              data-default-state={ true }
-              // data-active={ props.activeUpsell1 }
-              
               key={ `upsell${ index }` }
             >
               <ul className='inventory'>
                 { u.skus.map(item =>
                   <li data-sku={ item.sku }
-                    data-name={ item.name }
                     data-type={ item.type }
                     data-color={ item.color }
-                    data-color-name={ item.colorName }
                     data-size={ item.size }
-                    data-size-name={ item.sizeName }
                     data-active={ 
                       index === 0 ? 
-                      props.upsell0active :
-                      props.upsell1active
+                      props.upsell0Active :
+                      props.upsell1Active
                     }
                     data-out-of-stock={ item.outOfStock }
                     data-price={ item.salePrice }
@@ -62,9 +52,12 @@ function Upsells(props) {
                     }
                     data-index={ index }
                     aria-controls={ `options` }
-                    aria-expanded={ props.upsellActive }
+                    aria-expanded={ 
+                      index === 0 ? 
+                      props.upsell0Active :
+                      props.upsell1Active
+                    }
                     key={ `upsell${ item.sku }` }
-                    // style={{ display: 'none' }}
                   >
                     &nbsp;
                     { singleUpsell ?				
@@ -118,12 +111,16 @@ function Upsells(props) {
                   <div className='options' data-visible={ index === 0 ? props.showOptions0 : props.showOptions1 }>
                     <div className='color-select'>
                       { u.colorDisplayOrder.map(c =>
-                        <button data-color={ c.color } role='button' tabIndex='0' 
+                        <button 
+                          data-color={ c.color } 
+                          data-colorname={ c.colorName } 
+                          role='button' 
+                          tabIndex='0' 
                           className='color' 
                           data-active={ 
                             index === 0 ?
-                            c.color === props.activeUpsellColor0 :
-                            c.color === props.activeUpsellColor1
+                            c.color === props.upsell0Color :
+                            c.color === props.upsell1Color
                           }
                           data-index={ index }
                           onClick={ props.handleUpsellColor }
@@ -141,9 +138,12 @@ function Upsells(props) {
                               item.catId === catId &&
                               <React.Fragment key={ `type-select-${item.sku}` }>
                                 <button data-sku={ item.sku }
+                                  data-name={ item.name }
                                   data-type={ item.type }
                                   data-color={ item.color }
                                   data-size={ item.sku.slice(9) }
+                                  data-price={ item.salePrice }
+                                  data-index={ index }
                                   data-active={ 
                                     index === 0 ?
                                       item.sku === props.upsell0Sku
@@ -152,14 +152,15 @@ function Upsells(props) {
                                   } 
                                   role='button' 
                                   tabIndex='0'
+                                  onClick={ props.handleUpsellType }
                                   key={ `type-select-${ item.sku }${ index }` }
                                   data-visible={
                                     index === 0 ?
-                                      item.color === props.activeUpsellColor0 &&
-                                      item.size === props.upsellSize0
+                                      item.color === props.upsell0Color &&
+                                      item.size === props.upsell0Size
                                     :
-                                      item.color === props.activeUpsellColor1 && 
-                                      item.size === props.upsellSize1
+                                      item.color === props.upsell1Color && 
+                                      item.size === props.upsell1Size
                                   }
                                 >
                                   <div className='selected-item'>

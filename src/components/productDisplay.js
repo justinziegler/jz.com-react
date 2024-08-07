@@ -9,6 +9,7 @@ import RichText from './productDisplay/richText';
 import Financing from './productDisplay/financing';
 import Upsells from './productDisplay/upsells';
 import { getUpsellSize } from './utils/getUpsellSize'
+import { getSizeName } from './utils/getSizeName'
 import '../css/bootstrap-grid.css'
 import '../scss/product-display.scss'
 // Remove below line when able (only included for BS collapse css)
@@ -22,11 +23,13 @@ function getInitialSelection(p) {
   p.skus.forEach(item => {
     if (!item.outofstock && initial.sku === undefined) {
       initial.sku = item.sku
+      initial.productName = item.name
       initial.type = p.defaultProductType 
-      initial.typeName = item.name
       initial.color = p.defaultColor
       initial.colorName = p.defaultColorName
       initial.size = item.size
+      initial.sizeName = item.sizeName
+      initial.salePrice = item.salePrice
     }
   })
   if (p.upsells !== undefined) {
@@ -37,11 +40,12 @@ function getInitialSelection(p) {
             item.color == initial.color && 
             getUpsellSize(initial.size, u.catSizes) === item.size) {
           initialItem.sku = item.sku
-          initialItem.name = item.name
+          initialItem.productName = item.name
           initialItem.type = item.type
           initialItem.color = item.color
           initialItem.colorName = item.colorName
           initialItem.size = item.size
+          initialItem.sizeName = item.sizeName
           initialItem.price = item.price
           initialItem.salePrice = item.salePrice
           initialItem.catSizes = u.catSizes
@@ -53,6 +57,8 @@ function getInitialSelection(p) {
     initial.upsells = initialUpsells
   }
 }
+
+
 
 function ProductDisplay(props) {
   const p = props.page
@@ -67,68 +73,97 @@ function ProductDisplay(props) {
   }
 
   const [activeSku, setActiveSku] = useState(initial.sku);
-  const [activeType, setActiveType] = useState(initial.type)
-  const [activeTypeName, setActiveTypeName] = useState(initial.typeName)
+  const [type, setType] = useState(initial.type)
+  const [productName, setProductName] = useState(initial.productName)
   const [activeColor, setActiveColor] = useState(initial.color)
   const [activeColorName, setActiveColorName] = useState(initial.colorName)
-  const [activeSize, setActiveSize] = useState(initial.size)
+  const [size, setSize] = useState(initial.size)
+  const [sizeName, setSizeName] = useState(initial.sizeName)
+  const [price, setPrice] = useState(initial.salePrice)
   // const [cart, setCart] = useState(initial)
-  console.log('activeType', activeType)
+  console.log('type', type)
   console.log('activeColor', activeColor)
   // console.log('activeColorName', activeColorName)
-  console.log('activeSize', activeSize)
+  console.log('size', size)
 
 
   // const [upsell0Sku, setUpsell0Sku] = useState('')
   // const [activeUpsellSku1, setActiveUpsellSku1] = useState('')
-  // const [activeUpsellType0, setActiveUpsellType0] = useState('')
-  // const [activeUpsellType1, setActiveUpsellType1] = useState('')
-  // const [activeUpsellColor0, setActiveUpsellColor0] = useState('')
-  // const [activeUpsellColor1, setActiveUpsellColor1] = useState('')
+  // const [upsell0Type, setUpsell0Type] = useState('')
+  // const [upsell1Type, setUpsell1Type] = useState('')
+  // const [upsell0Color, setUpsell0Color] = useState('')
+  // const [upsell1Color, setUpsell1Color] = useState('')
   const [upsell0Active, setUpsell0Active] = useState(false)
-  const [upsell1Active, setActiveUpsell1] = useState(false)
+  const [upsell1Active, setUpsell1Active] = useState(false)
+
   const [upsell0Sku, setUpsell0Sku] = useState(initial.upsells[0].sku)
   const [upsell1Sku, setUpsell1Sku] = useState(initial.upsells[1].sku)
-  const [activeUpsellType0, setActiveUpsellType0] = useState(initial.upsells[0].type)
-  const [activeUpsellType1, setActiveUpsellType1] = useState(initial.upsells[1].type)
-  const [activeUpsellColor0, setActiveUpsellColor0] = useState(initial.upsells[0].color)
-  const [activeUpsellColor1, setActiveUpsellColor1] = useState(initial.upsells[1].color)
-  const [upsellSize0, setUpsellSize0] = useState(getUpsellSize(activeSize, initial.upsells[0].catSizes))
-  const [upsellSize1, setUpsellSize1] = useState(getUpsellSize(activeSize, initial.upsells[1].catSizes))
+
+  const [upsell0ProductName, setUpsell0ProductName] = useState(initial.upsells[0].productName)
+  const [upsell1ProductName, setUpsell1ProductName] = useState(initial.upsells[1].productName)
+
+  const [upsell0Type, setUpsell0Type] = useState(initial.upsells[0].type)
+  const [upsell1Type, setUpsell1Type] = useState(initial.upsells[1].type)
+
+  const [upsell0Color, setUpsell0Color] = useState(initial.upsells[0].color)
+  const [upsell1Color, setUpsell1Color] = useState(initial.upsells[1].color)
+
+  const [upsell0ColorName, setUpsell0ColorName] = useState(initial.upsells[0].colorName)
+  const [upsell1ColorName, setUpsell1ColorName] = useState(initial.upsells[1].colorName)
+
+  const [upsell0Size, setUpsell0Size] = useState(getUpsellSize(size, initial.upsells[0].catSizes))
+  const [upsell1Size, setUpsell1Size] = useState(getUpsellSize(size, initial.upsells[1].catSizes))
+
+  const [upsell0SizeName, setUpsell0SizeName] = useState(initial.upsells[0].sizeName)
+  const [upsell1SizeName, setUpsell1SizeName] = useState(initial.upsells[1].sizeName)
+
   const upsell0CatSizes = initial.upsells[0].catSizes
   const upsell1CatSizes = initial.upsells[1].catSizes
+
+  const [upsell0Price, setUpsell0Price] = useState(initial.upsells[0].salePrice)
+  const [upsell1Price, setUpsell1Price] = useState(initial.upsells[1].salePrice)
+
   const [showOptions0, setShowOptions0] = useState(false)
   const [showOptions1, setShowOptions1] = useState(false)
+
+  const [cartTotal, setCartTotal] = useState(price)
+  const [showCart, setShowCart] = useState(false)
 
   console.log('upsell0Active', upsell0Active)
   console.log('upsell1Active', upsell1Active)
   console.log('upsell0Sku', upsell0Sku)
   console.log('upsell1Sku', upsell1Sku)
-  console.log('activeUpsellColor0', activeUpsellColor0)
-  console.log('activeUpsellColor1', activeUpsellColor1)
-  console.log('upsellSize0', upsellSize0)
-  console.log('upsellSize1', upsellSize1)
+  console.log('upsell0Color', upsell0Color)
+  console.log('upsell1Color', upsell1Color)
+  console.log('upsell0Size', upsell0Size)
+  console.log('upsell1Size', upsell1Size)
 
   const prefix = 'XX'
   const handleSku = () => {
-    setActiveSku(`${ prefix }-${ activeType }-${ activeColor }-${ activeSize }`);
+    setActiveSku(`${ prefix }-${ type }-${ activeColor }-${ size }`);
     console.log('handlesku', activeSku)
   }
+
   const handleSize = (e) => {
     let outofstock = e.target.dataset.outofstock === 'true';
     if (!outofstock) {
-      setActiveSize(e.target.dataset.size);
-      setActiveSku(`${ prefix }-${ activeType }-${ activeColor }-${ e.target.dataset.size }`);
-      console.log('handlesize: activeSize', activeSize)
-      console.log('handlesize: activeSku', activeSku)
+      setSize(e.target.dataset.size)
+      setSizeName(e.target.dataset.sizename)
+      setActiveSku(`${ prefix }-${ type }-${ activeColor }-${ e.target.dataset.size }`);
+      setPrice(e.target.dataset.price)
+      setCartTotal(getCartTotal)
       if (p.upsells !== undefined) {
         const size0 = getUpsellSize(e.target.dataset.size, upsell0CatSizes)
-        console.log('size0', size0)
-        setUpsellSize0(size0)
+        const sizeName0 = getSizeName(size0)
+        setUpsell0Size(size0)
+        setUpsell0SizeName(sizeName0)
+        setUpsell0Sku(`${ prefix }-${ upsell0Type }-${ upsell0Color }-${ size0 }`)
 
         const size1 = getUpsellSize(e.target.dataset.size, upsell1CatSizes)
-        console.log('size1', size1)
-        setUpsellSize0(size1)
+        const sizeName1 = getSizeName(size1)
+        setUpsell1Size(size1)
+        setUpsell1SizeName(sizeName1)
+        setUpsell1Sku(`${ prefix }-${ upsell1Type }-${ upsell1Color }-${ size1 }`)
       }
     }
   }
@@ -140,11 +175,11 @@ function ProductDisplay(props) {
   }
   const handleType = (e) => {
     // const utype = e.target.dataset.type
-    setActiveType(e.target.dataset.type)
-    setActiveTypeName(e.target.dataset.typename)
+    setType(e.target.dataset.type)
+    setProductName(e.target.dataset.productName)
     console.log('e.target.dataset.type', e.target.dataset.type)
-    console.log('activeType', activeType)
-    console.log('activeTypeName', activeTypeName)
+    console.log('type', type)
+    console.log('name', productName)
     handleSku();
   }
 
@@ -160,38 +195,81 @@ function ProductDisplay(props) {
       setShowOptions0(!showOptions0)
       console.log('index = 0')
     } else if (index === 1) {
-      setActiveUpsell1(!upsell1Active)
+      setUpsell1Active(!upsell1Active)
       setShowOptions1(!showOptions1)
       console.log('index = 1')
     }
+    getCartTotal()
   }
 
   const handleUpsellSku = (index) => {
     console.log('handleUpsellSku index', index)
     if (index === 0) {
-      setUpsell0Sku(`${ prefix }-${ activeUpsellType0 }-${ activeUpsellColor0 }-${ upsellSize0 }`)
+      setUpsell0Sku(`${ prefix }-${ upsell0Type }-${ upsell0Color }-${ upsell0Size }`)
       console.log('handleUpsellsku0', upsell0Sku)
     } else if (index === 1) {
-      setUpsell1Sku(`${ prefix }-${ activeUpsellType1 }-${ activeUpsellColor1 }-${ upsellSize1 }`)
+      setUpsell1Sku(`${ prefix }-${ upsell1Type }-${ upsell1Color }-${ upsell1Size }`)
       console.log('handleUpsellsku1', upsell1Sku)
     }
   }
   const handleUpsellColor = (e) => {
     const index = Number(e.target.dataset.index)
     const color = e.target.dataset.color
+    const colorName = e.target.dataset.colorname
     if (index === 0) {
-      setActiveUpsellColor0(color)
-      setUpsell0Sku(`${ prefix }-${ activeUpsellType0 }-${ color }-${ upsellSize0 }`)
+      setUpsell0Color(color)
+      setUpsell0ColorName(colorName)
+      setUpsell0Sku(`${ prefix }-${ upsell0Type }-${ color }-${ upsell0Size }`)
       console.log('handleUpsellColor got hre')
       console.log('color', color)
     } else if (index === 1) {
-      setActiveUpsellColor1(color)
-      setUpsell1Sku(`${ prefix }-${ activeUpsellType1 }-${ color }-${ upsellSize1 }`)
+      setUpsell1Color(color)
+      setUpsell1ColorName(colorName)
+      setUpsell1Sku(`${ prefix }-${ upsell1Type }-${ color }-${ upsell1Size }`)
     }
     // handleUpsellSku(index);
     console.log('handleUpsellColor')
     console.log('e.target.dataset.color', e.target.dataset.color)
-    console.log('activeUpsellColor0', activeUpsellColor0)
+    console.log('upsell0Color', upsell0Color)
+  }
+
+  const handleUpsellType = (e) => {
+    const index = Number(e.target.dataset.index)
+    const type = e.target.dataset.type
+    const name = e.target.dataset.name
+    console.log('handleUpsellType')
+    if (index === 0) {
+      setUpsell0Type(type)
+      setUpsell0ProductName(name)
+      setUpsell0Price(e.target.dataset.price)
+      setUpsell0Sku(`${ prefix }-${ type }-${ upsell0Color }-${ upsell0Size }`)
+      console.log('handleUpsellType 0')
+    } else if (index === 1) {
+      setUpsell1Type(type)
+      setUpsell1ProductName(name)
+      setUpsell1Price(e.target.dataset.price)
+      setUpsell1Sku(`${ prefix }-${ type }-${ upsell1Color }-${ upsell1Size }`)
+      console.log('handleUpsellType 1')
+    }
+    getCartTotal()
+  }
+
+  function getCartTotal() {
+    let total = price
+    console.log('upsell0Active', upsell0Active)
+    if (upsell0Active) total += upsell0Price
+    if (upsell1Active) total += upsell1Price
+    console.log('total', total)
+    setCartTotal(total)
+  }
+
+  const displayCart = (e) => {
+    setShowCart(true)
+  }
+
+  const hideCart = (e) => {
+    setShowCart(false)
+    console.log('hide cart')
   }
 
   console.log('game over man!')
@@ -199,7 +277,11 @@ function ProductDisplay(props) {
 
 
   return (
-    <main data-active-type='none' data-active-color='none' data-active-size='none'>	
+    <main 
+      // data-active-type='none' 
+      // data-active-color='none' 
+      // data-active-size='none'
+    >	
       <div className='product-display'>  
         <div className='container-fluid'>
           <div className='row'>
@@ -227,10 +309,10 @@ function ProductDisplay(props) {
                         activeSku={ activeSku } 
                         setActiveSku={ setActiveSku } 
                         handleSku={ handleSku }
-                        activeSize={ activeSize }
-                        setActiveSize={ setActiveSize }
+                        size={ size }
+                        setSize={ setSize }
                         handleSize={ handleSize } 
-                        activeType={ activeType }
+                        type={ type }
                         activeColor={ activeColor }
                       />
 
@@ -251,10 +333,10 @@ function ProductDisplay(props) {
                       { p.comboPage &&
                         <TypeSelect 
                           page={ props.page } 
-                          activeType={ activeType } 
-                          setActiveType={ setActiveType }
-                          activeTypeName={ activeTypeName } 
-                          setActiveTypeName={ setActiveTypeName }
+                          type={ type } 
+                          setType={ setType }
+                          productName={ productName } 
+                          setProductName={ setProductName }
                           handleType={ handleType }
                         />
                       } 
@@ -266,32 +348,49 @@ function ProductDisplay(props) {
                     { p.upsell &&
                       <Upsells 
                         page={ props.page } 
-                        activeType={ activeType }
+                        type={ type }
                         activeColor={ activeColor } 
-                        activeSize={ activeSize } 
+                        size={ size } 
                         // cart={ cart }
                         handleActiveUpsell={ handleActiveUpsell }
                         handleUpsellColor={ handleUpsellColor }
+                        handleUpsellType={ handleUpsellType }
                         upsell0Active={ upsell0Active }
                         upsell1Active={ upsell1Active }
                         setUpsell0Active={ setUpsell0Active }
-                        setActiveUpsell1={ setActiveUpsell1 }
+                        setUpsell1Active={ setUpsell1Active }
                         upsell0Sku={ upsell0Sku }
                         upsell1Sku={ upsell1Sku }
-                        activeUpsellColor0={ activeUpsellColor0 }
-                        activeUpsellColor1={ activeUpsellColor1 }
-                        setActiveUpsellColor0={ setActiveUpsellColor0 }
-                        setActiveUpsellColor1={ setActiveUpsellColor1 }
-                        upsellSize0={ upsellSize0 }
-                        upsellSize1={ upsellSize1 }
+                        upsell0Color={ upsell0Color }
+                        upsell1Color={ upsell1Color }
+                        setUpsell0Color={ setUpsell0Color }
+                        setUpsell1Color={ setUpsell1Color }
+                        upsell0Size={ upsell0Size }
+                        upsell1Size={ upsell1Size }
                         showOptions0={ showOptions0 }
                         showOptions1={ showOptions1 }
                       />
                     }
         
                     <div className='col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 add-to-cart'>
-                      <button className='btn { p.addToCartButtonClass }' id='btn-addtocart' role='button'>
-                        Add <span style={{ display: 'none' }} data-quantity='2'></span> to Cart
+                      <button 
+                        className='btn' 
+                        id='btn-addtocart'
+                        onClick={ displayCart }
+                        disabled={ showCart }
+                        role='button'>
+                        Add 
+                        { ((upsell0Active && !upsell1Active) || (upsell1Active && !upsell0Active)) &&
+                         <>
+                          &nbsp;2
+                         </>
+                        }
+                        { (upsell0Active && upsell1Active) &&
+                         <>
+                          &nbsp;3
+                         </>
+                        }
+                        <span style={{ display: 'none' }} data-quantity='2'></span> to Cart
                       </button>
                     </div>
                     { p.readyToShipMessage &&
@@ -306,10 +405,42 @@ function ProductDisplay(props) {
             <RichText page={ props.page } />
           </div>
         </div>
-
-        <div className='cart-contents'>
-          <ul></ul>
+            
+        <div 
+          className='cart-contents' 
+          data-visible={ showCart }
+        >
+          <button 
+            onClick={ hideCart }
+            ></button>
+          <ul>
+            <li>
+              { sizeName } { productName }
+              { p.colorSelection &&
+                <>
+                  &nbsp;&ndash; { activeColorName }
+                </>
+              } 
+            </li>
+            { p.upsells &&
+              <>
+                { (upsell0Sku.length && upsell0Active) && 
+                  <li>
+                    { upsell0SizeName } { upsell0ProductName } &ndash; { upsell0ColorName }
+                  </li>
+                }
+                { (upsell1Sku.length && upsell1Active) && 
+                  <li>
+                    { upsell1SizeName } { upsell1ProductName } &ndash; { upsell1ColorName }
+                  </li>
+                }
+              </>
+            }
+          </ul>
+          <p>Cart total: { cartTotal }</p>
         </div>
+        <div className='cart-overlay' data-visible={ showCart } onClick={ hideCart }></div>
+
       </div>
 
       {/* {% block content %}
