@@ -63,7 +63,9 @@ $link-hover-decoration: none !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif:  "Avenir", "Trebuchet MS", Helvetica, Arial, sans-serif;
+$font-family-sans-serif:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
 $font-family-serif:       "PT Serif", Palatino, serif;
 
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
-import { getUpsellSize } from '../utils/getUpsellSize'
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import UpsellModal from './upsellModal';
 
 function Upsells(props) {
   const p = props.page
@@ -11,13 +13,13 @@ function Upsells(props) {
   if (upsells.length > 1) {
     singleUpsell = false
     additionalClass = 'multiple'
-  }  
+  }
 
   return (
     <div className='col-xs-12'>
       <div className={ `upsell-list ${ additionalClass }`}>
         { p.upsellListTitle !== '' &&
-          <h2><span>{ p.upsellListTitle }</span></h2>
+          <h2><span>{ p.upsellListTitle } { props.showUpsell0Modal }</span></h2>
         }
         { p.upsellListSubtitle !== '' &&
           <p>{ p.upsellListSubtitle }</p>
@@ -28,7 +30,19 @@ function Upsells(props) {
             <li className='item' 
               data-color-selection={ u.colorSelection }
               key={ `upsell${ index }` }
+              data-showupsell0modal={ props.showUpsell0Modal }
+              data-asdf='true'
             >
+              <UpsellModal 
+                show={ 
+                  index === 0 ? 
+                  props.showUpsell0Modal : 
+                  props.showUpsell1Modal
+                }
+                u={ u }
+                index={ index }
+                handleClose={ props.handleUpsellModalClose } 
+              />
               <ul className='inventory'>
                 { u.skus.map(item =>
                   <li data-sku={ item.sku }
@@ -40,7 +54,6 @@ function Upsells(props) {
                       props.upsell0Active :
                       props.upsell1Active
                     }
-                    data-out-of-stock={ item.outOfStock }
                     data-price={ item.salePrice }
                     onClick={ props.handleActiveUpsell }
                     role='button' tabIndex='0'
@@ -63,13 +76,9 @@ function Upsells(props) {
                     { singleUpsell ?				
                       <span className='price'>
                         { u.subtitle !== '' ?
-                          <>
-                            { u.subtitle }
-                          </>
+                          <>{ u.subtitle }</>
                         :
-                          <>
-                            { item.colorName }
-                          </>
+                          <>{ item.colorName }</>
                         } &bull; 
                         { item.discount !== 0 ?
                           <>
@@ -77,9 +86,7 @@ function Upsells(props) {
                             <span className='original price'>${ item.price }</span>
                           </>
                         :
-                          <>
-                            ${ item.price }
-                          </>
+                          <>${ item.price }</>
                         }
                       </span>
                     :
@@ -97,36 +104,49 @@ function Upsells(props) {
                       { singleUpsell ?
                         <span>{ u.name }</span>
                       :
-                        <a data-toggle='modal' data-target='#upsell-modal-{{ xType }}' role='button' tabIndex='0' href='#'>
-                          <span>{ u.name }</span>
+                        <a 
+                          onClick={ props.handleShowUpsellModal }
+                          // onClick={ (e) => props.showUpsell0Modal(true)  }
+                          data-index={ index }
+                          role='button' 
+                          tabIndex='0' 
+                          href='./'
+                        >
+                          <span>{ u.name } !!!</span>
                         </a>
                       }
                     </label>
                   </li>
                 )}										
               </ul>
-              {/* Color Selection */}
+              
               { u.colorSelection &&
                 <Collapse in={ index === 0 ? props.showOptions0 : props.showOptions1 }>
                   <div className='options' data-visible={ index === 0 ? props.showOptions0 : props.showOptions1 }>
                     <div className='color-select'>
                       { u.colorDisplayOrder.map(c =>
-                        <button 
-                          data-color={ c.color } 
-                          data-colorname={ c.colorName } 
-                          role='button' 
-                          tabIndex='0' 
-                          className='color' 
-                          data-active={ 
-                            index === 0 ?
-                            c.color === props.upsell0Color :
-                            c.color === props.upsell1Color
-                          }
-                          data-index={ index }
-                          onClick={ props.handleUpsellColor }
-                          key={ `color-select${ u.catId }${ c.color }${ index }` }
+                        <OverlayTrigger 
+                          placement='top' 
+                          overlay={<Tooltip id={ c.color }>{ c.colorName }</Tooltip>}
+                          key={ `overlay${ c.color }` }
                         >
-                        </button>
+                          <button 
+                            data-color={ c.color } 
+                            data-colorname={ c.colorName } 
+                            role='button'
+                            className='color' 
+                            tabIndex='0' 
+                            data-active={ 
+                              index === 0 ?
+                              c.color === props.upsell0Color :
+                              c.color === props.upsell1Color
+                            }
+                            data-index={ index }
+                            onClick={ props.handleUpsellColor }
+                            key={ `color-select${ u.catId }${ c.color }${ index }` }
+                          >
+                          </button>
+                        </OverlayTrigger>                          
                       )}
                     </div>
 

@@ -10,7 +10,73 @@
 @import 'partials/snippets/lull-button-new';
 @import 'partials/snippets/max-width-1920';
 @import "bootstrap5/variables";
+@import "bootstrap5/mixins";
 @import "bootstrap5/transitions";
+@import "bootstrap5/tooltip";
+
+$prefix: bs- !default;
+$box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
+$zindex-modal-backdrop:             1050 !default;
+$zindex-modal:                      1055 !default;
+$enable-transitions:          true !default;
+$enable-rounded:              true !default;
+$enable-reduced-motion:       true !default;
+$enable-shadows:              false !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+// Modals
+
+// scss-docs-start modal-variables
+$modal-inner-padding:               $spacer !default;
+
+$modal-footer-margin-between:       .5rem !default;
+
+$modal-dialog-margin:               .5rem !default;
+$modal-dialog-margin-y-sm-up:       1.75rem !default;
+
+$modal-title-line-height:           $line-height-base !default;
+
+$modal-content-color:               null !default;
+$modal-content-bg:                  var(--#{$prefix}body-bg) !default;
+$modal-content-border-color:        var(--#{$prefix}border-color-translucent) !default;
+$modal-content-border-width:        var(--#{$prefix}border-width) !default;
+$modal-content-border-radius:       var(--#{$prefix}border-radius-lg) !default;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
+$modal-content-box-shadow-xs:       $box-shadow-sm !default;
+$modal-content-box-shadow-sm-up:    $box-shadow !default;
+
+$modal-backdrop-bg:                 $black !default;
+$modal-backdrop-opacity:            .5 !default;
+
+$modal-header-border-color:         var(--#{$prefix}border-color) !default;
+$modal-header-border-width:         $modal-content-border-width !default;
+$modal-header-padding-y:            $modal-inner-padding !default;
+$modal-header-padding-x:            $modal-inner-padding !default;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-footer-bg:                   null !default;
+$modal-footer-border-color:         $modal-header-border-color !default;
+$modal-footer-border-width:         $modal-header-border-width !default;
+
+$modal-sm:                          300px !default;
+$modal-md:                          500px !default;
+$modal-lg:                          800px !default;
+$modal-xl:                          1140px !default;
+
+$modal-fade-transform:              translate(0, -50px) !default;
+$modal-show-transform:              none !default;
+$modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;
+@import "bootstrap5/modal";
 
 $imgixDefaults: '?auto=format,compress&q=50';
 
@@ -1630,16 +1696,28 @@ a {
 .tooltip {
   cursor: help;
 }
-.tippy-tooltip.lull-theme {
+.tooltip {
   font-size: 1.4rem;
   background-color: $white;
   border: 1px solid #d9d8d6;
-  color: $navy;
-  padding: 15px;
+  padding: 10px 15px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   user-select: none;
-  .tippy-arrow {
-    border-color: #fff transparent transparent transparent;
+  // margin-bottom: 5px;
+}
+.tooltip-inner {
+  background-color: #fff;
+  color: $navy;
+}
+.tooltip-arrow {
+  color: #fff;
+  width: 10px!important;
+  height: 10px!important;
+  bottom: -10px!important;
+  &::before {
+    border-width: 10px!important;
+    border-top-color: #fff!important;
+    left: -5px!important;
   }
 }
 

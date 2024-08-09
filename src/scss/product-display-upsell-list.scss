@@ -605,7 +605,7 @@
       @include mq(md) {
         padding: 0 5px 15px 5px;
       }
-      li {
+      button {
         width: 28px;
         height: 28px;
         @include mq(xsm) {
@@ -643,7 +643,7 @@
           @include filter-gradient(#ffffff, #f7f6f4, vertical);
           @include background-image(
             linear-gradient(
-              top,
+              to bottom,
               rgba(255, 255, 255, 1) 0%,
               rgba(247, 246, 244, 1) 100%
             )

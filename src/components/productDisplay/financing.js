@@ -13,7 +13,7 @@ function Financing(props) {
         <div 
           data-sku={ item.sku }
           key={ `financing${ index }`}
-          data-visible={ item.sku === props.activeSku }
+          data-visible={ item.sku === props.sku }
           data-propssku={ props.sku }
         >
           <p className='price' 
@@ -22,38 +22,25 @@ function Financing(props) {
             key={ `price${ index }`}
           >
             0% APR financing as low as 
-            <span>
-              <span className='monthly-payment'> ${ Math.round(item.monthlyPayment) }</span>
-              { p.upsell &&
-                <span className='current-monthly-payment'></span>
-              }/month
-            </span> <span 
-              className='tooltip question' 
-              data-sku={ item.sku } 
-              data-quantity={ i }>
+            <span> $
+              { (props.upsell0Active && props.upsell1Active) ?
+                <>{ Math.round((props.price + props.upsell0Price + props.upsell1Price) / 18) }</> :
+                <>
+                  { (props.upsell0Active && !props.upsell1Active) ?
+                      <>{ Math.round((props.price + props.upsell0Price) / 18) }</> :
+                    <>
+                      { (!props.upsell0Active && props.upsell1Active) ?
+                        <>{ Math.round((props.price + props.upsell1Price) / 18) }</> :
+                        <>{ Math.round(props.price / 18) }</>
+                      }
+                    </>
+                  }
+                </>
+              }
+              /month
             </span>
           </p>
 
-          {/* Tooltip */}
-          <div className='monthly-apr' 
-            data-sku={ item.sku } 
-            data-quantity={ i } 
-            key={ `monthly${ index }`}
-            style={{ display: 'none' }}
-          >
-            APR as Low as 0% for { item.paymentTerm } months.<br />
-            <a 
-              href='#' 
-              className='financing-modal-link' 
-              data-toggle='modal' 
-              data-sku={ item.sku } 
-              data-quantity={ i } 
-              data-target='#financing-modal'
-              //  onClick='updateFinancing('item.sku ,  i )'
-            >
-              Learn more
-            </a>.
-          </div>
         </div>
       )
     })

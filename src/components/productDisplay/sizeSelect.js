@@ -75,7 +75,7 @@ function SizeSelect(props) {
               </div>
               :
               <div className='delivery-window left-col col-xs-8' key='product-details02'>
-                <p>{ p.deliveryWindowText }</p>
+                { p.deliveryWindowText }
               </div>
             }
             <div className='size-guide right-col col-xs-4' key='product-details03'>
@@ -91,7 +91,7 @@ function SizeSelect(props) {
           </React.Fragment>
         :
           <div className="delivery-window left-col col-xs-12" key='product-details04'>
-            <p>{ p.deliveryWindowText }</p>
+            { p.deliveryWindowText }
           </div>
         }
       </div>	

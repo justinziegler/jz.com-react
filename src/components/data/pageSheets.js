@@ -47,7 +47,7 @@ const pageSheets = [
         tooltipFootnote: '*Reviews based on the Original Sheets set'
       }
     ],
-    deliveryWindowText: 'Included:<br>Fitted sheet, top sheet and <span class="hidden-xs">matching</span> <span class="pillowcase">pillowcase</span>',
+    deliveryWindowText: <p>Included:<br />Fitted sheet, top sheet and <span className="hidden-xs">matching</span> <span className="pillowcase">pillowcase</span></p>,
     readyToShipMessage: true,
     sizeGuide: [
       {
