@@ -97,7 +97,6 @@ function SizeSelect(props) {
       </div>	
 
       <div className='size-select grid clearfix' data-long-title={ p.longTitle }>
-        {/* { Items } */}
         {
           [...Array(p.maxQty).keys()].map(key => 
             <React.Fragment key='size-select-grid'>
@@ -121,18 +120,16 @@ function SizeSelect(props) {
                     role={ item.outOfStock ? 'none' : 'button' } 
                     tabIndex={ item.outOfStock ? -1 : 0 }
                     onClick={ props.handleSize }
-                    data-active={ item.type === props.type && item.color === props.activeColor && item.size === props.size }
+                    data-active={ item.type === props.type && item.color === props.color && item.size === props.size }
                     data-visible={
-                      item.type === props.type && item.color === props.activeColor
+                      item.type === props.type && item.color === props.color
                     }
                     key={ `sizeselect-${ index }`}
-                    // style={{ display: displayRule }}
                   > 
                     <div className='selected-item'>
                       { item.sizeName }
                     </div>
                     <div className='selected-price'>
-                      { item.sku }<br />
                       <span>
                         <span className='sr-only'>Now Priced at</span>
                         ${ item.salePrice * (key + 1) }

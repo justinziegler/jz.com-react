@@ -8,6 +8,7 @@ import TypeSelect from './productDisplay/typeSelect';
 import RichText from './productDisplay/richText';
 import Financing from './productDisplay/financing';
 import Upsells from './productDisplay/upsells';
+import Cart from './productDisplay/cart'
 import { getUpsellSize } from './utils/getUpsellSize'
 import { getSizeName } from './utils/getSizeName'
 import '../css/bootstrap-grid.css'
@@ -75,47 +76,20 @@ function ProductDisplay(props) {
   const [sku, setSku] = useState(initial.sku);
   const [type, setType] = useState(initial.type)
   const [productName, setProductName] = useState(initial.productName)
-  const [activeColor, setActiveColor] = useState(initial.color)
-  const [activeColorName, setActiveColorName] = useState(initial.colorName)
+  const [color, setColor] = useState(initial.color)
+  const [colorName, setColorName] = useState(initial.colorName)
   const [size, setSize] = useState(initial.size)
   const [sizeName, setSizeName] = useState(initial.sizeName)
   const [price, setPrice] = useState(initial.salePrice)
-  // const [cart, setCart] = useState(initial)
-  console.log('type', type)
-  console.log('activeColor', activeColor)
-  // console.log('activeColorName', activeColorName)
-  console.log('size', size)
-
-
-  // const [upsell0Sku, setUpsell0Sku] = useState('')
-  // const [activeUpsellSku1, setActiveUpsellSku1] = useState('')
-  // const [upsell0Type, setUpsell0Type] = useState('')
-  // const [upsell1Type, setUpsell1Type] = useState('')
-  // const [upsell0Color, setUpsell0Color] = useState('')
-  // const [upsell1Color, setUpsell1Color] = useState('')
+  
   const [upsell0Active, setUpsell0Active] = useState(false)
   const [upsell1Active, setUpsell1Active] = useState(false)
 
   const [upsell0Sku, setUpsell0Sku] = useState(initial.upsells[0].sku)
   const [upsell1Sku, setUpsell1Sku] = useState(initial.upsells[1].sku)
 
-  const [upsell0ProductName, setUpsell0ProductName] = useState(initial.upsells[0].productName)
-  const [upsell1ProductName, setUpsell1ProductName] = useState(initial.upsells[1].productName)
-
-  const [upsell0Type, setUpsell0Type] = useState(initial.upsells[0].type)
-  const [upsell1Type, setUpsell1Type] = useState(initial.upsells[1].type)
-
-  const [upsell0Color, setUpsell0Color] = useState(initial.upsells[0].color)
-  const [upsell1Color, setUpsell1Color] = useState(initial.upsells[1].color)
-
-  const [upsell0ColorName, setUpsell0ColorName] = useState(initial.upsells[0].colorName)
-  const [upsell1ColorName, setUpsell1ColorName] = useState(initial.upsells[1].colorName)
-
   const [upsell0Size, setUpsell0Size] = useState(getUpsellSize(size, initial.upsells[0].catSizes))
   const [upsell1Size, setUpsell1Size] = useState(getUpsellSize(size, initial.upsells[1].catSizes))
-
-  const [upsell0SizeName, setUpsell0SizeName] = useState(initial.upsells[0].sizeName)
-  const [upsell1SizeName, setUpsell1SizeName] = useState(initial.upsells[1].sizeName)
 
   const upsell0CatSizes = initial.upsells[0].catSizes
   const upsell1CatSizes = initial.upsells[1].catSizes
@@ -123,27 +97,11 @@ function ProductDisplay(props) {
   const [upsell0Price, setUpsell0Price] = useState(initial.upsells[0].salePrice)
   const [upsell1Price, setUpsell1Price] = useState(initial.upsells[1].salePrice)
 
-  const [showOptions0, setShowOptions0] = useState(false)
-  const [showOptions1, setShowOptions1] = useState(false)
-
-  const [showUpsell0Modal, setShowUpsell0Modal] = useState(false)
-  const [showUpsell1Modal, setShowUpsell1Modal] = useState(false)
-
-  const [cartTotal, setCartTotal] = useState(price)
   const [showCart, setShowCart] = useState(false)
-
-  console.log('upsell0Active', upsell0Active)
-  console.log('upsell1Active', upsell1Active)
-  console.log('upsell0Sku', upsell0Sku)
-  console.log('upsell1Sku', upsell1Sku)
-  console.log('upsell0Color', upsell0Color)
-  console.log('upsell1Color', upsell1Color)
-  console.log('upsell0Size', upsell0Size)
-  console.log('upsell1Size', upsell1Size)
 
   const prefix = 'XX'
   const handleSku = () => {
-    setSku(`${ prefix }-${ type }-${ activeColor }-${ size }`);
+    setSku(`${ prefix }-${ type }-${ color }-${ size }`);
     console.log('handlesku', sku)
   }
 
@@ -152,27 +110,20 @@ function ProductDisplay(props) {
     if (!outofstock) {
       setSize(e.target.dataset.size)
       setSizeName(e.target.dataset.sizename)
-      setSku(`${ prefix }-${ type }-${ activeColor }-${ e.target.dataset.size }`);
+      setSku(`${ prefix }-${ type }-${ color }-${ e.target.dataset.size }`);
       setPrice(Number(e.target.dataset.price))
       if (p.upsells !== undefined) {
         const size0 = getUpsellSize(e.target.dataset.size, upsell0CatSizes)
-        const sizeName0 = getSizeName(size0)
         setUpsell0Size(size0)
-        setUpsell0SizeName(sizeName0)
-        setUpsell0Sku(`${ prefix }-${ upsell0Type }-${ upsell0Color }-${ size0 }`)
 
         const size1 = getUpsellSize(e.target.dataset.size, upsell1CatSizes)
-        const sizeName1 = getSizeName(size1)
         setUpsell1Size(size1)
-        setUpsell1SizeName(sizeName1)
-        setUpsell1Sku(`${ prefix }-${ upsell1Type }-${ upsell1Color }-${ size1 }`)
       }
     }
   }
   const handleColor = (e) => {
-    setActiveColor(e.target.dataset.color)
-    setActiveColorName(e.target.dataset.colorName)
-    console.log('activeColor', activeColor)
+    setColor(e.target.dataset.color)
+    setColorName(e.target.dataset.colorName)
     handleSku();
   }
   const handleType = (e) => {
@@ -185,95 +136,27 @@ function ProductDisplay(props) {
     handleSku();
   }
 
-  // we can set these
 
-
-  const handleActiveUpsell = (e) => {
-    e.preventDefault();
-    console.log('e.target.dataset.index', e.target.dataset.index)
-    const index = Number(e.target.dataset.index)
-    if (index === 0) {
-      setUpsell0Active(!upsell0Active)
-      setShowOptions0(!showOptions0)
-      console.log('index = 0')
-    } else if (index === 1) {
-      setUpsell1Active(!upsell1Active)
-      setShowOptions1(!showOptions1)
-      console.log('index = 1')
-    }
-  }
-
-  const handleUpsellSku = (index) => {
-    console.log('handleUpsellSku index', index)
-    if (index === 0) {
-      setUpsell0Sku(`${ prefix }-${ upsell0Type }-${ upsell0Color }-${ upsell0Size }`)
-      console.log('handleUpsellsku0', upsell0Sku)
-    } else if (index === 1) {
-      setUpsell1Sku(`${ prefix }-${ upsell1Type }-${ upsell1Color }-${ upsell1Size }`)
-      console.log('handleUpsellsku1', upsell1Sku)
-    }
-  }
-  const handleUpsellColor = (e) => {
-    const index = Number(e.target.dataset.index)
-    const color = e.target.dataset.color
-    const colorName = e.target.dataset.colorname
-    if (index === 0) {
-      setUpsell0Color(color)
-      setUpsell0ColorName(colorName)
-      setUpsell0Sku(`${ prefix }-${ upsell0Type }-${ color }-${ upsell0Size }`)
-      console.log('handleUpsellColor got hre')
-      console.log('color', color)
-    } else if (index === 1) {
-      setUpsell1Color(color)
-      setUpsell1ColorName(colorName)
-      setUpsell1Sku(`${ prefix }-${ upsell1Type }-${ color }-${ upsell1Size }`)
-    }
-    // handleUpsellSku(index);
-    console.log('handleUpsellColor')
-    console.log('e.target.dataset.color', e.target.dataset.color)
-    console.log('upsell0Color', upsell0Color)
-  }
-
-  const handleUpsellType = (e) => {
-    const index = Number(e.target.dataset.index)
-    const type = e.target.dataset.type
-    const name = e.target.dataset.name
-    console.log('handleUpsellType')
-    if (index === 0) {
-      setUpsell0Type(type)
-      setUpsell0ProductName(name)
-      setUpsell0Price(Number(e.target.dataset.price))
-      setUpsell0Sku(`${ prefix }-${ type }-${ upsell0Color }-${ upsell0Size }`)
-      console.log('handleUpsellType 0')
-    } else if (index === 1) {
-      setUpsell1Type(type)
-      setUpsell1ProductName(name)
-      setUpsell1Price(Number(e.target.dataset.price))
-      setUpsell1Sku(`${ prefix }-${ type }-${ upsell1Color }-${ upsell1Size }`)
-      console.log('handleUpsellType 1')
-    }
-  }
-
-  const handleShowUpsellModal = (e) => {
-    e.preventDefault();
-    console.log('show upsell modal')
-    const index = Number(e.target.dataset.index)
-    console.log('show upsell modal index', index)
-    if (e.target.dataset.index === 0) {
-      setShowUpsell0Modal(true)
-      console.log('000')
-    } else {
-      setShowUpsell1Modal(true)
-      console.log('111')
-    }
-  }
-  const handleUpsellModalClose = (e) => {
-    if (e.target.dataset.index === 0) {
-      setShowUpsell0Modal(false)
-    } else {
-      setShowUpsell1Modal(false)
-    }
-  }
+  // const handleShowUpsellModal = (e) => {
+  //   e.preventDefault();
+  //   console.log('show upsell modal')
+  //   const index = Number(e.target.dataset.index)
+  //   console.log('show upsell modal index', index)
+  //   if (e.target.dataset.index === 0) {
+  //     setShowUpsell0Modal(true)
+  //     console.log('000')
+  //   } else {
+  //     setShowUpsell1Modal(true)
+  //     console.log('111')
+  //   }
+  // }
+  // const handleUpsellModalClose = (e) => {
+  //   if (e.target.dataset.index === 0) {
+  //     setShowUpsell0Modal(false)
+  //   } else {
+  //     setShowUpsell1Modal(false)
+  //   }
+  // }
 
   const displayCart = (e) => {
     setShowCart(true)
@@ -284,8 +167,6 @@ function ProductDisplay(props) {
     console.log('hide cart')
   }
 
-
-  console.log('upsell0Modal!', showUpsell0Modal)
   console.log('game over man!')
   console.log('')
 
@@ -327,15 +208,15 @@ function ProductDisplay(props) {
                         setSize={ setSize }
                         handleSize={ handleSize } 
                         type={ type }
-                        activeColor={ activeColor }
+                        color={ color }
                       />
 
                       { p.colorSelection &&
                         <ColorSelect 
                           page={ props.page } 
-                          activeColor={ activeColor } 
-                          activeColorName={ activeColorName } 
-                          setActiveColor={ setActiveColor }
+                          color={ color } 
+                          colorName={ colorName } 
+                          setColor={ setColor }
                           handleColor={ handleColor }
                         />
                       }
@@ -370,31 +251,22 @@ function ProductDisplay(props) {
 
                     { p.upsell &&
                       <Upsells 
-                        page={ props.page } 
+                        page={ props.page }
+                        prefix={ prefix }
                         type={ type }
-                        activeColor={ activeColor } 
+                        color={ color } 
                         size={ size } 
-                        // cart={ cart }
-                        handleActiveUpsell={ handleActiveUpsell }
-                        handleUpsellColor={ handleUpsellColor }
-                        handleUpsellType={ handleUpsellType }
-                        handleShowUpsellModal={ handleShowUpsellModal }
                         upsell0Active={ upsell0Active }
                         upsell1Active={ upsell1Active }
                         setUpsell0Active={ setUpsell0Active }
                         setUpsell1Active={ setUpsell1Active }
                         upsell0Sku={ upsell0Sku }
                         upsell1Sku={ upsell1Sku }
-                        upsell0Color={ upsell0Color }
-                        upsell1Color={ upsell1Color }
-                        setUpsell0Color={ setUpsell0Color }
-                        setUpsell1Color={ setUpsell1Color }
+                        setUpsell0Sku={ setUpsell0Sku }
+                        setUpsell1Sku={ setUpsell1Sku }
                         upsell0Size={ upsell0Size }
                         upsell1Size={ upsell1Size }
-                        showOptions0={ showOptions0 }
-                        showOptions1={ showOptions1 }
-                        showUpsell0Modal={ showUpsell0Modal }
-                        showUpsell1Modal={ showUpsell1Modal }
+                        initial={ initial }
                       />
                     }
         
@@ -432,57 +304,24 @@ function ProductDisplay(props) {
           </div>
         </div>
             
-        <div 
-          className='cart-contents' 
-          data-visible={ showCart }
-        >
-          <button 
-            onClick={ hideCart }
-            ></button>
-          <ul>
-            <li>
-              { sizeName } { productName }
-              { p.colorSelection &&
-                <>
-                  &nbsp;&ndash; { activeColorName }
-                </>
-              } 
-            </li>
-            { p.upsells &&
-              <>
-                { (upsell0Sku.length && upsell0Active) && 
-                  <li>
-                    { upsell0SizeName } { upsell0ProductName } &ndash; { upsell0ColorName }
-                  </li>
-                }
-                { (upsell1Sku.length && upsell1Active) && 
-                  <li>
-                    { upsell1SizeName } { upsell1ProductName } &ndash; { upsell1ColorName }
-                  </li>
-                }
-              </>
-            }
-          </ul>
-          <p>Cart total: 
-            <strong> $
-              { (upsell0Active && upsell1Active) ?
-                <>{ price + upsell0Price + upsell1Price }</> :
-                <>
-                  { (upsell0Active && !upsell1Active) ?
-                      <>{ price + upsell0Price }</> :
-                    <>
-                      { (!upsell0Active && upsell1Active) ?
-                        <>{ price + upsell1Price }</> :
-                        <>{ price } - 4</>
-                      }
-                    </>
-                  }
-                </>
-              }
-            </strong>
-          </p>
-        </div>
-        <div className='cart-overlay' data-visible={ showCart } onClick={ hideCart }></div>
+        <Cart 
+          p={ p }
+          initial={ initial }
+          showCart={ showCart }
+          hideCart={ hideCart }
+          sizeName={ sizeName }
+          productName={ productName }
+          price={ price }
+          colorName={ colorName }
+          upsell0Sku={ upsell0Sku }
+          upsell0Active={ upsell0Active }
+          upsell1Sku={ upsell1Sku }
+          upsell1Active={ upsell1Active }
+          upsell0Price={ upsell0Price }
+          upsell1Price={ upsell1Price }
+          setUpsell0Price={ setUpsell0Price }
+          setUpsell1Price={ setUpsell1Price }
+        />
 
       </div>
 

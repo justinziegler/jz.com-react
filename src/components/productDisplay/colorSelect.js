@@ -12,7 +12,7 @@ function ColorSelect(props) {
   return (
     <div 
       className={ `color-select ${ addlClass }`}
-      data-active-color={ props.activeColorName }>
+      data-active-color={ props.colorName }>
       { colors.map((c, index) =>
         <OverlayTrigger 
           placement='top' 
@@ -24,7 +24,7 @@ function ColorSelect(props) {
             tabIndex='0' 
             data-color={ c.color }
             data-color-name={ c.colorName }
-            data-active={ c.color === props.activeColor }
+            data-active={ c.color === props.color }
             onClick={ props.handleColor }
             key={ `colorselect${ index }`}
           >
