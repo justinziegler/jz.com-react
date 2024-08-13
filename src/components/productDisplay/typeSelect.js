@@ -1,6 +1,15 @@
 
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 function TypeSelect(props) {
+
+  const handleType = (e) => {
+    props.setType(e.target.dataset.type)
+    props.setProductName(e.target.dataset.productname)
+    props.handleSku();
+  }
+
   const p = props.page
   const c = p.comboProduct[0]
   let addlClass = ''
@@ -8,21 +17,19 @@ function TypeSelect(props) {
 
   let type = ''
   let size = ''
-  let typeName = ''
-  let active = false
+  let productName = ''
   let showLabelOnDefaultCatId = true
   let showLabel = true
   let mainPrice = 0
-  let discount = 0
   let difference = 0
   
   function getType(catId) {
     if (catId === p.defaultCatId && type == '') {
       type = p.defaultProductType
-      typeName = p.shortName 
+      productName = p.shortName 
     } else if (catId == c.comboProductId) {
       type = c.comboProductType
-      typeName = c.shortName
+      productName = c.shortName
     }
     p.skus.forEach(item => {
       size = item.size
@@ -54,36 +61,44 @@ function TypeSelect(props) {
   p.catIds.forEach((catId, index) => {
     getType(catId)
     Items.push(
-      <li data-type={ type }
-        data-typename={ typeName }
-        data-active={ type === props.type }
-        role='button' 
-        tabIndex='0'
-        onClick={ props.handleType }
-        key={ `typeselect${ index }`}
+      <OverlayTrigger 
+        placement='top' 
+        overlay={<Tooltip id={ type }>{ productName }</Tooltip>}
       >
-        <span className={ !p.comboProductButtonTitles && 'sr-only'}>
-          { typeName }
-        </span>
-        { showLabel &&
-          <label data-active-size={ size }>
-            { showLabelOnDefaultCatId ?
-              `${ difference } Off`
-            :
-              `Upgrade for +${ difference }`
-            }
-          </label>
-        }
-      </li>
+        <button data-type={ type }
+          data-productname={ productName }
+          data-active={ type === props.type }
+          role='button' 
+          tabIndex='0'
+          onClick={ handleType }
+          key={ `typeselect${ index }`}
+        >
+          <span className={ !p.comboProductButtonTitles && 'sr-only'}>
+            { productName }
+          </span>
+          { showLabel &&
+            <label data-active-size={ size }>
+              { showLabelOnDefaultCatId ?
+                `${ difference } Off`
+              :
+                `Upgrade for +${ difference }`
+              }
+            </label>
+          }
+        </button>
+      </OverlayTrigger>
     )
   })
+
+  
+
   return (
-  <ul className={ `type-select ${ addlClass }` }
-    data-active-type={ props.typeName }
+  <div className={ `type-select ${ addlClass }` }
+    data-active-product={ props.productName }
     data-label={ p.comboProductButtonLabels }
     data-product-types={ p.catIds.length }>
     { Items }
-  </ul>
+  </div>
   )
 }
 

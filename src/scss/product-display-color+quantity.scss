@@ -340,13 +340,13 @@ button.color,
     justify-content: space-between;
     &[data-label='true'] {
       &::after {
-        content: attr(data-active-type);
+        content: attr(data-active-product);
       }
     }
     &[data-label='false'] {
       border: none;
     }
-    li {
+    button {
       width: calc(50% - 6px);
       position: relative;
       list-style-type: none;

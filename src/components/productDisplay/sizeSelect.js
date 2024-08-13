@@ -1,67 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getUpsellSize } from '../utils/getUpsellSize'
 import Dimensions from "./dimensions";
 
 function SizeSelect(props) {
   const p = props.page;
+
+  const handleSize = (e) => {
+    let outofstock = e.target.dataset.outofstock === 'true';
+    if (!outofstock) {
+      props.setSize(e.target.dataset.size)
+      props.setSizeName(e.target.dataset.sizename)
+      props.setSku(`${ props.prefix }-${ props.type }-${ props.color }-${ e.target.dataset.size }`);
+      props.setPrice(Number(e.target.dataset.price))
+      if (p.upsells !== undefined) {
+        const size0 = getUpsellSize(e.target.dataset.size, props.upsell0CatSizes)
+        props.setUpsell0Size(size0)
+
+        const size1 = getUpsellSize(e.target.dataset.size, props.upsell1CatSizes)
+        props.setUpsell1Size(size1)
+      }
+    }
+  }
+
   let additionalClass = '';
   if (p.colorSelection) additionalClass = 'product-color'
-  let Items = [];
-  for (let i = 1; i <= p.maxQty; i++) {
-    p.skus.forEach((item, index) => {
-      let displayRule = 'none'
-      if ((item.type === p.defaultProductType) && (item.color === p.defaultColor) || (!p.colorSelection)) {
-        displayRule = 'list-item'
-      }
-      Items.push(
-        <button data-sku={ item.sku }
-          data-name={ item.name }
-          data-type={ item.type }
-          data-color={ item.color }
-          data-color-name={ item.colorName }
-          data-color-selection={ p.colorSelection }
-          data-size={ item.size }
-          data-size-name={ item.sizeName }
-          data-product-cat-sizes={ p.catSizes }
-          data-price={ item.salePrice * i }
-          data-outofstock={ item.outOfStock }
-          data-quantity={ i }
-          data-bundle={ p.bundle }
-          data-discount={ item.discount } 
-          className={ additionalClass } 
-          role={ item.outOfStock ? 'none' : 'button' } 
-          tabIndex={ item.outOfStock ? -1 : 0 }
-          onClick={ props.handleSize }
-          data-active={ item.sku === props.sku }
-          data-visible={
-            item.color === props.color && item.type === props.type
-          }
-          key={ `sizeselect-${ index }`}
-          // style={{ display: displayRule }}
-        > 
-          <div className='selected-item'>
-            { item.sizeName }
-          </div>
-          <div className='selected-price'>
-            { item.sku }<br />
-            <span>
-              <span className='sr-only'>Now Priced at</span>
-              ${ item.salePrice * i }
-            </span>
-            { item.discount !== 0 &&
-              <>
-                &nbsp;
-                <span className='original-price'>
-                  <span className='sr-only'>Originally Priced at</span>
-                  ${ item.price * i  }
-                </span>
-              </>
-            }
-          </div>	
-        </button>
-      )
-    });
-    
-  }
+  
   return (
     <React.Fragment key='size-select'>
       <div className='product-details row' >
@@ -119,7 +82,7 @@ function SizeSelect(props) {
                     className={ additionalClass } 
                     role={ item.outOfStock ? 'none' : 'button' } 
                     tabIndex={ item.outOfStock ? -1 : 0 }
-                    onClick={ props.handleSize }
+                    onClick={ handleSize }
                     data-active={ item.type === props.type && item.color === props.color && item.size === props.size }
                     data-visible={
                       item.type === props.type && item.color === props.color
@@ -152,7 +115,6 @@ function SizeSelect(props) {
         }
       </div>
       <div className='clearfix'></div>
-
       </React.Fragment>
   )
 }

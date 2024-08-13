@@ -49,7 +49,7 @@ const pageFrame = [
         tooltipFootnote: '*Reviews based on all Bed Frames'
       }
     ],
-    deliveryWindowText: 'Ships in 1&ndash;4 business days',
+    deliveryWindowText: <p>Ships in 1&ndash;4 business days</p>,
     readyToShipMessage: true,
     sizeGuide: [
       {

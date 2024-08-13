@@ -10,7 +10,7 @@ import Financing from './productDisplay/financing';
 import Upsells from './productDisplay/upsells';
 import Cart from './productDisplay/cart'
 import { getUpsellSize } from './utils/getUpsellSize'
-import { getSizeName } from './utils/getSizeName'
+import { getInitialSelection } from './utils/getInitialSelection';
 import '../css/bootstrap-grid.css'
 import '../scss/product-display.scss'
 // Remove below line when able (only included for BS collapse css)
@@ -18,48 +18,6 @@ import '../scss/header.scss';
 
 
 let initial = []
-let initialUpsells = []
-
-function getInitialSelection(p) {
-  p.skus.forEach(item => {
-    if (!item.outofstock && initial.sku === undefined) {
-      initial.sku = item.sku
-      initial.productName = item.name
-      initial.type = p.defaultProductType 
-      initial.color = p.defaultColor
-      initial.colorName = p.defaultColorName
-      initial.size = item.size
-      initial.sizeName = item.sizeName
-      initial.salePrice = item.salePrice
-    }
-  })
-  if (p.upsells !== undefined) {
-    p.upsells.forEach(u => {
-      let initialItem = { }
-      u.skus.forEach(item => {
-        if (item.catId === u.defaultCatId && 
-            item.color == initial.color && 
-            getUpsellSize(initial.size, u.catSizes) === item.size) {
-          initialItem.sku = item.sku
-          initialItem.productName = item.name
-          initialItem.type = item.type
-          initialItem.color = item.color
-          initialItem.colorName = item.colorName
-          initialItem.size = item.size
-          initialItem.sizeName = item.sizeName
-          initialItem.price = item.price
-          initialItem.salePrice = item.salePrice
-          initialItem.catSizes = u.catSizes
-          initialItem.active = false
-        }
-      })
-      initialUpsells.push(initialItem)
-    })
-    initial.upsells = initialUpsells
-  }
-}
-
-
 
 function ProductDisplay(props) {
   const p = props.page
@@ -70,69 +28,72 @@ function ProductDisplay(props) {
   }
 
   if (!initial.length) {
-    getInitialSelection(p);
+    getInitialSelection(p, initial);
   }
 
-  const [sku, setSku] = useState(initial.sku);
-  const [type, setType] = useState(initial.type)
+  const [sku, setSku] =                 useState(initial.sku);
+  const [type, setType] =               useState(initial.type)
   const [productName, setProductName] = useState(initial.productName)
-  const [color, setColor] = useState(initial.color)
-  const [colorName, setColorName] = useState(initial.colorName)
-  const [size, setSize] = useState(initial.size)
-  const [sizeName, setSizeName] = useState(initial.sizeName)
-  const [price, setPrice] = useState(initial.salePrice)
-  
+  const [color, setColor] =             useState(initial.color)
+  const [colorName, setColorName] =     useState(initial.colorName)
+  const [size, setSize] =               useState(initial.size)
+  const [sizeName, setSizeName] =       useState(initial.sizeName)
+  const [price, setPrice] =             useState(initial.salePrice)
+  const [showCart, setShowCart] =       useState(false)
+
   const [upsell0Active, setUpsell0Active] = useState(false)
   const [upsell1Active, setUpsell1Active] = useState(false)
+  const [upsell0Sku, setUpsell0Sku] = 
+    useState(initial.upsells !== undefined ? initial.upsells[0].sku : undefined)
+  const [upsell1Sku, setUpsell1Sku] = 
+    useState(initial.upsells !== undefined ? initial.upsells[1].sku : undefined)
 
-  const [upsell0Sku, setUpsell0Sku] = useState(initial.upsells[0].sku)
-  const [upsell1Sku, setUpsell1Sku] = useState(initial.upsells[1].sku)
+  const [upsell0Size, setUpsell0Size] = 
+    useState(initial.upsells !== undefined ? getUpsellSize(size, initial.upsells[0].catSizes) : undefined)
+  const [upsell1Size, setUpsell1Size] = 
+    useState(initial.upsells !== undefined ? getUpsellSize(size, initial.upsells[1].catSizes) : undefined)
 
-  const [upsell0Size, setUpsell0Size] = useState(getUpsellSize(size, initial.upsells[0].catSizes))
-  const [upsell1Size, setUpsell1Size] = useState(getUpsellSize(size, initial.upsells[1].catSizes))
-
-  const upsell0CatSizes = initial.upsells[0].catSizes
-  const upsell1CatSizes = initial.upsells[1].catSizes
-
-  const [upsell0Price, setUpsell0Price] = useState(initial.upsells[0].salePrice)
-  const [upsell1Price, setUpsell1Price] = useState(initial.upsells[1].salePrice)
-
-  const [showCart, setShowCart] = useState(false)
+  let upsell0CatSizes = initial.upsells !== undefined ? initial.upsells[0].catSizes : undefined
+  let upsell1CatSizes = initial.upsells !== undefined ? initial.upsells[1].catSizes : undefined
+  const [upsell0Price, setUpsell0Price] = 
+    useState(initial.upsells !== undefined ? initial.upsells[0].salePrice : undefined)
+  const [upsell1Price, setUpsell1Price] = 
+    useState(initial.upsells !== undefined ? initial.upsells[1].salePrice : undefined)
 
   const prefix = 'XX'
   const handleSku = () => {
     setSku(`${ prefix }-${ type }-${ color }-${ size }`);
-    console.log('handlesku', sku)
-  }
-
-  const handleSize = (e) => {
-    let outofstock = e.target.dataset.outofstock === 'true';
-    if (!outofstock) {
-      setSize(e.target.dataset.size)
-      setSizeName(e.target.dataset.sizename)
-      setSku(`${ prefix }-${ type }-${ color }-${ e.target.dataset.size }`);
-      setPrice(Number(e.target.dataset.price))
-      if (p.upsells !== undefined) {
-        const size0 = getUpsellSize(e.target.dataset.size, upsell0CatSizes)
-        setUpsell0Size(size0)
-
-        const size1 = getUpsellSize(e.target.dataset.size, upsell1CatSizes)
-        setUpsell1Size(size1)
+    console.log('got here!!!')
+    console.log('sku', sku)
+    console.log(size)
+    p.skus.forEach(item => {
+      if (item.sku === sku) {
+        console.log('got here????')
+        console.log('item.salePrice', item.salePrice)
+        setPrice(item.salePrice)
       }
-    }
+    })
   }
+
+  // const handleSize = (e) => {
+  //   let outofstock = e.target.dataset.outofstock === 'true';
+  //   if (!outofstock) {
+  //     setSize(e.target.dataset.size)
+  //     setSizeName(e.target.dataset.sizename)
+  //     setSku(`${ prefix }-${ type }-${ color }-${ e.target.dataset.size }`);
+  //     setPrice(Number(e.target.dataset.price))
+  //     if (p.upsells !== undefined) {
+  //       const size0 = getUpsellSize(e.target.dataset.size, upsell0CatSizes)
+  //       setUpsell0Size(size0)
+
+  //       const size1 = getUpsellSize(e.target.dataset.size, upsell1CatSizes)
+  //       setUpsell1Size(size1)
+  //     }
+  //   }
+  // }
   const handleColor = (e) => {
     setColor(e.target.dataset.color)
     setColorName(e.target.dataset.colorName)
-    handleSku();
-  }
-  const handleType = (e) => {
-    // const utype = e.target.dataset.type
-    setType(e.target.dataset.type)
-    setProductName(e.target.dataset.productName)
-    console.log('e.target.dataset.type', e.target.dataset.type)
-    console.log('type', type)
-    console.log('name', productName)
     handleSku();
   }
 
@@ -194,7 +155,6 @@ function ProductDisplay(props) {
                   
                   <div className='row'>
                     <div className='product-selection col-xs-12' 
-                      data-order='{{ state.displayOrder }}' 
                       data-wrap={ wrap }
                       data-comparison-accordion={ p.comboProductAccordion }
                       data-comparison-accordion-active={ false }
@@ -206,9 +166,15 @@ function ProductDisplay(props) {
                         handleSku={ handleSku }
                         size={ size }
                         setSize={ setSize }
-                        handleSize={ handleSize } 
+                        setSizeName={ setSizeName }
+                        setPrice={ setPrice }
                         type={ type }
                         color={ color }
+                        setUpsell0Size={ setUpsell0Size }
+                        setUpsell1Size={ setUpsell1Size }
+                        upsell0CatSizes={ upsell0CatSizes }
+                        upsell1CatSizes={ upsell1CatSizes }
+                        prefix={ prefix }
                       />
 
                       { p.colorSelection &&
@@ -232,7 +198,7 @@ function ProductDisplay(props) {
                           setType={ setType }
                           productName={ productName } 
                           setProductName={ setProductName }
-                          handleType={ handleType }
+                          handleSku={ handleSku }
                         />
                       } 
                     </div>                
