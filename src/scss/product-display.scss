@@ -334,7 +334,7 @@ a {
     > .row {
       @include mq(sm) {
         display: flex;
-        .swiper-container.carousel {
+        .swiper.carousel {
           position: sticky;
           top: 0;
         }
@@ -344,7 +344,7 @@ a {
 }
 
 .product-gallery {
-  .swiper-container {
+  .swiper {
     .swiper-slide {
       padding-bottom: 62.5%;
       height: 0;
@@ -420,7 +420,7 @@ a {
     }
   }
 }
-.swiper-container {
+.swiper {
   > .swiper-pagination-bullets {
     bottom: 0;
   }
@@ -453,7 +453,7 @@ a {
     &.gallery-right {
       padding-right: 0;
     }
-    .swiper-container {
+    .swiper {
       @include mq(md) {
         padding-bottom: 75px;
       }
@@ -1840,7 +1840,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: transparent;
+  background: rgba($white, .5);
   &[data-visible=false] {
     display: none
   }

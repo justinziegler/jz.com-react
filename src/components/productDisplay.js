@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ProductDisplayGallery from './productDisplay/productDisplayGallery';
+import Gallery from './productDisplay/gallery';
 import Ratings from './productDisplay/ratings';
 import SizeSelect from './productDisplay/sizeSelect';
 import ColorSelect from './productDisplay/colorSelect';
@@ -8,6 +8,7 @@ import TypeSelect from './productDisplay/typeSelect';
 import RichText from './productDisplay/richText';
 import Financing from './productDisplay/financing';
 import Upsells from './productDisplay/upsells';
+import CartButton from './productDisplay/cartButton'
 import Cart from './productDisplay/cart'
 import { getUpsellSize } from './utils/getUpsellSize'
 import { getInitialSelection } from './utils/getInitialSelection';
@@ -15,7 +16,6 @@ import '../css/bootstrap-grid.css'
 import '../scss/product-display.scss'
 // Remove below line when able (only included for BS collapse css)
 import '../scss/header.scss';
-
 
 let initial = []
 
@@ -63,69 +63,11 @@ function ProductDisplay(props) {
   const prefix = 'XX'
   const handleSku = () => {
     setSku(`${ prefix }-${ type }-${ color }-${ size }`);
-    console.log('got here!!!')
-    console.log('sku', sku)
-    console.log(size)
     p.skus.forEach(item => {
       if (item.sku === sku) {
-        console.log('got here????')
-        console.log('item.salePrice', item.salePrice)
         setPrice(item.salePrice)
       }
     })
-  }
-
-  // const handleSize = (e) => {
-  //   let outofstock = e.target.dataset.outofstock === 'true';
-  //   if (!outofstock) {
-  //     setSize(e.target.dataset.size)
-  //     setSizeName(e.target.dataset.sizename)
-  //     setSku(`${ prefix }-${ type }-${ color }-${ e.target.dataset.size }`);
-  //     setPrice(Number(e.target.dataset.price))
-  //     if (p.upsells !== undefined) {
-  //       const size0 = getUpsellSize(e.target.dataset.size, upsell0CatSizes)
-  //       setUpsell0Size(size0)
-
-  //       const size1 = getUpsellSize(e.target.dataset.size, upsell1CatSizes)
-  //       setUpsell1Size(size1)
-  //     }
-  //   }
-  // }
-  const handleColor = (e) => {
-    setColor(e.target.dataset.color)
-    setColorName(e.target.dataset.colorName)
-    handleSku();
-  }
-
-
-  // const handleShowUpsellModal = (e) => {
-  //   e.preventDefault();
-  //   console.log('show upsell modal')
-  //   const index = Number(e.target.dataset.index)
-  //   console.log('show upsell modal index', index)
-  //   if (e.target.dataset.index === 0) {
-  //     setShowUpsell0Modal(true)
-  //     console.log('000')
-  //   } else {
-  //     setShowUpsell1Modal(true)
-  //     console.log('111')
-  //   }
-  // }
-  // const handleUpsellModalClose = (e) => {
-  //   if (e.target.dataset.index === 0) {
-  //     setShowUpsell0Modal(false)
-  //   } else {
-  //     setShowUpsell1Modal(false)
-  //   }
-  // }
-
-  const displayCart = (e) => {
-    setShowCart(true)
-  }
-
-  const hideCart = (e) => {
-    setShowCart(false)
-    console.log('hide cart')
   }
 
   console.log('game over man!')
@@ -141,7 +83,7 @@ function ProductDisplay(props) {
       <div className='product-display'>  
         <div className='container-fluid'>
           <div className='row'>
-            <ProductDisplayGallery page={ props.page } />
+            <Gallery page={ props.page } type={ type } color={ color } size={ size } />
             <div className='product col-xs-12 col-sm-6'>
               <div className='row'>
                 <div className='product-description col-xs-12'>
@@ -180,10 +122,11 @@ function ProductDisplay(props) {
                       { p.colorSelection &&
                         <ColorSelect 
                           page={ props.page } 
+                          handleSku={ handleSku }
                           color={ color } 
                           colorName={ colorName } 
                           setColor={ setColor }
-                          handleColor={ handleColor }
+                          setColorName={ setColorName }
                         />
                       }
 
@@ -202,8 +145,7 @@ function ProductDisplay(props) {
                         />
                       } 
                     </div>                
-                  
-                    {/* {{- _blocks.tooltips(p) -}}  */}              
+                              
                     <Financing 
                       page={ props.page } 
                       sku={ sku } 
@@ -235,33 +177,14 @@ function ProductDisplay(props) {
                         initial={ initial }
                       />
                     }
-        
-                    <div className='col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 add-to-cart'>
-                      <button 
-                        className='btn' 
-                        id='btn-addtocart'
-                        onClick={ displayCart }
-                        disabled={ showCart }
-                        role='button'>
-                        Add 
-                        { ((upsell0Active && !upsell1Active) || (upsell1Active && !upsell0Active)) &&
-                         <>
-                          &nbsp;2
-                         </>
-                        }
-                        { (upsell0Active && upsell1Active) &&
-                         <>
-                          &nbsp;3
-                         </>
-                        }
-                        <span style={{ display: 'none' }} data-quantity='2'></span> to Cart
-                      </button>
-                    </div>
-                    { p.readyToShipMessage &&
-                      <div className='ready-to-ship col-xs-12'>
-                        <p><span className='bullet'><span></span></span> Ready to Ship | Free No-Contact Delivery</p>
-                      </div>
-                    }
+
+                    <CartButton 
+                      page={ props.page }
+                      showCart={ showCart }
+                      setShowCart={ setShowCart }
+                      upsell0Active={ upsell0Active }
+                      upsell1Active={ upsell1Active }
+                    />
                   </div>
                 </div>
               </div>
@@ -271,10 +194,10 @@ function ProductDisplay(props) {
         </div>
             
         <Cart 
-          p={ p }
+          page={ props.page } 
           initial={ initial }
           showCart={ showCart }
-          hideCart={ hideCart }
+          setShowCart={ setShowCart }
           sizeName={ sizeName }
           productName={ productName }
           price={ price }

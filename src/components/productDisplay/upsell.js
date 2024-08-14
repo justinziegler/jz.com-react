@@ -3,7 +3,6 @@ import Collapse from 'react-bootstrap/Collapse';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import UpsellModal from './upsellModal';
-// import { useEffect } from 'react';
 
 function Upsell(props) {
   const u = props.u
@@ -14,6 +13,7 @@ function Upsell(props) {
   const [color, setColor] = useState(initial.color)
   const [price, setPrice] = useState(initial.salePrice)
   const [showOptions, setShowOptions] = useState(false)
+  const [showModal, setShowModal] = useState(false)
   
   const handleActive = (e) => {
     e.preventDefault();
@@ -35,20 +35,23 @@ function Upsell(props) {
     props.setUpsellSku(`${ props.prefix }-${ type }-${ color }-${ props.size }`)
   }, [props.size]);
 
+  const handleShowModal = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    setShowModal(true)
+  }
+
   return (
     <li className='item' 
       key={ `upsell${ index }` }
     >
-      {/* <UpsellModal 
-        show={ 
-          index === 0 ? 
-          props.showUpsell0Modal : 
-          props.showUpsell1Modal
-        }
+      <UpsellModal 
+        showModal={ showModal }
+        setShowModal={ setShowModal }
         u={ u }
         index={ index }
-        handleClose={ props.handleUpsellModalClose } 
-      /> */}
+        type={ type }
+      />
       <ul className='inventory'>
         { u.skus.map(item =>
           <li data-sku={ item.sku }
@@ -103,8 +106,7 @@ function Upsell(props) {
                 <span>{ u.name }</span>
               :
                 <a 
-                  onClick={ props.handleShowUpsellModal }
-                  data-index={ index }
+                  onClick={ handleShowModal }
                   role='button' 
                   tabIndex='0' 
                   href='./'

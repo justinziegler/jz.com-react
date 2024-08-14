@@ -2,12 +2,16 @@ import React from 'react';
 import CartUpsell from './cartUpsell';
 
 function Cart(props) {
-  const p = props.p
+  const p = props.page
+
+  const hideCart = (e) => {
+    props.setShowCart(false)
+  }
   
   return (
     <>
       <div className='cart-contents' data-visible={ props.showCart }>
-        <button onClick={ props.hideCart }></button>
+        <button onClick={ hideCart }></button>
         <ul>
           <li>
             { props.sizeName } { props.productName }
@@ -43,7 +47,7 @@ function Cart(props) {
           </strong>
         </p>
       </div>
-      <div className='cart-overlay' data-visible={ props.showCart } onClick={ props.hideCart }></div>
+      <div className='cart-overlay' data-visible={ props.showCart } onClick={ hideCart }></div>
     </>
   )
 }

@@ -28,7 +28,7 @@ const pageMattress = [
     galleryDimensions: 0,
     longTitle: false,
     heading: 'The Original Mattress',
-    subheading: 'Ships in 1-<span>4</span> business days',
+    subheading: 'Ships in 1-4 business days',
     deliveryWindowText: 'Ships in 1-4 business days',
     ratings: [
       { 

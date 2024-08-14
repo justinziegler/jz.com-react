@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { getProductConfig } from '../../components/utils/getProductConfig';
 import ProductDisplay from '../../components/productDisplay';
+import '../../assets/product-shop-opm-gallery.css'
 
 function Mattress () {
   let page = getProductConfig('mattress');

@@ -2,6 +2,7 @@ import { getColorName } from '../utils/getColorName';
 import { numberWithCommas} from '../utils/numberWithCommas'
 import { getPageId } from '../utils/getPageId';
 import { getProductSkus } from '../utils/getProductSkus';
+import video from '../../assets/sheets/organic-sheets-16x9-web.mp4';
 
 const pageUrl = 'sheets'
 const catIds = [30]
@@ -16,6 +17,7 @@ const duvetCoverSkus = getProductSkus(duvetCoverCatIds, dcDiscount)
 const pillowcaseCatIds = [34, 35, 36]
 const pcDiscount = 20
 const pillowcaseSkus = getProductSkus(pillowcaseCatIds, pcDiscount)
+
 
 const pageSheets = [
   {
@@ -33,7 +35,7 @@ const pageSheets = [
     galleryVideo: true,
     galleryVideoSlide: 5,
     galleryVideoSource: '',
-    galleryVideoUrl: ['../assets/sheets/organic-sheets-16x9-web.mp4?auto=format,compress'],
+    galleryVideoUrl: video,
     galleryVideoPoster: '../assets/sheets/organic-sheets-16x9-web.mp4?fm=jpg&w=840&frame=1',
     longTitle: false,
     heading: 'The Organic Cotton Sheets',
@@ -164,6 +166,8 @@ const pageSheets = [
           }
         ],
         showReview: false,
+        reviewsTotal: 500,
+        reviewsAverage: 4.75,
         gallerySlides: 7
       }
     ],

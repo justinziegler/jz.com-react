@@ -4,6 +4,13 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 
 function ColorSelect(props) {
   const p = props.page;
+
+  const handleColor = (e) => {
+    props.setColor(e.target.dataset.color)
+    props.setColorName(e.target.dataset.colorName)
+    props.handleSku();
+  }
+
   let addlClass = '';
   if ((p.colorSelection && p.qtySelection) || (p.colorSelection && p.catIds.length > 1)) {
     addlClass = 'inline'
@@ -25,7 +32,7 @@ function ColorSelect(props) {
             data-color={ c.color }
             data-color-name={ c.colorName }
             data-active={ c.color === props.color }
-            onClick={ props.handleColor }
+            onClick={ handleColor }
             key={ `colorselect${ index }`}
           >
             <span className='sr-only'>{ c.colorName }</span>
