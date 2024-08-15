@@ -1,5 +1,5 @@
 function Dimensions(props) {
-  const p = props.page
+  const p = props.p
   return (
     p.skus.map(item =>
       <span

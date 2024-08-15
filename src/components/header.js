@@ -9,7 +9,9 @@ import '../scss/header.scss';
 import '../css/bootstrap-grid.css';
 
 function Header(props) {
+  console.log('header')
   const p = props.page;
+  console.log('p', p)
   const pageId = getPageId(p.pageUrl);
   const prevPage = getPrevPage(p.pageUrl);
   const nextPage = getNextPage(p.pageUrl);
@@ -127,7 +129,26 @@ function Header(props) {
                       </button>
                     </>
                   :
-                    <>Farts</>
+                    <>
+                      <button 
+                        onClick={ () => props.setActiveDisplay('mattress') } 
+                        data-active={ props.activeDisplay === 'mattress' }
+                      >
+                        Mattress
+                      </button>
+                      <button 
+                        onClick={ () => props.setActiveDisplay('frame') } 
+                        data-active={ props.activeDisplay === 'frame' }
+                      >
+                        Bed Frame
+                      </button>
+                      <button 
+                        onClick={ () => props.setActiveDisplay('sheets') } 
+                        data-active={ props.activeDisplay === 'sheets' }
+                      >
+                        Sheets
+                      </button>
+                    </>
                   }
                 </div>
               }

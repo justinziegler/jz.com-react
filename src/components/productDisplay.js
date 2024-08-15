@@ -15,12 +15,14 @@ import { getInitialSelection } from './utils/getInitialSelection';
 import '../css/bootstrap-grid.css'
 import '../scss/product-display.scss'
 // Remove below line when able (only included for BS collapse css)
-import '../scss/header.scss';
+// import '../scss/header.scss';
+import '../scss/product-display-color+quantity.scss'
 
 let initial = []
 
 function ProductDisplay(props) {
   const p = props.page
+  console.log('p!', p)
 
   let wrap = false;
   if (p.colorSelection) {
@@ -75,150 +77,139 @@ function ProductDisplay(props) {
 
 
   return (
-    <main 
-      // data-active-type='none' 
-      // data-active-color='none' 
-      // data-active-size='none'
-    >	
-      <div className='product-display'>  
-        <div className='container-fluid'>
-          <div className='row'>
-            <Gallery page={ props.page } type={ type } color={ color } size={ size } />
-            <div className='product col-xs-12 col-sm-6'>
-              <div className='row'>
-                <div className='product-description col-xs-12'>
-                  <div className='row'>
-                    <div className='col-xs-12'>
-                      <h1 data-type={ p.defaultProductType } key='heading-0'>{ p.heading }</h1>
-                      <Ratings page={ props.page } />
-                      <p className='subheading'>{ p.subheading }</p>
-                    </div>
+    <div className='product-display' data-visible={ props.visible }>  
+      <div className='container-fluid'>
+        <div className='row'>
+          <Gallery page={ props.page } type={ type } color={ color } size={ size } />
+          <div className='product col-xs-12 col-sm-6'>
+            <div className='row'>
+              <div className='product-description col-xs-12'>
+                <div className='row'>
+                  <div className='col-xs-12'>
+                    <h1 data-type={ p.defaultProductType } key='heading-0'>{ p.heading }</h1>
+                    <Ratings page={ props.page } />
+                    <p className='subheading'>{ p.subheading }</p>
                   </div>
-                  
-                  <div className='row'>
-                    <div className='product-selection col-xs-12' 
-                      data-wrap={ wrap }
-                      data-comparison-accordion={ p.comboProductAccordion }
-                      data-comparison-accordion-active={ false }
-                    >
-                      <SizeSelect 
-                        page={ props.page } 
-                        sku={ sku } 
-                        setSku={ setSku } 
-                        handleSku={ handleSku }
-                        size={ size }
-                        setSize={ setSize }
-                        setSizeName={ setSizeName }
-                        setPrice={ setPrice }
-                        type={ type }
-                        color={ color }
-                        setUpsell0Size={ setUpsell0Size }
-                        setUpsell1Size={ setUpsell1Size }
-                        upsell0CatSizes={ upsell0CatSizes }
-                        upsell1CatSizes={ upsell1CatSizes }
-                        prefix={ prefix }
-                      />
-
-                      { p.colorSelection &&
-                        <ColorSelect 
-                          page={ props.page } 
-                          handleSku={ handleSku }
-                          color={ color } 
-                          colorName={ colorName } 
-                          setColor={ setColor }
-                          setColorName={ setColorName }
-                        />
-                      }
-
-                      { p.qtySelection &&
-                        <QuantitySelect page={ props.page } />
-                      }
-
-                      { p.comboPage &&
-                        <TypeSelect 
-                          page={ props.page } 
-                          type={ type } 
-                          setType={ setType }
-                          productName={ productName } 
-                          setProductName={ setProductName }
-                          handleSku={ handleSku }
-                        />
-                      } 
-                    </div>                
-                              
-                    <Financing 
-                      page={ props.page } 
+                </div>
+                
+                <div className='row'>
+                  <div className='product-selection col-xs-12' 
+                    data-wrap={ wrap }
+                    data-comparison-accordion={ p.comboProductAccordion }
+                    data-comparison-accordion-active={ false }
+                  >
+                    <SizeSelect 
+                      p={ p } 
                       sku={ sku } 
                       setSku={ setSku } 
-                      upsell0Active={ upsell0Active }
-                      upsell1Active={ upsell1Active }
-                      price={ price }
-                      upsell0Price={ upsell0Price }
-                      upsell1Price={ upsell1Price }
+                      handleSku={ handleSku }
+                      size={ size }
+                      setSize={ setSize }
+                      setSizeName={ setSizeName }
+                      setPrice={ setPrice }
+                      type={ type }
+                      color={ color }
+                      setUpsell0Size={ setUpsell0Size }
+                      setUpsell1Size={ setUpsell1Size }
+                      upsell0CatSizes={ upsell0CatSizes }
+                      upsell1CatSizes={ upsell1CatSizes }
+                      prefix={ prefix }
                     />
 
-                    { p.upsell &&
-                      <Upsells 
-                        page={ props.page }
-                        prefix={ prefix }
-                        type={ type }
+                    { p.colorSelection &&
+                      <ColorSelect 
+                        page={ props.page } 
+                        handleSku={ handleSku }
                         color={ color } 
-                        size={ size } 
-                        upsell0Active={ upsell0Active }
-                        upsell1Active={ upsell1Active }
-                        setUpsell0Active={ setUpsell0Active }
-                        setUpsell1Active={ setUpsell1Active }
-                        upsell0Sku={ upsell0Sku }
-                        upsell1Sku={ upsell1Sku }
-                        setUpsell0Sku={ setUpsell0Sku }
-                        setUpsell1Sku={ setUpsell1Sku }
-                        upsell0Size={ upsell0Size }
-                        upsell1Size={ upsell1Size }
-                        initial={ initial }
+                        colorName={ colorName } 
+                        setColor={ setColor }
+                        setColorName={ setColorName }
                       />
                     }
 
-                    <CartButton 
+                    { p.qtySelection &&
+                      <QuantitySelect page={ props.page } />
+                    }
+
+                    { p.comboPage &&
+                      <TypeSelect 
+                        page={ props.page } 
+                        type={ type } 
+                        setType={ setType }
+                        productName={ productName } 
+                        setProductName={ setProductName }
+                        handleSku={ handleSku }
+                      />
+                    } 
+                  </div>                
+                            
+                  <Financing 
+                    page={ props.page } 
+                    sku={ sku } 
+                    setSku={ setSku } 
+                    upsell0Active={ upsell0Active }
+                    upsell1Active={ upsell1Active }
+                    price={ price }
+                    upsell0Price={ upsell0Price }
+                    upsell1Price={ upsell1Price }
+                  />
+
+                  { p.upsell &&
+                    <Upsells 
                       page={ props.page }
-                      showCart={ showCart }
-                      setShowCart={ setShowCart }
+                      prefix={ prefix }
+                      type={ type }
+                      color={ color } 
+                      size={ size } 
                       upsell0Active={ upsell0Active }
                       upsell1Active={ upsell1Active }
+                      setUpsell0Active={ setUpsell0Active }
+                      setUpsell1Active={ setUpsell1Active }
+                      upsell0Sku={ upsell0Sku }
+                      upsell1Sku={ upsell1Sku }
+                      setUpsell0Sku={ setUpsell0Sku }
+                      setUpsell1Sku={ setUpsell1Sku }
+                      upsell0Size={ upsell0Size }
+                      upsell1Size={ upsell1Size }
+                      initial={ initial }
                     />
-                  </div>
+                  }
+
+                  <CartButton 
+                    page={ props.page }
+                    showCart={ showCart }
+                    setShowCart={ setShowCart }
+                    upsell0Active={ upsell0Active }
+                    upsell1Active={ upsell1Active }
+                  />
                 </div>
               </div>
             </div>
-            <RichText page={ props.page } />
           </div>
+          <RichText page={ props.page } />
         </div>
-            
-        <Cart 
-          page={ props.page } 
-          initial={ initial }
-          showCart={ showCart }
-          setShowCart={ setShowCart }
-          sizeName={ sizeName }
-          productName={ productName }
-          price={ price }
-          colorName={ colorName }
-          upsell0Sku={ upsell0Sku }
-          upsell0Active={ upsell0Active }
-          upsell1Sku={ upsell1Sku }
-          upsell1Active={ upsell1Active }
-          upsell0Price={ upsell0Price }
-          upsell1Price={ upsell1Price }
-          setUpsell0Price={ setUpsell0Price }
-          setUpsell1Price={ setUpsell1Price }
-        />
-
       </div>
+          
+      <Cart 
+        page={ props.page } 
+        initial={ initial }
+        showCart={ showCart }
+        setShowCart={ setShowCart }
+        sizeName={ sizeName }
+        productName={ productName }
+        price={ price }
+        colorName={ colorName }
+        upsell0Sku={ upsell0Sku }
+        upsell0Active={ upsell0Active }
+        upsell1Sku={ upsell1Sku }
+        upsell1Active={ upsell1Active }
+        upsell0Price={ upsell0Price }
+        upsell1Price={ upsell1Price }
+        setUpsell0Price={ setUpsell0Price }
+        setUpsell1Price={ setUpsell1Price }
+      />
 
-      {/* {% block content %}
-        <p>Missing content block</p>
-      {% endblock %} */}
-
-    </main>
+    </div>
   )
 }
 

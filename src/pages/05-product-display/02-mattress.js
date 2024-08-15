@@ -4,7 +4,7 @@ import { getProductConfig } from '../../components/utils/getProductConfig';
 import ProductDisplay from '../../components/productDisplay';
 import '../../assets/product-shop-opm-gallery.css'
 
-function Mattress () {
+function Mattress (props) {
   let page = getProductConfig('mattress');
   console.log('page', page)
   return (

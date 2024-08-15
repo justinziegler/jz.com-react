@@ -42,7 +42,7 @@ function HolidayMode () {
     video = e.target.dataset.videosrc;
     setShow(true);
   }
-  const skus = getProductSkus(1, discountActual);
+  const skus = getProductSkus([1], discountActual);
   return (
     <>
       <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet"></link>
