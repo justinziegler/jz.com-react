@@ -1,0 +1,179 @@
+
+@import "compass";
+@import "bootstrap/variables";
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/svg";
+@import "partials/layout";
+
+.our-way, 
+.our-way-modal .modal-content {
+  background-image: linear-gradient(to top, #4b6574 0,#0f3c51 50%, #0f3c51 100%);
+}
+
+.our-way {
+	position: relative;
+	color: $white;
+	padding: vwp(20px) 0 vwp(15px) 0;
+	@include mq(xs) {
+		padding: vwl(20px) 0 vwl(15px) 0;
+	}
+	@include mq(sm) {
+		padding: 30px 0;
+	}
+	@include mq(lg) {
+		padding: 45px 0;
+	}
+	&::before {
+		content: '';
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 80%;
+		background-size: 50%;
+		position: absolute;
+		background-repeat: repeat;
+		background-position: 50% 0;
+		z-index: 0;
+		@extend %svg;
+		@include stars(#5c7380);
+		@include mq(sm) {
+			background-size: 20%;
+		}
+	}
+	
+  .page-content {
+    @include mq(sm) {
+      padding: 0 30px;
+    }
+    @include mq(mdlg) {
+      padding: 0 60px;
+    }
+  }
+}
+
+.our-way, .our-way-modal {
+  .item {
+		font-size: 1.2rem;
+    font-size: vwp(12px);
+    line-height: 1.1;
+    color: #0b2836;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.2s;
+    color: #fff;
+    position: relative;
+    padding: vwp(40px) vwp(10px) 0 vwp(10px);
+    @include mq(xs) {
+      font-size: vwl(12px);
+      padding: vwl(40px) vwl(10px) 0 vwl(10px);
+    }
+    @include mq(sm) {
+      font-size: 1.6rem;
+      padding: 60px 0 0 0;
+    }
+    @include mq(md) {
+      padding: 75px 0 0 0;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: vwp(36px);
+      background-size: vwp(28px);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      filter: invert(73%) sepia(43%) saturate(504%) hue-rotate(128deg) brightness(98%) contrast(89%);
+      @include mq(xs) {
+        height: vwl(36px);
+        background-size: vwl(28px);
+      }
+      @include mq(md) {
+        height: 62px;
+        background-size: 48px;
+      }
+    }
+    &[data-content='shipping'] {
+      &::before {
+        @include truck-outline(#000);
+        background-size: auto vwp(28px);
+        @include mq(xs) {
+          background-size: auto vwl(28px);
+        }
+        @include mq(md) {
+          background-size: auto 48px;
+        }
+      }
+    }
+    &[data-content='trial'] {
+      &::before {
+        @include moon(#000);
+      }
+    }
+    &[data-content='returns'] {
+      &::before {
+        @include operator(#000);
+      }
+    }
+    &[data-content='warranty'] {
+      &::before {
+        @include trophy(#000);
+      }
+    }
+    &:hover, &:focus {
+      outline: 0;
+      color: $teal;
+    }
+	}
+}
+
+.our-way-modal {
+  &.show {
+    display: flex!important;
+    align-items: center;
+  }
+  .close {
+    filter: invert(100%) sepia(82%) saturate(2%) hue-rotate(346deg) brightness(111%) contrast(101%);
+    &:hover, &:focus {
+      filter: invert(73%) sepia(43%) saturate(504%) hue-rotate(128deg) brightness(98%) contrast(89%);
+    }
+  }
+  h2, p {
+    color: #ffffff;
+    margin-top: 0;
+  }
+  p {
+    text-align: left;
+    &:not(.footnote) {
+      font-size: 1.6rem;
+    }
+    .footnote {
+      padding-top: 0;
+    }
+    a {
+      border-bottom: solid 1px #56dbd6;
+      transition: 0.2s;
+      &:focus {
+        border-color: transparent;
+        outline-offset: 0;
+      }
+    }
+    .item {
+      padding: 90px 45px 15px 45px;
+      &::before {
+        height: 15.625vw;
+        background-size: 12.5vw;
+        @include mq(xs) {
+          height: 8.8028169014vw;
+          background-size: 7.0422535211vw;
+        }
+        @include mq(sm) {
+          height: 72px;
+          background-size: 56px;
+        }
+      }
+    }
+  }
+}

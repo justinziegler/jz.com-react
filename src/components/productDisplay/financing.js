@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 
 function Financing(props) {
+  React.useEffect(()=> {
+    let total = props.price;
+    if (props.upsell0Active) total += props.upsell0Price
+    if (props.upsell1Active) total += props.upsell1Price
+    const monthlyPayment = Math.round(total / 18)
+    if (total > 0) props.setMonthlyPayment(monthlyPayment)
+    console.log('total', total)
+    console.log('price', props.price)
+    console.log('monthlyPayment', monthlyPayment)
+    props.setCartTotal(total)
+  }, [props.price, props.upsell0Active, props.upsell1Active]);
+
   const p = props.page;
   let additionalClass = ''
   if (p.discountActual > 0) additionalClass = 'discounted'
@@ -48,7 +60,13 @@ function Financing(props) {
   return (
     <div className='col-xs-12'>
       <div className={ `financing ${ additionalClass }`} key='asdf'> 
-        { Items }
+        {/* { Items } */}
+        <div>
+          <p className='price'>
+            0% APR financing as low as 
+            <span> ${ props.monthlyPayment }/month</span>
+          </p>
+        </div>
       </div>
     </div>
   )

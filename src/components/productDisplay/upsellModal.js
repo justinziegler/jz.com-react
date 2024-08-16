@@ -13,11 +13,9 @@ function UpsellModal(props) {
     additionalClass = 'fixed'
   }
   const colorDisplayOrder = u.colorDisplayOrder
-  console.log('u.colorDisplayOrder', colorDisplayOrder)
   let Items = [];
   for (let i = 0; i <= u.gallerySlides - 1; i++) {
     let colorItem = colorDisplayOrder[i]
-    console.log('colorItem', colorItem)
     Items.push(
       <SwiperSlide 
         className={ `slide-${i + 1} lazyload ${ additionalClass }`} 

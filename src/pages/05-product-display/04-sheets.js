@@ -6,12 +6,24 @@ import '../../scss/product-display-color+quantity.scss'
 import '../../scss/product-display-upsell-list.scss'
 import '../../scss/product-cotton-sheets.scss'
 
-function Sheets () {
-  let page = getProductConfig('sheets');
+function ProductDisplaySheets () {
+  const [productName, setProductName] = useState('')
+  const [price, setPrice] = useState(0)
+  const [monthlyPayment, setMonthlyPayment] = useState(0)
+
+  let page = getProductConfig('sheets')
   console.log('page', page)
   return (
-    <ProductDisplay page={ page } />
+    <ProductDisplay 
+      page={ page } 
+      productName={ productName }
+      setProductName={ setProductName }
+      price={ price } 
+      setPrice={ setPrice } 
+      monthlyPayment={ monthlyPayment }
+      setMonthlyPayment={ setMonthlyPayment }
+    />
   )
 }
 
-export default Sheets;
+export default ProductDisplaySheets;

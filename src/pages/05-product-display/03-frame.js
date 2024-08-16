@@ -4,11 +4,23 @@ import { getProductConfig } from '../../components/utils/getProductConfig';
 import ProductDisplay from '../../components/productDisplay';
 import '../../scss/product-frame.scss'
 
-function Frame () {
+function ProductDisplayFrame () {
+  const [productName, setProductName] = useState('')
+  const [price, setPrice] = useState(0)
+  const [monthlyPayment, setMonthlyPayment] = useState(0)
+
   const page = getProductConfig('frame');
   return (
-    <ProductDisplay page={ page } />
+    <ProductDisplay 
+      page={ page } 
+      productName={ productName }
+      setProductName={ setProductName }
+      price={ price } 
+      setPrice={ setPrice } 
+      monthlyPayment={ monthlyPayment }
+      setMonthlyPayment={ setMonthlyPayment }
+    />
   )
 }
 
-export default Frame;
+export default ProductDisplayFrame;

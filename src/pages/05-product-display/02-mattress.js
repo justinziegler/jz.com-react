@@ -4,12 +4,24 @@ import { getProductConfig } from '../../components/utils/getProductConfig';
 import ProductDisplay from '../../components/productDisplay';
 import '../../assets/product-shop-opm-gallery.css'
 
-function Mattress (props) {
+function ProductDisplayMattress (props) {
+  const [productName, setProductName] = useState('')
+  const [price, setPrice] = useState(0)
+  const [monthlyPayment, setMonthlyPayment] = useState(0)
+
   let page = getProductConfig('mattress');
   console.log('page', page)
   return (
-    <ProductDisplay page={ page } />
+    <ProductDisplay 
+      page={ page } 
+      productName={ productName }
+      setProductName={ setProductName }
+      price={ price } 
+      setPrice={ setPrice } 
+      monthlyPayment={ monthlyPayment }
+      setMonthlyPayment={ setMonthlyPayment }
+    />
   )
 }
 
-export default Mattress;
+export default ProductDisplayMattress;

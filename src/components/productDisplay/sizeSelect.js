@@ -84,15 +84,13 @@ function SizeSelect(props) {
                     tabIndex={ item.outOfStock ? -1 : 0 }
                     onClick={ handleSize }
                     data-active={ item.type === props.type && item.color === props.color && item.size === props.size }
-                    // data-visible={
-                    //   item.type === props.type && item.color === props.color
-                    // }
+                    data-visible={
+                      item.type === props.type && item.color === props.color
+                    }
                     key={ `sizeselect-${ index }`}
                   > 
                     <div className='selected-item'>
                       { item.sizeName }
-
-                      <br />{ props.type } { props.color }
                     </div>
                     <div className='selected-price'>
                       <span>

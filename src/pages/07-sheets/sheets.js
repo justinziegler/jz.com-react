@@ -1,18 +1,27 @@
+
 import React, { useState } from 'react';
-import Main from '../../components/main';
+import { getProductConfig } from '../../components/utils/getProductConfig';
+import ProductDisplay from '../../components/productDisplay';
+import '../../scss/product-display-color+quantity.scss'
+import '../../scss/product-display-upsell-list.scss'
+import '../../scss/product-cotton-sheets.scss'
 
 function Sheets () {
-  const page = {
-    pageUrl: 'sheets',
-    headerTitle: 'Sheets PDP',
-    headerIntro: [
-      'This product detail page allows users to easily add a custom combination of sheets, duvet cover and pillowcases.'
-    ]
-  }
+  const [productName, setProductName] = useState('')
+  const [price, setPrice] = useState(0)
+  const [monthlyPayment, setMonthlyPayment] = useState(0)
+
+  let page = getProductConfig('sheets')
   return (
-    <Main page={ page }>
-      <h1>Sheets</h1>
-    </Main>
+    <ProductDisplay 
+      page={ page } 
+      productName={ productName }
+      setProductName={ setProductName }
+      price={ price } 
+      setPrice={ setPrice } 
+      monthlyPayment={ monthlyPayment }
+      setMonthlyPayment={ setMonthlyPayment }
+    />
   )
 }
 
