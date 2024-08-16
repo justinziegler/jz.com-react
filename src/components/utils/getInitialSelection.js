@@ -7,6 +7,7 @@ export function getInitialSelection(p, initial) {
       initial.sku = item.sku
       initial.productName = item.name
       initial.type = p.defaultProductType 
+      initial.typeName = item.shortName
       initial.color = p.defaultColor
       initial.colorName = p.defaultColorName
       initial.size = item.size
@@ -24,6 +25,7 @@ export function getInitialSelection(p, initial) {
           initialItem.sku = item.sku
           initialItem.productName = item.name
           initialItem.type = item.type
+          initialItem.typeName = item.shortName
           initialItem.color = item.color
           initialItem.colorName = item.colorName
           initialItem.size = item.size

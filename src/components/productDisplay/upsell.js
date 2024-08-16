@@ -11,7 +11,7 @@ function Upsell(props) {
 
   const [type, setType] = useState(initial.type)
   const [color, setColor] = useState(initial.color)
-  const [price, setPrice] = useState(initial.salePrice)
+  // const [price, setPrice] = useState(initial.salePrice)
   const [showOptions, setShowOptions] = useState(false)
   const [showModal, setShowModal] = useState(false)
   
@@ -21,19 +21,38 @@ function Upsell(props) {
     setShowOptions(!showOptions)
   }
 
+  const handlePrice = (sku) => {
+    const skus = u.skus
+    skus.forEach(item => {
+      if (item.sku === sku) {
+        props.setPrice(item.salePrice)
+        console.log(item.salePrice)
+      } 
+    })
+  }
+
   const handleColor = (e) => {
     setColor(e.target.dataset.color)
-    props.setUpsellSku(`${ props.prefix }-${ type }-${ e.target.dataset.color }-${ props.size }`)
+    const sku = `${ props.prefix }-${ type }-${ e.target.dataset.color }-${ props.size }`
+    props.setUpsellSku(sku)
+    handlePrice(sku)
   }
 
   const handleType = (e) => {
     setType(e.target.dataset.type)
-    props.setUpsellSku(`${ props.prefix }-${ e.target.dataset.type }-${ color }-${ props.size }`)
+    console.log('handleType')
+    const sku = `${ props.prefix }-${ e.target.dataset.type }-${ color }-${ props.size }`
+    props.setUpsellSku(sku)
+    handlePrice(sku)
   }
   
   React.useEffect(()=> {
-    props.setUpsellSku(`${ props.prefix }-${ type }-${ color }-${ props.size }`)
+    const sku = `${ props.prefix }-${ type }-${ color }-${ props.size }`
+    props.setUpsellSku(sku)
+    handlePrice(sku)
   }, [props.size]);
+
+
 
   const handleShowModal = (e) => {
     e.stopPropagation()
@@ -66,7 +85,7 @@ function Upsell(props) {
             data-visible={ 
               (item.type === type) &&
               (item.color === color) &&
-              (item.size === props.upsellSize)
+              (item.size === props.size)
             }
             data-index={ index }
             aria-controls={ `options` }
@@ -166,7 +185,7 @@ function Upsell(props) {
                           key={ `type-select-${ item.sku }${ index }` }
                           data-visible={
                             item.color === color &&
-                            item.size === props.upsellSize
+                            item.size === props.size
                           }
                         >
                           <div className='selected-item'>

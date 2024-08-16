@@ -34,6 +34,8 @@ function Upsells(props) {
               setUpsellSku={ index === 0 ? props.setUpsell0Sku : props.setUpsell1Sku }
               size={ index === 0 ? props.upsell0Size : props.upsell1Size }
               upsellSize={ index === 0 ? props.upsell0Size : props.upsell1Size }
+              price={ index === 0 ? props.upsell0Price : props.upsell1Price }
+              setPrice={ index === 0 ? props.setUpsell0Price : props.setUpsell1Price }
             />
           )}
         </ul>

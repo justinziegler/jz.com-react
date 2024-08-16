@@ -13,10 +13,9 @@ function CartUpsell(props) {
         setProductName(item.name)
         setColorName(item.colorName)
         setSizeName(item.sizeName)
-        props.setPrice(item.salePrice)
       }
     })
-  }, [props.sku]);
+  }, [props.sku, props.upsell0Sku, props.upsell1Sku]);
   if (props.active) {
     return (
       <li>{ sizeName } { productName } &ndash; { colorName }</li>

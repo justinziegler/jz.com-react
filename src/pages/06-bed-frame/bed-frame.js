@@ -18,7 +18,6 @@ function BedFrame () {
   page.headerIntro = [
     <p>This product detail page features a number of interactive elements, including a slide-able product comparison module that I also developed the photography for.</p>
   ]
-  console.log('page', page)
 
   const ourWay = [
     {
@@ -63,7 +62,7 @@ function BedFrame () {
               <h3>Get the { productName }<br /> for as low as</h3>
               <h4>
                 <sup>$</sup>
-                {/* <span className='price monthly' data-mprice={ Math.round(price / 18) }>/mo.</span> */}
+                <span className='price monthly' data-mprice={ monthlyPayment }>/mo.</span>
               </h4>
               <p>Spread Payments Over 6 to 18 Months<br />
                 As Low as 0% APR Financing Available
@@ -78,7 +77,7 @@ function BedFrame () {
           <div className='row'>
             <div className='col-xs-12'>
               <h2>Versatile, Luxurious and Seriously Comfortable</h2>
-              <h3>The !!! name !!! is<br className='visible-xs' /> everything you and your bedroom<br className='visible-xs' /> have been dreaming of.</h3>
+              <h3>The { productName } is<br className='visible-xs' /> everything you and your bedroom<br className='visible-xs' /> have been dreaming of.</h3>
             </div>
           </div>
         </div>

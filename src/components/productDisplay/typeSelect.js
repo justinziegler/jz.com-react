@@ -6,9 +6,11 @@ function TypeSelect(props) {
 
   const handleType = (e) => {
     props.setType(e.target.dataset.type)
-    props.setProductName(e.target.dataset.productname)
+    props.setTypeName(e.target.dataset.typename)
     props.handleSku();
   }
+
+  
 
   const p = props.page
   const c = p.comboProduct[0]
@@ -17,7 +19,7 @@ function TypeSelect(props) {
 
   let type = ''
   let size = ''
-  let productName = ''
+  let typeName = ''
   let showLabelOnDefaultCatId = true
   let showLabel = true
   let mainPrice = 0
@@ -26,10 +28,10 @@ function TypeSelect(props) {
   function getType(catId) {
     if (catId === p.defaultCatId && type == '') {
       type = p.defaultProductType
-      productName = p.shortName 
+      typeName = p.shortName 
     } else if (catId == c.comboProductId) {
       type = c.comboProductType
-      productName = c.shortName
+      typeName = c.shortName
     }
     p.skus.forEach(item => {
       size = item.size
@@ -60,13 +62,14 @@ function TypeSelect(props) {
   let Items = []
   p.catIds.forEach((catId, index) => {
     getType(catId)
+    console.log('typeName', typeName)
     Items.push(
       <OverlayTrigger 
         placement='top' 
-        overlay={<Tooltip id={ type }>{ productName }</Tooltip>}
+        overlay={<Tooltip id={ type }>{ typeName }</Tooltip>}
       >
         <button data-type={ type }
-          data-productname={ productName }
+          data-typename={ typeName }
           data-active={ type === props.type }
           role='button' 
           tabIndex='0'
@@ -74,7 +77,7 @@ function TypeSelect(props) {
           key={ `typeselect${ index }`}
         >
           <span className={ !p.comboProductButtonTitles && 'sr-only'}>
-            { productName }
+            { typeName }
           </span>
           { showLabel &&
             <label data-active-size={ size }>
@@ -90,13 +93,12 @@ function TypeSelect(props) {
     )
   })
 
-  
-
   return (
   <div className={ `type-select ${ addlClass }` }
-    data-active-product={ props.productName }
+    data-active-product={ props.typeName }
     data-label={ p.comboProductButtonLabels }
-    data-product-types={ p.catIds.length }>
+    data-product-types={ p.catIds.length }
+  >
     { Items }
   </div>
   )

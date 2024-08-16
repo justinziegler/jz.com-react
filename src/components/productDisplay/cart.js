@@ -29,22 +29,7 @@ function Cart(props) {
           }
         </ul>
         <p>
-          Cart total: <strong>$
-            { (props.upsell0Active && props.upsell1Active) ?
-              <>{ props.price + props.upsell0Price + props.upsell1Price }</> :
-              <>
-                { (props.upsell0Active && !props.upsell1Active) ?
-                    <>{ props.price + props.upsell0Price }</> :
-                  <>
-                    { (!props.upsell0Active && props.upsell1Active) ?
-                      <>{ props.price + props.upsell1Price }</> :
-                      <>{ props.price }</>
-                    }
-                  </>
-                }
-              </>
-            }
-          </strong>
+          Cart total: <strong>${ props.cartTotal }</strong>
         </p>
       </div>
       <div className='cart-overlay' data-visible={ props.showCart } onClick={ hideCart }></div>

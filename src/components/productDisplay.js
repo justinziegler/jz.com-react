@@ -30,8 +30,11 @@ function ProductDisplay(props) {
     getInitialSelection(p, initial);
   }
 
+  console.log('initial', initial)
+
   const [sku, setSku] =                 useState(initial.sku);
   const [type, setType] =               useState(initial.type)
+  const [typeName, setTypeName] =       useState(initial.typeName)
   const [color, setColor] =             useState(initial.color)
   const [colorName, setColorName] =     useState(initial.colorName)
   const [size, setSize] =               useState(initial.size)
@@ -39,7 +42,7 @@ function ProductDisplay(props) {
   const [showCart, setShowCart] =       useState(false)
   const [cartTotal, setCartTotal] =     useState(initial.salePrice)
   
-  if (props.setProductName === '')      props.setProductName(initial.productName)
+  if (props.productName === '')         props.setProductName(initial.productName)
   if (props.price === 0)                props.setPrice(initial.salePrice)
   if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
 
@@ -75,6 +78,7 @@ function ProductDisplay(props) {
 
   
 
+  console.log('productName', props.productName)
   console.log('game over man!')
   console.log('')
 
@@ -140,6 +144,8 @@ function ProductDisplay(props) {
                           page={ props.page } 
                           type={ type } 
                           setType={ setType }
+                          typeName={ typeName } 
+                          setTypeName={ setTypeName }
                           productName={ props.productName } 
                           setProductName={ props.setProductName }
                           handleSku={ handleSku }
@@ -153,6 +159,8 @@ function ProductDisplay(props) {
                       setSku={ setSku } 
                       upsell0Active={ upsell0Active }
                       upsell1Active={ upsell1Active }
+                      upsell0Sku={ upsell0Sku }
+                      upsell1Sku={ upsell1Sku }
                       price={ props.price }
                       upsell0Price={ upsell0Price }
                       upsell1Price={ upsell1Price }
@@ -179,6 +187,10 @@ function ProductDisplay(props) {
                         setUpsell1Sku={ setUpsell1Sku }
                         upsell0Size={ upsell0Size }
                         upsell1Size={ upsell1Size }
+                        setUpsell0Price={ setUpsell0Price }
+                        setUpsell1Price={ setUpsell1Price }
+                        upsell0Price={ upsell0Price }
+                        upsell1Price={ upsell1Price }
                         initial={ initial }
                       />
                     }
@@ -215,6 +227,7 @@ function ProductDisplay(props) {
           upsell1Price={ upsell1Price }
           setUpsell0Price={ setUpsell0Price }
           setUpsell1Price={ setUpsell1Price }
+          cartTotal={ cartTotal }
         />
 
       </div>

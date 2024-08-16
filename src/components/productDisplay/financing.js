@@ -10,8 +10,9 @@ function Financing(props) {
     console.log('total', total)
     console.log('price', props.price)
     console.log('monthlyPayment', monthlyPayment)
+    console.log('the math:', props.price + ' + ' + props.upsell0Price + ' + ' + props.upsell1Price )
     props.setCartTotal(total)
-  }, [props.price, props.upsell0Active, props.upsell1Active]);
+  }, [props.price, props.upsell0Active, props.upsell1Active, props.upsell0Sku, props.upsell1Sku]);
 
   const p = props.page;
   let additionalClass = ''
