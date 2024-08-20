@@ -24,6 +24,7 @@ function ColorSelect(props) {
         <OverlayTrigger 
           placement='top' 
           overlay={<Tooltip id={ c.color }>{ c.colorName }</Tooltip>}
+          key={ c.color }
         >
           <button 
             className='color' 

@@ -8,13 +8,12 @@ import 'swiper/css/pagination';
 import '../../scss/section-suggested-items.scss'
 
 function SuggestedItems(props) {
-
   return (
     <section className='suggestions'>
       <div className='container'>
         <div className='row'>
           { props.suggestedItems.map(si =>
-            <>
+            <React.Fragment key='suggested-items'>
               <div className='col-xs-12'>
                 <h2>{ si.title }</h2>
               </div>
@@ -25,7 +24,6 @@ function SuggestedItems(props) {
                 pagination={{ clickable: true }}
                 loop={ true }
                 grabCursor={ true }
-                breakpointsInverse={ true }
                 centeredSlides={ true }
                 breakpoints={{
                   0: {
@@ -42,8 +40,8 @@ function SuggestedItems(props) {
                   }
                 }}
               >
-                { si.items.map(item =>
-                  <SwiperSlide className='suggested'>
+                { si.items.map((item, index) =>
+                  <SwiperSlide className='suggested' key={ `suggested-${ index }` }>
                     <div 
                       className={ `item ${ item.shortName } lazyload` }
                       role='img' 
@@ -58,7 +56,7 @@ function SuggestedItems(props) {
                   </SwiperSlide>
                 )}
               </Swiper>
-            </>
+            </React.Fragment>
           )}
         </div>
       </div>

@@ -4,7 +4,6 @@ import Header from './header';
 function Main(props) {
   const p = props.page;
   const { children } = props;
-  console.log('main')
 
   // Page details
   const [open, setOpen] = useState(true);

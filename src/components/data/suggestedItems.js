@@ -28,14 +28,14 @@ const suggestedItems = [
         shortName: 'memory-foam-pillow',
         linkName: 'pillow',
         url: 'memory-foam-pillow',
-        description: <p>Soft on one side and firm<br class="hidden-xs" /> on the<br class="visible-xs" /> other to support<br class="hidden-xs" /> all sleepers.</p>
+        description: <p>Soft on one side and firm<br className="hidden-xs" /> on the<br className="visible-xs" /> other to support<br className="hidden-xs" /> all sleepers.</p>
       },
       {
         itemName: 'Down Duvet',
         shortName: 'duvet',
         linkName: 'down duvet',
         url: 'down-duvet-insert',
-        description: <p>Heirloom quality down<br /> duvet insert.<br class="hidden-xs" />&nbsp;</p>
+        description: <p>Heirloom quality down<br /> duvet insert.<br className="hidden-xs" />&nbsp;</p>
       }
     ]
   }

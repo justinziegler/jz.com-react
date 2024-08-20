@@ -1,3 +1,4 @@
+import React from 'react';
 import { social, products, research, support, resources, company } from '../data/footerLinks';
 import '../../scss/footer.scss'
 
@@ -40,7 +41,7 @@ function Footer(props) {
               <div className='footer-social col-xs-7 col-sm-5 col-sm-offset-1 col-md-12 col-md-offset-0'>
                 <ul>
                   { social.map((item, index) =>
-                    <>
+                    <React.Fragment key={ `social-${ index }` }>
                       <li>
                         <a href={ item.link } 
                           className={ item.className } 
@@ -56,7 +57,7 @@ function Footer(props) {
                       { index === 3 &&
                         <br className='hidden-lg' />
                       }
-                    </>
+                    </React.Fragment>
                   )}
                 </ul>
               </div>
@@ -75,8 +76,8 @@ function Footer(props) {
               <div className='col-xs-6 col-sm-4'>
                 <h6>Products</h6>
                 <ul className='products'>
-                  { products.map(item =>
-                    <li><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
+                  { products.map((item, index) =>
+                    <li key={ `products-${ index }` }><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
                   )}
                 </ul>
               </div>
@@ -84,29 +85,29 @@ function Footer(props) {
                 <h6>Research</h6>
                 <ul className='research'>
                   { research.map((item, index) =>
-                    <li className={ index > 3 && 'visible-xs'}>
+                    <li className={ index > 3 ? 'visible-xs' : undefined}  key={ `research-${ index }` }>
                       <a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a>
                     </li>
                   )}		
                 </ul>
                 <h6 className='hidden-xs'>Support</h6>
                 <ul className='hidden-xs'>				
-                  { support.map(item =>
-                    <li><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
+                  { support.map((item, index) =>
+                    <li key={ `support-a-${ index }` }><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
                   )}		
                 </ul>
               </div>
               <div className='right-col hidden-xs col-sm-4'>
                 <h6>Resources</h6>
                 <ul className='products'>
-                  { resources.map(item =>
-                    <li><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
+                  { resources.map((item, index) =>
+                    <li key={ `resources-${ index }` }><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
                   )}
                 </ul>
                 <h6>Company</h6>
                 <ul>
-                  { company.map(item =>
-                    <li><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
+                  { company.map((item, index) =>
+                    <li key={ `company-${ index }` }><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
                   )}
                 </ul>
               </div>
@@ -115,16 +116,16 @@ function Footer(props) {
               <div className='col-xs-6 col-sm-4'>
                 <h6>Support</h6>
                 <ul>
-                  { support.map(item =>
-                    <li><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
+                  { support.map((item, index) =>
+                    <li key={ `support-b-${ index }` }><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
                   )}	
                 </ul>
               </div>
               <div className='col-xs-6 col-sm-4'>
                 <h6>Company</h6>
                 <ul>
-                  { company.map(item =>
-                    <li><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
+                  { company.map((item, index) =>
+                    <li key={ `company-b-${ index }` }><a href={ item.link } tabIndex='0' onClick={ linkDisabled }>{ item.title }</a></li>
                   )}
                 </ul>
               </div>

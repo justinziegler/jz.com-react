@@ -9,12 +9,10 @@ import '../scss/header.scss';
 import '../css/bootstrap-grid.css';
 
 function Header(props) {
-  console.log('header')
-  const p = props.page;
-  console.log('p', p)
-  const pageId = getPageId(p.pageUrl);
-  const prevPage = getPrevPage(p.pageUrl);
-  const nextPage = getNextPage(p.pageUrl);
+  const p = props.page
+  const pageId = getPageId(p.pageUrl)
+  const prevPage = getPrevPage(p.pageUrl)
+  const nextPage = getNextPage(p.pageUrl)
 
   return (
     <nav id="nav" data-collapsed={ !props.open } data-current-page={ p.pageUrl }>
@@ -40,15 +38,15 @@ function Header(props) {
           </a>
           <Collapse in={ props.openHamburger }>
             <ul className="nav-links"> 
-              { navLinks.map((x, index) =>
-                <li className={ x.class } key={ `navlink${index}`}>
-                  { x.target !== '' ?
-                    <a href={ x.link }  target="_blank" tabIndex="0">{ x.title }</a>
-                    :
-                    <a href={ x.link }  tabIndex="0">{ x.title }</a>
-                  }
-                </li>
-              )}
+                { navLinks.map((x, index) =>
+                  <li className={ x.class } key={ `navlink${index}`}>
+                    { x.target !== '' ?
+                      <a href={ x.link } target="_blank" tabIndex="0">{ x.title }</a>
+                      :
+                      <a href={ x.link } tabIndex="0">{ x.title }</a>
+                    }
+                  </li>
+                )}
             </ul>
           </Collapse>
         </div>
@@ -105,8 +103,10 @@ function Header(props) {
         <Collapse in={ props.open }>
           <div className="case-study">
             <div className="case-study-content">
-              { p.headerIntro.map(item =>
-                  item 
+              { p.headerIntro.map((item, index) =>
+                <React.Fragment key={ `cs-${index}` }>
+                  { item }
+                </React.Fragment>
               )}
               { p.headerBullets !== undefined &&
                 <ul className="project-details">
@@ -121,10 +121,10 @@ function Header(props) {
                 <div className="toggle-links">
                   { p.pageUrl === 'holiday-mode' ?
                     <>
-                      <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode }>
+                      <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode } key='toggleOn'>
                         Holiday Mode On
                       </button>
-                      <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode }>
+                      <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode } key='toggleOff'>
                         Holiday Mode Off
                       </button>
                     </>
@@ -133,18 +133,21 @@ function Header(props) {
                       <button 
                         onClick={ () => props.setActiveDisplay('mattress') } 
                         data-active={ props.activeDisplay === 'mattress' }
+                        key='toggleMattress'
                       >
                         Mattress
                       </button>
                       <button 
                         onClick={ () => props.setActiveDisplay('frame') } 
                         data-active={ props.activeDisplay === 'frame' }
+                        key='toggleFrame'
                       >
                         Bed Frame
                       </button>
                       <button 
                         onClick={ () => props.setActiveDisplay('sheets') } 
                         data-active={ props.activeDisplay === 'sheets' }
+                        key='toggleSheets'
                       >
                         Sheets
                       </button>

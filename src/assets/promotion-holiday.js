@@ -38,7 +38,7 @@ $(document).ready(function(){
                 } else {
                     this.removeSlide([2,3]);
                     $('#value-props .slide-content .vp.three h2').html('The Mattress Worth <span>Obsessing Over</span>');
-                    $('#value-props .slide-content .vp.three p').html('Fall asleep fast, stay asleep,<br class="visible-xs"> and wake up ready to take on the day.');
+                    $('#value-props .slide-content .vp.three p').html('Fall asleep fast, stay asleep,<br className="visible-xs"> and wake up ready to take on the day.');
                 }
             },
             slideChange: function () {
@@ -183,7 +183,7 @@ $(videoModal).on('hide.bs.modal', function() {
 //Smooth Scroll Arrow
 // Select all links with hashes
 // This would normally be ('a[href*="#"]'), but that conflicts with this page's accordion scripts
-$('a[class="down-arrow"]') 
+$('a[className="down-arrow"]') 
     // Remove links that don't actually link to anything
     .not('[href="#"]')
     .not('[href="#0"]')

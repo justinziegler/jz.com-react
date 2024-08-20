@@ -16,7 +16,7 @@ function OurWayModal(props) {
         </button>
       </Modal.Header>
       <Modal.Body>
-        <div class="item" data-content={ props.modalTitleClass }>
+        <div className="item" data-content={ props.modalTitleClass }>
           <h2>{ props.modalTitle }</h2>
           <p>{ props.modalContent }</p>
         </div>
@@ -32,7 +32,6 @@ function OurWay(props) {
   const [modalContent, setModalContent] = useState(props.ourWay[0].content)
   const handleShowModal = (e) => {
     e.preventDefault()
-    console.log('got here')
     setModalTitle(props.ourWay[e.target.dataset.index].title)
     setModalTitleClass(props.ourWay[e.target.dataset.index].titleClass)
     setModalContent(props.ourWay[e.target.dataset.index].content)
@@ -50,6 +49,7 @@ function OurWay(props) {
         role='button' 
         tabIndex='0'
         onClick={ handleShowModal }
+        key={ `ourway-${ index }` }
       >
         { item.title }
       </div>
@@ -71,7 +71,7 @@ function OurWay(props) {
         modalContent={ modalContent }
         showModal={ showModal }
         setShowModal={ setShowModal }
-        modalTitleClass={ modalTitleClass }
+        modalTitleclassName={ modalTitleClass }
       />
     </section>
   )

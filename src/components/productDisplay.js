@@ -30,8 +30,6 @@ function ProductDisplay(props) {
     getInitialSelection(p, initial);
   }
 
-  console.log('initial', initial)
-
   const [sku, setSku] =                 useState(initial.sku);
   const [typeName, setTypeName] =       useState(initial.typeName)
   const [colorName, setColorName] =     useState(initial.colorName)
@@ -40,12 +38,14 @@ function ProductDisplay(props) {
   const [showCart, setShowCart] =       useState(false)
   const [cartTotal, setCartTotal] =     useState(initial.salePrice)
   
-  if (props.productName === '')         props.setProductName(initial.productName)
-  if (props.type === '')                props.setType(initial.type)
-  if (props.color === '')               props.setColor(initial.color)
-  if (props.price === 0)                props.setPrice(initial.salePrice)
-  if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
-  if (!props.initialSelectionLoaded)    props.setInitialSelectionLoaded(true)
+  useEffect(() => {
+    if (props.productName === '')         props.setProductName(initial.productName)
+    if (props.type === '')                props.setType(initial.type)
+    if (props.color === '')               props.setColor(initial.color)
+    if (props.price === 0)                props.setPrice(initial.salePrice)
+    if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
+    if (!props.initialSelectionLoaded)    props.setInitialSelectionLoaded(true)
+  }, []);
 
   const [upsell0Active, setUpsell0Active] = useState(false)
   const [upsell1Active, setUpsell1Active] = useState(false)
@@ -76,14 +76,6 @@ function ProductDisplay(props) {
     })
   }
   
-
-  
-
-  console.log('productName', props.productName)
-  console.log('game over man!')
-  console.log('')
-
-
   return (
     <>
       <div className='product-display' data-visible={ props.visible }>  

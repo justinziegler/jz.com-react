@@ -10,30 +10,32 @@ import "video-react/dist/video-react.css";
 function Gallery(props) {
   const p = props.page;
 
-  let Items = [];
-  console.log('p.skus', p.skus)
+  let Items = []
   for (let i = 1; i <= p.gallerySlides; i++) {
     let additionalClass = ''
     if (i == p.galleryDimensions) additionalClass = 'dimensions'
     Items.push(
       <SwiperSlide 
         className={ `slide-${i} lazyload ${ additionalClass }`} 
-        role='img' aria-label={ `Image: ${ p.heading } image ${ i }`}
+        role='img' 
+        aria-label={ `Image: ${ p.heading } image ${ i }`}
+        key={ `slide-${ i }`}
       >
         { i === p.galleryDimensions &&
           <>
-            { p.skus.map(item => 
-              <>  
+            { p.skus.map((item, index) => 
+              <React.Fragment key={ `dimensions-${ index }` }>  
                 { (item.type === p.defaultProductType && item.color === p.defaultColor) &&
                   <span 
                     data-visible={ item.size === props.size }
+                    key={ item.sku }
                   >
                     <span className='length' data-length={ item.l }></span>
                     <span className='width' data-width={ item.w }></span>
                     <span className='height' data-height={ item.h }></span>
                   </span>
                 }
-              </>
+              </React.Fragment>
             )}
           </>
         }

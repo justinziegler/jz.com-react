@@ -10,8 +10,6 @@ function TypeSelect(props) {
     props.handleSku();
   }
 
-  
-
   const p = props.page
   const c = p.comboProduct[0]
   let addlClass = ''
@@ -62,11 +60,11 @@ function TypeSelect(props) {
   let Items = []
   p.catIds.forEach((catId, index) => {
     getType(catId)
-    console.log('typeName', typeName)
     Items.push(
       <OverlayTrigger 
         placement='top' 
         overlay={<Tooltip id={ type }>{ typeName }</Tooltip>}
+        key={ `typeselect${ index }`}
       >
         <button data-type={ type }
           data-typename={ typeName }
@@ -74,7 +72,6 @@ function TypeSelect(props) {
           role='button' 
           tabIndex='0'
           onClick={ handleType }
-          key={ `typeselect${ index }`}
         >
           <span className={ !p.comboProductButtonTitles && 'sr-only'}>
             { typeName }

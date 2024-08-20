@@ -7,10 +7,6 @@ function Financing(props) {
     if (props.upsell1Active) total += props.upsell1Price
     const monthlyPayment = Math.round(total / 18)
     if (total > 0) props.setMonthlyPayment(monthlyPayment)
-    console.log('total', total)
-    console.log('price', props.price)
-    console.log('monthlyPayment', monthlyPayment)
-    console.log('the math:', props.price + ' + ' + props.upsell0Price + ' + ' + props.upsell1Price )
     props.setCartTotal(total)
   }, [props.price, props.upsell0Active, props.upsell1Active, props.upsell0Sku, props.upsell1Sku]);
 
@@ -53,7 +49,6 @@ function Financing(props) {
               /month
             </span>
           </p>
-
         </div>
       )
     })
