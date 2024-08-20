@@ -53,7 +53,6 @@ function Upsell(props) {
   }, [props.size]);
 
 
-
   const handleShowModal = (e) => {
     e.stopPropagation()
     e.preventDefault()

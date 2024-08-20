@@ -33,9 +33,7 @@ function ProductDisplay(props) {
   console.log('initial', initial)
 
   const [sku, setSku] =                 useState(initial.sku);
-  const [type, setType] =               useState(initial.type)
   const [typeName, setTypeName] =       useState(initial.typeName)
-  const [color, setColor] =             useState(initial.color)
   const [colorName, setColorName] =     useState(initial.colorName)
   const [size, setSize] =               useState(initial.size)
   const [sizeName, setSizeName] =       useState(initial.sizeName)
@@ -43,8 +41,11 @@ function ProductDisplay(props) {
   const [cartTotal, setCartTotal] =     useState(initial.salePrice)
   
   if (props.productName === '')         props.setProductName(initial.productName)
+  if (props.type === '')                props.setType(initial.type)
+  if (props.color === '')               props.setColor(initial.color)
   if (props.price === 0)                props.setPrice(initial.salePrice)
   if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
+  if (!props.initialSelectionLoaded)    props.setInitialSelectionLoaded(true)
 
   const [upsell0Active, setUpsell0Active] = useState(false)
   const [upsell1Active, setUpsell1Active] = useState(false)
@@ -67,7 +68,7 @@ function ProductDisplay(props) {
 
   const prefix = 'XX'
   const handleSku = () => {
-    setSku(`${ prefix }-${ type }-${ color }-${ size }`);
+    setSku(`${ prefix }-${ props.type }-${ props.color }-${ size }`);
     p.skus.forEach(item => {
       if (item.sku === sku) {
         props.setPrice(item.salePrice)
@@ -88,7 +89,7 @@ function ProductDisplay(props) {
       <div className='product-display' data-visible={ props.visible }>  
         <div className='container-fluid'>
           <div className='row'>
-            <Gallery page={ props.page } type={ type } color={ color } size={ size } />
+            <Gallery page={ props.page } type={ props.type } color={ props.color } size={ size } />
             <div className='product col-xs-12 col-sm-6'>
               <div className='row'>
                 <div className='product-description col-xs-12'>
@@ -115,8 +116,8 @@ function ProductDisplay(props) {
                         setSize={ setSize }
                         setSizeName={ setSizeName }
                         setPrice={ props.setPrice }
-                        type={ type }
-                        color={ color }
+                        type={ props.type }
+                        color={ props.color }
                         setUpsell0Size={ setUpsell0Size }
                         setUpsell1Size={ setUpsell1Size }
                         upsell0CatSizes={ upsell0CatSizes }
@@ -128,9 +129,9 @@ function ProductDisplay(props) {
                         <ColorSelect 
                           page={ props.page } 
                           handleSku={ handleSku }
-                          color={ color } 
+                          color={ props.color } 
                           colorName={ colorName } 
-                          setColor={ setColor }
+                          setColor={ props.setColor }
                           setColorName={ setColorName }
                         />
                       }
@@ -142,8 +143,8 @@ function ProductDisplay(props) {
                       { p.comboPage &&
                         <TypeSelect 
                           page={ props.page } 
-                          type={ type } 
-                          setType={ setType }
+                          type={ props.type } 
+                          setType={ props.setType }
                           typeName={ typeName } 
                           setTypeName={ setTypeName }
                           productName={ props.productName } 
@@ -174,8 +175,8 @@ function ProductDisplay(props) {
                       <Upsells 
                         page={ props.page }
                         prefix={ prefix }
-                        type={ type }
-                        color={ color } 
+                        type={ props.type }
+                        color={ props.color } 
                         size={ size } 
                         upsell0Active={ upsell0Active }
                         upsell1Active={ upsell1Active }

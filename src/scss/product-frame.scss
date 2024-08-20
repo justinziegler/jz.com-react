@@ -1024,6 +1024,9 @@ video {
   h4 {
     color: $navy
   }
+  h4, p {
+    user-select: none;
+  }
   .heading {
     @include mq(xxs) {
       height: 0;
@@ -1363,6 +1366,7 @@ video {
   }
   @include mq(md) {
     background-position: -600px 50%;
+    // background-position: 100% 50%;
   }
   @include mq(lg) {
   //   background-position: -712px 50%;
@@ -1411,18 +1415,33 @@ main[data-active-type='TU'] .compare[data-type='UU'] {
   }
 }
 
-main[data-active-type='TU'][data-active-color='CS'] .compare,
-  main[data-active-type='TU'][data-active-color='CS'] .compare[data-type='TU'],
-  main[data-active-type='UU'][data-active-color='CS'] .compare[data-type='TU'] {
+// main[data-active-type='TU'][data-active-color='CS'] .compare,
+// main[data-active-type='TU'][data-active-color='CS'] .compare[data-type='TU'],
+// main[data-active-type='UU'][data-active-color='CS'] .compare[data-type='TU'] {
+//   &.lazyloaded {
+//     @include mq(xsm) {
+//       background-image: url('../assets/frame/comparison-full-TU-CS-mobile.jpg');
+//     }
+//   }
+// }
+// main[data-active-type='TU'][data-active-color='DS'] .compare,
+// main[data-active-type='TU'][data-active-color='DS'] .compare[data-type='TU'],
+// main[data-active-type='UU'][data-active-color='DS'] .compare[data-type='TU'] {
+//   &.lazyloaded {
+//     @include mq(xsm) {
+//       background-image: url('../assets/frame/comparison-full-TU-DS-mobile.jpg');
+//     }
+//   }
+// }
+
+.compare[data-type='TU'][data-color='CS'] {
   &.lazyloaded {
     @include mq(xsm) {
       background-image: url('../assets/frame/comparison-full-TU-CS-mobile.jpg');
     }
   }
 }
-main[data-active-type='TU'][data-active-color='DS'] .compare,
-main[data-active-type='TU'][data-active-color='DS'] .compare[data-type='TU'],
-main[data-active-type='UU'][data-active-color='DS'] .compare[data-type='TU'] {
+.compare[data-type='TU'][data-color='DS'] {
   &.lazyloaded {
     @include mq(xsm) {
       background-image: url('../assets/frame/comparison-full-TU-DS-mobile.jpg');
@@ -1458,18 +1477,14 @@ main[data-active-type='UU'] .compare[data-type='TU'] {
   }
 }
 
-main[data-active-type='UU'][data-active-color='CS'] .compare,
-main[data-active-type='UU'][data-active-color='CS'] .compare[data-type='UU'],
-main[data-active-type='TU'][data-active-color='CS'] .compare[data-type='UU'] {
+.compare[data-type='UU'][data-color='CS'] {
   &.lazyloaded {
     @include mq(xsm) {
       background-image: url('../assets/frame/comparison-full-UU-CS-mobile.jpg');
     }
   }
 }
-main[data-active-type='UU'][data-active-color='DS'] .compare,
-main[data-active-type='UU'][data-active-color='DS'] .compare[data-type='UU'],
-main[data-active-type='TU'][data-active-color='DS'] .compare[data-type='UU'] {
+.compare[data-type='UU'][data-color='DS'] {
   &.lazyloaded {
     @include mq(xsm) {
       background-image: url('../assets/frame/comparison-full-UU-DS-mobile.jpg');
@@ -1477,76 +1492,75 @@ main[data-active-type='TU'][data-active-color='DS'] .compare[data-type='UU'] {
   }
 }
 // Untufted
-main {
-  &[data-active-color='CS'] {
-    .compare {
+// main {
+.compare {
+  &[data-color='CS'] {
+    &.lazyloaded {
+      @include mq(sm) {
+        background-image: url('../assets/frame/comparison-full-UU-CS-sm.jpg');
+      }
+      @include mq(md) {
+        background-image: url('../assets/frame/comparison-full-UU-CS-md.jpg');
+      }
+    }
+    .photo {
       &.lazyloaded {
         @include mq(sm) {
-          background-image: url('../assets/frame/comparison-full-UU-CS-sm.jpg');
+          background-image: url('../assets/frame/comparison-full-TU-CS-sm.jpg');
         }
         @include mq(md) {
-          background-image: url('../assets/frame/comparison-full-UU-CS-md.jpg');
+          background-image: url('../assets/frame/comparison-full-TU-CS-md.jpg');
         }
       }
-      .photo {
-        &.lazyloaded {
-          @include mq(sm) {
-            background-image: url('../assets/frame/comparison-full-TU-CS-sm.jpg');
-          }
-          @include mq(md) {
-            background-image: url('../assets/frame/comparison-full-TU-CS-md.jpg');
-          }
-        }
-        &::before {
-          @include mq(sm) {
-            bottom: 44%;
-          }
-          @include mq(md) {
-            bottom: 47%;
-          }
-        }
-        &::after {
-          @include mq(sm) {
-            top: calc(56% + 40px);
-          }
-          @include mq(md) {
-            top: calc(53% + 40px);
-          }
-        }
-      }
-      #handle {
+      &::before {
         @include mq(sm) {
-          top: 56%;
+          bottom: 44%;
         }
         @include mq(md) {
-          top: 53%;
+          bottom: 47%;
+        }
+      }
+      &::after {
+        @include mq(sm) {
+          top: calc(56% + 40px);
+        }
+        @include mq(md) {
+          top: calc(53% + 40px);
         }
       }
     }
+    #handle {
+      @include mq(sm) {
+        top: 56%;
+      }
+      @include mq(md) {
+        top: 53%;
+      }
+    }
   }
-  &[data-active-color='DS'] {
-    .compare {
+  &[data-color='DS'] {
+    &.lazyloaded {
+      @include mq(sm) {
+        background-image: url('../assets/frame/comparison-full-UU-DS-sm.jpg');
+      }
+      @include mq(md) {
+        background-image: url('../assets/frame/comparison-full-UU-DS-md.jpg');
+      }
+    }
+    .photo {
       &.lazyloaded {
         @include mq(sm) {
-          background-image: url('../assets/frame/comparison-full-UU-DS-sm.jpg');
+          background-image: url('../assets/frame/comparison-full-TU-DS-sm.jpg');
         }
         @include mq(md) {
-          background-image: url('../assets/frame/comparison-full-UU-DS-md.jpg');
-        }
-      }
-      .photo {
-        &.lazyloaded {
-          @include mq(sm) {
-            background-image: url('../assets/frame/comparison-full-TU-DS-sm.jpg');
-          }
-          @include mq(md) {
-            background-image: url('../assets/frame/comparison-full-TU-DS-md.jpg');
-          }
+          background-image: url('../assets/frame/comparison-full-TU-DS-md.jpg');
         }
       }
     }
   }
 }
+  
+// }
 
 .assembly {
   @include mq(sm) {

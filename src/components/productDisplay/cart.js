@@ -23,8 +23,20 @@ function Cart(props) {
           </li>
           { p.upsells &&
             <>
-              <CartUpsell p={ p } index={ 0 } active={ props.upsell0Active } sku={ props.upsell0Sku } setPrice={ props.setUpsell0Price } />
-              <CartUpsell p={ p } index={ 1 } active={ props.upsell1Active } sku={ props.upsell1Sku } setPrice={ props.setUpsell1Price } />
+              <CartUpsell 
+                p={ p } 
+                index={ 0 } 
+                active={ props.upsell0Active } 
+                sku={ props.upsell0Sku } 
+                setPrice={ props.setUpsell0Price } 
+              />
+              <CartUpsell 
+                p={ p } 
+                index={ 1 } 
+                active={ props.upsell1Active } 
+                sku={ props.upsell1Sku } 
+                setPrice={ props.setUpsell1Price } 
+              />
             </>
           }
         </ul>

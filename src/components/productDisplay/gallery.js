@@ -59,7 +59,7 @@ function Gallery(props) {
       data-color={ props.color }
       data-type={ props.type }
       data-upsell-selected='false'>
-      <Swiper className='carousel' modules={[Pagination]} pagination={{ clickable: true, className: 'adsf' }}>
+      <Swiper className='carousel' modules={[Pagination]} pagination={{ clickable: true }}>
         { Items }
       </Swiper>
     </div>
