@@ -17,7 +17,6 @@ const ProductDisplaySheets    = lazy(() => import('./pages/05-product-display/04
 const BedFrame                = lazy(() => import('./pages/06-bed-frame/bed-frame'));
 const Sheets                  = lazy(() => import('./pages/07-sheets/sheets'));
 const Cart                    = lazy(() => import('./pages/08-cart/cart'));
-// const HomeOld                 = lazy(() => import('./components/recently'));
 const HomeOld                 = lazy(() => import('./pages/home/home'));
 
 function App() {
