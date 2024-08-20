@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import { getProductConfig } from '../../components/utils/getProductConfig';
-import Main from '../../components/main';
-import Mattress from './02-mattress'
-import Frame from './03-frame'
-import Sheets from './04-sheets'
+import Main from '../../components/pageSections/main';
 import '../../css/iframe.css'
 
 function ProductDisplayDemo () {
@@ -24,13 +20,13 @@ function ProductDisplayDemo () {
   return (
     <Main page={ page } activeDisplay={ activeDisplay } setActiveDisplay={ setActiveDisplay }>
       { activeDisplay === 'mattress' ?
-        <iframe src='./product-display-mattress' frameborder='0'></iframe>
+        <iframe src='./product-display-mattress' frameborder='0' title='mattress'></iframe>
         :
         <>
           { activeDisplay === 'frame' ?
-            <iframe src='./product-display-frame' frameBorder='0'></iframe>
+            <iframe src='./product-display-frame' frameborder='0' title='bed-frame'></iframe>
             :
-            <iframe src='./product-display-sheets' frameBorder='0'></iframe>
+            <iframe src='./product-display-sheets' frameborder='0' title='sheets'></iframe>
           }
         </>
       }

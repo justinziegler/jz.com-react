@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Main from '../../components/main';
+import Main from '../../components/pageSections/main';
 import '../../scss/product-display.scss'
 import '../../scss/promotion-mattress-animation.scss'
 import '../../scss/promotion-value-propositions.scss'

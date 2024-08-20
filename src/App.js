@@ -16,7 +16,9 @@ const ProductDisplayFrame     = lazy(() => import('./pages/05-product-display/03
 const ProductDisplaySheets    = lazy(() => import('./pages/05-product-display/04-sheets'));
 const BedFrame                = lazy(() => import('./pages/06-bed-frame/bed-frame'));
 const Sheets                  = lazy(() => import('./pages/07-sheets/sheets'));
-const Cart = lazy(() => import('./pages/08-cart/cart'));
+const Cart                    = lazy(() => import('./pages/08-cart/cart'));
+// const HomeOld                 = lazy(() => import('./components/recently'));
+const HomeOld                 = lazy(() => import('./pages/home/home'));
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           <Route path='/bed-frame' element={ <BedFrame /> } />
           <Route path='/sheets' element={ <Sheets /> } />
           <Route path='/cart' element={ <Cart /> } />
+          <Route path='/home' element={ <HomeOld /> } />
         </Routes>
     </Router>
   );

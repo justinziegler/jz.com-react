@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import 'lazysizes';
 import { getProductSkus } from '../../components/utils/getProductSkus';
-import Main from '../../components/main';
+import Main from '../../components/pageSections/main';
 import Hero from './content/hero';
 import ValueProps from './content/value-props';
 import KnowUs from './content/know-us';
-import VideoModal from '../../components/video-modal';
+import VideoModal from '../../components/pageSections/videoModal';
 import ValuePropsDeux from './content/value-props-deux';
 import Financing from './content/financing';
 import SizeGuide from './content/size-guide';

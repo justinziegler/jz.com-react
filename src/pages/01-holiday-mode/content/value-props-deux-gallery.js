@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { vpMobile } from '../../../components/constants';
+import { vpMobile } from '../../home/content/constants';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectFlip } from 'swiper';
 import 'swiper/css';

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { getProductConfig } from '../../components/utils/getProductConfig';
-import Main from '../../components/main'
+import Main from '../../components/pageSections/main'
 import ProductDisplay from '../../components/productDisplay';
 import '../../scss/product-frame.scss'
 import { ourWay } from '../../components/data/ourWay';

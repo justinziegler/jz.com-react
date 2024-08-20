@@ -24,7 +24,7 @@ function NavFooter() {
     },
     {
       title: 'Resume',
-      link: require('../pdf/JustinZiegler-Resume2023.pdf'),
+      link: require('../../../pdf/JustinZiegler-Resume2023.pdf'),
       target: '_blank',
       class: 'resume'
     },

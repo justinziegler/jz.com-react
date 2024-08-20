@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
-import { navLinks } from './nav-links';
-import { getPageId } from './utils/getPageId';
-import { getPrevPage } from './utils/getPrevPage';
-import { getNextPage } from './utils/getNextPage';
+import { navLinks } from '../data/navLinks';
+import { getPageId } from '../utils/getPageId';
+import { getPrevPage } from '../utils/getPrevPage';
+import { getNextPage } from '../utils/getNextPage';
 
-import '../scss/header.scss';
-import '../css/bootstrap-grid.css';
+import '../../scss/header.scss';
+import '../../css/bootstrap-grid.css';
 
 function Header(props) {
   const p = props.page

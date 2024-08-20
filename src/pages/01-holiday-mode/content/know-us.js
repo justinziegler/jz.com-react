@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { videos } from "./content";
-import VideoModal from '../../../components/video-modal';
+import VideoModal from '../../../components/pageSections/videoModal';
 
 function KnowUs(props) {
   return (

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Main from '../../components/main';
+import React from 'react';
+import Main from '../../components/pageSections/main';
 
 function TiktokMimic () {
   const page = {

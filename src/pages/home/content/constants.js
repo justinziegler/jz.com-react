@@ -27,7 +27,5 @@ const scrollTime = (e) => {
   document.querySelector('#recently')
   .scrollIntoView({ behavior: 'smooth', block: 'end' })
 }
-// new stuff below
-
 
 export { mobile, vpMobile, cats, scrollTime };

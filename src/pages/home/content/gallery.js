@@ -35,7 +35,7 @@ function Gallery(props) {
           }
           { x.images.length === 1 && 
             <img 
-              src={ require(`../img/${x.images[0]}`)} 
+              src={ require(`../../../img/${x.images[0]}`)} 
               className="lazyload"
               data-mobile={ x.mobile }
               alt={ x.title } 
@@ -46,7 +46,7 @@ function Gallery(props) {
             <div className="two-up">
               { x.images.map((image, index) => 
                 <img 
-                  src={ require(`../img/${image}`)} 
+                  src={ require(`../../../img/${image}`)} 
                   className="lazyload"
                   data-mobile={ x.mobile }
                   alt={ x.title }

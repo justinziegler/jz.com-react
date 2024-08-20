@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function Compare(props) {
-  const dragItem = document.querySelector("#handle");
-  const container = document.querySelector(".compare");
-  const photo = document.querySelector(".compare .photo");
+  const dragItem = document.querySelector("#handle")
+  const photo = document.querySelector(".compare .photo")
 
   let active = false;
   let currentX;

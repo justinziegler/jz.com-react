@@ -41,7 +41,6 @@ function Features(props) {
                 { items.map((item, index) =>
                   <button 
                     data-slide={ index + 1 } 
-                    role='button' 
                     tabIndex='0'  
                     key={ `slide-${index + 1}` }
                     onClick={ () => setActiveIndex(index) } 
