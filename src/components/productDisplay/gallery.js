@@ -2,6 +2,7 @@ import React, { useState }  from 'react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Player } from 'video-react';
+// import ReactPlayer from 'react-player'
 import 'lazysizes';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -45,8 +46,9 @@ function Gallery(props) {
               <Player
                 playsInline
                 autoPlay={ true }
-                loop 
-                muted
+                loop={ true }
+                muted={ true }
+                volume={ 0 }
                 poster={ p.galleryVideoPoster } 
                 src={ p.galleryVideoUrl }
               />

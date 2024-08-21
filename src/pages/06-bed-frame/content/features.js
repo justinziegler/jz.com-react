@@ -1,8 +1,26 @@
 import React, { useState } from 'react';
-import SwipeableViews from 'react-swipeable-views';
+
+function Gallery(props) {
+  return (
+    <props.Swiper 
+      enableMouseEvents 
+      index={ props.activeIndex }
+      onSlideChange={ props.handleTabs }
+      onSwiper={ props.setGallerySwiper }
+    >
+      { props.items.map((item, index) =>
+        <props.SwiperSlide className={ item.className } key={ `slide-${index + 1}` }>
+          <h4>{ item.title }</h4>
+          <p>{ item.content }</p>
+        </props.SwiperSlide>
+      )}
+    </props.Swiper>
+  )
+}
 
 function Features(props) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [gallerySwiper, setGallerySwiper] = useState(null) 
   const items = [
     {
       title: 'Modern Design',
@@ -21,9 +39,18 @@ function Features(props) {
     },
   ]
 
-  const handleChangeIndex = (index) => {
-    setActiveIndex(index)
+  const handleActiveIndex = (e) => {
+    // setActiveIndex(index)
+    e.preventDefault()
+    gallerySwiper.slideTo(Number(e.target.dataset.index))
+    setActiveIndex(Number(e.target.dataset.index))
   };
+
+  const handleTabs = () => {
+    setActiveIndex(gallerySwiper.activeIndex)
+  }
+
+  
 
   return (
     <section className='features'>
@@ -40,27 +67,37 @@ function Features(props) {
               <div className='dots'>
                 { items.map((item, index) =>
                   <button 
-                    data-slide={ index + 1 } 
+                    data-slide={ index + 1 }
+                    data-index={ index }
                     tabIndex='0'  
                     key={ `slide-${index + 1}` }
-                    onClick={ () => setActiveIndex(index) } 
+                    onClick={ handleActiveIndex } 
                   >
                     { item.className }
                   </button>
                 )}
               </div>
-              <SwipeableViews 
+              <Gallery 
+                Swiper={ props.Swiper }
+                SwiperSlide={ props.SwiperSlide }
+                items={ items }
+                setGallerySwiper={ setGallerySwiper }
+                setActiveIndex={ setActiveIndex }
+                handleTabs={ handleTabs }
+              />
+              {/* <props.Swiper 
                 enableMouseEvents 
                 index={ activeIndex }
                 onChangeIndex={ handleChangeIndex }
+                items={ items }
               >
                 { items.map((item, index) =>
-                  <div className={ item.className } key={ `slide-${index + 1}` }>
-                    <h4>{ item.title } { SwipeableViews.index }</h4>
+                  <props.SwiperSlide className={ item.className } key={ `slide-${index + 1}` }>
+                    <h4>{ item.title }</h4>
                     <p>{ item.content }</p>
-                  </div>
+                  </props.SwiperSlide>
                 )}
-              </SwipeableViews>
+              </props.Swiper> */}
             </div>
           </div>
         </div>

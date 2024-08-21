@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { getProductConfig } from '../../components/utils/getProductConfig';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Main from '../../components/pageSections/main'
 import ProductDisplay from '../../components/productDisplay';
 import '../../scss/product-frame.scss'
@@ -59,7 +60,7 @@ function BedFrame () {
 
       <Versatile productName={ productName }/>
 
-      <Features productName={ productName } />
+      <Features productName={ productName } Swiper={ Swiper } SwiperSlide={ SwiperSlide } />
 
       <Compare type={ type } color={ color } initialSelectionLoaded={ initialSelectionLoaded } />
 

@@ -1,7 +1,10 @@
 
 import React, { useState } from 'react';
 import { getProductConfig } from '../../components/utils/getProductConfig';
+import Main from '../../components/pageSections/main';
 import ProductDisplay from '../../components/productDisplay';
+import { valueProps } from './content/valueProps';
+import ContentAccordion from '../../components/pageSections/contentAccordion';
 import '../../scss/product-display-color+quantity.scss'
 import '../../scss/product-display-upsell-list.scss'
 import '../../scss/product-cotton-sheets.scss'
@@ -16,20 +19,25 @@ function Sheets () {
   const [monthlyPayment, setMonthlyPayment] = useState(0)
   const [initialSelectionLoaded, setInitialSelectionLoaded] = useState(false) 
   return (
-    <ProductDisplay 
-      page={ page } 
-      productName={ productName }
-      setProductName={ setProductName }
-      type={ type }
-      setType={ setType }
-      color={ color }
-      setColor={ setColor }
-      price={ price } 
-      setPrice={ setPrice } 
-      monthlyPayment={ monthlyPayment }
-      setMonthlyPayment={ setMonthlyPayment }
-      setInitialSelectionLoaded={ setInitialSelectionLoaded }
-    />
+    <Main page={ page }>
+
+      <ProductDisplay 
+        page={ page } 
+        productName={ productName }
+        setProductName={ setProductName }
+        type={ type }
+        setType={ setType }
+        color={ color }
+        setColor={ setColor }
+        price={ price } 
+        setPrice={ setPrice } 
+        monthlyPayment={ monthlyPayment }
+        setMonthlyPayment={ setMonthlyPayment }
+        setInitialSelectionLoaded={ setInitialSelectionLoaded }
+      />
+      <ContentAccordion accordionContent={ valueProps } />
+    </Main>
+
   )
 }
 
