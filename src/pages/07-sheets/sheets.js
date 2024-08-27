@@ -5,6 +5,18 @@ import Main from '../../components/pageSections/main';
 import ProductDisplay from '../../components/productDisplay';
 import { valueProps } from './content/valueProps';
 import ContentAccordion from '../../components/pageSections/contentAccordion';
+import Mission from './content/mission';
+import Ethical from './content/ethical';
+import { sheetsReviews } from './content/sheetsReviews';
+import Reviews from '../../components/pageSections/reviews';
+import { additionalDetails } from './content/additionalDetails';
+import Sustainable from './content/sustainable';
+import Comfort from './content/comfort';
+import { suggestedItems } from '../../components/data/suggestedItems';
+import SuggestedItems from '../../components/pageSections/suggestedItems';
+import { faqs } from './content/faqs';
+import Faqs from '../../components/pageSections/faqs';
+import Footer from '../../components/pageSections/footer';
 import '../../scss/product-display-color+quantity.scss'
 import '../../scss/product-display-upsell-list.scss'
 import '../../scss/product-cotton-sheets.scss'
@@ -36,6 +48,25 @@ function Sheets () {
         setInitialSelectionLoaded={ setInitialSelectionLoaded }
       />
       <ContentAccordion accordionContent={ valueProps } />
+
+      <Mission />
+
+      <Ethical />
+
+      <Reviews reviews={ sheetsReviews } />
+
+      <ContentAccordion accordionContent={ additionalDetails } />
+
+      <Sustainable />
+
+      <Comfort />
+
+      <SuggestedItems suggestedItems={ suggestedItems } />
+
+      <Faqs faqs={ faqs } />
+
+      <Footer />
+
     </Main>
 
   )

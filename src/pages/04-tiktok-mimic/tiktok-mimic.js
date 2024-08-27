@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { useState }  from 'react';
+import { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Player } from 'video-react';
+// import ReactPlayer from 'react-player'
+import 'lazysizes';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import Main from '../../components/pageSections/main';
+import { slides } from './content/slides';
 
 function TiktokMimic () {
   const page = {
@@ -15,7 +23,19 @@ function TiktokMimic () {
   }
   return (
     <Main page={ page }>
-      <h1>Tiktok Mimic</h1>
+      <Swiper
+        className='slideshow'
+
+      >
+        { slides.map(slide =>
+          <SwiperSlide
+            id={ `slide${ index }`}
+            data-slide={ index } data-cta={ slide.cta }
+          >
+
+          </SwiperSlide>
+        )}
+      </Swiper>
     </Main>
   )
 }

@@ -14,14 +14,14 @@ const suggestedItems = [
         shortName: 'pillow',
         linkName: 'pillow',
         url: 'pillow',
-        description: <p>A three-layer design provides the perfect combination of comfort and support.</p>
+        description: <p>A three-layer design provides the perfect combination of comfort and support.<br class='visible-lg' /><br class='visible-lg' /></p>
       },
       {
         itemName: 'Original Lull Duvet',
         shortName: 'duvet',
         linkName: 'duvet',
         url: 'duvet-insert',
-        description: <p>Millions of premium fibers keep you warm in the winter and cool in the summer.</p>
+        description: <p>Millions of premium fibers keep you warm in the winter and cool in the summer.<br class='visible-lg' /></p>
       },
       {
         itemName: 'Memory Foam Pillow',

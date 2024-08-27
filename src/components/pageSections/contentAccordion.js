@@ -12,16 +12,14 @@ function ContentAccordion(props) {
               <div className='heading col-xs-12'>
                 <h2>{ content.heading }</h2>
               </div>
-              <div 
-                className='panel-group col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2' 
-                id={ `${ content.type }-accordion` } 
-                role='tabList' 
-                aria-multiselectable='true' 
-                data-active='true'
-              >
+              <div className='col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2'>
                 <Accordion defaultActiveKey={ 0 }>
                   { content.items.map((item, index) =>
-                    <Accordion.Item eventKey={ index } className={ item.className } key={ `accordion-${ index }` }>
+                    <Accordion.Item 
+                      eventKey={ index } 
+                      className={ item.className } 
+                      key={ `accordion-${ index }` }
+                    >
                       <Accordion.Header className={ item.icon ? 'collapsed icon' : 'collapsed' }>
                         { item.title }
                       </Accordion.Header>
