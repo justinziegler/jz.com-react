@@ -40,7 +40,6 @@ function Features(props) {
   ]
 
   const handleActiveIndex = (e) => {
-    // setActiveIndex(index)
     e.preventDefault()
     gallerySwiper.slideTo(Number(e.target.dataset.index))
     setActiveIndex(Number(e.target.dataset.index))
@@ -49,8 +48,6 @@ function Features(props) {
   const handleTabs = () => {
     setActiveIndex(gallerySwiper.activeIndex)
   }
-
-  
 
   return (
     <section className='features'>
@@ -85,19 +82,6 @@ function Features(props) {
                 setActiveIndex={ setActiveIndex }
                 handleTabs={ handleTabs }
               />
-              {/* <props.Swiper 
-                enableMouseEvents 
-                index={ activeIndex }
-                onChangeIndex={ handleChangeIndex }
-                items={ items }
-              >
-                { items.map((item, index) =>
-                  <props.SwiperSlide className={ item.className } key={ `slide-${index + 1}` }>
-                    <h4>{ item.title }</h4>
-                    <p>{ item.content }</p>
-                  </props.SwiperSlide>
-                )}
-              </props.Swiper> */}
             </div>
           </div>
         </div>

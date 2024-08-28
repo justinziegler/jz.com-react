@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import lazySizes from 'lazysizes';
 import { getProductSkus } from '../../components/utils/getProductSkus';
 import { getUpsells } from './content/getUpsells';
@@ -30,8 +30,12 @@ function Cart () {
       cart.push(item);
     }
   })
+  const [cartItems, setCartItems] = useState(cart)
+  console.log('cartItems', cartItems)
   const upsells = getUpsells(cart);
   // const upsells = u.result[0];
+  cartItems.push(upsells[0])
+  console.log('cartItems', cartItems)
   console.log('cart', cart)
   console.log('upsells', upsells)
   return (
@@ -54,19 +58,10 @@ function Cart () {
                   <div className='col-xs-12'>								
                     <ul>
                       <CartItems cart={ cart } itemType={ 'cartItem' } />
-                      {/* {# Cart Items #}
-                      {%- for item in cart.items -%}
-                        {%- set cartItem = true -%}
-                        {%- set upsell = false -%}		
-                        {{- getCartItems(item, cartItem, upsell) -}}
-                      {%- endfor -%}
-      
-                      {# Potential Upsells #}
-                      {%- for item in cart.upsells -%}
-                        {%- set cartItem = false -%}
-                        {%- set upsell = true -%}
-                        {{- getCartItems(item, cartItem, upsell) -}}
-                      {%- endfor -%} */}
+
+                      {/* Potential Upsells */}
+                      <CartItems cart={ upsells } itemType={ 'upsell' } />
+                     
                     </ul>
                     <div className='removed-items'>
                       {/* {% for item in cart.items %}
@@ -84,7 +79,7 @@ function Cart () {
               <div className='upsells col-xs-12'>
                 <h2><span>Frequently Bought Together</span></h2>
                 <ul>
-                    <Upsells upsells={ upsells } />
+                    <Upsells cart={ cart } upsells={ upsells } />
                 </ul>
               </div>
             </div>

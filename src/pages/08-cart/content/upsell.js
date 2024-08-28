@@ -36,6 +36,14 @@ function Upsell(props) {
     setUpsellActive(!upsellActive)
   }
 
+  const selectSize = (e) => {
+    e.preventDefault()
+    console.log('selectSiZe')
+    console.log('e', e.target.dataset.sku)
+    setSku(e.target.dataset.sku)
+    setShowUpsells(false)
+  }
+
 
   console.log('sku', sku)
   console.log('price', price)
@@ -159,7 +167,7 @@ function Upsell(props) {
                               style={ item.color !== activeColor ? { display: 'none' } : { display: 'block' } }
                               role='button' 
                               tabIndex='0'
-                              onClick={ () => setSku(item.sku) }
+                              onClick={ selectSize }
                             >
                               <h5>{ item.sizeName }</h5>
                               <p>${ item.price }</p>

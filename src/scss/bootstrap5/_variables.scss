@@ -582,8 +582,10 @@ $caret-spacing:               $caret-width * .85 !default;
 $transition-base:             all .2s ease-in-out !default;
 $transition-fade:             opacity .15s linear !default;
 // scss-docs-start collapse-transition
-$transition-collapse:         height .35s ease !default;
-$transition-collapse-width:   width .35s ease !default;
+// $transition-collapse:         height .35s ease !default;
+$transition-collapse:         height .2s ease;
+// $transition-collapse-width:   width .35s ease !default;
+$transition-collapse-width:   width .2s ease;
 // scss-docs-end collapse-transition
 
 // stylelint-disable function-disallowed-list
