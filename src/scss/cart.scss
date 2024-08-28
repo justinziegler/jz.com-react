@@ -10,8 +10,11 @@
 @import 'partials/svg';
 @import 'partials/layout';
 @import 'partials/snippets/lull-button-new';
-// @import "partials/snippets/max-width-1920";
-//@import "partials/snippets/video-embed";
+@import "bootstrap5/variables";
+@import "bootstrap5/mixins";
+@import "bootstrap5/transitions";
+@import "bootstrap5/tooltip";
+$enable-transitions:          true !default;
 
 html {
   min-height: 100%;
@@ -1181,9 +1184,9 @@ main {
           top: 14px;
         }
       }
-    }
-    .dropdown.open {
-      .btn {
+      &[aria-expanded=true] {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         &::before {
           height: 6px;
           opacity: 1;
@@ -1197,6 +1200,23 @@ main {
         &::after {
           opacity: 0.2;
         }
+      }
+    }
+    .dropdown.open {
+      .btn {
+        // &::before {
+        //   height: 6px;
+        //   opacity: 1;
+        //   @include mq(xsm) {
+        //     height: vwl(6px);
+        //   }
+        //   @include mq(xxs) {
+        //     height: vwp(6px);
+        //   }
+        // }
+        // &::after {
+        //   opacity: 0.2;
+        // }
       }
       .current-size:not(.selection-message) {
         opacity: 0.5;
@@ -1413,6 +1433,19 @@ main {
   }
 }
 
+.upsell-overlay {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  &[data-visible='false'] {
+    display: none;
+  }
+}
+
 .upsells {
   li {
     &[data-add-on='true'] {
@@ -1499,27 +1532,27 @@ main {
 }
 
 // Bootstrap component animations
-.fade {
-  opacity: 0;
-  @include transition(opacity 0.15s linear);
-  &.in {
-    opacity: 1;
-  }
-}
-main .collapse {
-  display: none;
-  &.in {
-    display: block;
-  }
-}
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  @include transition-property(height, visibility);
-  @include transition-duration(0.35s);
-  @include transition-timing-function(ease);
-}
+// .fade {
+//   opacity: 0;
+//   @include transition(opacity 0.15s linear);
+//   &.in {
+//     opacity: 1;
+//   }
+// }
+// main .collapse {
+//   display: none;
+//   &.in {
+//     display: block;
+//   }
+// }
+// .collapsing {
+//   position: relative;
+//   height: 0;
+//   overflow: hidden;
+//   @include transition-property(height, visibility);
+//   @include transition-duration(0.35s);
+//   @include transition-timing-function(ease);
+// }
 // Bootstrap dropdowns
 // The dropdown wrapper (div)
 .dropup,
@@ -1554,7 +1587,7 @@ main .collapse {
       left: -88px;
       right: -110px;
       z-index: 1000;
-      display: none; // none by default, but block on "open" of the menu
+      // display: none; // none by default, but block on "open" of the menu
       float: left;
       padding: 10px 4px 4px 10px;
       list-style: none;

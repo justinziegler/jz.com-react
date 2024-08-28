@@ -4,6 +4,7 @@ import { getProductSkus } from '../../components/utils/getProductSkus';
 import { getUpsells } from './content/getUpsells';
 import Main from '../../components/pageSections/main';
 import CartItems from './content/cartItems';
+import Upsells from './content/upsells'
 import '../../scss/cart.scss'
 import '../../scss/cart-images.scss'
 
@@ -83,9 +84,7 @@ function Cart () {
               <div className='upsells col-xs-12'>
                 <h2><span>Frequently Bought Together</span></h2>
                 <ul>
-                  { upsells.map(u =>
-                    <Upsell u={ u } />
-                  )}
+                    <Upsells upsells={ upsells } />
                 </ul>
               </div>
             </div>
