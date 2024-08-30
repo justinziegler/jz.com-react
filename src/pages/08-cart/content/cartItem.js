@@ -1,106 +1,133 @@
+import React, { useState } from 'react'
+import Collapse from 'react-bootstrap/Collapse'
 
 function CartItem(props) {
   const item = props.item
-  console.log('upsell', item)
+  const [active, setActive] = useState(true)
+  const [order, setOrder] = useState(props.index + 1)
+  const [quantity, setQuantity] = useState(1)
+
+  const handleRemove = (e) => {
+    e.preventDefault()
+    setActive(false)
+    props.setCartTotal(props.cartTotal - (item.salePrice * quantity))
+    setOrder(props.itemOrder + 1)
+    props.setItemOrder(props.itemOrder + 1)
+  }
+
+  const handleRestore = (e) => {
+    e.preventDefault()
+    setActive(true)
+    setQuantity(1)
+    props.setCartTotal(props.cartTotal + item.salePrice)
+    setOrder(props.itemOrder + 1)
+    props.setItemOrder(props.itemOrder + 1)
+  }
+
+  const decreaseQty = (e) => {
+    e.preventDefault()
+    e.target.blur()
+    if (quantity > 1) {
+      setQuantity(quantity - 1)
+      props.setCartTotal(props.cartTotal - item.salePrice)
+    }
+  }
+
+  const increaseQty = (e) => {
+    e.preventDefault()
+    e.target.blur()
+    setQuantity(quantity + 1)
+    props.setCartTotal(props.cartTotal + item.salePrice)
+  }
+
   return (
-    <li data-sku={ item.sku }
-        data-type={ item.type }
-        data-color={ item.color }
-        data-cart-item={ props.itemType === 'cartItem' }
-        data-upsell={ props.itemType === 'upsell' }
-        data-visible={ props.itemType === 'cartItem' }
-    >
-      <div className='product row'>
-        <div className='product-image col-xs-3'>
-          <div className='lazyload' role='img' aria-label={ `Image: ${ item.name }` }>
-          </div>
-        </div>
-        <div className='product-details col-xs-9'>
-          <div className='row'>
-            <div className='details col-xs-9'>
-              { props.itemType === 'upsell' ?
-                <>
-                  { item.skus.map(u =>
-                    <>
-                      <h3 className='current-size' data-sku={ u.sku } data-active='false'>
-                        { item.name }
-                      </h3>
-                      <h4 className='current-size' data-sku={ u.sku } data-active='false'>
-                        { u.sizeName }
-                      </h4>
-                    </>
-                  )}
-                </>
-                :
-                <>
-                  <h3>{ item.name }</h3>
-                  <h4>
-                    { item.sizeName } { item.colorSelection && <> &ndash; { item.colorName } </> }
-                  </h4>
-                </>
-              }
-            </div>
-            <div className='pricing col-xs-3'>
-              { props.itemType === 'upsell' ?
-                <>
-                  { item.skus.map(u =>
-                    <div className='item' data-sku={ u.sku } 
-                      data-type={ u.type }
-                      data-color={ u.color }
-                      data-price={ u.price }
-                      data-discount='0'
-                      data-active={ false }
-                      data-upsell={ true }
-                      data-quantity='1'
+    <>
+      <Collapse in={ active }>
+        <li data-sku={ item.sku }
+          data-type={ item.type }
+          data-color={ item.color }
+          data-cart-item={ true }
+          style={{ order: order }}
+        >
+            <div className='product row'>
+              <div className='product-image col-xs-3'>
+                <div className='lazyload' role='img' aria-label={ `Image: ${ item.name }` }>
+                </div>
+              </div>
+              <div className='product-details col-xs-9'>
+                <div className='row'>
+                  <div className='details col-xs-9'>
+                    <h3>{ item.name }</h3>
+                    <h4>
+                      { item.sizeName } { item.colorSelection && <> &ndash; { item.colorName } </> }
+                    </h4>
+                  </div>
+                  <div className='pricing col-xs-3'>
+                    <div className='item' data-sku={ item.sku } 
+                      data-type={ item.type }
+                      data-color={ item.color }
+                      data-price={ item.salePrice }
+                      data-discount={ item.discount }
+                      data-active={ true }
+                      data-upsell={ false }
+                      data-quantity={ quantity }
                     >
-                      <h4 className='price'>
-                        { u.price }
+                      <h4 className={ item.discount > 0 ? 'discounted price' : 'price' }>
+                        { Math.round(item.salePrice) === item.salePrice ?
+                          <>{ item.salePrice }</>
+                          : 
+                          <>{ item.salePrice.toFixed(2) }</>
+                        }
                       </h4>
+                      { item.discount > 0 &&
+                        <h4 className='original-price'>{ item.price }</h4>
+                      }
                     </div>
-                  )}
-                </>
-              :
-                <div className='item' data-sku={ item.sku } 
-                  data-type={ item.type }
-                  data-color={ item.color }
-                  data-price={ item.salePrice }
-                  data-discount={ item.discount }
-                  data-active={ true }
-                  data-upsell={ false }
-                  data-quantity={ 1 }
-                >
-                  <h4 className={ item.discount > 0 ? 'discounted price' : 'price' }>
-                    { Math.round(item.salePrice) === item.salePrice ?
-                      <>{ item.salePrice }</>
-                      : 
-                      <>{ item.salePrice.toFixed(2) }</>
-                    }
-                  </h4>
-                  { item.discount > 0 &&
-                    <h4 className='original-price'>{ item.price }</h4>
-                  }
+                  </div>
                 </div>
-              }
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-xs-9'>
-              <div className='quantity'>
-                <button 
-                  className='qty minus disabled' 
-                  aria-label='Decrease Quantity' 
+                <div className='row'>
+                  <div className='col-xs-9'>
+                    <div className='quantity'>
+                      <button 
+                        className={ quantity === 1 ? 'qty minus disabled' : 'qty minus' } 
+                        aria-label='Decrease Quantity' 
+                        tabIndex='0'
+                        onClick={ decreaseQty }
+                      >-</button>
+                      <div className='qty-display' data-quantity={ quantity }>
+                      </div>
+                      <button 
+                        className='qty plus' 
+                        aria-label='Increase Quantity' 
+                        tabIndex='0'
+                        onClick={ increaseQty }
+                      >+</button>
+                    </div>
+                  </div>
+                </div>
+                <a 
+                  className='remove' 
+                  role='button' 
+                  aria-label='Remove Item' 
                   tabIndex='0'
-                >-</button>
-                <div className='qty-display' data-quantity={ item.quantity }>
-                </div>
-                <button className='qty plus' aria-label='Increase Quantity' tabIndex='0'>+</button>
+                  onClick={ handleRemove }
+                > 
+                </a>
               </div>
             </div>
-          </div>
-          <a className='remove' role='button' aria-label='Remove Item' tabIndex='0'></a>
-        </div>
-      </div>
-    </li>
+        </li>
+      </Collapse>
+      { props.itemType === 'cartItem' &&
+      <Collapse in={ !active }>
+        <li className='removed-items' style={{ order: order + 100 }}>
+          <p data-sku={ item.sku }>
+            <span>{ item.name }</span> was removed. 
+            <a className='cancel-remove' data-sku={ item.sku } title='Cancel' role='button' tabindex='0' onClick={ handleRestore }>Undo</a>
+          </p>
+        </li>
+      </Collapse>
+      }
+    </>
   )
 }
 

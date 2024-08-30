@@ -682,6 +682,9 @@ main {
       padding-left: 15px;
       padding-right: 15px;
       transition: 0.2s;
+      &[data-visible=false] {
+        display: none;
+      }
     }
   }
   .details {
@@ -947,8 +950,12 @@ main {
   }
 }
 
-.removed-items {
+li.removed-items {
   text-align: right;
+  margin: 0;
+  &[data-visible=false] {
+    display: none;
+  }
   p {
     margin-top: 0;
     color: #666;

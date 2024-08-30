@@ -3,7 +3,9 @@ import Collapse from 'react-bootstrap/Collapse'
 
 function Upsell(props) {
   const u = props.u
+  const cart = props.cart
   console.log('u', u)
+  console.log('cartttt', cart)
   const dualSizes = (u.type == 'DV' || u.type == 'DD' || u.type == 'FL')
 
   let itemOk = false
@@ -19,10 +21,10 @@ function Upsell(props) {
   }
   if (u.size === 'TT' || u.size === 'FQ' || u.size === 'KC') totalUpsellSizes = 3
 
-  const [sku, setSku] = useState(u.sku)
-  const [price, setPrice] = useState(u.salePrice)
+  // const [sku, setSku] = useState(u.sku)
+  // const [price, setPrice] = useState(u.salePrice)
   const [showUpsells, setShowUpsells] = useState(false)
-  const [upsellActive, setUpsellActive] = useState(false)
+  // const [upsellActive, setUpsellActive] = useState(false)
 
   const handleShowUpsells = (e) => {
     e.preventDefault();
@@ -33,23 +35,24 @@ function Upsell(props) {
 
   const handleUpsellActive = (e) => {
     e.preventDefault()
-    setUpsellActive(!upsellActive)
+    props.setUpsellActive(true)
+    props.setCartTotal(props.cartTotal + props.upsellPrice)
   }
 
   const selectSize = (e) => {
     e.preventDefault()
     console.log('selectSiZe')
     console.log('e', e.target.dataset.sku)
-    setSku(e.target.dataset.sku)
+    props.setUpsellSku(e.target.dataset.sku)
+    props.setUpsellPrice(e.target.dataset.salePrice)
     setShowUpsells(false)
   }
 
 
-  console.log('sku', sku)
-  console.log('price', price)
+  console.log('sku', props.upsellSku)
 
   return (
-    <Collapse in={ !upsellActive }>
+    <Collapse in={ !props.upsellActive }>
 
       <li data-add-on='false'
         data-type={ u.type }
@@ -137,7 +140,7 @@ function Upsell(props) {
                     { u.skus.map(item =>
                       <div className='current-size' 
                         data-sku={ item.sku }
-                        data-active={ item.sku === sku }
+                        data-active={ item.sku === props.upsellSku }
                         data-color-selection={ u.colorSelection }
                         data-active-color={ activeColor }
                         data-longtitle={ dualSizes }
@@ -161,7 +164,7 @@ function Upsell(props) {
                               data-price={ item.price }
                               data-out-of-stock={ item.outOfStock }
                               data-upsell-sizes={ totalUpsellSizes }
-                              data-active={ item.sku === sku }
+                              data-active={ item.sku === props.upsellSku }
                               data-color-selection={ u.colorSelection }
                               data-color={ item.color }
                               style={ item.color !== activeColor ? { display: 'none' } : { display: 'block' } }
