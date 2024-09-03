@@ -2,7 +2,6 @@ import { products } from '../../../components/data/products'
 import { getUpsellItem } from './getUpsellItem'
 import { getUpsellTargetGroups} from './getUpsellTargetGroups'
 import { getUpsellDetails } from './getUpsellDetails';
-import UpsellButtons from './upsellButtons';
 
 // Mattresses
 const origCatId = 1;
@@ -34,13 +33,6 @@ const pillowCatIds = [9, 27, 25];
 // Other - Protector, Foundation Legs
 const foundationLegsCatId =	[22];
 const otherCatIds = [8, 22];
-
-// Protection Plans
-const origPPCatId = 29;
-const origPremPPCatId = 54;
-const luxePPCatId = 45;
-
-// let cartSkus, cartCatIds;
 
 function convertSize(itemSize, catId) {
   let size = itemSize;
@@ -99,62 +91,53 @@ let allMattressItems, premiumFrameItems, frameItems, duvetItems, sheetsItems, pi
 
 
 
-///////////////////////////////////////
-
 export function getUpsells(items) {
-  const cartSkus = items.map(item => item.sku);
-  const cartCatIds = items.map(item => item.catId);
-	
-	console.log('got here 105', items)
-	console.log('cartSkus', cartSkus)
-
-
-	
+  const cartSkus = items.map(item => item.sku)
+  const cartCatIds = items.map(item => item.catId)
 
   let upsellSkus = [];
   function assignUpsells(catIds, itemSize, tier) {
     
     let upsellItems = [];
     catIds.forEach(catId => {
-      const size = convertSize(itemSize, catId);
-      const upsellGroup = checkUpsellGroup(catId);
-      const upsellGroupCatIds = getUpsellGroupCatIds(catId);
+      const size = convertSize(itemSize, catId)
+      const upsellGroup = checkUpsellGroup(catId)
+      const upsellGroupCatIds = getUpsellGroupCatIds(catId)
       let catUpsellItems = [];
       if (upsellGroup) {
         let upsellOk = true;
         upsellGroupCatIds.forEach(gCatId => {
-          if (cartCatIds.includes(gCatId)) upsellOk = false;
-          const g = getUpsellItem(gCatId);
-					console.log('g', g)
-          const catItems = g.filter(item => item.sku.slice(9) === size);
-          catUpsellItems = catUpsellItems.concat(catItems);
+          if (cartCatIds.includes(gCatId)) upsellOk = false
+          const g = getUpsellItem(gCatId)
+          const catItems = g.filter(item => item.sku.slice(9) === size)
+          catUpsellItems = catUpsellItems.concat(catItems)
         })
         if (upsellOk) {
-          let priorityType = 'CB';
-          let typeOrder = ['CB', 'CS', 'OC'];
-          let colorOrder = ['BW', 'QG', 'GG', 'MB', 'PA', 'WP', 'CD'];
-          let label = 'Color &amp; Fabric';
+          let priorityType = 'CB'
+          let typeOrder = ['CB', 'CS', 'OC']
+          let colorOrder = ['BW', 'QG', 'GG', 'MB', 'PA', 'WP', 'CD']
+          let label = 'Color &amp; Fabric'
           let colorSelect = false;
           const typeSelect = true;
           if (catId === sheetsBaseCatId) {
             colorSelect = true;
             if (tier === 'premiumMattress') {
               priorityType = 'OC';
-              typeOrder = ['OC', 'CS', 'CB'];
+              typeOrder = ['OC', 'CS', 'CB']
             }
           } else if (catId === islayBaseCatId) {
             priorityType = 'TU';
-            typeOrder = ['TU', 'UU'];
-            colorOrder = ['CS', 'DS'];
-            label = 'Color &amp; Style';
+            typeOrder = ['TU', 'UU']
+            colorOrder = ['CS', 'DS']
+            label = 'Color &amp; Style'
             colorSelect = true;
           } else if (catId === pillowBaseCatId) {
-            label = 'Type';
-            priorityType = 'PW';
-            typeOrder = ['PW', 'DP', 'FP'];
-            colorOrder = ['WH'];
+            label = 'Type'
+            priorityType = 'PW'
+            typeOrder = ['PW', 'DP', 'FP']
+            colorOrder = ['WH']
             if (tier === 'premiumMattress' || tier === 'premiumFrame') {
-              priorityType = 'DP';
+              priorityType = 'DP'
             }
           } else if (catId === duvetBaseCatId) {
             label = 'Type';
@@ -201,7 +184,6 @@ export function getUpsells(items) {
   }
 
 	// Separate cart into product tiers
-	console.log('mattressCatIds', mattressCatIds)
 	if (allMattressItems === undefined) 	allMattressItems = getUpsellTargetGroups(items, mattressCatIds);
 	if (premiumFrameItems === undefined) premiumFrameItems = getUpsellTargetGroups(items, premiumFrameCatIds);
 	if (frameItems === undefined) 							frameItems = getUpsellTargetGroups(items, frameCatIds);
@@ -209,14 +191,12 @@ export function getUpsells(items) {
 	if (sheetsItems === undefined) 						 sheetsItems = getUpsellTargetGroups(items, sheetsCatIds);
 	if (pillowItems === undefined) 						 pillowItems = getUpsellTargetGroups(items, pillowCatIds);
 	if (otherItems === undefined) 							otherItems = getUpsellTargetGroups(items, otherCatIds);
-	console.log('allMattressItems', allMattressItems)
 
 	// Separate cart mattresses into two tiers
 	const premiumMattressItems = [];
 	const mattressItems = [];
 	if (allMattressItems.length) {
 		allMattressItems.forEach(item => {
-			console.log('!!!')
 			if (item.catId === origCatId) mattressItems.push(item);
 			else if (item.catId === luxeCatId) premiumMattressItems.push(item);
 			else if (item.size === 'KG' || item.size === 'CK') premiumMattressItems.push(item);
@@ -235,8 +215,6 @@ export function getUpsells(items) {
 	if (premiumMattressItems.length) getUpsellTargets(premiumMattressItems, 'premiumMattress');
 
 	let addUpsellItems = [];
-	console.log('cartTier', cartTier)
-	console.log('sheetsItems', sheetsItems)
 	if (cartTier === 'premiumMattress') {
 		const catIds = [8, 9, 30, 19, 46, 53, 52, 20];
 		// protector, pillows, sheets, duvets, islay, chapala, anacapa, foundation
@@ -246,13 +224,10 @@ export function getUpsells(items) {
 	} else if (cartTier === 'mattress') {
 		const catIds = [8, 11];
 		// protector, pillows, sheets, duvets, islay, gaviota, arrellaga, foundation
-		console.log('mattressItems[0].size', mattressItems[0].size)
 		// addUpsellItems = assignUpsells(catIds, mattressItems[0].size, cartTier);
     if (!addUpsellItems.length) {
-			console.log('hey there')
 			addUpsellItems = assignUpsells(catIds, mattressItems[0].size, cartTier);
 		}
-		console.log('upsellSkusxxx', upsellSkus)
 		// getUpsellDetails(upsellSkus);
 	} else if (cartTier === 'premiumFrame') {
 		let catIds = [1, 51, 28, 8, 9, 30, 19, 20];
@@ -284,35 +259,11 @@ export function getUpsells(items) {
 		if (!addUpsellItems.length) addUpsellItems = assignUpsells(catIds, otherItems[0].size, cartTier);
 	}
 
-	// Specific upsells
-	// Offer foundation legs with each foundation
-	// const foundationItems	= getUpsellTargetGroups([foundationCatId]);
-	// let addLegsItems = [];
-	// if (foundationItems.length) {
-	// 	foundationItems.forEach(item => {
-	// 		const x = assignUpsells(foundationLegsCatId, item.size, cartTier);
-	// 		addLegsItems = addLegsItems.concat(x);
-	// 	})
-	// }
-
-	// Assign protection plans to all mattresses in cart
-	// let addPlanItems = [];
-	// if (allMattressItems.length) {
-	// 	addPlanItems = assignProtectionPlans(allMattressItems);
-	// }
-
-	// addUpsellItems = addUpsellItems.concat(addLegsItems).concat(addPlanItems);
-
 	let filteredUpsells = [];
 	if (addUpsellItems.length > 0) {
 		filteredUpsells = addUpsellItems.filter(item => !item.outOfStock);
 	}
 	const upsells = getUpsellDetails(filteredUpsells);
-
-	console.log('filteredUpsells', filteredUpsells)
-	console.log('upsells!', upsells)
-	// const upsellItems = getUpsellDetails(filteredUpsells);
-	// console.log('upsellItems!', upsellItems)
 
 	return upsells;
 }

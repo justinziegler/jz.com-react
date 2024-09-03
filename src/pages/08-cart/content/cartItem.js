@@ -11,6 +11,7 @@ function CartItem(props) {
     e.preventDefault()
     setActive(false)
     props.setCartTotal(props.cartTotal - (item.salePrice * quantity))
+    props.setDiscount(props.discount - (item.discount * quantity))
     setOrder(props.itemOrder + 1)
     props.setItemOrder(props.itemOrder + 1)
   }
@@ -20,6 +21,7 @@ function CartItem(props) {
     setActive(true)
     setQuantity(1)
     props.setCartTotal(props.cartTotal + item.salePrice)
+    props.setDiscount(props.discount + item.discount)
     setOrder(props.itemOrder + 1)
     props.setItemOrder(props.itemOrder + 1)
   }
@@ -30,6 +32,7 @@ function CartItem(props) {
     if (quantity > 1) {
       setQuantity(quantity - 1)
       props.setCartTotal(props.cartTotal - item.salePrice)
+      props.setDiscount(props.discount - item.discount)
     }
   }
 
@@ -38,6 +41,7 @@ function CartItem(props) {
     e.target.blur()
     setQuantity(quantity + 1)
     props.setCartTotal(props.cartTotal + item.salePrice)
+    props.setDiscount(props.discount + item.discount)
   }
 
   return (
@@ -46,7 +50,6 @@ function CartItem(props) {
         <li data-sku={ item.sku }
           data-type={ item.type }
           data-color={ item.color }
-          data-cart-item={ true }
           style={{ order: order }}
         >
             <div className='product row'>
@@ -122,7 +125,7 @@ function CartItem(props) {
         <li className='removed-items' style={{ order: order + 100 }}>
           <p data-sku={ item.sku }>
             <span>{ item.name }</span> was removed. 
-            <a className='cancel-remove' data-sku={ item.sku } title='Cancel' role='button' tabindex='0' onClick={ handleRestore }>Undo</a>
+            <a className='cancel-remove' data-sku={ item.sku } title='Cancel' role='button' tabIndex='0' onClick={ handleRestore }>Undo</a>
           </p>
         </li>
       </Collapse>

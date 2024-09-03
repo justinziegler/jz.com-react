@@ -1,27 +1,11 @@
 import React, { useState } from "react"
-
-let initialMonthlyPayment = 0
+import Callouts from './callouts'
 
 function OrderSummary(props) {
-  
-  // let initialTotal = 0
-  // if (initialTotal === 0) {
-  //   props.cart.forEach(item => {
-  //     initialTotal += item.salePrice
-  //   })
-  //   initialMonthlyPayment = Math.round(initialTotal / 18)
-  // }
-  // const [cartTotal, setCartTotal] = useState(initialTotal)
-  const [monthlyPayment, setMonthlyPayment] = useState(initialMonthlyPayment)
-
-  // React.useEffect(()=> {
-  //   let total = cartTotal;
-  //   if (props.upsell0Active) total += props.upsell0Price
-  //   if (props.upsell1Active) total += props.upsell1Price
-  //   const payment = Math.round(total / 18)
-  //   if (total > 0) setMonthlyPayment(payment)
-  //   setCartTotal(total)
-  // }, [props.upsell0Active, props.upsell1Active, props.upsell0Sku, props.upsell1Sku]);
+  const [monthlyPayment, setMonthlyPayment] = useState(0)
+  React.useEffect(()=> {
+    setMonthlyPayment(Math.round(props.cartTotal / 18))
+  }, [props.cartTotal]);
 
   return (
     <div className='order-summary col-xs-12 col-sm-5 col-md-offset-1'>
@@ -46,8 +30,7 @@ function OrderSummary(props) {
                   </h6>
                   <p className='small'>
                     Choose Affirm at Checkout<br />
-                    APR as low as 0%<br />
-                    <a data-toggle='modal' data-target='#financing-modal' role='button' tabindex='0' href=''>Learn More</a>
+                    APR as low as 0%
                   </p>
                 </div>
               </div>
@@ -59,52 +42,9 @@ function OrderSummary(props) {
                 </div>
               </div>
             </div>
-            
-          </div>
-
-          <div className='apple-pay-wrapper col-xs-12' style={{ display: 'none' }}>
-            <h4><span>Or express checkout</span></h4>
-            <div className='apple-pay-button apple-pay-button-black'>
-              Pay with <span></span>
-            </div>
           </div>
           
-          <div className='row'>
-            <div className='callouts col-xs-12'>
-              <div className='row'>
-                <div className='callout col-xs-12'>
-                  <div className='row'>
-                    <div className='badge warranty col-xs-4' role='img' aria-label='Image: Lifetime Warranty'></div>
-                    <div className='tagline col-xs-8'>
-                      <h4>Lifetime Warranty</h4>
-                      <p>Guaranteed restful sleep</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className='callout col-xs-12'>
-                  <div className='row'>
-                    <div className='badge trial col-xs-4' role='img' aria-label='Image: 365 Night Trial'></div>
-                    <div className='tagline col-xs-8'>
-                      <h4>365 Night Stress-Free Trial</h4>
-                      <p>Hassle-Free Returns</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='callout col-xs-12'>
-                  <div className='row'>
-                    <div className='badge recommended col-xs-4' role='img' aria-label='Image: Best Buy and Recommended'></div>
-                    <div className='tagline col-xs-8'>
-                      <h4>Independently Rated</h4>
-                      <p>BEST BUY and RECOMMENDED</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>	
-            </div>
-          </div>
+          <Callouts/>
         </div>
       </div>
     </div>

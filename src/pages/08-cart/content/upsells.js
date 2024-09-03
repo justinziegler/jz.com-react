@@ -1,7 +1,17 @@
-
-import Upsell from "./upsell"
+import React, { useState } from 'react'
+import Upsell from './upsell'
+import Collapse from 'react-bootstrap/Collapse'
 
 function Upsells(props) {
+  const [showHeading, setShowHeading] = useState(true)
+  React.useEffect(()=> {
+    if (props.upsell0Active && props.upsell1Active) {
+      setShowHeading(false)
+    } else {
+      setShowHeading(true)
+    }
+  }, [props.upsell0Active, props.upsell1Active]);
+
   const Items = Array.from({ length : props.upsells.length }).map((_, index) => (
     <Upsell 
       key={index} 
@@ -19,10 +29,15 @@ function Upsells(props) {
     />
   ))
   return (
-    <>
-      { Items }
-    </>
-    
+    <div className='upsells col-xs-12'>
+      <Collapse in={ showHeading }>
+        <h2><span>Frequently Bought Together</span></h2>
+      </Collapse>
+      <ul>
+        { Items }
+      </ul>
+    </div>
+
   )
 }
 

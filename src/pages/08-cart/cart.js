@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import lazySizes from 'lazysizes';
-import { getProductSkus } from '../../components/utils/getProductSkus';
-import { getUpsells } from './content/getUpsells';
-import Main from '../../components/pageSections/main';
-import CartItems from './content/cartItems';
+import React, { useState } from 'react'
+import lazySizes from 'lazysizes'
+import { getProductSkus } from '../../components/utils/getProductSkus'
+import { getUpsells } from './content/getUpsells'
+import Main from '../../components/pageSections/main'
+import CartItems from './content/cartItems'
 import Upsells from './content/upsells'
+import OrderSummary from './content/orderSummary'
 import '../../scss/cart.scss'
 import '../../scss/cart-images.scss'
-import OrderSummary from './content/orderSummary';
 
 let initialTotal = 0
+let initialDiscount = 0
 
 function Cart () {
   const page = {
@@ -34,14 +35,13 @@ function Cart () {
     }
   })
   const [cartItems, setCartItems] = useState(cart)
-  console.log('cartItems', cartItems)
   const upsells = getUpsells(cart);
 
   if (initialTotal === 0) {
     cart.forEach(item => {
       initialTotal += item.salePrice
+      initialDiscount += item.discount
     })
-    // initialMonthlyPayment = Math.round(initialTotal / 18)
   }
 
   const [upsell0Active, setUpsell0Active] = useState(false)
@@ -51,68 +51,48 @@ function Cart () {
   const [upsell0Price, setUpsell0Price] = useState(upsells[0].salePrice)
   const [upsell1Price, setUpsell1Price] = useState(upsells[1].salePrice)
   const [cartTotal, setCartTotal] = useState(initialTotal)
-
+  const [discount, setDiscount] = useState(initialDiscount)
 
   return (
     <Main page={ page }>
       <div className='container'>
         <div className='row'>
-          {/* Left column on tablet/desktop  */}
           <div className='cart col-xs-12 col-sm-7 col-md-6'>
             <div className='row'>
-              <div className='cart-summary col-xs-12'>
-                <div className='cart-head row'>
-                  <div className='discount-message col-xs-12' style={{ display: 'none' }}>
-                    <p>Congratulations, You're <span className='alert'>Saving <span className='discount'></span></span></p>
-                  </div>				 
-                  <div className='heading col-xs-12'>
-                    <h2><span>Cart Summary</span></h2>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='col-xs-12'>								
-                    <ul>
-                      <CartItems 
-                        cart={ cart }
-                        upsells={ upsells }
-                        upsell0Active={ upsell0Active }
-                        upsell1Active={ upsell1Active }
-                        setUpsell0Active={ setUpsell0Active }
-                        setUpsell1Active={ setUpsell1Active }
-                        upsell0Sku={ upsell0Sku }
-                        upsell1Sku={ upsell1Sku }
-                        cartTotal={ cartTotal }
-                        setCartTotal={ setCartTotal }
-                      />
-                     
-                    </ul>
-                  </div>
-                </div>
-              </div>					
-      
-              <div className='upsells col-xs-12'>
-                <h2><span>Frequently Bought Together</span></h2>
-                <ul>
-                    <Upsells 
-                      cart={ cartItems } 
-                      upsells={ upsells }  
-                      upsell0Active={ upsell0Active }
-                      upsell1Active={ upsell1Active }
-                      setUpsell0Active={ setUpsell0Active }
-                      setUpsell1Active={ setUpsell1Active }
-                      upsell0Sku={ upsell0Sku }
-                      upsell1Sku={ upsell1Sku }
-                      setUpsell0Sku={ setUpsell0Sku }
-                      setUpsell1Sku={ setUpsell1Sku }
-                      upsell0Price={ upsell0Price }
-                      upsell1Price={ upsell1Price }
-                      setUpsell0Price={ setUpsell0Price }
-                      setUpsell1Price={ setUpsell1Price }
-                      cartTotal={ cartTotal }
-                      setCartTotal={ setCartTotal }
-                    />
-                </ul>
-              </div>
+              <CartItems 
+                cart={ cart }
+                upsells={ upsells }
+                upsell0Active={ upsell0Active }
+                upsell1Active={ upsell1Active }
+                setUpsell0Active={ setUpsell0Active }
+                setUpsell1Active={ setUpsell1Active }
+                upsell0Sku={ upsell0Sku }
+                upsell1Sku={ upsell1Sku }
+                upsell0Price={ upsell0Price }
+                upsell1Price={ upsell1Price }
+                cartTotal={ cartTotal }
+                setCartTotal={ setCartTotal }
+                discount={ discount }
+                setDiscount={ setDiscount }
+              />			
+              <Upsells 
+                cart={ cartItems } 
+                upsells={ upsells }  
+                upsell0Active={ upsell0Active }
+                upsell1Active={ upsell1Active }
+                setUpsell0Active={ setUpsell0Active }
+                setUpsell1Active={ setUpsell1Active }
+                upsell0Sku={ upsell0Sku }
+                upsell1Sku={ upsell1Sku }
+                setUpsell0Sku={ setUpsell0Sku }
+                setUpsell1Sku={ setUpsell1Sku }
+                upsell0Price={ upsell0Price }
+                upsell1Price={ upsell1Price }
+                setUpsell0Price={ setUpsell0Price }
+                setUpsell1Price={ setUpsell1Price }
+                cartTotal={ cartTotal }
+                setCartTotal={ setCartTotal }
+              />
             </div>
           </div>
       
@@ -133,6 +113,7 @@ function Cart () {
           />
         </div>
       </div>
+      <div className='desktop-backdrop'></div>
     </Main>
   )
 }

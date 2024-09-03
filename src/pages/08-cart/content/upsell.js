@@ -3,9 +3,6 @@ import Collapse from 'react-bootstrap/Collapse'
 
 function Upsell(props) {
   const u = props.u
-  const cart = props.cart
-  console.log('u', u)
-  console.log('cartttt', cart)
   const dualSizes = (u.type == 'DV' || u.type == 'DD' || u.type == 'FL')
 
   let itemOk = false
@@ -21,15 +18,10 @@ function Upsell(props) {
   }
   if (u.size === 'TT' || u.size === 'FQ' || u.size === 'KC') totalUpsellSizes = 3
 
-  // const [sku, setSku] = useState(u.sku)
-  // const [price, setPrice] = useState(u.salePrice)
   const [showUpsells, setShowUpsells] = useState(false)
-  // const [upsellActive, setUpsellActive] = useState(false)
 
   const handleShowUpsells = (e) => {
-    e.preventDefault();
-    
-    console.log('got here')
+    e.preventDefault()
     setShowUpsells(!showUpsells)
   }
 
@@ -41,15 +33,10 @@ function Upsell(props) {
 
   const selectSize = (e) => {
     e.preventDefault()
-    console.log('selectSiZe')
-    console.log('e', e.target.dataset.sku)
     props.setUpsellSku(e.target.dataset.sku)
-    props.setUpsellPrice(e.target.dataset.salePrice)
+    props.setUpsellPrice(Number(e.target.dataset.price))
     setShowUpsells(false)
   }
-
-
-  console.log('sku', props.upsellSku)
 
   return (
     <Collapse in={ !props.upsellActive }>
@@ -76,13 +63,7 @@ function Upsell(props) {
             <div className='row'>
               <div className='details col-xs-9'>
                 <h3>
-                  <a data-toggle='modal' href='./' 
-                    data-target={ `#modal-${ u.type }` } 
-                    role='button' 
-                    tabIndex='0'
-                  >
-                    { u.name }
-                  </a>
+                  { u.name }
                 </h3>
                 { u.showStarRating &&
                   <div className='star-rating'>
@@ -106,7 +87,8 @@ function Upsell(props) {
                     data-color={ item.color }
                     data-price={ item.price }
                     data-out-of-stock={ item.outOfStock }
-                    data-active={ item.sku === u.sku }>
+                    data-active={ item.sku === props.upsellSku }
+                    key={ `pricing-${ item.sku }`}>
                     <h4 
                       className={ u.price > u.salePrice ? 'discounted price' : 'price'}
                     >
@@ -121,9 +103,6 @@ function Upsell(props) {
                 <h4>{ u.subtitle }</h4>
               </div>
             </div>
-            {/* <UpsellButtons
-              u={ u }
-            /> */}
             <div className='buttons row'>
               <div className='size-select col-xs-6'>
                 <div className='dropdown'>
@@ -144,6 +123,7 @@ function Upsell(props) {
                         data-color-selection={ u.colorSelection }
                         data-active-color={ activeColor }
                         data-longtitle={ dualSizes }
+                        key={ `current-${ item.sku }`}
                       >
                         { item.sizeName }
                       </div>
@@ -153,7 +133,7 @@ function Upsell(props) {
                     <ul 
                       className='dropdown-menu' 
                       aria-labelledby={ `upsell-XX-${ u.type }-${ u.color }` } 
-                      color-selection={ u.colorSelection }
+                      data-color-selection={ u.colorSelection }
                     >
                       <li className='upsell-select'>
                         <ul>
@@ -171,6 +151,7 @@ function Upsell(props) {
                               role='button' 
                               tabIndex='0'
                               onClick={ selectSize }
+                              key={ `select-${ item.sku }`}
                             >
                               <h5>{ item.sizeName }</h5>
                               <p>${ item.price }</p>

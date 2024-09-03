@@ -57,7 +57,7 @@ export function getUpsellDetails(skus) {
           showStarRating: true,
           avgReviews: 4.3,
           totalReviews: 4321,
-          subtitle: '100% waterproof barrier provides<br class="hidden-xs"> lasting protection',
+          subtitle: '100% waterproof barrier provides lasting protection',
           gallerySlides: 3,
           details: [{
             tagline: 'The mattress protector re-imagined. Ultra sturdy support that\'s easy to assemble.',
@@ -249,7 +249,7 @@ export function getUpsellDetails(skus) {
           showStarRating: true,
           avgReviews: 4.5,
           totalReviews: 2345,
-          subtitle: 'Modern design built with your Lull mattress<br class="visible-lg"> in mind',
+          subtitle: 'Modern design built with your Lull mattress in mind',
           gallerySlides: 5,
           details: [{
             tagline: 'Support your new mattress and complete your bedroom with Lull\'s modern platform bed.',
@@ -436,7 +436,6 @@ export function getUpsellDetails(skus) {
     }
     const d = details[0];
     upsellItems = upsellItems.concat(details);
-    console.log('upsellItems', upsellItems)
   })
 	return upsellItems;
 }

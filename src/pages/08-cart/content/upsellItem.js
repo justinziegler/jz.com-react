@@ -3,23 +3,39 @@ import Collapse from 'react-bootstrap/Collapse'
 
 function UpsellItem(props) {
   const item = props.item
-  const [active, setActive] = useState(true)
-  const [order, setOrder] = useState(props.index + 1)
+  const [order, setOrder] = useState(props.cart.length + props.index + 1)
   const [quantity, setQuantity] = useState(1)
 
-  // React.useEffect(()=> {
-  //   if (props.upsellActive) {
-  //     props.setCartTotal(props.cartTotal + item.salePrice)
-  //   } else {
-  //     props.setCartTotal(props.cartTotal - (item.salePrice * quantity))
-  //   }
-  // }, [props.upsellActive]);
+  const handleRemove = (e) => {
+    e.preventDefault()
+    props.setUpsellActive(false)
+    props.setCartTotal(props.cartTotal - (item.salePrice * quantity))
+    setOrder(props.itemOrder + 1)
+    props.setItemOrder(props.itemOrder + 1)
+  }
+
+  const decreaseQty = (e) => {
+    e.preventDefault()
+    e.target.blur()
+    if (quantity > 1) {
+      setQuantity(quantity - 1)
+      props.setCartTotal(props.cartTotal - props.upsellPrice)
+    }
+  }
+
+  const increaseQty = (e) => {
+    e.preventDefault()
+    e.target.blur()
+    setQuantity(quantity + 1)
+    props.setCartTotal(props.cartTotal + props.upsellPrice)
+  }
 
   return (
     <Collapse in={ props.upsellActive }>
       <li data-sku={ item.sku }
         data-type={ item.type }
         data-color={ item.color }
+        style={{ order: order }}
       >
         <div className='product row'>
           <div className='product-image col-xs-3'>
@@ -30,14 +46,14 @@ function UpsellItem(props) {
             <div className='row'>
               <div className='details col-xs-9'>
                 { item.skus.map(u =>
-                  <>
+                  <React.Fragment key={ `details-${ u.sku }` }>
                     <h3 className='current-size' data-sku={ u.sku } data-active={ u.sku === props.upsellSku }>
                       { item.name }
                     </h3>
                     <h4 className='current-size' data-sku={ u.sku } data-active={ u.sku === props.upsellSku }>
                       { u.sizeName }
                     </h4>
-                  </>
+                  </React.Fragment>
                 )}
               </div>
               <div className='pricing col-xs-3'>
@@ -50,6 +66,7 @@ function UpsellItem(props) {
                     data-active={ u.sku === props.upsellSku }
                     data-upsell={ true }
                     data-quantity='1'
+                    key={ u.sku }
                   >
                     <h4 className='price'>
                       { u.price }
@@ -62,17 +79,30 @@ function UpsellItem(props) {
               <div className='col-xs-9'>
                 <div className='quantity'>
                   <button 
-                    className='qty minus disabled' 
+                    className={ quantity === 1 ? 'qty minus disabled' : 'qty minus' }
                     aria-label='Decrease Quantity' 
                     tabIndex='0'
+                    onClick={ decreaseQty }
                   >-</button>
-                  <div className='qty-display' data-quantity={ item.quantity }>
+                  <div className='qty-display' data-quantity={ quantity }>
                   </div>
-                  <button className='qty plus' aria-label='Increase Quantity' tabIndex='0'>+</button>
+                  <button 
+                    className='qty plus' 
+                    aria-label='Increase Quantity' 
+                    tabIndex='0'
+                    onClick={ increaseQty }
+                  >+</button>
                 </div>
               </div>
             </div>
-            <a className='remove' role='button' aria-label='Remove Item' tabIndex='0'></a>
+            <a 
+              className='remove' 
+              role='button' 
+              aria-label='Remove Item' 
+              tabIndex='0'
+              onClick={ handleRemove }
+            > 
+            </a>
           </div>
         </div>
       </li>
