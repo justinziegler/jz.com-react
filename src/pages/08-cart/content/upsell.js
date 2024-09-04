@@ -3,17 +3,15 @@ import Collapse from 'react-bootstrap/Collapse'
 
 function Upsell(props) {
   const u = props.u
-  const dualSizes = (u.type == 'DV' || u.type == 'DD' || u.type == 'FL')
+  const dualSizes = (u.type === 'DV' || u.type === 'DD' || u.type === 'FL')
 
-  let itemOk = false
-  const size = u.sku.slice(9)
   let activeColor = u.color
   if (u.colorSelection) {
     activeColor = u.colors[0].id
   }
 
   let totalUpsellSizes = 6
-  if (u.size === 'ST' || u.size === 'KC' && (u.type === 'BP' || u.type === 'CP' || u.type === 'OP')) {
+  if (u.size === 'ST' || (u.size === 'KC' && (u.type === 'BP' || u.type === 'CP' || u.type === 'OP'))) {
     totalUpsellSizes = 2
   }
   if (u.size === 'TT' || u.size === 'FQ' || u.size === 'KC') totalUpsellSizes = 3
@@ -51,12 +49,6 @@ function Upsell(props) {
               className='lazyload' 
               role='img' 
               aria-label={ `${ u.name } product image` }>
-              <a data-toggle='modal' 
-                href='./' 
-                data-target={ `#modal-${ u.type }` } 
-                role='button' 
-                tabIndex='0' 
-                aria-label={ `Image: ${ u.name }` }></a>
             </div>
           </div>
           <div className='product-details col-xs-9' data-type={ u.type }>
@@ -83,10 +75,6 @@ function Upsell(props) {
                 { u.skus.map(item =>
                   <div className='item'
                     data-sku={ item.sku }
-                    data-type={ item.type }
-                    data-color={ item.color }
-                    data-price={ item.price }
-                    data-out-of-stock={ item.outOfStock }
                     data-active={ item.sku === props.upsellSku }
                     key={ `pricing-${ item.sku }`}>
                     <h4 
@@ -110,7 +98,6 @@ function Upsell(props) {
                     className='btn btn-sm btn-white dropdown-toggle' 
                     type='button' 
                     id={ `upsell-LU-${ u.type }-${ u.color }` }
-                    data-toggle='dropdown' 
                     aria-haspopup='true' 
                     aria-expanded={ showUpsells } 
                     tabIndex='0'
@@ -141,11 +128,9 @@ function Upsell(props) {
                             <li className='upsell-item'
                               data-sku={ item.sku }
                               data-type={ item.type }
-                              data-price={ item.price }
                               data-out-of-stock={ item.outOfStock }
                               data-upsell-sizes={ totalUpsellSizes }
                               data-active={ item.sku === props.upsellSku }
-                              data-color-selection={ u.colorSelection }
                               data-color={ item.color }
                               style={ item.color !== activeColor ? { display: 'none' } : { display: 'block' } }
                               role='button' 
@@ -165,6 +150,7 @@ function Upsell(props) {
               </div>
               <div className='add-to-cart col-xs-6'>
                 <a 
+                href='./'
                   className='btn btn-sm btn-dark block' 
                   role='button' 
                   tabIndex='0'

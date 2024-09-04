@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Collapse from 'react-bootstrap/Collapse'
 
 function UpsellItem(props) {
@@ -59,13 +59,7 @@ function UpsellItem(props) {
               <div className='pricing col-xs-3'>
                 { item.skus.map(u =>
                   <div className='item' data-sku={ u.sku } 
-                    data-type={ u.type }
-                    data-color={ u.color }
-                    data-price={ u.price }
-                    data-discount='0'
                     data-active={ u.sku === props.upsellSku }
-                    data-upsell={ true }
-                    data-quantity='1'
                     key={ u.sku }
                   >
                     <h4 className='price'>
@@ -95,7 +89,8 @@ function UpsellItem(props) {
                 </div>
               </div>
             </div>
-            <a 
+            <a
+              href='./'
               className='remove' 
               role='button' 
               aria-label='Remove Item' 

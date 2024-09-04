@@ -38,7 +38,7 @@ function OrderSummary(props) {
               <div className='row'>
                 <div className='checkout col-xs-12'>
                   <p className='delivery'>Free Shipping, No-Contact Delivery</p>
-                  <a href='#' className='btn btn-checkout toggle-description'><span></span>Checkout</a>
+                  <a href='./' className='btn btn-checkout toggle-description'><span></span>Checkout</a>
                 </div>
               </div>
             </div>

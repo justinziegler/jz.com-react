@@ -5,7 +5,6 @@ import { getUpsellDetails } from './getUpsellDetails';
 
 // Mattresses
 const origCatId = 1;
-const origPremCatId = 51;
 const luxeCatId	= 28;
 const mattressCatIds = [1, 51, 28];
 
@@ -15,7 +14,6 @@ const islayCatIds = [40, 41];
 const premiumFrameCatIds = [40, 41, 52];
 
 // Frames - Chapala, Arrellaga, Gaviota & Foundation
-const foundationCatId = 20;
 const frameCatIds = [53, 10, 11, 20];
 
 // Duvets - Original and Down
@@ -89,10 +87,7 @@ function getUpsellTargets(catItems, productTier) {
 
 let allMattressItems, premiumFrameItems, frameItems, duvetItems, sheetsItems, pillowItems, otherItems;
 
-
-
 export function getUpsells(items) {
-  const cartSkus = items.map(item => item.sku)
   const cartCatIds = items.map(item => item.catId)
 
   let upsellSkus = [];
@@ -230,27 +225,27 @@ export function getUpsells(items) {
 		}
 		// getUpsellDetails(upsellSkus);
 	} else if (cartTier === 'premiumFrame') {
-		let catIds = [1, 51, 28, 8, 9, 30, 19, 20];
+		const catIds = [1, 51, 28, 8, 9, 30, 19, 20];
 		// mattresses, protector, pillows, sheets, duvets, foundation
 
 		if (!addUpsellItems.length) addUpsellItems = assignUpsells(catIds, premiumFrameItems[0].size);
 	} else if (cartTier === 'frame') {
-		let catIds = [1, 51, 28, 46, 52, 8, 9, 30, 19];
+		const catIds = [1, 51, 28, 46, 52, 8, 9, 30, 19];
 		// mattresses, protector, pillows, foundation, sheets, duvets, anacapa
 
 		addUpsellItems = assignUpsells(catIds, frameItems[0].size, cartTier);
 	} else if (cartTier === 'duvet') {
-		let catIds = [8, 9, 30, 46, 52, 53, 11, 10, 20];
+		const catIds = [8, 9, 30, 46, 52, 53, 11, 10, 20];
 		// protector, pillows, sheets, islay, anacapa, chapala, gaviota, arrellaga, foundation
 
 		if (!addUpsellItems.length) addUpsellItems = assignUpsells(catIds, duvetItems[0].size, cartTier);
 	} else if (cartTier === 'sheets') {
-		let catIds = [8, 9, 19, 46, 52, 53, 11, 10, 20]
+		const catIds = [8, 9, 19, 46, 52, 53, 11, 10, 20]
 		// protector, pillows, duvets, islay, anacapa, chapala, gaviota, arrellaga, foundation
 
 		if (!addUpsellItems.length) addUpsellItems = assignUpsells(catIds, sheetsItems[0].size, cartTier);
 	} else if (cartTier === 'pillow') {
-		let catIds = [8, 30, 19, 46, 52, 53, 11, 10, 20]
+		const catIds = [8, 30, 19, 46, 52, 53, 11, 10, 20]
     // protector, sheets, og duvet, islay, anacapa, chapala, gaviota, arrellaga, foundation
 
 		if (!addUpsellItems.length) addUpsellItems = assignUpsells(catIds, pillowItems[0].size, cartTier);

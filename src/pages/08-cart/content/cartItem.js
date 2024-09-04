@@ -66,15 +66,7 @@ function CartItem(props) {
                     </h4>
                   </div>
                   <div className='pricing col-xs-3'>
-                    <div className='item' data-sku={ item.sku } 
-                      data-type={ item.type }
-                      data-color={ item.color }
-                      data-price={ item.salePrice }
-                      data-discount={ item.discount }
-                      data-active={ true }
-                      data-upsell={ false }
-                      data-quantity={ quantity }
-                    >
+                    <div className='item' data-sku={ item.sku }>
                       <h4 className={ item.discount > 0 ? 'discounted price' : 'price' }>
                         { Math.round(item.salePrice) === item.salePrice ?
                           <>{ item.salePrice }</>
@@ -109,6 +101,7 @@ function CartItem(props) {
                   </div>
                 </div>
                 <a 
+                  href='./'
                   className='remove' 
                   role='button' 
                   aria-label='Remove Item' 
@@ -125,7 +118,17 @@ function CartItem(props) {
         <li className='removed-items' style={{ order: order + 100 }}>
           <p data-sku={ item.sku }>
             <span>{ item.name }</span> was removed. 
-            <a className='cancel-remove' data-sku={ item.sku } title='Cancel' role='button' tabIndex='0' onClick={ handleRestore }>Undo</a>
+            <a 
+              href='./'
+              className='cancel-remove' 
+              data-sku={ item.sku } 
+              title='Cancel' 
+              role='button' 
+              tabIndex='0' 
+              onClick={ handleRestore }
+            >
+              Undo
+            </a>
           </p>
         </li>
       </Collapse>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import lazySizes from 'lazysizes'
 import { getProductSkus } from '../../components/utils/getProductSkus'
 import { getUpsells } from './content/getUpsells'
 import Main from '../../components/pageSections/main'
@@ -34,7 +33,6 @@ function Cart () {
       cart.push(item);
     }
   })
-  const [cartItems, setCartItems] = useState(cart)
   const upsells = getUpsells(cart);
 
   if (initialTotal === 0) {
@@ -46,12 +44,12 @@ function Cart () {
 
   const [upsell0Active, setUpsell0Active] = useState(false)
   const [upsell1Active, setUpsell1Active] = useState(false)
-  const [upsell0Sku, setUpsell0Sku] = useState(upsells[0].sku)
-  const [upsell1Sku, setUpsell1Sku] = useState(upsells[1].sku)
-  const [upsell0Price, setUpsell0Price] = useState(upsells[0].salePrice)
-  const [upsell1Price, setUpsell1Price] = useState(upsells[1].salePrice)
-  const [cartTotal, setCartTotal] = useState(initialTotal)
-  const [discount, setDiscount] = useState(initialDiscount)
+  const [upsell0Sku, setUpsell0Sku]       = useState(upsells[0].sku)
+  const [upsell1Sku, setUpsell1Sku]       = useState(upsells[1].sku)
+  const [upsell0Price, setUpsell0Price]   = useState(upsells[0].salePrice)
+  const [upsell1Price, setUpsell1Price]   = useState(upsells[1].salePrice)
+  const [cartTotal, setCartTotal]         = useState(initialTotal)
+  const [discount, setDiscount]           = useState(initialDiscount)
 
   return (
     <Main page={ page }>
@@ -76,7 +74,7 @@ function Cart () {
                 setDiscount={ setDiscount }
               />			
               <Upsells 
-                cart={ cartItems } 
+                cart={ cart } 
                 upsells={ upsells }  
                 upsell0Active={ upsell0Active }
                 upsell1Active={ upsell1Active }

@@ -7,7 +7,6 @@ import { getShortName } from '../../../components/utils/getShortName'
 
 export function getUpsellItem(catId) {
   const items = [];    
-  console.log('getUpsellIyem')
   products.forEach(p => p.catId === catId && items.push(p));
   let skus = [];
   items.forEach(item => { 

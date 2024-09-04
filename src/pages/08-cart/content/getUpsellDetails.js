@@ -12,7 +12,7 @@ export function getUpsellDetails(skus) {
     const name = getProductName(type);
     const ci = [];
     const catItems = [];
-    const dualSizes = (type === 'DV' || type == 'DD' || type == 'FL')
+    const dualSizes = (type === 'DV' || type === 'DD' || type === 'FL')
     products.forEach(p => p.catId === item.catId && ci.push(p));
     ci.forEach(c => {
       const sizeName = getSizeName(c.sku.slice(9));
@@ -92,12 +92,12 @@ export function getUpsellDetails(skus) {
             {
               heading: 'Quiet',
               className: 'quiet',
-              content: 'Unlike traditional noisy protectors, the Lull Protector won\’t move or crinkle beneath you. We use the same soft fabrics as the Lull Mattress cover for a perfect fit and a quiet night\’s sleep.'
+              content: 'Unlike traditional noisy protectors, the Lull Protector won\'t move or crinkle beneath you. We use the same soft fabrics as the Lull Mattress cover for a perfect fit and a quiet night\'s sleep.'
             },
             {
               heading: 'Breathable',
               className: 'breathable',
-              content: 'Lull\’s protection uses technology to allow air to pass through for a cool night\’s sleep.'
+              content: 'Lull\'s protection uses technology to allow air to pass through for a cool night\'s sleep.'
             },
             {
               heading: 'Lasting Protection',
@@ -243,7 +243,6 @@ export function getUpsellDetails(skus) {
           price: item.price,
           discount: 15,
           salePrice: item.price - discount,
-          catId: 11,
           outOfStock: item.outOfStock,
           colorSelection: false,
           showStarRating: true,
@@ -294,7 +293,7 @@ export function getUpsellDetails(skus) {
             {
               heading: 'Modern Design',
               className: 'modern',
-              content: 'Lull\’s contemporary platform frame is an excellent addition to any bedroom with its stylish wood finish and simple design.'
+              content: 'Lull\'s contemporary platform frame is an excellent addition to any bedroom with its stylish wood finish and simple design.'
             }
           ],
           dimensions: [
@@ -434,7 +433,6 @@ export function getUpsellDetails(skus) {
         }
         break;
     }
-    const d = details[0];
     upsellItems = upsellItems.concat(details);
   })
 	return upsellItems;
