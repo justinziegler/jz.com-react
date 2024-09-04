@@ -231,7 +231,7 @@
   .swiper-button-next,
   .swiper-button-prev {
     $x: 30px;
-    $y: ($x * 2) / 3;
+    $y: calc(($x * 2) / 3);
     width: #{$x};
     height: #{$x};
     margin-top: -$y;
@@ -243,14 +243,14 @@
       $x: vwl(30px);
       width: #{$x};
       height: #{$x};
-      $y: ($x * 2) / 3;
+      $y: calc(($x * 2) / 3);
       margin-top: -$y;
     }
     @include mq(xxs) {
       $x: vwp(30px);
       width: #{$x};
       height: #{$x};
-      $y: ($x * 2) / 3;
+      $y: calc(($x * 2) / 3);
       margin-top: -$y;
     }
     &::after {

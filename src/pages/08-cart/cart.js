@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+// eslint-disable-next-line
+import lazySizes from 'lazysizes'
 import { getProductSkus } from '../../components/utils/getProductSkus'
 import { getUpsells } from './content/getUpsells'
 import Main from '../../components/pageSections/main'

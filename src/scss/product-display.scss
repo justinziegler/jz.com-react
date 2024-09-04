@@ -1422,7 +1422,7 @@ a {
     @include filter-gradient(#f2efeb, #f2efeb, horizontal); // IE6-9
     @include background-image(
       linear-gradient(
-        left,
+        to right,
         rgba(242, 239, 235, 1) 0%,
         rgba(249, 249, 248, 1) 50%,
         rgba(242, 239, 235, 1) 100%

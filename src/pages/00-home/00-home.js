@@ -2,6 +2,7 @@ import Main from '../../components/pageSections/main';
 import { directory } from '../../components/data/directory';
 import { pageDetails } from './content';
 import collage from '../../assets/holiday-promotion/collage01.jpg';
+import '../../css/bootstrap-grid.css';
 import '../../scss/case-studies.scss';
 
 function Home(props) {
