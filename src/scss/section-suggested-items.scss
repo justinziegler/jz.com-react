@@ -56,19 +56,19 @@ $imgixDefaults: '?';
     width: #{$x};
     height: #{$x};
     top: 25%;
-    margin-top: $x / 2;
+    margin-top: $x * 0.5;
     z-index: 11;
     @include mq(xsm) {
       $x: vwl(36px);
       width: #{$x};
       height: #{$x};
-      margin-top: $x / 2;
+      margin-top: $x * 0.5;
     }
     @include mq(xxs) {
       $x: vwp(36px);
       width: #{$x};
       height: #{$x};
-      margin-top: $x / 2;
+      margin-top: $x * 0.5;
     }
     &::after {
       font-size: 1.4rem;
