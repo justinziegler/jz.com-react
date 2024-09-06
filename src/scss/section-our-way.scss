@@ -95,6 +95,9 @@
         background-size: 48px;
       }
     }
+    &[data-visible=false] {
+      display: none;
+    }
     &[data-content='shipping'] {
       &::before {
         @include truck-outline(#000);

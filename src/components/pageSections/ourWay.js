@@ -16,10 +16,16 @@ function OurWayModal(props) {
         </button>
       </Modal.Header>
       <Modal.Body>
-        <div className="item" data-content={ props.modalTitleClass }>
-          <h2>{ props.modalTitle }</h2>
-          <p>{ props.modalContent }</p>
-        </div>
+        { props.ourWay.map(item => 
+          <div className="item" 
+            data-content={ item.className } 
+            data-visible={ item.className === props.modalContent }
+          >
+            <h2>{ item.title }</h2>
+            <p>{ item.content }</p>
+          </div>
+        )}
+        
       </Modal.Body>
     </Modal>
   )
@@ -27,14 +33,10 @@ function OurWayModal(props) {
 
 function OurWay(props) {
   const [showModal, setShowModal] = useState(false)
-  const [modalTitle, setModalTitle] = useState(props.ourWay[0].title)
-  const [modalTitleClass, setModalTitleClass] = useState(props.ourWay[0].titleClass)
-  const [modalContent, setModalContent] = useState(props.ourWay[0].content)
+  const [modalContent, setModalContent] = useState(props.ourWay[0].className)
   const handleShowModal = (e) => {
     e.preventDefault()
-    setModalTitle(props.ourWay[e.target.dataset.index].title)
-    setModalTitleClass(props.ourWay[e.target.dataset.index].titleClass)
-    setModalContent(props.ourWay[e.target.dataset.index].content)
+    setModalContent(e.target.dataset.content)
     setShowModal(true)
   }
 
@@ -44,7 +46,7 @@ function OurWay(props) {
     Items.push(
       <div 
         className={ `item col-xs-3 col-lg-2 ${ additionalClass }` }
-        data-content={ item.titleClass } 
+        data-content={ item.className } 
         data-index={ index }
         role='button' 
         tabIndex='0'
@@ -67,11 +69,10 @@ function OurWay(props) {
         </div>
       </div>
       <OurWayModal 
-        modalTitle={ modalTitle }
         modalContent={ modalContent }
+        ourWay={ props.ourWay }
         showModal={ showModal }
         setShowModal={ setShowModal }
-        modalTitleclassName={ modalTitleClass }
       />
     </section>
   )

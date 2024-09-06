@@ -10,6 +10,7 @@ const HolidayMode             = lazy(() => import('./pages/01-holiday-mode/holid
 const ValueProps              = lazy(() => import('./pages/02-value-props/value-props'));
 const MattressAnimation       = lazy(() => import('./pages/03-mattress-animation/mattress-animation'));
 const TiktokMimic             = lazy(() => import('./pages/04-tiktok-mimic/tiktok-mimic'));
+const Mattress                = lazy(() => import('./pages/05-mattress/mattress'));
 const ProductDisplayDemo      = lazy(() => import('./pages/05-product-display/01-product-display'));
 const ProductDisplayMattress  = lazy(() => import('./pages/05-product-display/02-mattress'));
 const ProductDisplayFrame     = lazy(() => import('./pages/05-product-display/03-frame'));
@@ -28,6 +29,7 @@ function App() {
           <Route path='/value-props' element={ <ValueProps /> } />
           <Route path='/mattress-animation' element={ <MattressAnimation /> } />
           <Route path='/tiktok' element={ <TiktokMimic /> } />
+          <Route path='/mattress' element={ <Mattress /> } />
           <Route path='/product-display' element={ <ProductDisplayDemo /> } />
             <Route path='/product-display-mattress' element={ <ProductDisplayMattress /> } />
             <Route path='/product-display-frame' element={ <ProductDisplayFrame /> } />
