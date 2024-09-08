@@ -14,10 +14,8 @@ function Layers(props) {
   };
 
   const handleDots = () => {
-    console.log('handleDots activeIndex:', gallerySwiper.activeIndex)
     setActiveIndex(gallerySwiper.activeIndex + 1)
   }
-
   const Layers = []
   for (let i = 1; i <=5; i++) {
     Layers.push(
@@ -37,8 +35,7 @@ function Layers(props) {
   for (let i = 1; i <=4; i++) {
     Dots.push(
       <button 
-        data-slide={ i } 
-        role='button' 
+        data-slide={ i }
         data-active={ i === 1 ? (activeIndex === 'default' || activeIndex === i) : activeIndex === i } 
         aria-label={ `Layer ${ i }` } 
         tabindex='0'
@@ -49,9 +46,6 @@ function Layers(props) {
       </button>
     )
   }
-  
-
-  
 
   return (
     <section className='op-mattress-3d' data-current={ 1 }>
@@ -73,8 +67,6 @@ function Layers(props) {
                 { Dots }
               </div>
             </div>
-          
-            <a className='photo-anchor'></a>
           </div>
 
           <div className='details col-xs-12 col-sm-6'>

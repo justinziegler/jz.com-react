@@ -9,7 +9,10 @@ import Upgrade from './content/upgrade';
 import { valueProps } from './content/valueProps';
 import ValueProps from '../../components/pageSections/valueProps';
 import Layers from './content/layers';
+import FinancingInfo from './content/financingInfo';
+import FirmnessScale from './content/firmnessScale';
 import '../../assets/product-shop-opm-gallery.css'
+import MadeSimple from './content/madeSimple';
 
 
 function Mattress (props) {
@@ -45,6 +48,12 @@ function Mattress (props) {
       <ValueProps vp={ valueProps } />
 
       <Layers />
+
+      <FinancingInfo monthlyPayment={ monthlyPayment } />
+
+      <FirmnessScale />
+
+      <MadeSimple monthlyPayment={ monthlyPayment } />
     </Main>
   )
 }

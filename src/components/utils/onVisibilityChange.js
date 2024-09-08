@@ -1,11 +1,11 @@
 import { isElementInViewport } from './isElementInViewport'
 
 export function onVisibilityChange(el, callback) {
-  var old_visible;
+  var oldVisible;
   return function () {
     var visible = isElementInViewport(el);
-    if (visible != old_visible) {
-      old_visible = visible;
+    if (visible != oldVisible) {
+      oldVisible = visible;
       if (typeof callback == 'function') {
         callback();
       }
