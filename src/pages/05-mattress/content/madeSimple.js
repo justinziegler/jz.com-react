@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Accordion from 'react-bootstrap/Accordion';
+import '../../../scss/promotion-value-propositions.scss'
 
 function MadeSimple(props) {
   const items = [
@@ -21,6 +23,11 @@ function MadeSimple(props) {
   ]
 
   const [active, setActive] = useState(0)
+  // const handleActive = (e) => {
+  //   e.preventDefault();
+  //   props.setActive(!props.active)
+  //   setShowOptions(!showOptions)
+  // }
 
   return (
     <section class="made-simple">
@@ -30,14 +37,23 @@ function MadeSimple(props) {
             <h2>Mattress Buying<br /> Made Simple</h2>
             <div class="frame" data-current={ active }>
               <div class="stage">
-                { items.map((item, index) =>
-                  <div data-slide={ index } data-active={ index === active }>
-                    <h4>{ item.title }</h4>
-                    <div class="content">
-                      <p>{ item.details }</p>
-                    </div>
-                  </div>
-                )}
+                <Accordion defaultActiveKey={ 0 } flush>
+                  { items.map((item, index) =>
+                    <Accordion.Item 
+                      eventKey={ index } 
+                      key={ `accordion-${ index }` }
+                    >
+                      <Accordion.Header className={ item.icon ? 'collapsed icon' : 'collapsed' }>
+                        { item.title }
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <div class="content">
+                          <p>{ item.details }</p>
+                        </div>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  )}
+                </Accordion>
               </div>
               <div class="dots">
                 { items.map((item, index) =>
