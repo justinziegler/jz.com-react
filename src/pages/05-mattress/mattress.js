@@ -13,7 +13,15 @@ import FinancingInfo from './content/financingInfo';
 import FirmnessScale from './content/firmnessScale';
 import '../../assets/product-shop-opm-gallery.css'
 import MadeSimple from './content/madeSimple';
-
+import Ratings from '../../components/pageSections/ratings';
+import { mattressReviews } from './content/mattressReviews';
+import Reviews from '../../components/pageSections/reviews';
+import BedFrames from './content/bedFrames';
+import { suggestedItems } from './content/suggestedItems';
+import SuggestedItems from '../../components/pageSections/suggestedItems';
+import { faqs } from './content/faqs';
+import Faqs from '../../components/pageSections/faqs';
+import Footer from '../../components/pageSections/footer';
 
 function Mattress (props) {
   const [productName, setProductName] = useState('')
@@ -54,6 +62,19 @@ function Mattress (props) {
       <FirmnessScale />
 
       <MadeSimple monthlyPayment={ monthlyPayment } />
+
+      <Ratings />
+
+      <Reviews reviews={ mattressReviews } />
+
+      <BedFrames />
+
+      <SuggestedItems suggestedItems={ suggestedItems } />
+
+      <Faqs faqs={ faqs } />
+
+      <Footer />
+      
     </Main>
   )
 }

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { preventDefault } from '../utils/preventDefault';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -50,7 +51,12 @@ function SuggestedItems(props) {
                     </div>
                     <h3>{ item.itemName }</h3>
                     { item.description }
-                    <a href={ `../${ item.url }` } className='btn btn-transparent' tabIndex='-1'>
+                    <a 
+                      href={ `../${ item.url }` } 
+                      className='btn btn-transparent' 
+                      tabIndex='-1'
+                      onClick={ preventDefault }
+                    >
                       See the { item.linkName }
                     </a>
                   </SwiperSlide>

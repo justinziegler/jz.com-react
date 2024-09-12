@@ -137,29 +137,24 @@
   h2 {
     text-align: center;
   }
-  .accordion h2 {
+  h4 {
     cursor: pointer;
     margin: 0;
    
     text-align: left;
-    
+    padding: 15px 0 10px 0;
+    @include mq(xsm) {
+      padding: vwl(15px) 0;
+    }
+    @include mq(xxs) {
+      padding: vwp(15px) 0;
+    }
     @include mq(md) {
       font-size: 2.2rem;
     }
     &:focus {
       outline: none;
       color: #7eaac7;
-    }
-    button {
-      background: none;
-      border: none;
-      padding: 15px 0 10px 0;
-      @include mq(xsm) {
-        padding: vwl(15px) 0;
-      }
-      @include mq(xxs) {
-        padding: vwp(15px) 0;
-      }
     }
   }
   p {
