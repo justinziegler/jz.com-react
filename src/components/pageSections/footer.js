@@ -25,7 +25,7 @@ function Footer(props) {
                     </a>
                   </div>
                   <div className='col-xs-6'>
-                    <a href='#' tabIndex='0' onClick={ preventDefault }>
+                    <a href='./' tabIndex='0' onClick={ preventDefault }>
                       <h5>Email</h5>
                       <p>support@lull.com</p>
                     </a>

@@ -44,7 +44,7 @@ function ProductDisplay(props) {
     if (props.color === '')               props.setColor(initial.color)
     if (props.price === 0)                props.setPrice(initial.salePrice)
     if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
-  }, []);
+  }, [props]);
 
   const [upsell0Active, setUpsell0Active] = useState(false)
   const [upsell1Active, setUpsell1Active] = useState(false)

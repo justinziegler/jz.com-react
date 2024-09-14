@@ -213,11 +213,7 @@
     right: 0;
     height: 45%;
     *zoom: 1;
-    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr="#FFF7F5F3", endColorstr="#F300F7F5");
-    background-image: -owg-linear-gradient(top, rgb(247, 245, 243) 0%, rgba(247, 245, 243, 0) 100%);
-    background-image: -o-linear-gradient(top, rgb(247, 245, 243) 0%, rgba(247, 245, 243, 0) 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(247, 245, 243)), to(rgba(247, 245, 243, 0)));
-    background-image: linear-gradient(top, rgb(247, 245, 243) 0%, rgba(247, 245, 243, 0) 100%);
+    background-image: linear-gradient(to bottom, rgb(247, 245, 243) 0%, rgba(247, 245, 243, 0) 100%);
   }
 }
 @media (max-width: 543px) {

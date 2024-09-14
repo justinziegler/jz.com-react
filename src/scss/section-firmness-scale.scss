@@ -151,7 +151,7 @@ $imgixCrop: '&fit=crop&crop=focalpoint';
         @include filter-gradient(#6ac8ca, #206181, horizontal);
         @include background-image(
           linear-gradient(
-            left,
+            to right,
             rgba(106, 200, 202, 1) 50%,
             rgba(#206181, 1) 85%
           )
@@ -163,7 +163,7 @@ $imgixCrop: '&fit=crop&crop=focalpoint';
         background-color: $teal;
         @include filter-gradient(#206181, $teal, horizontal);
         @include background-image(
-          linear-gradient(left, rgba(#206181, 1) 25%, rgba($teal, 1) 75%)
+          linear-gradient(to right, rgba(#206181, 1) 25%, rgba($teal, 1) 75%)
         );
         border-radius: 0 10px 10px 0;
         .span {
