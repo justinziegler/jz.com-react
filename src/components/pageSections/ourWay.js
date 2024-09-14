@@ -16,10 +16,11 @@ function OurWayModal(props) {
         </button>
       </Modal.Header>
       <Modal.Body>
-        { props.ourWay.map(item => 
+        { props.ourWay.map((item, index) => 
           <div className="item" 
             data-content={ item.className } 
             data-visible={ item.className === props.modalContent }
+            key={ `ow-${ index }` }
           >
             <h2>{ item.title }</h2>
             <p>{ item.content }</p>

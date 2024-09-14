@@ -5,6 +5,27 @@ import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import Card from 'react-bootstrap/Card';
 import '../../../scss/promotion-value-propositions.scss'
 
+function ContextAwareToggle({ children, eventKey, setActiveIndex }) {
+  const { activeEventKey } = useContext(AccordionContext);
+  const handleClick = useAccordionButton (
+    eventKey,
+    setActiveIndex(activeEventKey)
+  );
+  const isCurrentEventKey = activeEventKey === eventKey;
+
+  return (
+    <h4
+      type='button'
+      style={{ pointerEvents: isCurrentEventKey ? 'none' : 'all', 
+                color: isCurrentEventKey ? '#5f8095' : '#0b2836' }}
+      onClick={ handleClick  }
+      key={ `btn${ eventKey }`}
+    >
+      {children}
+    </h4>
+  );
+}
+
 function MadeSimple(props) {
   const items = [
     {
@@ -26,51 +47,28 @@ function MadeSimple(props) {
   ]
 
   const [activeIndex, setActiveIndex] = useState(0)
-  
-  function ContextAwareToggle({ children, eventKey, callback }) {
-    const { activeEventKey } = useContext(AccordionContext);
-  
-    const handleClick = useAccordionButton (
-      eventKey,
-      () => callback && callback(eventKey),
-      setActiveIndex(activeEventKey)
-    );
-  
-    const isCurrentEventKey = activeEventKey === eventKey;
-  
-    return (
-        <h4
-          type="button"
-          style={{ pointerEvents: isCurrentEventKey ? 'none' : 'all', 
-                   color: isCurrentEventKey ? '#5f8095' : '#0b2836' }}
-          onClick={ handleClick  }
-          key={ `btn${ eventKey }`}
-        >
-          {children}
-        </h4>
-    );
-  }
-
-  const [active, setActive] = useState(0)
 
   return (
-    <section class="made-simple">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1">
+    <section className='made-simple'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1'>
             <h2>Mattress Buying<br /> Made Simple</h2>
-            <div class="frame" data-current={ active }>
-              <div class="stage">
+            <div className='frame' data-current={ activeIndex }>
+              <div className='stage'>
                 <Accordion defaultActiveKey={ 0 } flush  key={ `accordion`}>
                   { items.map((item, index) =>
                     <React.Fragment key={ `accordion${ index }`}>
                       <Card>
                         <Card.Header>
-                          <ContextAwareToggle eventKey={ index }>{ item.title }</ContextAwareToggle>
+                          <ContextAwareToggle 
+                            eventKey={ index }
+                            setActiveIndex={ setActiveIndex }
+                          >{ item.title }</ContextAwareToggle>
                         </Card.Header>
                         <Accordion.Collapse eventKey={ index }>
                           <Card.Body>
-                            <div class="content">
+                            <div className='content'>
                               <p>{ item.details }</p>
                             </div>
                           </Card.Body>
@@ -80,11 +78,11 @@ function MadeSimple(props) {
                   )}
                 </Accordion>
               </div>
-              <div class="dots">
+              <div className='dots'>
                 { items.map((item, index) =>
                   <button data-slide={ index } 
                     data-active={ index === activeIndex } 
-                    tabIndex="0"
+                    tabIndex='0'
                     key={ `dot${ index }`}
                     >
                   </button>

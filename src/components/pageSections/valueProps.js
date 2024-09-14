@@ -1,3 +1,4 @@
+import React from 'react'
 import '../../scss/section-value-props.scss'
 
 function ValueProps(props) {
@@ -5,7 +6,7 @@ function ValueProps(props) {
     <section className='value-props'>
       <div className='container'>
         { props.vp.map(valueProps =>
-          <>
+          <React.Fragment key={ 'vps' }>
             { valueProps.heading !== '' &&
               <div className='row'>
                 <div className='col-xs-12'>
@@ -19,8 +20,8 @@ function ValueProps(props) {
               </div> 
             }
             <div className='row'>
-              { valueProps.items.map(item =>
-                <>
+              { valueProps.items.map((item, index) =>
+                <React.Fragment key={ `vp-${ index }`}>
                   { item.title === 'clearfix' ?
                     <div className={ `clearfix ${ item.classes }`}></div>
                     :
@@ -29,10 +30,10 @@ function ValueProps(props) {
                       { item.content }
                     </div>
                   }
-                </>
+                </React.Fragment>
               )}
             </div>
-          </>
+            </React.Fragment>
         )}        
       </div>
     </section>

@@ -7,7 +7,7 @@ export const suggestedItems = [
 				shortName: 'protector',
 				linkName: 'protector',
 				url: 'mattress-protector',
-				description: <p>Extend the life of your Lull Mattress<br class="visible-xxs" /> and keep it safe from spills, stains <br class="visible-xxs" />and allergens.</p>
+				description: <p>Extend the life of your Lull Mattress<br className="visible-xxs" /> and keep it safe from spills, stains <br className="visible-xxs" />and allergens.</p>
 			},
       {
         itemName: 'Gaviota  Bed Frame',

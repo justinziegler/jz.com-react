@@ -24,6 +24,7 @@ function Layers(props) {
         role='img' 
         aria-label={ `Layer ${ i }` }
         data-active={ i === activeIndex }
+        key={ `layer-${ i }`}
       >
         <div className='lazyload'></div>
         <div className='lazyload'></div>
@@ -38,9 +39,10 @@ function Layers(props) {
         data-slide={ i }
         data-active={ i === 1 ? (activeIndex === 'default' || activeIndex === i) : activeIndex === i } 
         aria-label={ `Layer ${ i }` } 
-        tabindex='0'
+        tabIndex='0'
         onClick={ handleActiveIndex }
         className='animate'
+        key={ `layer-${ i }-btn`}
       >
         <span></span>
       </button>

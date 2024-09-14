@@ -52,10 +52,11 @@ function BedFrames(props) {
           </div>
           <div className='frames primary col-xs-12'>
             <ul>
-              { framesPrimary.map(frame =>
+              { framesPrimary.map((frame, index) =>
                 <li 
                   data-type={ frame.type }
-                  class={ inViewport ? frame.className : null }
+                  className={ inViewport ? frame.className : null }
+                  key={ `frames-1-${ index }`}
                 >
                   <a href='./' role='button' tabIndex='0' onClick={ preventDefault }>
                     { frame.title }
@@ -72,9 +73,10 @@ function BedFrames(props) {
               setInViewport={ setInViewport } 
             />
             <ul>
-              { framesSecondary.map(frame =>
+              { framesSecondary.map((frame, index) =>
                 <li data-type={ frame.type }
-                  class={ inViewport ? frame.className : null }
+                  className={ inViewport ? frame.className : null }
+                  key={ `frames-2-${ index }`}
                 >
                   { frame.title }
                 </li>

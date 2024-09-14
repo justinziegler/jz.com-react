@@ -1,4 +1,5 @@
 export function preventDefault(e) {
-  console.log('Link disabled');
   e.preventDefault();
+  e.target.blur();
+  console.log('Link disabled');
 }

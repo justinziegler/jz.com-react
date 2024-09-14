@@ -181,7 +181,7 @@ export function getUpsellDetails(skus) {
       case 'CB': 
         details = {
           title: 'Add a Lull Sheet Set',
-          description: 'Silky, soft, and breathable - high quality sheets at an unbeatable price. Includes fitted sheet, top sheet and <span class="sheets-quantity"></span> <span class="pillowcase-quantity">pillowcase</span>.',
+          description: 'Silky, soft, and breathable - high quality sheets at an unbeatable price. Includes fitted sheet, top sheet and <span className="sheets-quantity"></span> <span className="pillowcase-quantity">pillowcase</span>.',
           url: 'bed-sheets',
           slug: 'sheets'
         }
@@ -189,7 +189,7 @@ export function getUpsellDetails(skus) {
       case 'CS': 
         details = {
           title: 'Add a Lull Cotton Sheet Set',
-          description: 'Premium 100% cotton percale sheets made for a cool night\'s sleep. Includes fitted sheet, top sheet and <span class="sheets-quantity"></span> <span class="pillowcase-quantity">pillowcase</span>',
+          description: 'Premium 100% cotton percale sheets made for a cool night\'s sleep. Includes fitted sheet, top sheet and <span className="sheets-quantity"></span> <span className="pillowcase-quantity">pillowcase</span>',
           url: 'bed-sheets',
           slug: 'sheets'
         }
@@ -197,7 +197,7 @@ export function getUpsellDetails(skus) {
       case 'OC': 
         details = {
           title:  'Add a Lull Organic Cotton Sheet Set',
-          description: '100% organic cotton sheets crafted with comfort, wellness, and luxury in mind. Includes fitted sheet, top sheet and <span class="sheets-quantity"></span> <span class="pillowcase-quantity">pillowcase</span>.',
+          description: '100% organic cotton sheets crafted with comfort, wellness, and luxury in mind. Includes fitted sheet, top sheet and <span className="sheets-quantity"></span> <span className="pillowcase-quantity">pillowcase</span>.',
           url: 'bed-sheets',
           slug: 'sheets'
         }
@@ -378,7 +378,7 @@ export function getUpsellDetails(skus) {
       case 'FL': 
         details = {
           title: 'Add the Lull Foundation Legs',
-          description: 'Add height and create instant under-bed<br class="visible-md visible-lg"> storage.',
+          description: 'Add height and create instant under-bed<br className="visible-md visible-lg"> storage.',
           url: 'mattress-foundation',
           slug: 'foundation-legs',
           dualSizes: true

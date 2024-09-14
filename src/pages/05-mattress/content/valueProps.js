@@ -1,6 +1,6 @@
 export const valueProps = [
   {
-    heading: <h2>Premium Memory Foam,<br className='visible-xs' /> Next Level Comfort</h2>,
+    heading: <span>Premium Memory Foam,<br className='visible-xs' /> Next Level Comfort</span>,
     items: [
       {
         title: '100% Premium Memory Foam',

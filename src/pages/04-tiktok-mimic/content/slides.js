@@ -50,7 +50,7 @@ const slides = [
   },
   {
     heading: 'Get Cozy Now, Pay Later',
-    content: 'Invest in your dreams. Literally. Get the Original Lull Mattress now and pay over time with easy financing for as low as $28/mo.<a class="question financing-modal-link" href="#" data-sku="LU-MA-WH-TW" data-quantity="1">?</a> No hidden fees.',
+    content: 'Invest in your dreams. Literally. Get the Original Lull Mattress now and pay over time with easy financing for as low as $28/mo.<a className="question financing-modal-link" href="#" data-sku="LU-MA-WH-TW" data-quantity="1">?</a> No hidden fees.',
     cta: true,
     videoUrl: video7
   },
