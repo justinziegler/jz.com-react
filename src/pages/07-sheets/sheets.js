@@ -29,7 +29,6 @@ function Sheets () {
   const [color, setColor] = useState('')
   const [price, setPrice] = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
-  const [initialSelectionLoaded, setInitialSelectionLoaded] = useState(false) 
   return (
     <Main page={ page }>
 
@@ -45,7 +44,6 @@ function Sheets () {
         setPrice={ setPrice } 
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
-        setInitialSelectionLoaded={ setInitialSelectionLoaded }
       />
       <ContentAccordion accordionContent={ valueProps } />
 

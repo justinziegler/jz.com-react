@@ -44,7 +44,6 @@ function BedFrames(props) {
 
   return (
     <section className='bed-frames'>
-      <a name='bedframes'></a>
       <div className='container'>
         <div className='row'>
           <div className='col-xs-12'>

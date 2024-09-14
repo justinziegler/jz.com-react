@@ -10,7 +10,6 @@ function ProductDisplayFrame () {
   const [color, setColor] = useState('')
   const [price, setPrice] = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
-  const [initialSelectionLoaded, setInitialSelectionLoaded] = useState(false)  
 
   const page = getProductConfig('frame');
   return (
@@ -26,7 +25,6 @@ function ProductDisplayFrame () {
       setPrice={ setPrice } 
       monthlyPayment={ monthlyPayment }
       setMonthlyPayment={ setMonthlyPayment }
-      setInitialSelectionLoaded={ setInitialSelectionLoaded }
     />
   )
 }

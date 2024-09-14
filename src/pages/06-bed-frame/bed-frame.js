@@ -35,7 +35,6 @@ function BedFrame () {
   const [color, setColor] = useState('')
   const [price, setPrice] = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
-  const [initialSelectionLoaded, setInitialSelectionLoaded] = useState(false)  
 
   return (
     <Main page={ page }>
@@ -51,7 +50,6 @@ function BedFrame () {
         setPrice={ setPrice } 
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
-        setInitialSelectionLoaded={ setInitialSelectionLoaded }
       />
 
       <OurWay ourWay={ ourWay } />
@@ -62,7 +60,7 @@ function BedFrame () {
 
       <Features productName={ productName } Swiper={ Swiper } SwiperSlide={ SwiperSlide } />
 
-      <Compare type={ type } color={ color } initialSelectionLoaded={ initialSelectionLoaded } />
+      <Compare type={ type } color={ color } />
 
       <Assembly />
 
