@@ -15,37 +15,43 @@ const pageDetails = [
     background: holidayModeThumb
   },
   {
-    title: 'Value Propositions',
-    url: 'value-props',
-    intro: 'In my previous position, I would often be required to develop page sections that looked and functioned differently depending if users were on mobile vs. a larger screen. This project came about from a desire to:',
-    background: valueProps
-  },
-  {
-    title: 'Exploded Product View',
-    url: 'mattress-animation',
-    intro: 'In my previous position, I would often be required to develop page sections that looked and functioned different ly depending if users were on mobile vs. a larger screen. This project came about from a desire to:',
-    background: exploded
-  },
-  {
     title: 'Tiktok Mimic',
     url: 'tiktok',
     intro: 'Tiktok-styled mobile promotional page for a social media-targeted marketing campaign. Videos advance manually or automatically.',
     background: tiktok
   },
   {
-    title: 'Product Display',
-    url: 'product-display',
+    title: 'Product Display - Basic',
+    url: 'product-display-mattress',
     intro: 'The following pages highlight the features of a Product Display module that I developed to support a line of bedding products. This project came about from a need to:',
     background: productDisplay
   },
   {
-    title: 'Bed Frame PDP',
+    title: 'Product Display with _____',
+    url: 'product-display-frame',
+    intro: 'Bed frame pd',
+    background: productDisplay
+  },
+  {
+    title: 'Product Display with _____',
+    url: 'product-display-sheets',
+    intro: 'sheets pd',
+    background: productDisplay
+  },
+  {
+    title: 'Product detail page - mattress',
+    url: 'mattress',
+    intro: 'The following pages highlight the features of a Product Display template that I developed to support a line of bedding products. This project came about from a need to:',
+    background: frame
+  },
+  {
+    title: 'Product detail page - Bed Frame',
     url: 'bed-frame',
     intro: 'The following pages highlight the features of a Product Display template that I developed to support a line of bedding products. This project came about from a need to:',
     background: frame
   },
   {
-    title: 'Bed Sheets PDP',
+    title: 'Product detail page - Sheets',
     url: 'sheets',
     intro: 'The following pages highlight the features of a Product Display template that I developed to support a line of bedding products. This project came about from a need to:',
     background: sheets

@@ -1,10 +1,11 @@
 const directory = [
   '/',
   'holiday-mode',
-  'value-props',
-  'mattress-animation',
   'tiktok',
-  'product-display',
+  'product-display-mattress',
+  'product-display-frame',
+  'product-display-sheets',
+  'mattress',
   'bed-frame',
   'sheets',
   'cart'
