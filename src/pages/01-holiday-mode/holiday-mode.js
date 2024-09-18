@@ -23,8 +23,8 @@ const page = {
   pageUrl: 'holiday-mode',
   headerTitle: 'Holiday Mode',
   headerIntro: [
-    'Several times a year we would theme key pages on the site for different holiday sales, then return them to normal after the holiday. In an effort to make this process less time-consuming, I developed Holiday Mode for the site. With Holiday Mode, we were able to switch between regular and holiday content by simply updating one variable.',
-    'Use the links below to toggle between the two versions.'
+    <>Several times a year we would theme key pages on the site for different holiday sales, then return them to normal after the holiday. In an effort to make this process less time-consuming, I developed <strong>Holiday Mode</strong> for the site. With <strong>Holiday Mode</strong>, we were able to switch between regular and holiday content by simply updating one variable.</>,
+    <>Use the links below to toggle between the two versions.</>
   ],
   toggleLinks: true
 }
@@ -42,12 +42,17 @@ function HolidayMode () {
     video = e.target.dataset.videosrc;
     setShow(true);
   }
+  const handleHolidayMode = (e) => {
+    e.preventDefault()
+    setHolidayMode(!holidayMode)
+  }
   const skus = getProductSkus([1], discountActual);
+
   return (
     <>
-      <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet"></link>
+      <link href='https://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet'></link>
       <Main page={ page } holidayMode={ holidayMode } setHolidayMode={ setHolidayMode }>
-        <div className="to-do">
+        <div className='to-do'>
           <ul>
             <li>Fix ValueProps on mobile / width issue</li>
             <li>Fix swiper pagination</li>
@@ -55,7 +60,7 @@ function HolidayMode () {
             <li>Lock screen position on modal show?</li>
             <li> make sure lazysizes works</li>
           </ul>
-          <a href="#" onClick={ () => setHolidayMode(!holidayMode) }>HolidayMode toggle</a>
+          <a href='./' onClick={ handleHolidayMode }>HolidayMode toggle</a>
         </div>
         <Hero holidayMode={ holidayMode } />
 

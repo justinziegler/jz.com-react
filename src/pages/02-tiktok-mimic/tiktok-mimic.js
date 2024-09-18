@@ -12,8 +12,9 @@ import '../../scss/promotion-tiktok.scss'
 function TiktokMimic () {
   const page = {
     pageUrl: 'tiktok',
+    headerTitle: 'Tiktok Mimic',
     headerIntro: [
-      'This promotion was created to engage social media users, and it turned out to be a hit. Features on display include:'
+      <>This promotion was created to engage social media users, and it turned out to be a hit. Features on display include:</>
     ],
     headerBullets: [
       'Slideshow of a dozen short videos that auto-advance when complete',

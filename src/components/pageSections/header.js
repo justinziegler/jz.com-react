@@ -105,7 +105,7 @@ function Header(props) {
             <div className="case-study-content">
               { p.headerIntro.map((item, index) =>
                 <React.Fragment key={ `cs-${index}` }>
-                  { item }
+                  <p>{ item }</p>
                 </React.Fragment>
               )}
               { p.headerBullets !== undefined &&

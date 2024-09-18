@@ -39,9 +39,9 @@ function ProductDisplay(props) {
   const [cartTotal, setCartTotal] =     useState(initial.salePrice)
   
   useEffect(() => {
-    if (props.productName === '')         props.setProductName(initial.productName)
-    if (props.type === '')                props.setType(initial.type)
-    if (props.color === '')               props.setColor(initial.color)
+    if (props.productName === null)         props.setProductName(initial.productName)
+    if (props.type === null)                props.setType(initial.type)
+    if (props.color === null)               props.setColor(initial.color)
     if (props.price === 0)                props.setPrice(initial.salePrice)
     if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
   }, [props]);

@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Ratings(props) {
-  const p = props.page;
-  const ratings = p.ratings[0];
-  const ratingsStars = ratings.stars;
+  const p = props.page
+  const ratings = p.ratings[0]
+  const ratingsStars = ratings.stars
+  const ratingsPercentage = (ratings.average * 20) + '%'
+
   return (
     <>
       { ratingsStars &&
         <div className="star-ratings">
-          <div className="star-rating {% if ratings.tooltip %}popup{% endif %}">
+          <div className="star-rating">
             <div className="reviews-star-gauge">
-              <div className="reviews-star-average" style={{ width: ratings.average * 20 }}>
+              <div className="reviews-star-average" style={{ width: ratingsPercentage }}>
               </div>
             </div>
             <p>{ ratings.average }
