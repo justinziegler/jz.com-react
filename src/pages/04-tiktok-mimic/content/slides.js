@@ -25,32 +25,32 @@ const slides = [
     videoUrl: video2
   },
   {
-    heading: 'Flippin\' Out for Lull',
+    heading: <>Flippin' Out for Lull'</>,
     content: 'People are jumping for joy over the unbeatable comfort and support Lull provides. Experience the excitement of upgrading to a Lull mattress.',
     cta: false,
     videoUrl: video3
   },
   {
-    heading: 'From Compressed to<br> <i>Impressed</i> in 5 min',
+    heading: <>From Compressed to<br /> <i>Impressed</i> in 5 min</>,
     content: 'Get your new perfect mattress with free shipping right to your door in only 1-4 business days. Simply unroll, unpack, and watch it expand in just 5 minutes!',
     cta: true,
     videoUrl: video4
   },
   {
     heading: 'Namaste in Bed',
-    content: 'More stretching, less stressing. Studies show that a good night\'s sleep can improve your mood, reduce stress, boost your immune system, and help your brain fire on all cylinders.',
+    content: <>More stretching, less stressing. Studies show that a good night's sleep can improve your mood, reduce stress, boost your immune system, and help your brain fire on all cylinders.</>,
     cta: false,
     videoUrl: video5
   },
   {
     heading: 'Shop Day or Night from the Comfort of Home',
-    content: 'The Original Lull Mattress is more than just memory foam. Its a triple-layer paradise that\'ll change the way you sleep, forever!',
+    content: <>The Original Lull Mattress is more than just memory foam. Its a triple-layer paradise that'll change the way you sleep, forever!</>,
     cta: true,
     videoUrl: video6
   },
   {
     heading: 'Get Cozy Now, Pay Later',
-    content: 'Invest in your dreams. Literally. Get the Original Lull Mattress now and pay over time with easy financing for as low as $28/mo.<a className="question financing-modal-link" href="#" data-sku="LU-MA-WH-TW" data-quantity="1">?</a> No hidden fees.',
+    content: 'Invest in your dreams. Literally. Get the Original Lull Mattress now and pay over time with easy financing for as low as $28/mo. No hidden fees.',
     cta: true,
     videoUrl: video7
   },
@@ -62,25 +62,25 @@ const slides = [
   },
   {
     heading: 'The People Have Spoken',
-    content: 'Lull is the only mattress company with 4.5 stars & over 4,321 verified reviews! We never pay for or hide reviews & guarantee a full refund if you don\'t see yours on our site.',
+    content: <>Lull is the only mattress company with 4.5 stars & over 4,321 verified reviews! We never pay for or hide reviews & guarantee a full refund if you don\'t see yours on our site.</>,
     cta: false,
     videoUrl: video9
   },
   {
     heading: 'Lull Checks All the Boxes ✅',
-    content: 'Nobody likes buyer\'s remorse. That\'s why Lull offers a risk-free, 365 night trial! If you\'re not in love with your Lull mattress within a year, we\'ll arrange a quick and easy return.',
+    content: <>Nobody likes buyer's remorse. That's why Lull offers a risk-free, 365 night trial! If you're not in love with your Lull mattress within a year, we'll arrange a quick and easy return.</>,
     cta: false,
     videoUrl: video10
   },
   {
-    heading: 'Easy as 1, 2, <i>zzz</i>',
-    content: 'You\'re just a few clicks away from a Lull mattress being delivered right to your front door. Setup is a snap and you\'ll be drifting off to dreamland in no time.',
+    heading: <>Easy as 1, 2, <i>zzz</i></>,
+    content: <>You're just a few clicks away from a Lull mattress being delivered right to your front door. Setup is a snap and you'll be drifting off to dreamland in no time.</>,
     cta: false,
     videoUrl: video11
   },
   {
     heading: 'Sleeping is Believing',
-    content: 'Try the Original Lull Mattress in your home for 365 nights. We know you\'re going to love it. If we\'re wrong, we\'ll arrange a quick and easy return.',
+    content: <>Try the Original Lull Mattress in your home for 365 nights. We know you're going to love it. If we're wrong, we'll arrange a quick and easy return.</>,
     cta: true,
     videoUrl: video12
   }

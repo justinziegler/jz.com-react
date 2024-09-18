@@ -36,7 +36,10 @@ function Main(props) {
         activeDisplay={ props.activeDisplay }
         setActiveDisplay={ props.setActiveDisplay }
       />
-      <main onClick={ resetHeader }>
+      <main onClick={ resetHeader } 
+        data-active-slide={ props.activeIndex } 
+        data-active={ props.navActive }
+      >
         { children }
         { p.header && p.pageUrl !== '/' &&
           <div className="header-overlay" data-visible={ open }></div>

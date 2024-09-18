@@ -12,7 +12,7 @@ $xs: $maxWidth;
 
 @mixin mq($canvas) {
 	@if $canvas == xxs {
-		@media (max-width: ($xs - 1)) { @content }
+		@media (max-width: calc($xs - 1px)) { @content }
 	}
 	@else if $canvas == xs {
 		@media (min-width: $xs) { @content }
@@ -24,8 +24,8 @@ $vw-enable: true;
 
 @function vwp($font) {
   @if $vw-enable {
-    $vw-context: $vwp-viewport * 0.01 * 1px;
-    @return $font / $vw-context * 1vw;
+    $vw-context: calc($vwp-viewport * 0.01 * 1px);
+    @return calc($font / $vw-context * 1vw);
 	}
 	@return $font;
 }
@@ -136,7 +136,7 @@ main {
     bottom: auto;
     right: auto;
     height: 100vh;
-    $width: 100vh / $maxHeightRatio;
+    $width: calc(100vh / $maxHeightRatio);
     width: $width;
     left: calc(50% - (#{$width} / 2));
   }
@@ -202,6 +202,14 @@ main[data-active='true'] {
   .slideshow-next {
     transform: rotate(90deg);
   }
+}
+.video-react {
+  padding: 0!important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .nav, .overlay {
   z-index: 3;
@@ -307,22 +315,22 @@ main[data-active='true'] {
           }
         }
       }
-      &[data-target='reviews-carousel'] {
+      &[data-focus='reviews-carousel'] {
         &::before {
           @include heart-icon(#fff);
         }
       }
-      &[data-target='faqs'] {
+      &[data-focus='faqs'] {
         &::before {
           @include comment-balloon(#fff);
         }
       }
-      &[data-target='email'] {
+      &[data-focus='email'] {
         &::before {
           @include arrow-share(#fff);
         }
       }
-      &[data-target='cta'] {
+      &[data-focus='cta'] {
         font-size: 0;
         &::before {
           @extend %logo;
@@ -365,7 +373,7 @@ main {
   &[data-active-slide='6'],
   &[data-active-slide='7'],
   &[data-active-slide='11'] {
-    .nav li a[data-target='cta'] {
+    .nav li a[data-focus='cta'] {
       opacity: 0;
       pointer-events: none;
     }
@@ -423,7 +431,7 @@ video {
   z-index: 5;
   position: absolute;
   @include filter-gradient(#a6000000, #000000, vertical); // IE6-9
-  @include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 60%,rgba(0,0,0,1) 100%));
+  @include background-image(linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 60%,rgba(0,0,0,1) 100%));
   // pointer-events: none;
 }
 h2, p {
@@ -437,7 +445,7 @@ h2, p {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 0 15px 15px 15px;
   h2, p {
     user-select: none;
@@ -629,7 +637,7 @@ h2, p {
       }
     }
   }
-  .swiper-container {
+  .swiper {
     margin: 0 25px;
     @include mq(xxs) {
       margin: 0 vwp(25px);
@@ -656,7 +664,7 @@ h2, p {
   .swiper-button-next,
   .swiper-button-prev {
     $x: 36px;
-    $y: ($x * 2) / 3;
+    $y: calc(($x * 2) / 3);
     width: #{$x};
     height: #{$x};
     margin-top: -$y;
@@ -668,7 +676,7 @@ h2, p {
       $x: vwp(36px);
       width: #{$x};
       height: #{$x};
-      $y: ($x * 2) / 3;
+      $y: calc(($x * 2) / 3);
       margin-top: -$y;
     }
     &::after {
@@ -701,6 +709,7 @@ h2, p {
   .swiper-pagination {
     left: 0;
     right: 0;
+    bottom: auto;
     margin-top: 5px;
     text-align: center;
     @include mq(xxs) {
