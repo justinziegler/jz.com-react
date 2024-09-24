@@ -5,8 +5,8 @@ import '../../scss/section-content-accordion.scss'
 function ContentAccordion(props) {
   return (
     <>
-      { props.accordionContent.map(content =>
-        <section className='content-accordion'>
+      { props.accordionContent.map((content, index) =>
+        <section className='content-accordion' key={ `accordion-${ index }` }>
           <div className='container'>
             <div className='row'>
               <div className='heading col-xs-12'>
@@ -25,17 +25,17 @@ function ContentAccordion(props) {
                       </Accordion.Header>
                       <Accordion.Body>
                         { item.bullets ?
-                          <ul>
-                            { item.contents.map(content =>
-                              <li>{ content.item }</li>
+                          <ul key={ 'bullets' }>
+                            { item.contents.map((content, index) =>
+                              <li key={ `bullet-${ index }` }>{ content.item }</li>
                             )}
                           </ul>
                           :
                           <p>
-                            { item.contents.map(content =>
-                              <>
+                            { item.contents.map((content, index) =>
+                              <React.Fragment key={ `item-${ index }` }>
                                 { content.item }
-                              </>
+                              </React.Fragment>
                             )}
                           </p>
                         } 

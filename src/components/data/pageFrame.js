@@ -1,9 +1,8 @@
-import { getColorName } from '../utils/getColorName';
+import { getColorName }    from '../utils/getColorName';
 import { numberWithCommas} from '../utils/numberWithCommas'
-import { getPageId } from '../utils/getPageId';
-import { getProductSkus } from '../utils/getProductSkus';
-import { getShortName } from '../utils/getShortName';
-import { getProductName } from '../utils/getProductName';
+import { getProductSkus }  from '../utils/getProductSkus';
+import { getShortName }    from '../utils/getShortName';
+import { getProductName }  from '../utils/getProductName';
 
 const catIds = [40, 41]
 const discountActual = 200

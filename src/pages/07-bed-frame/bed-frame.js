@@ -1,40 +1,44 @@
 
-import React, { useState } from 'react';
-import { getProductConfig } from '../../components/utils/getProductConfig';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import Main from '../../components/pageSections/main'
-import ProductDisplay from '../../components/productDisplay';
+import React, { useState }     from 'react'
+import { getProductConfig }    from '../../components/utils/getProductConfig'
+import { getPageId }           from '../../components/utils/getPageId'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import Main                    from '../../components/pageSections/main'
+import ProductDisplay          from '../../components/productDisplay'
+import ScrollToAnchor          from '../../components/utils/scrollToAnchor'
+import { ourWay }              from '../../components/data/ourWay'
+import OurWay                  from '../../components/pageSections/ourWay'
+import FinancingInfo           from './content/financingInfo'
+import Features                from './content/features'
+import Compare                 from './content/compare'
+import Assembly                from './content/assembly'
+import Ethical                 from './content/ethical'
+import Versatile               from './content/versatile'
+import { frameReviews }        from './content/frameReviews'
+import Reviews                 from '../../components/pageSections/reviews'
+import { suggestedItems }      from '../../components/data/suggestedItems'
+import SuggestedItems          from '../../components/pageSections/suggestedItems'
+import { faqs }                from './content/faqs'
+import Faqs                    from '../../components/pageSections/faqs'
+import Footer                  from '../../components/pageSections/footer'
 import '../../scss/product-frame.scss'
-import { ourWay } from '../../components/data/ourWay';
-import OurWay from '../../components/pageSections/ourWay';
-import FinancingInfo from './content/financingInfo'
-import Features from './content/features'
-import Compare from './content/compare';
-import Assembly from './content/assembly';
-import Ethical from './content/ethical';
-import Versatile from './content/versatile';
-import { frameReviews } from './content/frameReviews';
-import Reviews from '../../components/pageSections/reviews';
-import { suggestedItems } from '../../components/data/suggestedItems';
-import SuggestedItems from '../../components/pageSections/suggestedItems';
-import { faqs } from './content/faqs';
-import Faqs from '../../components/pageSections/faqs';
-import Footer from '../../components/pageSections/footer'
-
-let page = getProductConfig('frame')
-page.pageUrl = 'bed-frame'
-page.header = true
-page.headerTitle = 'Bed Frame PDP'
-page.headerIntro = [
-  <p>This product detail page features a number of interactive elements, including a slide-able product comparison module that I also developed the photography for.</p>
-]
 
 function BedFrame () {
-  const [productName, setProductName] = useState('')
-  const [type, setType] = useState('')
-  const [color, setColor] = useState('')
+  const [productName, setProductName] = useState(null)
+  const [type, setType] = useState(null)
+  const [color, setColor] = useState(null)
   const [price, setPrice] = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
+
+  const pageUrl = 'bed-frame'
+  let page      = getProductConfig('frame');
+  page.pageId   = getPageId(pageUrl)
+  page.pageUrl  = pageUrl
+
+  page.headerTitle = <>Product Detail Page &ndash; Bed Frame</>
+  page.headerIntro = [
+    <>REWRITE This product detail page features a number of interactive elements, including a slide-able product comparison module that I also developed the photography for.</>
+  ]
 
   return (
     <Main page={ page }>
@@ -51,6 +55,8 @@ function BedFrame () {
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
       />
+      
+      <ScrollToAnchor monthlyPayment={ monthlyPayment } />
 
       <OurWay ourWay={ ourWay } />
 

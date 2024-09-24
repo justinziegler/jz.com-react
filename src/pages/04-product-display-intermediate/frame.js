@@ -18,7 +18,7 @@ function ProductDisplayFrame () {
   page.pageId   = getPageId(pageUrl)
   page.pageUrl  = pageUrl
 
-  page.headerTitle = 'Product Display – Intermediate Config'
+  page.headerTitle = <>Product Display &ndash; Intermediate Config</>
   page.headerIntro = [
     <>REWRITE The links below highlight the features of a Product Display module that I developed to support a line of bedding products.</>,
     <> This configuration offers a choice between fabric colors and product lines.</>

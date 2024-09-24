@@ -4,6 +4,7 @@ import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig';
 import Main                 from '../../components/pageSections/main';
 import ProductDisplay       from '../../components/productDisplay';
+import ScrollToAnchor       from '../../components/utils/scrollToAnchor'
 import { ourWay }           from './content/ourWay';
 import OurWay               from '../../components/pageSections/ourWay'
 import Upgrade              from './content/upgrade';
@@ -31,7 +32,7 @@ function Mattress (props) {
   const [price, setPrice]                   = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
 
-  const pageUrl = 'product-display-mattress'
+  const pageUrl = 'mattress'
   let page      = getProductConfig('mattress')
   page.pageId   = getPageId(pageUrl)
   page.pageUrl  = pageUrl
@@ -57,6 +58,8 @@ function Mattress (props) {
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
       />
+      
+      <ScrollToAnchor monthlyPayment={ monthlyPayment } />
   
       <OurWay ourWay={ ourWay } />
 

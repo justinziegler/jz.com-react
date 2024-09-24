@@ -25,8 +25,8 @@ function Mission(props) {
             <div className='row'>
               <div className='col-xs-12'>
                 <h2>Crafted With a Mission</h2>
-                { content.map(item =>
-                  <p>{ item.content }</p>
+                { content.map((item, index) =>
+                  <p key={ `item-${ index }`}>{ item.content }</p>
                 )}
               </div>
             </div>

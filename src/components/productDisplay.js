@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Gallery from './productDisplay/gallery';
-import Ratings from './productDisplay/ratings';
-import SizeSelect from './productDisplay/sizeSelect';
-import ColorSelect from './productDisplay/colorSelect';
-import QuantitySelect from './productDisplay/quantitySelect';
-import TypeSelect from './productDisplay/typeSelect';
-import RichText from './productDisplay/richText';
-import Financing from './productDisplay/financing';
-import Upsells from './productDisplay/upsells';
-import CartButton from './productDisplay/cartButton'
-import Cart from './productDisplay/cart'
-import { getUpsellSize } from './utils/getUpsellSize'
-import { getInitialSelection } from './utils/getInitialSelection';
+import Gallery                        from './productDisplay/gallery';
+import Ratings                        from './productDisplay/ratings';
+import SizeSelect                     from './productDisplay/sizeSelect';
+import ColorSelect                    from './productDisplay/colorSelect';
+import QuantitySelect                 from './productDisplay/quantitySelect';
+import TypeSelect                     from './productDisplay/typeSelect';
+import RichText                       from './productDisplay/richText';
+import Financing                      from './productDisplay/financing';
+import Upsells                        from './productDisplay/upsells';
+import CartButton                     from './productDisplay/cartButton'
+import Cart                           from './productDisplay/cart'
+import { getUpsellSize }              from './utils/getUpsellSize'
+import { getInitialSelection }        from './utils/getInitialSelection';
 import '../css/bootstrap-grid.css'
 import '../scss/product-display.scss'
 import '../scss/product-display-color+quantity.scss'
@@ -39,11 +39,11 @@ function ProductDisplay(props) {
   const [cartTotal, setCartTotal] =     useState(initial.salePrice)
   
   useEffect(() => {
-    if (props.productName === null)         props.setProductName(initial.productName)
-    if (props.type === null)                props.setType(initial.type)
-    if (props.color === null)               props.setColor(initial.color)
-    if (props.price === 0)                props.setPrice(initial.salePrice)
-    if (props.setMonthlyPayment === 0)    props.setMonthlyPayment(Math.round(initial.salePrice / 18))
+    if (props.productName === null)     props.setProductName(initial.productName)
+    if (props.type === null)            props.setType(initial.type)
+    if (props.color === null)           props.setColor(initial.color)
+    if (props.price === 0)              props.setPrice(initial.salePrice)
+    if (props.setMonthlyPayment === 0)  props.setMonthlyPayment(Math.round(initial.salePrice / 18))
   }, [props]);
 
   const [upsell0Active, setUpsell0Active] = useState(false)

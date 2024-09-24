@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,6 +20,7 @@ function UpsellModal(props) {
       <SwiperSlide 
         className={ `slide-${i + 1} lazyload ${ additionalClass }`} 
         data-color={ colorItem.color }
+        key={ `color-${ i + 1 }`}
       >
       </SwiperSlide>
     )
@@ -57,8 +58,8 @@ function UpsellModal(props) {
                 <p>{ u.subtitle }</p>
 
                 <ul className='details'>
-                  { u.details.map(item =>
-                    <li>{ item.detail }</li>
+                  { u.details.map((item, index) =>
+                    <li key={ `detail-${ index }` }>{ item.detail }</li>
                   )}
                 </ul>
               </div>

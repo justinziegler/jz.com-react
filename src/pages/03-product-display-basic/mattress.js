@@ -18,7 +18,7 @@ function ProductDisplayMattress() {
   page.pageId   = getPageId(pageUrl)
   page.pageUrl  = pageUrl
 
-  page.headerTitle = 'Product Display – Basic Config'
+  page.headerTitle = <>Product Display &ndash; Basic Config</>
   page.headerIntro = [
     <>REWRITE The links below highlight the features of a Product Display module that I developed to support a line of bedding products.</>,
     <><strong>Mattress:</strong> This is the basic configuration, which allows users to add a product to cart and optionally add an upsell from resulting modal.</>

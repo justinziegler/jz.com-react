@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Collapse from 'react-bootstrap/Collapse';
-import Tooltip from 'react-bootstrap/Tooltip';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import UpsellModal from './upsellModal';
+import React, { useState } from 'react';
+import Collapse            from 'react-bootstrap/Collapse';
+import Tooltip             from 'react-bootstrap/Tooltip';
+import OverlayTrigger      from 'react-bootstrap/OverlayTrigger';
+import UpsellModal         from './upsellModal';
 
 function Upsell(props) {
   const u = props.u
   const index = props.index
   const initial = props.initial
 
-  const [type, setType] = useState(initial.type)
-  const [color, setColor] = useState(initial.color)
-  // const [price, setPrice] = useState(initial.salePrice)
+  const [type, setType]               = useState(initial.type)
+  const [color, setColor]             = useState(initial.color)
   const [showOptions, setShowOptions] = useState(false)
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal]     = useState(false)
   
   const handleActive = (e) => {
     e.preventDefault();
@@ -26,7 +25,6 @@ function Upsell(props) {
     skus.forEach(item => {
       if (item.sku === sku) {
         props.setPrice(item.salePrice)
-        console.log(item.salePrice)
       } 
     })
   }
@@ -40,7 +38,6 @@ function Upsell(props) {
 
   const handleType = (e) => {
     setType(e.target.dataset.type)
-    console.log('handleType')
     const sku = `${ props.prefix }-${ e.target.dataset.type }-${ color }-${ props.size }`
     props.setUpsellSku(sku)
     handlePrice(sku)
@@ -48,6 +45,7 @@ function Upsell(props) {
   
   React.useEffect(()=> {
     const sku = `${ props.prefix }-${ type }-${ color }-${ props.size }`
+    console.log('sku', sku)
     props.setUpsellSku(sku)
     handlePrice(sku)
   }, [props.size]);
@@ -77,7 +75,6 @@ function Upsell(props) {
             data-color={ item.color }
             data-size={ item.size }
             data-active={ props.active }
-            // data-price={ item.salePrice }
             onClick={ handleActive }
             role='button' tabIndex='0'
             aria-label={ u.name }
@@ -150,7 +147,6 @@ function Upsell(props) {
                   <button 
                     data-color={ c.color } 
                     data-colorname={ c.colorName } 
-                    role='button'
                     className='color' 
                     tabIndex='0' 
                     data-active={ c.color === color }
@@ -178,7 +174,6 @@ function Upsell(props) {
                           data-price={ item.salePrice }
                           data-index={ index }
                           data-active={ item.sku === props.upsellSku } 
-                          role='button' 
                           tabIndex='0'
                           onClick={ handleType }
                           key={ `type-select-${ item.sku }${ index }` }

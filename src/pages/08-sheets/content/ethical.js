@@ -36,7 +36,10 @@ function Ethical(props) {
             </div>
             <div className='content row'>
               { items.map(item =>
-                <div className='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0'>
+                <div 
+                  className='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-0'
+                  key={ item.className }
+                >
                   <div className='row'>
                     <div className='logo-col col-xs-4 col-sm-3 col-md-offset-1'>
                       <div 

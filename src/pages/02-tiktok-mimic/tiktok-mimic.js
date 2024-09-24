@@ -1,12 +1,12 @@
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
+import Main                from '../../components/pageSections/main';
+import VideoSlideshow      from './content/videoSlideshow';
+import Nav                 from './content/nav'
+import Reviews             from './content/reviews';
+import Email               from './content/email';
+import Faqs                from './content/faqs';
+import CTA                 from './content/cta';
 import 'lazysizes'
-import Main from '../../components/pageSections/main';
-import VideoSlideshow from './content/videoSlideshow';
-import Nav from './content/nav'
-import Reviews from './content/reviews';
-import Email from './content/email';
-import Faqs from './content/faqs';
-import CTA from './content/cta';
 import '../../scss/promotion-tiktok.scss'
 
 function TiktokMimic () {
@@ -23,11 +23,9 @@ function TiktokMimic () {
     ]
   }
   
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [navActive, setNavActive] = useState(false)
+  const [activeIndex, setActiveIndex]     = useState(0)
+  const [navActive, setNavActive]         = useState(false)
   const [activeNavItem, setActiveNavItem] = useState(null)
-
-  const [advanceSlide, setAdvanceSlide] = useState(false)
 
   function closeSection(e) {
     if (e.which === 13 || e.type === 'click') {
@@ -43,7 +41,6 @@ function TiktokMimic () {
           <VideoSlideshow 
             activeIndex={ activeIndex }
             setActiveIndex={ setActiveIndex }
-            setAdvanceSlide={ setAdvanceSlide }
           />
           <Nav 
             activeIndex={ activeIndex } 
