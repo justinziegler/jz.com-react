@@ -688,6 +688,7 @@ main {
 		bottom: 45px;
 		left: 10%;
 		right: 10%;
+		width: auto;
 		@include mq(xs) {
 			right: 60%;
 			bottom: 10px;

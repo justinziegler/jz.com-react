@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
-const Home                    = lazy(() => import('./pages/00-home/00-home'))
+const Home                    = lazy(() => import('./pages/00-home/home'))
 const HolidayMode             = lazy(() => import('./pages/01-holiday-mode/holiday-mode'))
 const TiktokMimic             = lazy(() => import('./pages/02-tiktok-mimic/tiktok-mimic'))
 const ProductDisplayMattress  = lazy(() => import('./pages/03-product-display-basic/mattress'))

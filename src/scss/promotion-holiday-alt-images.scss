@@ -1,0 +1,88 @@
+/* When editing, use the source file for this page in client/resources/sass */
+@import "compass";
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/svg";
+//@import "partials/base";
+@import "partials/layout";
+$imgixUrl: 'https://lull-media.imgix.net/pinterest';
+$imgixDefaults: '?auto=enhance';
+$imgixCrop: '&fit=crop&crop=focalpoint';
+
+
+.hero {
+	.group {
+		// Independence Day 2021
+		&.three {
+			.pic1.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero3-1.jpeg#{$imgixDefaults}#{$imgixCrop}&fp-x=.45&fp-y=35&w=236&h=300');
+			}
+			.pic2.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero3-2.jpg#{$imgixDefaults}#{$imgixCrop}&fp-x=1&fp-y=1&fp-z=.5&w=236&h=300');
+			}
+			.pic3.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero4-3.jpg#{$imgixDefaults}#{$imgixCrop}&fp-x=.35&fp-y=1&w=236&h=300');
+			}
+			@include mq(sm) {
+				.pic1.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero3-1.jpeg#{$imgixDefaults}#{$imgixCrop}&fp-x=.45&fp-y=35&w=274&h=380');
+				}
+				.pic2.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero3-2.jpg#{$imgixDefaults}#{$imgixCrop}&fp-x=1&fp-y=1&fp-z=.5&w=474&h=380');
+				}
+				.pic3.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero4-3.jpg#{$imgixDefaults}#{$imgixCrop}&fp-x=.35&fp-y=1&w=274&h=380');
+				}
+			}
+		}
+		&.four {
+			.pic1.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero8-1.jpg#{$imgixDefaults}#{$imgixCrop}&fp-y=.4&fp-x=.65&fp-z=1.1&w=236&h=300');
+			}
+			.pic2.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero8-2.jpeg#{$imgixDefaults}#{$imgixCrop}&fp-x=.4&fp-y=.5&w=236&h=300');
+			}
+			.pic3.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero4-1.jpg#{$imgixDefaults}#{$imgixCrop}&fp-y=1&fp-z=.85&w=236&h=300');
+			}
+			@include mq(sm) {
+				.pic1.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero8-1.jpg#{$imgixDefaults}#{$imgixCrop}&fp-y=.4&fp-x=.65&fp-z=1.1&w=274&h=380');
+				}
+				.pic2.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero8-2.jpeg#{$imgixDefaults}#{$imgixCrop}&fp-x=.4&fp-y=.5&w=274&h=380');
+				}
+				.pic3.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero4-1.jpg#{$imgixDefaults}#{$imgixCrop}&fp-y=1&fp-z=.85&w=274&h=380');
+				}
+			}
+		}
+		&.five {
+			.pic1.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero5-2.jpg#{$imgixDefaults}#{$imgixCrop}&fp-x=.45&fp-y=1&fp-z=.85&w=236&h=300');
+			}
+			.pic2.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero8-4.jpg#{$imgixDefaults}#{$imgixCrop}&fp-z=.85&w=236&h=300');
+			}
+			.pic3.lazyloaded {
+				background-image: url('#{$imgixUrl}/memorial-hero8-3.JPG#{$imgixDefaults}#{$imgixCrop}&fp-x=.5&fp-y=.45&w=236&h=300');
+			}
+			@include mq(sm) {
+				.pic1.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero5-2.jpg#{$imgixDefaults}#{$imgixCrop}&fp-x=.4&fp-y=1&fp-z=.85&w=274&h=380');
+				}
+				.pic2.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero8-4.jpg#{$imgixDefaults}#{$imgixCrop}&fp-z=.85&w=274&h=380');
+				}
+				.pic3.lazyloaded {
+					background-image: url('#{$imgixUrl}/memorial-hero8-3.JPG#{$imgixDefaults}#{$imgixCrop}&fp-x=.5&fp-y=.45&w=274&h=380');
+				}
+			}
+		}
+	}
+}

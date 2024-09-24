@@ -18,6 +18,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-flip';
 import '../../scss/promotion-holiday-mode.scss';
 import '../../scss/promotion-holiday.scss';
+import '../../scss/promotion-holiday-alt-images.scss';
 
 const page = {
   pageUrl: 'holiday-mode',
@@ -54,11 +55,9 @@ function HolidayMode () {
       <Main page={ page } holidayMode={ holidayMode } setHolidayMode={ setHolidayMode }>
         <div className='to-do'>
           <ul>
-            <li>Fix ValueProps on mobile / width issue</li>
             <li>Fix swiper pagination</li>
             <li>Change heading weight</li>
             <li>Lock screen position on modal show?</li>
-            <li> make sure lazysizes works</li>
           </ul>
           <a href='./' onClick={ handleHolidayMode }>HolidayMode toggle</a>
         </div>
