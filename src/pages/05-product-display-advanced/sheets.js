@@ -1,9 +1,9 @@
 
-import React, { useState }  from 'react';
+import React, { useState }  from 'react'
 import { getPageId }        from '../../components/utils/getPageId'
-import { getProductConfig } from '../../components/utils/getProductConfig';
-import Main                 from '../../components/pageSections/main';
-import ProductDisplay       from '../../components/productDisplay';
+import { getProductConfig } from '../../components/utils/getProductConfig'
+import Main                 from '../../components/pageSections/main'
+import ProductDisplay       from '../../components/productDisplay'
 import '../../scss/product-display-color+quantity.scss'
 import '../../scss/product-display-upsell-list.scss'
 import '../../scss/product-cotton-sheets.scss'
@@ -20,7 +20,7 @@ function ProductDisplaySheets () {
   page.pageId   = getPageId(pageUrl)
   page.pageUrl  = pageUrl
 
-  page.headerTitle = 'Product Display – Advanced Config'
+  page.headerTitle = <>Product Display &ndash; Advanced Config</>
   page.headerIntro = [
     <>REWRITE This configuration sorts through 42 product skus and over 100 upsell skus from 6 product lines. The upsells update their currently offered product size when the main product size selection changes.</>
   ]
@@ -44,4 +44,4 @@ function ProductDisplaySheets () {
   )
 }
 
-export default ProductDisplaySheets;
+export default ProductDisplaySheets

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Player } from 'video-react';
-import 'lazysizes';
-import "video-react/dist/video-react.css";
-import video from '../../../assets/frame/ubf-16x9-no-audio.mp4';
+import React      from 'react'
+import { Player } from 'video-react'
+import 'lazysizes'
+import video      from '../../../assets/frame/ubf-16x9-no-audio.mp4'
+import 'video-react/dist/video-react.css'
 
 function Assembly(props) {
   return (

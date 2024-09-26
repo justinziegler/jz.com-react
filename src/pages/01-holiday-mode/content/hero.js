@@ -33,8 +33,15 @@ function Hero(props) {
       </div>
     )
   } 
+  
+  const scrollToNext = (e) => {
+    e.preventDefault();
+    const element = document.getElementById('top-section');
+    element?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <div className="hero">
+    <div className={ props.holidayMode ? 'hero holiday' : 'hero' }>
       <Pics />
       <div className="logo"></div>
       { props.holidayMode ?
@@ -45,7 +52,7 @@ function Hero(props) {
       :
         <>
           <p>Check Out the Mattress<br /> That's Changing Lives</p>
-          <a className="down-arrow" href="#top-section">More</a>
+          <a className="down-arrow" href="./" onClick={ scrollToNext }>More</a>
         </>
       }
     </div>

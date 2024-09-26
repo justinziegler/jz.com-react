@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { vpMobile } from '../../home/content/constants';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectFlip } from 'swiper';
+import { preventDefault } from '../../../components/utils/preventDefault';
 
 function ValuePropsGallery(props) {
   let valueProps = [
@@ -39,15 +40,15 @@ function ValuePropsGallery(props) {
         modules={[EffectFlip, Pagination]} effect="flip"
         className="col-xs-12 col-sm-5 col-lg-4 col-lg-offset-1"
         flipEffect={{
-            slideShadows: false
+          slideShadows: false
         }}
         onSwiper={ props.setVPSwiper }
         onSlideChange={ props.vpUpdate }
         grabCursor='true'
         pagination={{ clickable: true }}
         autoplay={{
-            delay: 5000,
-            disableOnInteraction: true,
+          delay: 5000,
+          disableOnInteraction: true,
         }}
       >
         { valueProps.map((x, index) =>
@@ -60,8 +61,9 @@ function ValuePropsGallery(props) {
           </SwiperSlide>
         )}
       </Swiper>
-      <div className="swiper-pagination mobile"></div>
-      <a href="#" className="btn btn-default visible-xs">Shop the Mattress</a>
+      <a href="./" className="btn btn-default visible-xs" onClick={ preventDefault }>
+        Shop the Mattress
+      </a>
       <div className="clearfix"></div>
     </>
   )

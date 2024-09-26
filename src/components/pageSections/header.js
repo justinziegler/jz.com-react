@@ -127,11 +127,11 @@ function Header(props) {
                 <div className='toggle-links'>
                   { p.pageUrl === 'holiday-mode' ?
                     <>
-                      <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode } key='toggleOn'>
-                        Holiday Mode On
-                      </button>
                       <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode } key='toggleOff'>
                         Holiday Mode Off
+                      </button>
+                      <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode } key='toggleOn'>
+                        Holiday Mode On
                       </button>
                     </>
                   :

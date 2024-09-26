@@ -1,3 +1,6 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+
 // stylelint-disable function-disallowed-list
 
 // .modal-open      - body class for killing the scroll
@@ -151,6 +154,9 @@
   // when there should be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;
   padding: var(--#{$prefix}modal-padding);
+  @include mq(xsm) {
+    padding: 10px;
+  }
 }
 
 // Footer (for actions)

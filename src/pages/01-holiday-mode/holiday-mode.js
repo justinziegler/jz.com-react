@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-import { getProductSkus }  from '../../components/utils/getProductSkus';
-import Main                from '../../components/pageSections/main';
-import Hero                from './content/hero';
-import ValueProps          from './content/value-props';
-import KnowUs              from './content/know-us';
-import VideoModal          from '../../components/pageSections/videoModal';
-import ValuePropsDeux      from './content/value-props-deux';
-import Financing           from './content/financing';
-import SizeGuide           from './content/size-guide';
-import DIY                 from './content/diy';
-import Reviews             from './content/reviews';
-import MediaCollage        from './content/media-collage';
-import Footer              from './content/footer';
-import 'lazysizes';
+import React, { useState } from 'react'
+import { getProductSkus }  from '../../components/utils/getProductSkus'
+import Main                from '../../components/pageSections/main'
+import Hero                from './content/hero'
+import July4Promo          from '../../components/pageSections/july4Promo'
+import ValueProps          from './content/value-props'
+import KnowUs              from './content/know-us'
+import VideoModal          from '../../components/pageSections/videoModal'
+import ValuePropsDeux      from './content/value-props-deux'
+import Financing           from './content/financing'
+import SizeGuide           from './content/size-guide'
+import DIY                 from './content/diy'
+import Reviews             from './content/reviews'
+import MediaCollage        from './content/media-collage'
+import Footer              from './content/footer'
+import 'lazysizes'
 import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-flip';
-import '../../scss/promotion-holiday-mode.scss';
-import '../../scss/promotion-holiday.scss';
-import '../../scss/promotion-holiday-alt-images.scss';
+import 'swiper/css/pagination'
+import 'swiper/css/effect-flip'
+import '../../scss/promotion-holiday-mode.scss'
+import '../../scss/promotion-holiday.scss'
+import '../../scss/promotion-holiday-hero-images.scss'
+import '../../scss/promotion-holiday-hero-images-alt.scss'
 
 const page = {
   pageUrl: 'holiday-mode',
@@ -34,37 +36,30 @@ let video = '';
 const discountActual = 70;
 
 function HolidayMode () {
-  const [holidayMode, setHolidayMode] = useState(true);
-  const mobile = (window.screen.width <= 500 && window.screen.height <= 880);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [holidayMode, setHolidayMode] = useState(false)
+  const mobile = (window.screen.width <= 500 && window.screen.height <= 880)
+  const mattressDiscount = 200
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
   const handleShow = (e) => {
     e.preventDefault();
-    video = e.target.dataset.videosrc;
-    setShow(true);
+    video = e.target.dataset.videosrc
+    setShow(true)
   }
-  const handleHolidayMode = (e) => {
-    e.preventDefault()
-    setHolidayMode(!holidayMode)
-  }
-  const skus = getProductSkus([1], discountActual);
+  const skus = getProductSkus([1], discountActual)
 
   return (
     <>
       <link href='https://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet'></link>
-      <Main page={ page } holidayMode={ holidayMode } setHolidayMode={ setHolidayMode }>
-        <div className='to-do'>
-          <ul>
-            <li>Fix swiper pagination</li>
-            <li>Change heading weight</li>
-            <li>Lock screen position on modal show?</li>
-          </ul>
-          <a href='./' onClick={ handleHolidayMode }>HolidayMode toggle</a>
-        </div>
+      <Main 
+        page={ page } 
+        holidayMode={ holidayMode } 
+        setHolidayMode={ setHolidayMode }
+      >
         <Hero holidayMode={ holidayMode } />
 
         { holidayMode &&
-          <h1>Add July 4 promo</h1>
+          <July4Promo mattressDiscount={ mattressDiscount }/>
         }
 
         <ValueProps />
@@ -88,4 +83,4 @@ function HolidayMode () {
   )
 }
 
-export default HolidayMode;
+export default HolidayMode

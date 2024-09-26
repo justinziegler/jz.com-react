@@ -92,7 +92,7 @@ $modal-lg:                          800px !default;
 $modal-xl:                          1140px !default;
 
 $modal-fade-transform:              translate(0, -50px) !default;
-$modal-show-transform:              none !default;
+$modal-show-transform:              translate(0, 100px) !default;
 $modal-transition:                  transform .3s ease-out !default;
 $modal-scale-transform:             scale(1.02) !default;
 @import "bootstrap5/modal";
@@ -219,11 +219,12 @@ main {
 	}
 	h1, h2 {
 		text-align: center;
-		font-weight: 900;
+		font-weight: 700;
 		color: $navy;
 		font-size: 2.2rem;
 		line-height: 1.2;
 		margin: 15px 0 10px 0;
+		pointer-events: none;
 		@include mq(md) {
 			font-size: 3rem;
 		}
@@ -391,72 +392,6 @@ main {
 		}
 		&.four {
 			animation-duration: 72s;
-		}
-		&.three {
-			.pic1.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero3-1.jpg');
-			}
-			.pic2.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero3-2.jpg');
-			}
-			.pic3.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero8-1.jpg');
-			}
-			@include mq(sm) {
-				.pic1.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero3-1-sm.jpg');
-				}
-				.pic2.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero3-2-sm.jpg');
-				}
-				.pic3.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero8-1-sm.jpg');
-				}
-			}
-		}
-		&.four {
-			.pic1.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero4-1.jpg');
-			}
-			.pic2.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero8-2.jpg');
-			}
-			.pic3.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero4-3.jpg');
-			}
-			@include mq(sm) {
-				.pic1.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero4-1-sm.jpg');
-				}
-				.pic2.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero8-2-sm.jpg');
-				}
-				.pic3.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero4-3-sm.jpg');
-				}
-			}
-		}
-		&.five {
-			.pic1.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero8-4.jpg');
-			}
-			.pic2.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero5-2.jpg');
-			}
-			.pic3.lazyloaded {
-				background-image: url('../assets/holiday-promotion/hero8-3.jpg');
-			}
-			@include mq(sm) {
-				.pic1.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero8-4-sm.jpg');
-				}
-				.pic2.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero5-2-sm.jpg');
-				}
-				.pic3.lazyloaded {
-					background-image: url('../assets/holiday-promotion/hero8-3-sm.jpg');
-				}
-			}
 		}
 	}
 	.pic {
@@ -979,6 +914,7 @@ main {
 	.play {
 		background-color: #f72351;
 		display: inline-block;
+		pointer-events: none;
 	}
 }
 
@@ -1085,6 +1021,7 @@ main {
 	}
 	.btn {
 		border: solid 2px #7eaac7;
+		box-shadow: none;
 		&:hover, &:focus {
 			background-color: rgba(#fff, .6);
 			color: $navy;
