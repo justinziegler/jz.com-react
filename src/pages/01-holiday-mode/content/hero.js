@@ -1,11 +1,15 @@
+import '../../../scss/01-holiday-mode/hero.scss'
+import '../../../scss/01-holiday-mode/hero-images.scss'
+import '../../../scss/01-holiday-mode/hero-images-alt.scss'
+
 function Hero(props) {
   function Pics() {
     const columnOrder = ['three', 'four', 'five'];
     const col3Groups = ['one', 'two', 'three'];
     const picOrder = [1, 2, 3, 1, 2, 3, 1];
     return (
-      <div className="container">
-        <div className="row">
+      <div className='container'>
+        <div className='row'>
           { columnOrder.map(colNo =>
             <div className={`column ${ colNo } col-xs-4`} key={ colNo }>
               { colNo === 'three' ?
@@ -36,26 +40,26 @@ function Hero(props) {
   
   const scrollToNext = (e) => {
     e.preventDefault();
-    const element = document.getElementById('top-section');
-    element?.scrollIntoView({ behavior: 'smooth' })
+    const anchor = document.getElementById('scroll-anchor');
+    anchor.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <div className={ props.holidayMode ? 'hero holiday' : 'hero' }>
+    <section className={ props.holidayMode ? 'hero holiday' : 'hero' }>
       <Pics />
-      <div className="logo"></div>
+      <div className='logo'></div>
       { props.holidayMode ?
         <>
           <p>Life changing sleep from sea to shining sea.<br /> Don't miss our Labor Day Sale.</p>
-          <a className="down-arrow" href="#july4-promo">More</a>
         </>
       :
         <>
           <p>Check Out the Mattress<br /> That's Changing Lives</p>
-          <a className="down-arrow" href="./" onClick={ scrollToNext }>More</a>
         </>
       }
-    </div>
+      <a className='down-arrow' href='./' onClick={ scrollToNext }>More</a>
+      <div id='scroll-anchor'></div>
+    </section>
   )
 }
 

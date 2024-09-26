@@ -1,38 +1,28 @@
-@import "compass";
+@import '../compass';
 
 // Core variables and mixins
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
 
 // Reset and dependencies
-@import "bootstrap/normalize";
+@import '../bootstrap/normalize';
 
 // Core CSS
-@import "bootstrap/scaffolding";
-@import "bootstrap/grid";
+@import '../bootstrap/scaffolding';
+@import '../bootstrap/grid';
+@import '../bootstrap/utilities';
+@import '../bootstrap/responsive-utilities';
 
-// Utility classes
-@import "bootstrap/utilities";
-@import "bootstrap/responsive-utilities";
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+@import '../partials/snippets/video-embed';
+@import '../partials/snippets/lull-button-new';
 
-@import "partials/variables";
-@import "partials/mixins";
-@import "partials/svg";
-//@import "partials/base";
-@import "partials/layout";
-@import "partials/helpers";
-@import "partials/snippets/video-embed";
-@import "partials/snippets/lull-button-new";
+@import '../bootstrap5/mixins';
 
-// @import "bootstrap5/functions";
-// @import "bootstrap5/variables";
-// @import "bootstrap5/variables-dark";
-// @import "bootstrap5/maps";
-@import "bootstrap5/mixins";
-
-// Layout & components
-// @import "bootstrap5/root";
-// @import "bootstrap5/close";
 $prefix: bs- !default;
 $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
@@ -95,7 +85,7 @@ $modal-fade-transform:              translate(0, -50px) !default;
 $modal-show-transform:              translate(0, 100px) !default;
 $modal-transition:                  transform .3s ease-out !default;
 $modal-scale-transform:             scale(1.02) !default;
-@import "bootstrap5/modal";
+@import '../bootstrap5/modal';
 
 // Bootstrap collapse (component animations partial)
 // .fade {
@@ -276,234 +266,6 @@ main {
 				opacity: 0;
 				transition: .3s;
 			}
-		}
-	}
-}
-
-@keyframes carousel {
-	from {
-		transform: translateY(0);
-	}
-	to { 
-		transform: translateY(-480px);
-	}
-}
-@include mq(sm) {
-	@keyframes carousel {
-		from {
-			transform: translateY(0);
-		}
-		to { 
-			transform: translateY(-900px);
-		}
-	}
-}
-@media (min-width: 1660px) {
-	@keyframes carousel {
-		from {
-			transform: translateY(0);
-		}
-		to {
-			transform: translateY(-960px);
-		}
-	}
-}
-@keyframes vp {
-	from {
-		opacity: 1;
-	}
-	to { 
-		opacity: 0;
-	}
-}
-.hero {
-	position: relative;
-	// overflow: hidden;
-	&::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		top: 40%;
-		@include filter-gradient(#00ffffff, #ffffff, vertical); // IE6-9
-		@include background-image(linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%));
-		z-index: 5;
-		@include mq(sm) {
-			top: 50%;
-		}
-	}
-	.row {
-		padding: 0 15px;
-	}
-	.column {
-		height: 480px;
-		overflow: hidden;
-		position: relative;
-		@include mq(xs) {
-			width: 25%;
-		}
-		@include mq(xssm) {
-			width: 33.3%;
-		}
-		@include mq(sm) {
-			height: 600px;
-			left: 12.5%;
-		}
-		@include mq(lg) {
-			height: 690px;
-			width: 20%;
-			left: 20%;
-		}
-		// @media (min-width: 1660px) {
-		// 	height: 960px;
-		// 	width: 15%;
-		// 	left: 27.5%;
-		// }
-		&.two, &.six {
-			@include mq(xxs) {
-				display: none;
-			}
-		}
-	}
-	.group {
-		position: absolute;
-		left: 5px;
-		right: 5px;
-		top: 0;
-		bottom: -480px;
-		animation-name: carousel;
-		animation-timing-function: linear;
-		animation-iteration-count: infinite;
-		@include mq(sm) {
-			bottom: -900px;
-		}
-		@media (min-width: 1660px) {
-			bottom: -960px;
-		}
-		&.one, &.seven {
-			animation-duration: 32s;
-		}
-		&.two, &.six {
-			animation-duration: 40s;
-		}
-		&.three, &.five {
-			animation-duration: 48s;
-		}
-		&.four {
-			animation-duration: 72s;
-		}
-	}
-	.pic {
-		height: 150px;
-		margin-bottom: 10px;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-		border-radius: 6px;
-		transform:translate3d(0,0,0);
-		@include mq(sm) {
-			height: 290px;
-		}
-		@media (min-width: 1660px) {
-			height: 310px;
-		}
-	}
-	.logo {
-		width: 128px;
-		height: 128px;
-		@include logo-lull-box($navy);
-		@extend %svg;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		box-shadow: 0 30px 30px 0 rgba(11,40,54,.3);
-		z-index: 6;
-		@include mq(xssm) {
-			top: 30%;
-		}
-		@include mq(sm) {
-			width: 236px;
-			height: 236px;
-		}
-		@include mq(md) {
-			width: 260px;
-			height: 260px;
-		}
-	}
-	p {
-		font-size: 1.3rem;
-		color: rgba($navy, 0.7);
-		position: absolute;
-		bottom: 50px;
-		left: 10px;
-		right: 10px;
-		z-index: 9;
-		line-height: 1.2;
-		@media (min-width: 360px) {
-			font-size: 1.4rem;
-		}
-		@include mq(sm) {
-			font-size: 1.8rem;
-		}
-		@include mq(md) {
-			// font-size: 2.4rem;
-			font-size: 2.2rem;
-			bottom: 70px;
-		}
-		@include mq(lg) {
-			// font-size: 2.7rem;
-			font-size: 2.4rem;
-		}
-		&.pink-text {
-			color: $pink;
-			// bottom: 87px;
-			bottom: 75px;
-			font-weight: 900;
-			font-size: 1.8rem;
-			@media (min-width: 360px) {
-				font-size: 1.9rem;
-			}
-			@include mq(xssm) {
-				bottom: 75px;
-			}
-			@include mq(sm) {
-				bottom: 80px;
-				font-size: 2.6rem;
-			}
-			@include mq(md) {
-				bottom: 105px;
-				// font-size: 2.7rem;
-				font-size: 3.1rem;
-			}
-			@include mq(lg) {
-				bottom: 115px;
-				// font-size: 3rem;
-				font-size: 3.2rem;
-			}
-		}
-	}
-	.down-arrow {
-		width: 38px;
-		height: 38px;
-		border-radius: 50%;
-		background-color: $white;
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 18px;
-		@include arrow-thin($navy);
-		background-repeat: no-repeat;
-		background-position: 50% 55%;
-		background-size: 20px;
-		box-shadow: 0 6px 12px 0 rgba(11,40,54,.1);
-		z-index: 6;
-		font-size: 0;
-		@include mq(md) {
-			width: 66px;
-			height: 66px;
-			background-size: 30px;
 		}
 	}
 }
@@ -702,54 +464,54 @@ main {
 	&.slide-one {
 		background-size: cover;
 		@include mq(sm) {
-			background-image: url('../assets/holiday-promotion/carousel01-mob.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel01-mob.jpg');
 		}
 		@include mq(md) {
-			background-image: url('../assets/holiday-promotion/carousel01-mob-md.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-md.jpg');
 		}
 		@include mq(lg) {
-			background-image: url('../assets/holiday-promotion/carousel01-mob-lg.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-lg.jpg');
 		}
 		@media (min-width: 1440px) {
-			background-image: url('../assets/holiday-promotion/carousel01-mob-xl.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-xl.jpg');
 		}
 		@media (min-width: 1920px) {
-			background-image: url('../assets/holiday-promotion/carousel01-mob-xxl.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-xxl.jpg');
 		}
 	}
 	&.slide-two {
 		background-size: cover;
 		@include mq(sm) {
-			background-image: url('../assets/holiday-promotion/carousel04-mob.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel04-mob.jpg');
 		}
 		@include mq(md) {
-			background-image: url('../assets/holiday-promotion/carousel04-mob-md.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-md.jpg');
 		}
 		@include mq(lg) {
-			background-image: url('../assets/holiday-promotion/carousel04-mob-lg.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-lg.jpg');
 		}
 		@media (min-width: 1440px) {
-			background-image: url('../assets/holiday-promotion/carousel04-mob-xl.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-xl.jpg');
 		}
 		@media (min-width: 1920px) {
-			background-image: url('../assets/holiday-promotion/carousel04-mob-xxl.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-xxl.jpg');
 		}
 	}
 	.swiper-slide {
 		&.one {
-			background-image: url('../assets/holiday-promotion/carousel01-mob-vp.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-vp.jpg');
 			@include mq(sm) {
-				background-image: url('../assets/holiday-promotion/carousel01-mob-vp-sm.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel01-mob-vp-sm.jpg');
 			}
 			@include mq(md) {
-				background-image: url('../assets/holiday-promotion/carousel01-mob-vp-md.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel01-mob-vp-md.jpg');
 			}
 			@include mq(lg) {
-				background-image: url('../assets/holiday-promotion/carousel01-mob-vp-lg.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel01-mob-vp-lg.jpg');
 			}
 		}
 		&.two {
-			background-image: url('../assets/holiday-promotion/carousel02-alt.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel02-alt.jpg');
 			position: relative;
 			&::before {
 				content: '';
@@ -768,18 +530,18 @@ main {
 			}
 		}
 		&.three {
-			background-image: url('../assets/holiday-promotion/carousel03-mob.png');
+			background-image: url('../../assets/holiday-promotion/carousel03-mob.png');
 		}
 		&.four {
-			background-image: url('../assets/holiday-promotion/carousel04-mob-vp.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-vp.jpg');
 			@include mq(sm) {
-				background-image: url('../assets/holiday-promotion/carousel04-sm.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel04-sm.jpg');
 			}
 			@include mq(md) {
-				background-image: url('../assets/holiday-promotion/carousel04-mob-vp-md.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel04-mob-vp-md.jpg');
 			}
 			@include mq(lg) {
-				background-image: url('../assets/holiday-promotion/carousel04-mob-vp-lg.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel04-mob-vp-lg.jpg');
 			}
 		}
 	}
@@ -797,60 +559,60 @@ main {
 	&.slide-one {
 		background-size: cover;
 		@include mq(sm) {
-			background-image: url('../assets/holiday-promotion/carousel03-mob-sm.png');
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-sm.png');
 		}
 		@include mq(md) {
-			background-image: url('../assets/holiday-promotion/carousel03-mob-md.png');
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-md.png');
 		}
 		@include mq(lg) {
-			background-image: url('../assets/holiday-promotion/carousel03-mob-lg.png');
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-lg.png');
 		}
 		@media (min-width: 1440px) {
-			background-image: url('../assets/holiday-promotion/carousel03-mob-xl.png');
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-xl.png');
 		}
 		@media (min-width: 1920px) {
-			background-image: url('../assets/holiday-promotion/carousel03-mob-xxl.png');
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-xxl.png');
 		}
 	}
 	&.slide-two {
 		background-size: cover;
 		@include mq(sm) {
-			background-image: url('../assets/holiday-promotion/carousel02-alt.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel02-alt.jpg');
 		}
 		@include mq(md) {
-			background-image: url('../assets/holiday-promotion/carousel02-alt-md.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-md.jpg');
 		}
 		@include mq(lg) {
-			background-image: url('../assets/holiday-promotion/carousel02-alt-lg.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-lg.jpg');
 		}
 		@media (min-width: 1440px) {
-			background-image: url('../assets/holiday-promotion/carousel02-alt-xl.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-xl.jpg');
 		}
 		@media (min-width: 1920px) {
-			background-image: url('../assets/holiday-promotion/carousel02-alt-xxl.jpg');
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-xxl.jpg');
 		}
 	}
 	.swiper-slide {
 		&.one {
 			@include mq(sm) {
-				background-image: url('../assets/holiday-promotion/carousel03.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel03.jpg');
 			}
 			@include mq(md) {
-				background-image: url('../assets/holiday-promotion/carousel03-md.jpg?&w=810&h=950');
+				background-image: url('../../assets/holiday-promotion/carousel03-md.jpg?&w=810&h=950');
 			}
 			@include mq(lg) {
-				background-image: url('../assets/holiday-promotion/carousel03-lg.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel03-lg.jpg');
 			}
 		}
 		&.two {
 			@include mq(sm) {
-				background-image: url('../assets/holiday-promotion/carousel02-alt-vp-sm.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel02-alt-vp-sm.jpg');
 			}
 			@include mq(md) {
-				background-image: url('../assets/holiday-promotion/carousel02-alt-vp-md.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel02-alt-vp-md.jpg');
 			}
 			@include mq(lg) {
-				background-image: url('../assets/holiday-promotion/carousel02-alt-vp-lg.jpg');
+				background-image: url('../../assets/holiday-promotion/carousel02-alt-vp-lg.jpg');
 			}
 		}
 	}
@@ -902,12 +664,12 @@ main {
 			}
 		}
 		&.lazyloaded {
-			background-image: url('../assets/holiday-promotion/explainer-video.jpg');
+			background-image: url('../../assets/holiday-promotion/explainer-video.jpg');
 			@include mq(sm) {
-				background-image: url('../assets/holiday-promotion/explainer-video-sm.jpg');
+				background-image: url('../../assets/holiday-promotion/explainer-video-sm.jpg');
 			}
 			@include mq(md) {
-				background-image: url('../assets/holiday-promotion/explainer-video-md.jpg');
+				background-image: url('../../assets/holiday-promotion/explainer-video-md.jpg');
 			}
 		}
 	}
@@ -928,12 +690,12 @@ main {
 		padding-bottom: 30px;
 	}
 	&.lazyloaded {
-		background-image: url('../assets/holiday-promotion/texture.jpg');
+		background-image: url('../../assets/holiday-promotion/texture.jpg');
 		@include mq(sm) {
-			background-image: url('../assets/holiday-promotion/texture-sm.jpg');
+			background-image: url('../../assets/holiday-promotion/texture-sm.jpg');
 		}
 		@include mq(lg) {
-			background-image: url('../assets/holiday-promotion/texture-lg.jpg');
+			background-image: url('../../assets/holiday-promotion/texture-lg.jpg');
 		}
 	}
 	.row {
@@ -974,12 +736,12 @@ main {
 			height: 430px;
 		}
 		&.lazyloaded {
-			background-image: url('../assets/holiday-promotion/mattress.png');
+			background-image: url('../../assets/holiday-promotion/mattress.png');
 			@include mq(sm) {
-				background-image: url('../assets/holiday-promotion/mattress-sm.png');
+				background-image: url('../../assets/holiday-promotion/mattress-sm.png');
 			}
 			@include mq(lg) {
-				background-image: url('../assets/holiday-promotion/mattress-lg.png');
+				background-image: url('../../assets/holiday-promotion/mattress-lg.png');
 			}
 		}
 	}
@@ -1073,7 +835,7 @@ main {
 					height: 12px;
 				}
 			}
-			&[aria-expanded="true"] {
+			&[aria-expanded='true'] {
 				span {
 					transform: rotate(180deg);
 					transition: .2s;
@@ -1374,7 +1136,7 @@ main {
 			width: 1860px;
 		}
 	}
-	div[class^="collage"] {
+	div[class^='collage'] {
 		background-size: cover;
 		border-radius: 6px;
 		&.sq {
@@ -1445,17 +1207,17 @@ main {
 				margin-bottom: 30px;
 			}
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage01.jpg');
+				background-image: url('../../assets/holiday-promotion/collage01.jpg');
 			}
 		}
 		&2 {
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage02.jpg');
+				background-image: url('../../assets/holiday-promotion/collage02.jpg');
 			}
 		}
 		&3 {
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage03.jpg');
+				background-image: url('../../assets/holiday-promotion/collage03.jpg');
 			}
 		}
 		&4 {
@@ -1475,7 +1237,7 @@ main {
 				padding-bottom: 37.25%;
 			}
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage04.jpg');
+				background-image: url('../../assets/holiday-promotion/collage04.jpg');
 			}
 		}
 		&5 {
@@ -1484,17 +1246,17 @@ main {
 				margin-bottom: 0;
 			}
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage05.jpg');
+				background-image: url('../../assets/holiday-promotion/collage05.jpg');
 			}
 		}
 		&6 {
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage06.jpg');
+				background-image: url('../../assets/holiday-promotion/collage06.jpg');
 			}
 		}
 		&7 {
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage07.jpg');
+				background-image: url('../../assets/holiday-promotion/collage07.jpg');
 			}
 		}
 		&8 {
@@ -1503,12 +1265,12 @@ main {
 				margin-bottom: 30px;
 			}
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage08.jpg');
+				background-image: url('../../assets/holiday-promotion/collage08.jpg');
 			}
 		}
 		&9 {
 			&.lazyloaded {
-				background-image: url('../assets/holiday-promotion/collage09.jpg');
+				background-image: url('../../assets/holiday-promotion/collage09.jpg');
 			}
 		}
 	}

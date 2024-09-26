@@ -17,10 +17,7 @@ import 'lazysizes'
 import 'swiper/css';
 import 'swiper/css/pagination'
 import 'swiper/css/effect-flip'
-import '../../scss/promotion-holiday-mode.scss'
-import '../../scss/promotion-holiday.scss'
-import '../../scss/promotion-holiday-hero-images.scss'
-import '../../scss/promotion-holiday-hero-images-alt.scss'
+import '../../scss/01-holiday-mode/holiday-mode.scss'
 
 const page = {
   pageUrl: 'holiday-mode',

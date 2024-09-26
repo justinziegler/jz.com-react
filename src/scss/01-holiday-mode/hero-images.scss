@@ -1,0 +1,79 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+.hero {
+	.group {
+		&.three {
+			.pic1.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero3-1.jpg');
+			}
+			.pic2.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero3-2.jpg');
+			}
+			.pic3.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero8-1.jpg');
+			}
+			@include mq(sm) {
+				.pic1.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero3-1-sm.jpg');
+				}
+				.pic2.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero3-2-sm.jpg');
+				}
+				.pic3.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero8-1-sm.jpg');
+				}
+			}
+		}
+		&.four {
+			.pic1.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero4-1.jpg');
+			}
+			.pic2.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero8-2.jpg');
+			}
+			.pic3.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero4-3.jpg');
+			}
+			@include mq(sm) {
+				.pic1.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero4-1-sm.jpg');
+				}
+				.pic2.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero8-2-sm.jpg');
+				}
+				.pic3.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero4-3-sm.jpg');
+				}
+			}
+		}
+		&.five {
+			.pic1.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero8-4.jpg');
+			}
+			.pic2.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero5-2.jpg');
+			}
+			.pic3.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/hero8-3.jpg');
+			}
+			@include mq(sm) {
+				.pic1.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero8-4-sm.jpg');
+				}
+				.pic2.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero5-2-sm.jpg');
+				}
+				.pic3.lazyloaded {
+					background-image: url('../../assets/holiday-promotion/hero8-3-sm.jpg');
+				}
+			}
+		}
+	}
+}

@@ -24,12 +24,12 @@ function DIY(props) {
     },
   ]
   return (
-    <div className="diy">
-      <div className="container">
+    <div className='diy'>
+      <div className='container'>
         <h2>The Super Easy DIY Mattress</h2>
-        <div className="row">
+        <div className='row'>
           {content.map((x, index) =>
-            <div className="col-xs-12 col-md-10 col-md-offset-1" key={ `diy${index}`} >
+            <div className='col-xs-12 col-md-10 col-md-offset-1' key={ `diy${index}`} >
               <div className={ `icon ${x.icon}` }></div>
               <h3>{ x.title }</h3>
               <p>{ x.body }</p>

@@ -56,7 +56,9 @@ function Home(props) {
             <div className='case-studies'>
               { caseStudies.map((cs, index) =>
                 <div className='item' 
-                  style={{ backgroundImage: `url('${ cs.background }')` }} key={ `cs${ index }`}>
+                  style={{ backgroundImage: `url('${ cs.background }')` }} 
+                  key={ `cs${ index }`}
+                >
                   <a href={ cs.url } title={ cs.title }>
                     { index !== caseStudies.length - 1 && 
                       <span className='case-number'>0{ cs.pageId }.</span>
