@@ -1,0 +1,325 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+// slideshow stuff
+.frame {
+  position: relative;
+  overflow: hidden;
+}
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition: .2s ease-in-out;
+  box-sizing: content-box;
+  > div {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    transition: .2s;
+    transition-delay: .1s;
+  }
+}
+
+.features {
+  background-color: #fff;
+  @include mq(xs) {
+    padding-bottom: 30px;
+    padding-bottom: vwl(30px);
+  }
+  @include mq(lg) {
+    padding-bottom: 90px;
+  }
+  .row {
+    @include mq(xs) {
+      display: flex;
+      flex-direction: row;
+      > div {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  .photo {
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transition: .2s;
+    @include mq(xssm) {
+      width: 50%;
+      background-size: cover;
+    }
+    @include mq(xxs) {
+      height: 0;
+      padding-bottom: 82.5%;
+    }
+    &.lazyloaded {
+      background-image: url('../../assets/frame/upholstered-bed-frame-design-mobile.jpg');
+      @include mq(sm) {
+        background-image: url('../../assets/frame/upholstered-bed-frame-design-sm.jpg');
+        background-size: 496px;
+      }
+      @include mq(md) {
+        background-image: url('../../assets/frame/upholstered-bed-frame-design-md.jpg');
+        background-size: 600px;
+      }
+      @include mq(lg) {
+        height: 500px;
+        padding: 0;
+        background-image: url('../../assets/frame/upholstered-bed-frame-design-lg.jpg');
+        background-size: 720px;
+      }
+      @media (min-width: 1440px) {
+        background-image: url('../../assets/frame/upholstered-bed-frame-design-xl.jpg');
+        background-size: 840px;
+      }
+      @media (min-width: 1660px) {
+        background-image: url('../../assets/frame/upholstered-bed-frame-design-xxl.jpg');
+        background-size: 960px;
+      }
+      &[data-current='2'] {
+        background-image: url('../../assets/frame/couple-in-bed-mobile.jpg');
+        @include mq(sm) {
+          background-image: url('../../assets/frame/couple-in-bed-sm.jpg');
+          background-size: 496px;
+        }
+        @include mq(md) {
+          background-image: url('../../assets/frame/couple-in-bed-md.jpg');
+          background-size: 600px;
+        }
+        @include mq(lg) {
+          height: 500px;
+          padding: 0;
+          background-image: url('../../assets/frame/couple-in-bed-lg.jpg');
+          background-size: 720px;
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/couple-in-bed-xl.jpg');
+          background-size: 840px;
+        }
+        @media (min-width: 1660px) {
+          background-image: url('../../assets/frame/couple-in-bed-xxl.jpg');
+          background-size: 960px;
+        }
+      }
+      &[data-current='3'] {
+        background-image: url('../../assets/frame/frame-corner-closeup-DS-mobile.jpg');
+        @include mq(sm) {
+          background-image: url('../../assets/frame/frame-corner-closeup-DS-sm.jpg');
+          background-size: 496px;
+        }
+        @include mq(md) {
+          background-image: url('../../assets/frame/frame-corner-closeup-DS-md.jpg');
+          background-size: 600px;
+        }
+        @include mq(lg) {
+          height: 500px;
+          padding: 0;
+          background-image: url('../../assets/frame/frame-corner-closeup-DS-lg.jpg');
+          background-size: 720px;
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/frame-corner-closeup-DS-xl.jpg');
+          background-size: 840px;
+        }
+        @media (min-width: 1660px) {
+          background-image: url('../../assets/frame/frame-corner-closeup-DS-xxl.jpg');
+          background-size: 960px;
+        }
+      }
+    }
+  }
+  h2 {
+    span {
+      font-weight: 900;
+    }
+  }
+  h4 {
+    color: $navy
+  }
+  h4, p {
+    user-select: none;
+  }
+  .heading {
+    @include mq(xxs) {
+      height: 0;
+      padding-bottom: 95%;
+    }
+  }
+  .content {
+    padding: 15px 30px;
+    padding: vwp(15px) vwp(30px);
+    @include mq(xssm) {
+      padding: vwl(15px) vwl(30px);
+      width: 50%;
+    }
+    @include mq(sm) {
+      padding: 15px 30px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 375px;
+    }
+    @include mq(md) {
+      padding: 15px 30px 30px 0px;
+    }
+    @include mq(lg) {
+      width: 470px;
+      margin-left: 90px;
+    }
+  }
+  p {
+    @include mq(md) {
+      color: $navy;
+    }
+  }
+  .dots {
+    // overrides - figure this out
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin: 0 0 15px 0;
+    padding: 25px 0 0 0;
+    width: 100%;
+    align-content: center;
+    justify-content: space-between;
+    $trackHeight: 3px;
+    $trackHeightLg: 5px;
+    border-bottom: solid #{$trackHeight} #c9cfd9;
+    position: relative;
+    @include mq(xsm) {
+      margin: 0 0 vwl(15px) 0;
+      padding: vwl(10px) 0 0 0;
+    }
+    @include mq(xxs) {
+      margin: 0 0 vwp(15px) 0;
+      padding: vwp(25px) 0 0 0;
+    }
+    @include mq(md) {
+      border-bottom-width: $trackHeightLg;
+      margin: 0 0 30px 0;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      height: $trackHeight;
+      bottom: -#{$trackHeight};
+      background-color: $navy;
+      transition: .2s;
+      @include mq(md) {
+        height: $trackHeightLg;
+        bottom: -#{$trackHeightLg};
+      }
+    }
+    
+    > button {
+      margin: 0;
+      background: none;
+      z-index: 2;
+      font-size: 1.1rem;
+      color: $navy;
+      padding: 0 2px 4px 2px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: .2s;
+      cursor: pointer;
+      display: block;
+      border: none;
+      position: relative;
+      @include mq(xsm) {
+        font-size: vwl(11px);
+        padding: 0 vwl(2px) vwl(4px) vwl(2px);
+        letter-spacing: vwl(1.5px);
+      }
+      @include mq(xxs) {
+        font-size: vwp(11px);
+        padding: 0 vwp(2px) vwp(4px) vwp(2px);
+        letter-spacing: vwp(1.5px);
+      }
+      @include mq(sm) {
+        font-size: 1.3rem;
+      }
+      @include mq(md) {
+        font-size: 1.6rem;
+      }
+      @include mq(lg) {
+        font-size: 1.8rem;
+      }
+      &::after {
+        content: '';
+        height: 3px;
+        background-color: transparent;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        transition: .2s;
+        @include mq(sm) {
+          height: 5px;
+          bottom: -5px;
+        }
+      }
+      &:hover, &:focus {
+        outline: none;
+        &::after {
+          background-color: rgba(0, 0, 0, .15);
+        }
+      }
+      &[data-active='true'] {
+        &:hover, &:focus {
+          &::after {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+  .frame {
+    &[data-current='1'] {
+      .dots {
+        &::before {
+          left: 0%;
+          width: 21%;
+        }
+      }
+      .stage {
+        transform: translate3d(0%, 0, 0);
+      }
+    }
+    &[data-current='2'] {
+      .dots {
+        &::before {
+          left: 32%;
+          width: 31%;
+        }
+      }
+      .stage {
+        transform: translate3d(-100%, 0, 0);
+      }
+    }
+    &[data-current='3'] {
+      .dots {
+        &::before {
+          left: 72%;
+          width: 28%;
+        }
+      }
+      .stage {
+        transform: translate3d(-200%, 0, 0);
+      }
+    }
+  }
+}

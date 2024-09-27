@@ -2,9 +2,9 @@
 import React, { useState }  from 'react'
 import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig'
-import Main                 from '../../components/pageSections/main'
+import Main                 from '../../components/sections/main'
 import ProductDisplay       from '../../components/productDisplay'
-import '../../scss/product-frame.scss'
+import '../../scss/07-bed-frame/gallery.scss'
 
 function ProductDisplayFrame () {
   const [productName, setProductName]       = useState(null)

@@ -1,7 +1,6 @@
-import '../../../scss/section-upgrade.scss'
+import '../../../scss/sections/upgrade.scss'
 
 function Upgrade(props) {
-
   return (
     <section className="upgrade new lazyload">
       <a id="mattress-anchor" className="anchor" tabIndex="-1"></a>

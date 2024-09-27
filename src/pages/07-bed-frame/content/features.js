@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import '../../../scss/07-bed-frame/features.scss'
 
 function Gallery(props) {
   return (

@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import AccordionContext from 'react-bootstrap/AccordionContext';
 import { useAccordionButton } from 'react-bootstrap/AccordionButton';
 import Card from 'react-bootstrap/Card';
-import '../../../scss/promotion-value-propositions.scss'
+import '../../../scss/06-mattress/made-simple.scss'
 
 function ContextAwareToggle({ children, eventKey, setActiveIndex }) {
   const { activeEventKey } = useContext(AccordionContext);

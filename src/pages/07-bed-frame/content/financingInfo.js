@@ -1,4 +1,6 @@
 
+import '../../../scss/07-bed-frame/financing-info.scss'
+
 function FinancingInfo(props) {
   return (
     <section className='financing-info lazyload'>

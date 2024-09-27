@@ -1,0 +1,347 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.compare {
+  background-color: #ccc;
+  padding: 30px 15px;
+  transition: .3s;
+  position: relative;
+  z-index: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  @include mq(xsm) {
+    padding: vwl(30px) vwl(15px);
+  }
+  @include mq(xxs) {
+    padding: vwp(30px) vwp(15px);
+  }
+  h2 {
+    z-index: 2;
+    transition: .2s;
+    user-select: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    opacity: 0;
+    @include mq(xsm) {
+      top: vwl(30px);
+    }
+    @include mq(xxs) {
+      top: vwp(30px);
+    }
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 85% 15px 0 15px;
+    position: relative;
+    z-index: 2;
+    @include mq(xssm) {
+      padding: 0 20%;
+      margin: 37.5% 15px 0 15px;
+    }
+    @include mq(sm) {
+      display: none;
+    }
+  }
+  li {
+    width: 50%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    color: $navy;
+    user-select: none;
+    @include mq(xsm) {
+      border-radius: 6px 0 0 6px;
+      background-color: $white;
+      padding: vwl(15px) 0 vwl(12px) 0;
+      font-size: vwl(14px);
+    }
+    @include mq(xxs) {
+      padding: vwp(15px) 0 vwp(12px) 0;
+      font-size: vwp(14px);
+    }
+    &:last-of-type {
+      @include mq(xsm) {
+        border-radius: 0 6px 6px 0;
+      }
+    }
+  }
+  .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    @include mq(xsm) {
+      transition: .3s;
+      opacity: 0;
+    }
+    @include mq(sm) {
+      left: 50%;
+    }
+    &::before, &::after {
+      @include mq(sm) {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 2px;
+        background-color: $white;
+      }
+    }
+    &::before {
+      top: 0;
+      bottom: 39%;
+      @include mq(md) {
+        bottom: 42%;
+      }
+    }
+    &::after {
+      top: calc(61% + 40px);
+      bottom: 0;
+      @include mq(md) {
+        top: calc(58% + 40px);
+      }
+    }
+  }
+  #handle {
+    width: 60px;
+    height: 40px;
+    background-color: rgba($navy, .4);
+    position: absolute;
+    z-index: 3;
+    left: calc(50% - 30px);
+    top: 61%;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(11,40,54,.2);
+    border: solid 2px #fff;
+    @include mq(xsm) {
+      display: none;
+    }
+    @include mq(md) {
+      top: 58%;
+    }
+    &::before, &::after {
+      content: '';
+      width: 20px;
+      height: 13px;
+      @extend %svg;
+      @include arrow-thin($white);
+      position: absolute;
+      top: calc(50% - 6.5px);
+    }
+    &::before {
+      left: 5px;
+      transform: rotate(90deg);
+    }
+    &::after {
+      right: 5px;
+      transform: rotate(-90deg);
+    }
+  }
+}
+.compare, .compare .photo {
+  background-size: 100%;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  @include mq(xssm) {
+    background-position: 50% vwl(-215px);
+  }
+  @include mq(sm) {
+    background-position: 50% 50%;
+    background-size: 992px;
+  }
+  @include mq(md) {
+    background-size: 1200px;
+  }
+}
+.compare .photo {
+  @include mq(sm) {
+    background-position: -496px 50%;
+  }
+  @include mq(md) {
+    background-position: -600px 50%;
+    // background-position: 100% 50%;
+  }
+  @include mq(lg) {
+  //   background-position: -712px 50%;
+    background-position: 100% 0;
+  }
+}
+
+main {
+  .compare {
+    @include mq(sm) {
+      height: 500px;
+    }
+    @include mq(md) {
+      height: 550px;
+    }
+    .photo {
+      opacity: 1;
+    }
+  }
+}
+main[data-active-type='TU'] .compare,
+.compare[data-type='TU'] {
+  h2 {
+    &[data-type='TU'] {
+      opacity: 1;
+    }
+  }
+  li {
+    &[data-type='TU'] {
+      background-color: $navy;
+      color: $white;
+    }
+  }
+}
+main[data-active-type='TU'] .compare[data-type='UU'] {
+  h2 {
+    &[data-type='TU'] {
+      opacity: 0;
+    }
+  }
+  li {
+    &[data-type='TU'] {
+      background-color: $white;
+      color: $navy;
+    }
+  }
+}
+
+.compare[data-type='TU'][data-color='CS'] {
+  &.lazyloaded {
+    @include mq(xsm) {
+      background-image: url('../../assets/frame/comparison-full-TU-CS-mobile.jpg');
+    }
+  }
+}
+.compare[data-type='TU'][data-color='DS'] {
+  &.lazyloaded {
+    @include mq(xsm) {
+      background-image: url('../../assets/frame/comparison-full-TU-DS-mobile.jpg');
+    }
+  }
+}
+
+main[data-active-type='UU'] .compare,
+.compare[data-type='UU'] {
+  h2 {
+    &[data-type='UU'] {
+      opacity: 1;
+    }
+  }
+  li {
+    &[data-type='UU'] {
+      background-color: $navy;
+      color: $white;
+    }
+  }
+}
+main[data-active-type='UU'] .compare[data-type='TU'] {
+  h2 {
+    &[data-type='UU'] {
+      opacity: 0;
+    }
+  }
+  li {
+    &[data-type='UU'] {
+      background-color: $white;
+      color: $navy;
+    }
+  }
+}
+
+.compare[data-type='UU'][data-color='CS'] {
+  &.lazyloaded {
+    @include mq(xsm) {
+      background-image: url('../../assets/frame/comparison-full-UU-CS-mobile.jpg');
+    }
+  }
+}
+.compare[data-type='UU'][data-color='DS'] {
+  &.lazyloaded {
+    @include mq(xsm) {
+      background-image: url('../../assets/frame/comparison-full-UU-DS-mobile.jpg');
+    }
+  }
+}
+// Untufted
+// main {
+.compare {
+  &[data-color='CS'] {
+    &.lazyloaded {
+      @include mq(sm) {
+        background-image: url('../../assets/frame/comparison-full-UU-CS-sm.jpg');
+      }
+      @include mq(md) {
+        background-image: url('../../assets/frame/comparison-full-UU-CS-md.jpg');
+      }
+    }
+    .photo {
+      &.lazyloaded {
+        @include mq(sm) {
+          background-image: url('../../assets/frame/comparison-full-TU-CS-sm.jpg');
+        }
+        @include mq(md) {
+          background-image: url('../../assets/frame/comparison-full-TU-CS-md.jpg');
+        }
+      }
+      &::before {
+        @include mq(sm) {
+          bottom: 44%;
+        }
+        @include mq(md) {
+          bottom: 47%;
+        }
+      }
+      &::after {
+        @include mq(sm) {
+          top: calc(56% + 40px);
+        }
+        @include mq(md) {
+          top: calc(53% + 40px);
+        }
+      }
+    }
+    #handle {
+      @include mq(sm) {
+        top: 56%;
+      }
+      @include mq(md) {
+        top: 53%;
+      }
+    }
+  }
+  &[data-color='DS'] {
+    &.lazyloaded {
+      @include mq(sm) {
+        background-image: url('../../assets/frame/comparison-full-UU-DS-sm.jpg');
+      }
+      @include mq(md) {
+        background-image: url('../../assets/frame/comparison-full-UU-DS-md.jpg');
+      }
+    }
+    .photo {
+      &.lazyloaded {
+        @include mq(sm) {
+          background-image: url('../../assets/frame/comparison-full-TU-DS-sm.jpg');
+        }
+        @include mq(md) {
+          background-image: url('../../assets/frame/comparison-full-TU-DS-md.jpg');
+        }
+      }
+    }
+  }
+}

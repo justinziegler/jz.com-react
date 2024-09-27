@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import LayersDetails from './layersDetails'
-import '../../../scss/promotion-mattress-animation.scss'
-import '../../../scss/mattressLayers.scss'
+import '../../../scss/06-mattress/mattress-animation.scss'
+import '../../../scss/06-mattress/layers.scss'
 
 function Layers(props) {
   const [activeIndex, setActiveIndex] = useState('default')

@@ -1,6 +1,7 @@
 
-import Tooltip from 'react-bootstrap/Tooltip';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip        from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import '../../scss/product-display/color+quantity.scss'
 
 function ColorSelect(props) {
   const p = props.page;
@@ -44,4 +45,4 @@ function ColorSelect(props) {
   )
 }
 
-export default ColorSelect;
+export default ColorSelect

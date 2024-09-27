@@ -2,10 +2,9 @@
 import React, { useState }  from 'react'
 import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig'
-import Main                 from '../../components/pageSections/main'
+import Main                 from '../../components/sections/main'
 import ProductDisplay       from '../../components/productDisplay'
-import '../../scss/product-display-color+quantity.scss'
-import '../../scss/product-display-upsell-list.scss'
+
 import '../../scss/product-cotton-sheets.scss'
 
 function ProductDisplaySheets () {

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
+import { getProductSkus }  from '../../components/utils/getProductSkus'
+import { getUpsells }      from './content/getUpsells'
+import Main                from '../../components/sections/main'
+import CartItems           from './content/cartItems'
+import Upsells             from './content/upsells'
+import OrderSummary        from './content/orderSummary'
 // eslint-disable-next-line
-import lazySizes from 'lazysizes'
-import { getProductSkus } from '../../components/utils/getProductSkus'
-import { getUpsells } from './content/getUpsells'
-import Main from '../../components/pageSections/main'
-import CartItems from './content/cartItems'
-import Upsells from './content/upsells'
-import OrderSummary from './content/orderSummary'
-import '../../scss/cart.scss'
-import '../../scss/cart-images.scss'
+import lazySizes           from 'lazysizes'
+import '../../scss/09-cart/cart.scss'
+import '../../scss/09-cart/cart-images.scss'
 
 let initialTotal = 0
 let initialDiscount = 0
@@ -118,4 +118,4 @@ function Cart () {
   )
 }
 
-export default Cart;
+export default Cart

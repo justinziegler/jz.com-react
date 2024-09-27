@@ -1,4 +1,4 @@
-import '../../../scss/section-financing-info.scss'
+import '../../../scss/sections/financing-info.scss'
 
 function FinancingInfo(props) {
   return (

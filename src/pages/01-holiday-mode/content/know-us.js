@@ -1,6 +1,6 @@
 import React from 'react'
 import { videos } from './content'
-import VideoModal from '../../../components/pageSections/videoModal'
+import VideoModal from '../../../components/sections/videoModal'
 import '../../../scss/01-holiday-mode/know-us.scss'
 
 function KnowUs(props) {

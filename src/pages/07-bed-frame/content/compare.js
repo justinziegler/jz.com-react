@@ -1,73 +1,74 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
+import '../../../scss/07-bed-frame/compare.scss'
 
 function Compare(props) {
   const dragItem = document.querySelector("#handle")
   const photo = document.querySelector(".compare .photo")
 
-  let active = false;
-  let currentX;
-  let initialX;
-  let xOffset = (window.innerWidth / 2);
+  let active = false
+  let currentX
+  let initialX
+  let xOffset = (window.innerWidth / 2)
 
   const dragStart = (e) => {
     if (e.type === "touchstart") {
-      initialX = e.touches[0].clientX - xOffset;
+      initialX = e.touches[0].clientX - xOffset
     } else {
-      initialX = e.clientX - xOffset;
+      initialX = e.clientX - xOffset
     }
     if (e.target === dragItem) {
-      active = true;
+      active = true
     }
   }
 
   const dragEnd = (e) => {
-    initialX = currentX;
-    active = false;
+    initialX = currentX
+    active = false
   }
 
   const drag = (e) => {
     if (active) {
-      e.preventDefault();
+      e.preventDefault()
       if (e.type === "touchmove") {
-        currentX = e.touches[0].clientX - initialX;
+        currentX = e.touches[0].clientX - initialX
       } else {
-        currentX = e.clientX - initialX;
+        currentX = e.clientX - initialX
       }
-      xOffset = currentX;
+      xOffset = currentX
       if (currentX < 1200) {
-        setTranslate(currentX, dragItem, photo);
+        setTranslate(currentX, dragItem, photo)
       }
     }
   }
   
   if (window.innerWidth >= 1200) {
-    xOffset = 1200 / 2;
+    xOffset = 1200 / 2
   }
 
   function setTranslate(xPos, el, mask) {
-    var viewportWidth = window.innerWidth;
-    var mediaWidth = 992;
+    var viewportWidth = window.innerWidth
+    var mediaWidth = 992
     if (viewportWidth >= 992) {
-      mediaWidth = 1200;
+      mediaWidth = 1200
     }
-    el.style.left = `calc(${xPos}px - 30px)`;
-    mask.style.left = `${xPos}px`;
-    var x = (mediaWidth / 2) - (viewportWidth / 2);
-    mask.style.backgroundPosition = `right -${x}px top 50%`;
+    el.style.left = `calc(${xPos}px - 30px)`
+    mask.style.left = `${xPos}px`
+    var x = (mediaWidth / 2) - (viewportWidth / 2)
+    mask.style.backgroundPosition = `right -${x}px top 50%`
     
-    let xPosPct = xPos / viewportWidth;
+    let xPosPct = xPos / viewportWidth
     if (viewportWidth > 1200) {
-      xPosPct = xPos / mediaWidth;
+      xPosPct = xPos / mediaWidth
     }
     
-    const classicH2 = document.querySelector('.compare h2[data-type="UU"]');
-    const tuftedH2 = document.querySelector('.compare h2[data-type="TU"]');
+    const classicH2 = document.querySelector('.compare h2[data-type="UU"]')
+    const tuftedH2 = document.querySelector('.compare h2[data-type="TU"]')
     if (xPosPct < .5) {
-      classicH2.style.opacity = '0';
-      tuftedH2.style.opacity = '1';
+      classicH2.style.opacity = '0'
+      tuftedH2.style.opacity = '1'
     } else {
-      classicH2.style.opacity = '1';
-      tuftedH2.style.opacity = '0';
+      classicH2.style.opacity = '1'
+      tuftedH2.style.opacity = '0'
     }
   }
 

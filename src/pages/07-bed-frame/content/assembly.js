@@ -3,6 +3,7 @@ import { Player } from 'video-react'
 import 'lazysizes'
 import video      from '../../../assets/frame/ubf-16x9-no-audio.mp4'
 import 'video-react/dist/video-react.css'
+import '../../../scss/07-bed-frame/assembly.scss'
 
 function Assembly(props) {
   return (

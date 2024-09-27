@@ -1,9 +1,9 @@
 import { directory }   from '../../components/data/directory';
 import { pageDetails } from './content';
-import Main            from '../../components/pageSections/main';
+import Main            from '../../components/sections/main';
 import collage         from '../../assets/holiday-promotion/collage01.jpg';
 import '../../css/bootstrap-grid.css';
-import '../../scss/case-studies.scss';
+import '../../scss/00-home/home.scss';
 
 function Home(props) {
   const page = {

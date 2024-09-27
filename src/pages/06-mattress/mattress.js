@@ -2,27 +2,27 @@
 import React, { useState }  from 'react';
 import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig';
-import Main                 from '../../components/pageSections/main';
+import Main                 from '../../components/sections/main';
 import ProductDisplay       from '../../components/productDisplay';
 import ScrollToAnchor       from '../../components/utils/scrollToAnchor'
 import { ourWay }           from './content/ourWay';
-import OurWay               from '../../components/pageSections/ourWay'
+import OurWay               from '../../components/sections/ourWay'
 import Upgrade              from './content/upgrade';
 import { valueProps }       from './content/valueProps';
-import ValueProps           from '../../components/pageSections/valueProps';
+import ValueProps           from '../../components/sections/valueProps';
 import Layers               from './content/layers';
 import FinancingInfo        from './content/financingInfo';
 import FirmnessScale        from './content/firmnessScale';
 import MadeSimple           from './content/madeSimple';
-import Ratings              from '../../components/pageSections/ratings';
+import Ratings              from '../../components/sections/ratings';
 import { mattressReviews }  from './content/mattressReviews';
-import Reviews              from '../../components/pageSections/reviews';
+import Reviews              from '../../components/sections/reviews';
 import BedFrames            from './content/bedFrames';
 import { suggestedItems }   from './content/suggestedItems';
-import SuggestedItems       from '../../components/pageSections/suggestedItems';
+import SuggestedItems       from '../../components/sections/suggestedItems';
 import { faqs }             from './content/faqs';
-import Faqs                 from '../../components/pageSections/faqs';
-import Footer               from '../../components/pageSections/footer';
+import Faqs                 from '../../components/sections/faqs';
+import Footer               from '../../components/sections/footer';
 import '../../css/product-shop-opm-gallery.css'
 
 function Mattress (props) {

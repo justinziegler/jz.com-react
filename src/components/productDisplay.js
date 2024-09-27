@@ -13,8 +13,7 @@ import Cart                           from './productDisplay/cart'
 import { getUpsellSize }              from './utils/getUpsellSize'
 import { getInitialSelection }        from './utils/getInitialSelection';
 import '../css/bootstrap-grid.css'
-import '../scss/product-display.scss'
-import '../scss/product-display-color+quantity.scss'
+import '../scss/product-display/product-display.scss'
 
 let initial = []
 

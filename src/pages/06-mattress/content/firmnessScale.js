@@ -1,4 +1,4 @@
-import '../../../scss/section-firmness-scale.scss'
+import '../../../scss/sections/firmness-scale.scss'
 
 function FirmnessScale(props) {
   const softMedium = []

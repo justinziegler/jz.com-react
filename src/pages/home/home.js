@@ -2,7 +2,7 @@ import NavFooter from './content/nav-footer.js';
 import About from './content/about.js';
 import Recently from './content/recently.js';
 import { mobile } from './content/constants.js';
-import '../../scss/app.scss';
+import '../../scss/home/home.scss';
 
 function HomeOld() {
   return (

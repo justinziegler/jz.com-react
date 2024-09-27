@@ -1,4 +1,5 @@
 
+import '../../../scss/07-bed-frame/ethical.scss'
 
 function Ethical(props) {
   return (

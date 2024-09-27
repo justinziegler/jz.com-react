@@ -1,3 +1,4 @@
+import '../../../scss/07-bed-frame/versatile.scss'
 
 function Versatile(props) {
   return (

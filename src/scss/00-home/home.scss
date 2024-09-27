@@ -1,0 +1,747 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../partials/svg';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+
+%dot-gradient {
+  @include dot-gradient(#000);
+}
+%filterCat1 {
+  filter: invert(18%) sepia(86%) saturate(2685%) hue-rotate(180deg) brightness(95%) contrast(85%);
+}
+%filterNavy {
+  filter: invert(11%) sepia(9%) saturate(5091%) hue-rotate(159deg) brightness(98%) contrast(93%); // navy
+}
+%filterTeal {
+  filter: invert(73%) sepia(16%) saturate(1283%) hue-rotate(129deg) brightness(86%) contrast(91%);
+}
+
+html {
+  font-size: 10px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  // padding-top: 30px;
+  // background-color: tint($navy, 90%);
+  background-color: $white;
+  // @include mq(md) {
+  //   padding-top: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  @include mq(xsm) {
+    padding-top: 90px;
+    padding-bottom: 65vw;
+  }
+  @include mq(sm) {
+    height: 100vh;
+  }
+  // }
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    @extend %dot-gradient;
+    background-size:  30px;
+    background-repeat: repeat-x;
+    // @extend %filterPurple;
+    // filter: invert(78%) sepia(36%) saturate(618%) hue-rotate(123deg) brightness(93%) contrast(90%);
+    // filter: invert(20%) sepia(63%) saturate(314%) hue-rotate(153deg) brightness(92%) contrast(96%);
+    // filter: invert(100%) sepia(5%) saturate(0%) hue-rotate(288deg) brightness(106%) contrast(104%); // white
+    // filter: invert(100%) sepia(69%) saturate(124%) hue-rotate(169deg) brightness(96%) contrast(92%);
+    // filter: invert(11%) sepia(9%) saturate(5091%) hue-rotate(159deg) brightness(98%) contrast(93%); // navy
+    // filter: invert(73%) sepia(16%) saturate(1283%) hue-rotate(129deg) brightness(86%) contrast(91%);
+    filter: invert(97%) sepia(6%) saturate(68%) hue-rotate(149deg) brightness(95%) contrast(95%); // light grey
+    @include mq(xs) {
+      background-size: 36px;
+    }
+    @include mq(md) {
+      background-size:  40px;
+      bottom: 15px;
+    }
+  }
+  &::before {
+    background-position: 50% 0%;
+  }
+  &::after {
+    // background-position: 50% 100%;
+    transform: rotate(180deg);
+    background-size: 24px;
+  }
+}
+// body {
+//   font-family: 'Cabin Condensed', sans-serif;
+// }
+
+.intro {
+  // background-color: $navy;
+  // background-color: tint($navy, 10%);
+  color: $white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  @include mq(xsm) {
+    display: none;
+  }
+  @include mq(md) {
+    width: 33.333333%;
+  }
+  h1 {
+    font-family: 'Boogaloo', sans;
+    color: $navy;
+    font-size: 30px;
+    margin: 0 0 15px 0;
+    line-height: 1;
+    font-weight: normal;
+    text-align: center;
+    @include mq(sm) {
+      font-size: 50px;
+    }
+    @include mq(md) {
+      margin: 0;
+    }
+    @include mq(lg) {
+      font-size: 58px;
+    }
+    span {
+      color: shade($teal, 15%);
+      @include mq(xmd) {
+        margin-left: 15px;
+      }
+    }
+  }
+  p {
+    color: $navy;
+    font-size: 14px;
+  }
+}
+
+$x: 240px;
+$y: 158px; // width of purple column
+$z: $x + $y;
+$bg: transparent;
+.intro {
+  $bg: transparent;
+  position: relative;
+  // width: 100%;
+  // height: 30vh;
+  // bottom: calc(50% + 15vw);
+  $bgh: tint($cat4, 30%);
+  $bgh: $cat2;
+  $gap: 2px;
+  $base: 40px;
+  $int: 4;
+  z-index: 0;
+  // background-color: $eggplant;
+  $xx: 15px;
+  $xxx: 320px;
+  // background-image: linear-gradient(to bottom, 
+  //   $cat1 0%,
+  //   $cat1 calc(100% - 214px),
+  //   $eggplant calc(100% - 214px),
+  //   $eggplant calc(100% - $xx),
+  //   $white calc(100% - $xx),
+  //   $white 100%);
+  // @include mq(xs) {
+  //   background-image: linear-gradient(to bottom, 
+  //   $cat1 0%,
+  //   $cat1 calc(100% - 250px),
+  //   $eggplant calc(100% - 250px),
+  //   $eggplant calc(100% - $xx),
+  //   $white calc(100% - $xx),
+  //   $white 100%);
+  // }
+  // @include mq(md) {
+  //   height: auto;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: calc(50vh + 70px);
+  //   background-image: linear-gradient(to bottom, 
+  //   $cat1 0%,
+  //   $cat1 calc(100% - $xxx),
+  //   $white calc(100% - $xxx),
+  //   $white calc(100% - $xx),
+  //   $white calc(100% - $xx),
+  //   $white 100%);
+  // }
+  
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   left: 8px;
+  //   right: 8px;
+  //   top: 13px;
+  //   bottom: 5px;
+  //   z-index: -1;
+  //   border-bottom: 8px solid tint($cat1, 27%);
+  // }
+  span {
+    &.arrow {
+      @include mq(xmd) {
+        display: none;
+      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: -70px;
+      z-index: 0;  
+      background-image: linear-gradient(to right, 
+      $bg 0%,
+      $bg calc(50% + $x),
+      $cat1 calc(50% + $x), 
+      $cat1 calc(50% + $x + 2px), 
+
+      tint($cat1, 15%) calc(50% + $x + 2px), // first stripe from left
+      tint($cat1, 15%) calc(50% + $x + 4px), 
+
+      $cat1 calc(50% + $x + 4px), // purple
+      $cat1 calc(50% + $x + 6px), 
+
+      tint($cat1, 15%) calc(50% + $x + 6px), // second stripe
+
+      $cat1 calc(50% + $x + 7px), // back to purple
+
+      // $cat1 calc(50% + ($x + (($y / 2) - 20px))),
+      // tint($cat1, 10%) calc(50% + ($x + (($y / 2) - 20px))),
+      // tint($cat1, 10%) calc(50% + ($x + (($y / 2) - 18px))),
+      // $cat1 calc(50% + ($x + (($y / 2) - 18px))),
+
+      $cat1 calc(50% + ($z - 7px)), // right side
+
+      tint($cat1, 15%) calc(50% + ($z - 7px)), // left stripe on right
+      // tint($cat1, 65%) calc(50% + ($z - 6px)), 
+
+      $cat1 calc(50% + ($z - 6px)), // purple
+      $cat1 calc(50% + ($z - 5px)), 
+
+      tint($cat1, 15%) calc(50% + ($z - 5px)), 
+      tint($cat1, 15%) calc(50% + ($z - 3px)), 
+      $cat1 calc(50% + ($z - 3px)),
+
+      $cat1 calc(50% + $z),
+      $bg calc(50% + $z),
+      $bg 100%);
+      @include mq(lg) { 
+        bottom: -90px;        
+        $x: 300px;
+        $z: 487px;
+        background-image: linear-gradient(to right, 
+          $bg 0%,
+          $bg calc(50% + ($x - 10px)),
+          $white calc(50% + ($x - 10px)),
+          $white calc(50% + $x),
+          $cat1 calc(50% + $x), 
+          $cat1 calc(50% + ($x + 2px)), 
+    
+          tint($cat1, 15%) calc(50% + ($x + 2px)), // first stripe from left
+          tint($cat1, 15%) calc(50% + ($x + 4px)), 
+    
+          $cat1 calc(50% + ($x + 4px)), // purple
+          $cat1 calc(50% + ($x + 6px)), 
+    
+          tint($cat1, 15%) calc(50% + ($x + 6px)), // second stripe
+    
+          $cat1 calc(50% + ($x + 7px)), // back to purple    
+          $cat1 calc(50% + ($z - 7px)), // right side
+    
+          tint($cat1, 15%) calc(50% + ($z - 7px)), // left stripe on right
+    
+          $cat1 calc(50% + ($z - 6px)), // purple
+          $cat1 calc(50% + ($z - 5px)), 
+    
+          tint($cat1, 15%) calc(50% + ($z - 5px)), 
+          tint($cat1, 15%) calc(50% + ($z - 3px)), 
+          $cat1 calc(50% + ($z - 3px)),
+    
+          $cat1 calc(50% + $z),
+          $white calc(50% + $z),
+          $white calc(50% + ($z + 10px)),
+          $bg calc(50% + ($z + 10px)),
+          $bg 100%);
+      }
+    }
+  }
+}
+
+.case-study {
+  // background: tint($navy, 95%);
+  // color: $white;
+  // padding: 30px 0;
+  position: relative;
+  // background-color: #fff;
+  // border-top: solid 1px tint($teal, 30%);
+  // border-bottom: solid 1px tint($teal, 30%);
+  // margin-bottom: vwp(30px);
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  // width: 100%;
+  z-index: 1;
+  padding: 0 30px;
+  @include mq(xsm) {
+    width: 100%;
+  }
+  .container {
+    @include mq(xsm) {
+      margin: 0;
+    }
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+}
+.case {
+  // background-image: url('./luxe-vp-couple-md.jpg');
+  // background-size: 100%;
+  // padding: 30px;
+  // min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  // padding: 30px 45px;
+  position: relative;
+  
+  
+  p {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin: 0 0 10px 5px;
+    color: $cat1;
+    padding-bottom: 4px;
+    @include mq(sm) {
+      font-size: 1.8rem;
+      // margin-bottom: 30px;
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    font-size: 1.6rem;
+    padding: 0 0 0 24px;
+    list-style-type: none;
+    margin-top: 5px;
+    position: relative;
+    font-weight: 500;
+    @include mq(sm) {
+      font-size: 1.8rem;
+    }
+    // @include mq(md) {
+      // font-size: 1.8rem;
+      // padding: 0 0 0 30px;
+    // }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: solid 2px $cat2;
+      top: 7px;
+      left: 8px;
+      border-radius: 50%;
+      // @include mq(md) {
+      //   width: 12px;
+      //   height: 12px;
+      //   border: solid 3px $cat2;
+      //   top: 8px;
+      //   left: 8px;
+      // }
+    }
+    a {
+      color: $cat4;
+      border-bottom: dotted 1px $cat4;
+      &:hover, &:focus {
+        color: tint($cat1, 20%);
+        border-bottom-color: tint($cat1, 20%);
+      }
+    }
+  }
+  
+  .thumbnails {
+    display: flex;
+    flex-direction: column;
+    @include background-image(radial-gradient(center, ellipse farthest-corner, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
+    justify-content: center;
+    @include mq(xsm) {
+      flex-wrap: wrap;
+    }
+    
+    @include mq(sm) {
+      padding-left: 15px;
+    }
+    @include mq(md) {
+      padding-left: 30px;
+    }
+    > div {
+      @include mq(xmd) {
+        padding: 0 7px;
+      }
+    }
+    .header-nav {
+      height: auto;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      @include mq(xsm) {
+        margin-top: 15px;
+      }
+      @include mq(smmd) {
+        padding-right: 15px;
+      }
+      a {
+        height: 34px;
+        color: shade($teal, 20%);
+        line-height: 1;
+        font-weight: 500;
+        justify-content: center;
+        @include mq(md) {
+          height: 60px;
+          font-size: 2rem;
+          padding-bottom: 18px;
+          padding-right: 48px;
+        }
+        @include mq(xxs) {
+          height: vwp(34px);
+          padding-right: vwp(30px);
+          font-size: vwp(14px);
+          padding-bottom: vwp(8px);
+        }
+        &::after {
+          right: vwp(30px);
+          @include mq(xxs) {
+            width: vwp(30px);
+            height: vwp(30px);
+            top: vwp(2px);
+          }
+          @include mq(xs) {
+            right: 50px;
+          }
+          @include mq(sm) {
+            right: 35px;
+          }
+          @include mq(md) {
+            width: 50px;
+            height: 60px;
+            top: 0;
+            right: 45px;
+          }
+          @include mq(lg) {
+            right: 30px;
+          }
+        }
+        span {
+          border-bottom: solid 2px transparent;
+          transition: .2s;
+        }
+        &:hover, &:focus {
+          color: shade($teal, 35%);
+          span {
+            border-bottom: solid 2px tint($teal, 70%);
+          }
+        }
+      }
+    }
+  }
+  .thumbnail {
+    width: 100%;
+    height: 0;
+    padding-bottom: 85%;
+    position: relative;
+    background-color: rgb(254,255,255); 
+    border-radius: 16px;// Old browsers
+    @include filter-gradient(#ffffff, $teal, vertical); // IE6-9
+    @include background-image(linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(tint($teal, 95%),1) 35%,rgba(tint($teal, 85%),1) 100%));
+    flex-shrink: 0;
+    &:last-of-type {
+      @include mq(xsm) {
+        margin-top: 15px;
+      }
+    }
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.7rem;
+      text-align: right;
+      line-height: 1;
+      padding: 10px;
+      font-weight: 500;
+      border-radius: 16px;
+      border: solid 3px $teal;
+      transition: .2s;
+      background-color: rgba(255, 255, 255, 0);
+      // @include mq(xsm) {
+      //   font-size: vwl(14px);
+      //   padding: vwl(10px);
+      // }
+      @include mq(xxs) {
+        font-size: vwp(14px);
+        padding: vwp(10px);
+      }
+      @include mq(md) {
+        font-size: 2rem;
+        padding: 15px;
+      }
+      @include mq(lg) {
+        font-size: 2.45rem;
+        padding: 20px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        border: solid 4px transparent;
+        transition: .2s;
+      }
+      &:hover, &:focus {
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow:inset 0 0 30px 30px rgba(86,219,214,.1);
+        &::before {
+          top: -8px;
+          left: -8px;
+          right: -8px;
+          bottom: -8px;
+          border: solid 3px tint($teal, 70%);
+        }
+      }
+      span {
+        &::before {
+          content: attr(data-number);
+          color: shade($teal, 20%);
+        }
+      }
+    }
+  }
+}
+.case-details {
+  background-color: rgba($white, .9);
+  padding: 30px;
+  border-radius: 20px;
+  border: solid 10px $cat1;
+}
+.case-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+  justify-content: space-around;
+  border-radius: 8px;
+  // align-items: flex-start;
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    width: 100%;
+    &:first-of-type {
+      justify-content: flex-start;
+    }
+    &:last-of-type {
+      justify-content: flex-end;
+    }
+  }
+  img {
+    // align-self: start;
+    // width: 44%;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
+    // height: 87%;
+    width: 100%;
+  }
+}
+#gallery-modal {
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .modal-body {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    padding: 0!important;
+  }
+  iframe {
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 0;
+    // left: 0;
+    // right: 0;
+    bottom: 0;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+///////////////////////
+.case-studies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  @include mq(md) {
+    width: 66.66666667%;
+  }
+}
+.item {
+  height: 0;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  float: none;
+  display: flex;
+  padding-bottom: 30%;
+  flex: 1 1 calc(50% - 1.5rem);
+  @include mq(xs) {
+    background-size: 100%;
+    padding-bottom: 22%;
+    flex: 1 1 calc((100% / 3) - 3rem);
+  }
+  &:last-of-type {
+    a {
+      &:before, &::after {
+        content: '';
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: 20%;
+        @include chevron(#000);
+        @extend %filterNavy;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: .75;
+        transition: .2s;
+      }
+      &:before {
+        background-position: 40% 50%;
+      }
+      &:after {
+        background-position: 60% 50%;
+      }
+      &:hover {
+        &:before, &::after {
+          @extend %filterTeal;
+        }
+      }
+    }
+  }
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: solid 4px rgba($navy, .8);
+    transition: .2s;
+    &:hover {
+      border: solid 4px shade($teal, 10%);
+      .case-number {
+        background-color: shade($teal, 10%);
+        color: $white;
+      }
+      .case-title {
+        
+        background-color: rgba(shade($teal, 10%), 1);
+      }
+    }
+    span {
+      display: block;
+    }
+    .case-number {
+      background-color: rgba($navy, .8);
+      color: $teal;
+      width: vwp(24px);
+      height: vwp(24px);
+      font-size: vwp(12px);
+      line-height: 1;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      z-index: 2;
+      transition: .2s;
+      @include mq(xs) {
+        width: vwl(24px);
+        height: vwl(24px);
+        font-size: vwl(12px);
+      }
+      @include mq(sm) {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 2rem;
+      }
+    }
+    .case-title {
+      // width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($navy, .8);
+      color: $white;
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex-direction: column;
+      font-size: vwp(11px);
+      padding: vwp(5px) vwp(4px) 0 vwp(4px);
+      @include mq(xs) {
+        font-size: vwl(11px);
+        padding: vwl(5px) vwp(4px) 0 vwp(4px);
+      }
+      @include mq(sm) {
+        font-size: 1.5rem;
+        padding: .5rem 1rem 0rem 1rem;
+      }
+      @include mq(lg) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
