@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React        from 'react';
 import { vpMobile } from '../../home/content/constants';
 
-function ValuePropsSlideContent(props) {
+function Content(props) {
  return (
   <div className="slide-content col-xs-6">
-
     <div className="vp one" data-active={ props.currentIndex === 0}>
       <h1>Find Comfort in <span>Great Sleep</span></h1>
       <p>Great sleep reduces stress,<br className="visible-sm" /> boosts your immune system,<br className="visible-sm visible-lg" /> and helps you stay happy.</p>
@@ -38,4 +37,4 @@ function ValuePropsSlideContent(props) {
  )
 }
 
-export default ValuePropsSlideContent;
+export default Content;

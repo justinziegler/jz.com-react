@@ -1,0 +1,119 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+.financing {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 45px;
+	background-size: cover;
+	background-position: 50% 50%;
+	@include mq(smmd) {
+		padding-bottom: 30px;
+	}
+	&.lazyloaded {
+		background-image: url('../../assets/holiday-promotion/texture.jpg');
+		@include mq(sm) {
+			background-image: url('../../assets/holiday-promotion/texture-sm.jpg');
+		}
+		@include mq(lg) {
+			background-image: url('../../assets/holiday-promotion/texture-lg.jpg');
+		}
+	}
+	.row {
+		@include mq(sm) {
+			display: flex;
+			align-items: center;
+		}
+	}
+	.content {
+		@include mq(lg) {
+			max-width: 585px;
+			float: right;
+		}
+	}
+	.mattress-pic {
+		background-size: 95%;
+		background-position: 100% 100%;
+		background-repeat: no-repeat;
+		padding-bottom: 34%;
+		@include mq(xs) {
+			background-size: 75%;
+			padding-bottom: 25%;
+		}
+		@include mq(sm) {
+			background-size: 500px;
+			background-position: 30px 80px;
+			padding-bottom: 0;
+			height: 290px;
+		}
+		@include mq(md) {
+			background-size: 570px;
+			background-position: 30px 110px;
+			height: 350px;
+		}
+		@include mq(lg) {
+			background-size: auto;
+			background-position: 30px 140px;
+			height: 430px;
+		}
+		&.lazyloaded {
+			background-image: url('../../assets/holiday-promotion/mattress.png');
+			@include mq(sm) {
+				background-image: url('../../assets/holiday-promotion/mattress-sm.png');
+			}
+			@include mq(lg) {
+				background-image: url('../../assets/holiday-promotion/mattress-lg.png');
+			}
+		}
+	}
+	h3 {
+		font-size: 7.5rem;
+		color: #7eaac7;
+		margin: 0;
+		line-height: 1;
+		@include mq(sm) {
+			font-size: 10rem;
+			margin-top: 30px;
+		}
+		@include mq(md) {
+			font-size: 12.5rem;
+			margin-top: 45px;
+		}
+		@include mq(lg) {
+			font-size: 15rem;
+			margin-top: 60px;
+			max-width: 585px;
+		}
+		span {
+			font-size: 25%;
+		}
+		sup {
+			font-size: 60%;
+		}
+	}
+	p {
+		margin-bottom: 10px;
+		@include mq(sm) {
+			margin-top: 15px;
+			margin-bottom: 30px;
+		}
+		@include mq(lg) {
+			margin-top: 30px;
+			margin-bottom: 45px;
+		}
+	}
+	.btn {
+		border: solid 2px #7eaac7;
+		box-shadow: none;
+		&:hover, &:focus {
+			background-color: rgba(#fff, .6);
+			color: $navy;
+		}
+	}
+}

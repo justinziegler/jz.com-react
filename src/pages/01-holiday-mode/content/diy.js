@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import '../../../scss/01-holiday-mode/diy.scss'
 
 function DIY(props) {
   const content = [

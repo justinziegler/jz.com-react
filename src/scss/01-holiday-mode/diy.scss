@@ -1,0 +1,90 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+.diy {
+	text-align: center;
+	padding: 15px 15px 30px 15px;
+	background-color: $white;
+	@include mq(sm) {
+		padding: 30px 15px;
+	}
+	@include mq(lg) {
+		padding-top: 45px;
+		padding-bottom: 60px;
+	}
+	> div {
+		max-width: 1240px;
+		margin: 0 auto;
+	}
+	.row > div {
+		@include mq(xssm) {
+			width: 50%;
+		}
+	}
+	.icon {
+		@extend %svg;
+		height: 0;
+		padding-bottom: 50%;
+		margin: 15px 0;
+		@include mq(sm) {
+			float: left;
+			width: 15%;
+			margin: 15px 30px 0 0;
+			padding-bottom: 0;
+			height: 100px;
+		}
+		@include mq(md) {
+			margin-right: 45px;
+		}
+		@include mq(lg) {
+			height: 120px;
+		}
+		&.phone {
+			@include lull-smartphone($navy);
+			transform: rotate(-7deg);
+		}
+		&.door {
+			@include lull-box-at-door($navy);
+			@include mq(mdlg) {
+				height: 110px;
+			}
+		}
+		&.setup {
+			@include lull-unboxing($navy);
+			@include mq(md) {
+				height: 120px;
+			}
+			@include mq(lg) {
+				height: 144px;
+			}
+		}
+		&.snooze {
+			@include lull-snooze($navy);
+		}
+	}
+	h3 {
+		font-size: 2.2rem;
+		font-weight: 900;
+		color: $navy;
+		margin: 15px 0 10px 0;
+		@include mq(sm) {
+			text-align: left;
+		}
+		@include mq(lg) {
+			margin: 30px 0 10px 0;
+		}
+	}
+	p {
+		@include mq(sm) {
+			text-align: left;
+			margin: 5px 20px 15px 20px;
+			line-height: 1.4;
+		}
+	}
+}

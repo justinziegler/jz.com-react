@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { videos } from './content';
-import VideoModal from '../../../components/pageSections/videoModal';
+import React from 'react'
+import { videos } from './content'
+import VideoModal from '../../../components/pageSections/videoModal'
+import '../../../scss/01-holiday-mode/know-us.scss'
 
 function KnowUs(props) {
   return (
@@ -28,4 +29,4 @@ function KnowUs(props) {
   )
 }
 
-export default KnowUs;
+export default KnowUs

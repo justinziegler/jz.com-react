@@ -23,7 +23,7 @@ import SuggestedItems       from '../../components/pageSections/suggestedItems';
 import { faqs }             from './content/faqs';
 import Faqs                 from '../../components/pageSections/faqs';
 import Footer               from '../../components/pageSections/footer';
-import '../../assets/product-shop-opm-gallery.css'
+import '../../css/product-shop-opm-gallery.css'
 
 function Mattress (props) {
   const [productName, setProductName]       = useState(null)

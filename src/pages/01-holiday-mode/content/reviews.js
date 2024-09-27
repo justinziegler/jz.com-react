@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
+import React                   from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination }          from 'swiper'
+import '../../../scss/01-holiday-mode/reviews.scss'
 
 function Reviews(props) {
   const reviews = [
@@ -30,17 +31,17 @@ function Reviews(props) {
     },
   ]
   return (
-    <div className="reviews">
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12">
+    <div className='reviews'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-xs-12'>
             <h2>People Love Lull!</h2>
             <p>The best-reviewed mattress online.</p>
           </div>
         </div>
-        <div className="row">
+        <div className='row'>
           <Swiper
-            className="swiper-container-reviews"
+            className='swiper-container-reviews'
             modules={[Pagination]}
             grabCursor={ true }
             loop={ true }
@@ -56,14 +57,14 @@ function Reviews(props) {
           >
             { reviews.map((r, index) =>
               <SwiperSlide key={ `review${index}`} >
-                <div className="item">
-                  <div className="stars"></div>
-                  <div className="review">
-                      { r.review.length < 100 ?
-                        <p className="x2">{ r.review }</p>
-                        :
-                        <p>{ r.review }</p>
-                      }
+                <div className='item'>
+                  <div className='stars'></div>
+                  <div className='review'>
+                    { r.review.length < 100 ?
+                      <p className='x2'>{ r.review }</p>
+                      :
+                      <p>{ r.review }</p>
+                    }
                   </div>
                   <h6>&mdash; { r.reviewer }</h6>
                 </div>
@@ -76,4 +77,4 @@ function Reviews(props) {
   )
 }
 
-export default Reviews;
+export default Reviews

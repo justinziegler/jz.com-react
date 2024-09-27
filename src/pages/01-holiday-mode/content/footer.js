@@ -1,4 +1,5 @@
 import { preventDefault } from '../../../components/utils/preventDefault';
+import '../../../scss/01-holiday-mode/footer.scss'
 
 function Footer(props) {
   return (

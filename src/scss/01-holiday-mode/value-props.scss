@@ -1,0 +1,355 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+#value-props, #value-props-deux {
+	background-color: #fff;
+	text-align: center;
+	position: relative;
+	background-size: auto;
+	background-position: 50% 50%;
+	@include mq(xs) {
+		height: 300px;
+	}
+	@include mq(sm) {
+		height: 375px;
+	}
+	@include mq(md) {
+		height: 450px;
+	}
+	@include mq(lg) {
+		height: 525px;
+	}
+	.row {
+		@include mq(sm) {
+			display: flex;
+		}
+	}
+	h1, h2, p {
+		backface-visibility: hidden;
+		@include mq(sm) {
+			text-shadow: 0 0 15px #FFFFFF;
+		}
+	}
+	.slide-content {
+		position: relative;
+		text-align: center;
+		@include mq(xxs) {
+			display: none;
+		}
+		@include mq(xssm) {
+			width: 50%;
+			height: 100%;
+		}
+		.vp {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 1;
+			transition: .3s;
+			@include mq(sm) {
+				padding-top: 60px;
+			}
+			@include mq(md) {
+				padding-top: 80px;
+			}
+			@include mq(lg) {
+				padding-top: 100px;
+			}
+			&[data-active='false'] {
+				opacity: 0;
+			}
+		}
+	}
+	.swiper {
+		height: 535px;
+		z-index: 10;
+		overflow: visible;
+		padding: 0;
+		@media (min-width: 360px) {
+			height: 602px;
+		}
+		@media (min-width: 375px) {
+			height: 628px;
+		}
+		@media (min-width: 410px) {
+			height: 686px;
+		}
+		@include mq(xssm) {
+			width: 50%;
+			height: 300px;
+		}
+		@include mq(sm) {
+			height: 390px;
+		}
+		@include mq(md) {
+			height: 475px;
+		}
+		@include mq(lg) {
+			height: 550px;
+		}
+	}
+	.swiper-slide {
+		padding-top: 20px;
+		background-size: cover;
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+		box-shadow: 0 30px 30px 0 rgba(11,40,54,.2);
+		@include mq(xs) {
+			background-position: 50% 60%;
+			h1, h2, p {
+				display: none;
+			}
+		}
+	}
+	p {
+		margin-left: 15px;
+		margin-right: 15px;
+		br {
+			@include mq(xssm) {
+				display: none;
+			}
+		}
+	}
+	.swiper-pagination {
+		bottom: 45px;
+		left: 10%;
+		right: 10%;
+		width: auto;
+		@include mq(xs) {
+			right: 60%;
+			bottom: 10px;
+		}
+		@include mq(sm) {
+			bottom: 30px;
+			right: 10%;
+		}
+		@include mq(md) {
+			bottom: 45px;
+		}
+		&-bullet {
+			width: 16px;
+			height: 16px;
+			margin: 0 8px;
+			background-color: #fff;
+			opacity: .75;
+			cursor: pointer;
+			box-shadow: 0 0 10px 0 rgba(11,40,54,.7);
+			@include mq(xssm) {
+				background-color: shade(#f7f6f4, 30%);
+			}
+			&:focus, &:active {
+				outline: 0;
+			}
+			&-active {
+				opacity: 1;
+			}
+		}
+		&.mobile {
+			@include mq(sm) {
+				display: none;
+			}
+		}
+	}
+	.btn {
+		position: absolute;
+		bottom: 105px;
+		z-index: 11;
+		left: 15%;
+		right: 15%;
+		@include mq(xmd) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		@include mq(xs) {
+			left: 5%;
+			right: 55%;
+			bottom: 45px;
+		}
+		@include mq(sm) {
+			left: 17%;
+			right: 17%;
+			bottom: 75px;
+		}
+		@include mq(md) {
+			left: 22%;
+			right: 22%;
+			bottom: 90px;
+		}
+		@include mq(lg) {
+			bottom: 90px;
+			left: 50%;
+			right: auto;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+#value-props {
+	background-color: rgb(255,255,255); // Old browsers
+	@include mq(xxs) {
+		@include filter-gradient(#ffffff, #95bbd5, vertical); // IE6-9
+		@include background-image(linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(149,187,213,1) 100%));
+	}
+	&.slide-one {
+		background-size: cover;
+		@include mq(sm) {
+			background-image: url('../../assets/holiday-promotion/carousel01-mob.jpg');
+		}
+		@include mq(md) {
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-md.jpg');
+		}
+		@include mq(lg) {
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-lg.jpg');
+		}
+		@media (min-width: 1440px) {
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-xl.jpg');
+		}
+		@media (min-width: 1920px) {
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-xxl.jpg');
+		}
+	}
+	&.slide-two {
+		background-size: cover;
+		@include mq(sm) {
+			background-image: url('../../assets/holiday-promotion/carousel04-mob.jpg');
+		}
+		@include mq(md) {
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-md.jpg');
+		}
+		@include mq(lg) {
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-lg.jpg');
+		}
+		@media (min-width: 1440px) {
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-xl.jpg');
+		}
+		@media (min-width: 1920px) {
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-xxl.jpg');
+		}
+	}
+	.swiper-slide {
+		&.one {
+			background-image: url('../../assets/holiday-promotion/carousel01-mob-vp.jpg');
+			@include mq(sm) {
+				background-image: url('../../assets/holiday-promotion/carousel01-mob-vp-sm.jpg');
+			}
+			@include mq(md) {
+				background-image: url('../../assets/holiday-promotion/carousel01-mob-vp-md.jpg');
+			}
+			@include mq(lg) {
+				background-image: url('../../assets/holiday-promotion/carousel01-mob-vp-lg.jpg');
+			}
+		}
+		&.two {
+			background-image: url('../../assets/holiday-promotion/carousel02-alt.jpg');
+			position: relative;
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 33%;
+				@include filter-gradient(#ffffff, #00ffffff, vertical); // IE6-9
+				@include background-image(linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,.8) 70%,rgba(255,255,255,0) 100%));
+				z-index: 2;
+			}
+			h2, p {
+				position: relative;
+				z-index: 3;
+			}
+		}
+		&.three {
+			background-image: url('../../assets/holiday-promotion/carousel03-mob.png');
+		}
+		&.four {
+			background-image: url('../../assets/holiday-promotion/carousel04-mob-vp.jpg');
+			@include mq(sm) {
+				background-image: url('../../assets/holiday-promotion/carousel04-sm.jpg');
+			}
+			@include mq(md) {
+				background-image: url('../../assets/holiday-promotion/carousel04-mob-vp-md.jpg');
+			}
+			@include mq(lg) {
+				background-image: url('../../assets/holiday-promotion/carousel04-mob-vp-lg.jpg');
+			}
+		}
+	}
+}
+#value-props-deux {
+	.slide-content {
+		@include mq(md) {
+			float: right;
+		}
+	}
+	@include mq(xsm) {
+		display: none;
+	}
+	&.slide-one {
+		background-size: cover;
+		@include mq(sm) {
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-sm.png');
+		}
+		@include mq(md) {
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-md.png');
+		}
+		@include mq(lg) {
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-lg.png');
+		}
+		@media (min-width: 1440px) {
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-xl.png');
+		}
+		@media (min-width: 1920px) {
+			background-image: url('../../assets/holiday-promotion/carousel03-mob-xxl.png');
+		}
+	}
+	&.slide-two {
+		background-size: cover;
+		@include mq(sm) {
+			background-image: url('../../assets/holiday-promotion/carousel02-alt.jpg');
+		}
+		@include mq(md) {
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-md.jpg');
+		}
+		@include mq(lg) {
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-lg.jpg');
+		}
+		@media (min-width: 1440px) {
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-xl.jpg');
+		}
+		@media (min-width: 1920px) {
+			background-image: url('../../assets/holiday-promotion/carousel02-alt-xxl.jpg');
+		}
+	}
+	.swiper-slide {
+		&.one {
+			@include mq(sm) {
+				background-image: url('../../assets/holiday-promotion/carousel03.jpg');
+			}
+			@include mq(md) {
+				background-image: url('../../assets/holiday-promotion/carousel03-md.jpg?&w=810&h=950');
+			}
+			@include mq(lg) {
+				background-image: url('../../assets/holiday-promotion/carousel03-lg.jpg');
+			}
+		}
+		&.two {
+			@include mq(sm) {
+				background-image: url('../../assets/holiday-promotion/carousel02-alt-vp-sm.jpg');
+			}
+			@include mq(md) {
+				background-image: url('../../assets/holiday-promotion/carousel02-alt-vp-md.jpg');
+			}
+			@include mq(lg) {
+				background-image: url('../../assets/holiday-promotion/carousel02-alt-vp-lg.jpg');
+			}
+		}
+	}
+}

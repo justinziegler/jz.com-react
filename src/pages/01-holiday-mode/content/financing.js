@@ -1,6 +1,7 @@
 
 import React              from 'react';
 import { preventDefault } from '../../../components/utils/preventDefault';
+import '../../../scss/01-holiday-mode/financing.scss'
 
 function Financing(props) {
   let monthlyPayment = 0;

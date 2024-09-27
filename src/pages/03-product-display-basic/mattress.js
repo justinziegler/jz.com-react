@@ -4,7 +4,7 @@ import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig'
 import Main                 from '../../components/pageSections/main'
 import ProductDisplay       from '../../components/productDisplay'
-import '../../assets/product-shop-opm-gallery.css'
+import '../../css/product-shop-opm-gallery.css'
 
 function ProductDisplayMattress() {
   const [productName, setProductName]       = useState(null)

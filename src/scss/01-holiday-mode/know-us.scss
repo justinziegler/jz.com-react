@@ -1,0 +1,70 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+.know-us {
+	background-color: #80bcde;
+	padding-top: 15px;
+	@include mq(md) {
+		padding-top: 30px;
+	}
+	@include mq(lg) {
+		padding-top: 45px;
+	}
+	.row > div {
+		@include mq(xssm) {
+			width: 60%;
+			margin-left: 20%;
+		}
+	}
+	h2 {
+		color: $white;
+		text-shadow: 0 0 15px rgba(11,40,54,.4);
+	}
+	a {
+		display: block;
+		background-size: contain;
+		background-position: 50% 100%;
+		background-repeat: no-repeat;
+		padding-bottom: 45%;
+		position: relative;
+		margin: 0 10px;
+		cursor: pointer;
+		@include mq(sm) {
+			padding-bottom: 0;
+			height: 240px;
+			background-size: 400px;
+		}
+		@include mq(md) {
+			background-size: 550px;
+			height: 318px;
+		}
+		@include mq(lg) {
+			height: 330px;
+		}
+		&.pic {
+			&::before {
+				background-color: #93bdd8;
+			}
+		}
+		&.lazyloaded {
+			background-image: url('../../assets/holiday-promotion/explainer-video.jpg');
+			@include mq(sm) {
+				background-image: url('../../assets/holiday-promotion/explainer-video-sm.jpg');
+			}
+			@include mq(md) {
+				background-image: url('../../assets/holiday-promotion/explainer-video-md.jpg');
+			}
+		}
+	}
+	.play {
+		background-color: #f72351;
+		display: inline-block;
+		pointer-events: none;
+	}
+}

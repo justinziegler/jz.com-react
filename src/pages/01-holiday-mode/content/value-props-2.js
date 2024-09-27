@@ -1,6 +1,6 @@
-import React, { useState }        from 'react';
-import ValuePropsDeuxGallery      from './value-props-deux-gallery';
-import ValuePropsDeuxSlideContent from './value-props-deux-slide-content.js';
+import React, { useState } from 'react'
+import Gallery             from './value-props-2-gallery.js'
+import Content             from './value-props-2-content.js'
 
 function ValuePropsDeux() {
   const [vpSwiper, setVPSwiper] = useState(null);
@@ -15,11 +15,11 @@ function ValuePropsDeux() {
     className={ vpIndex === 0 ? 'slide-two' : 'slide-one'}>
       <div className='container'>
         <div className='row'>
-          <ValuePropsDeuxGallery
+          <Gallery
             setVPSwiper={ setVPSwiper }
             vpUpdate={ vpUpdate } 
           />
-          <ValuePropsDeuxSlideContent vpIndex={ vpIndex } />
+          <Content vpIndex={ vpIndex } />
           <div className='clearfix'></div>
         </div>
       </div>

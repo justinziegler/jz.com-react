@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, EffectFlip } from 'swiper';
 import { preventDefault } from '../../../components/utils/preventDefault';
 
-function ValuePropsGallery(props) {
+function Gallery(props) {
   let valueProps = [
     {
       class: 'one',
@@ -69,4 +69,4 @@ function ValuePropsGallery(props) {
   )
 }
 
-export default ValuePropsGallery;
+export default Gallery;

@@ -1,11 +1,12 @@
-import React, { useState }        from 'react'
+import React                      from 'react'
+import { preventDefault }         from '../../../components/utils/preventDefault'
 import { Swiper, SwiperSlide }    from 'swiper/react'
 import { Pagination, EffectFlip } from 'swiper'
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-flip';
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/effect-flip'
 
-function ValuePropsDeuxGallery(props) {
+function Gallery(props) {
   return (
     <>
       <Swiper
@@ -26,10 +27,12 @@ function ValuePropsDeuxGallery(props) {
         <SwiperSlide className='two' key='galleryDeuxTwo' />
         <SwiperSlide className='one' key='galleryDeuxOne' />
       </Swiper>
-      <a href='./' className='btn btn-default visible-xs'>Shop the Mattress</a>
+      <a href='./' className='btn btn-default visible-xs' onClick={ preventDefault }>
+        Shop the Mattress
+      </a>
       <div className='clearfix'></div>
     </>
   )
 }
 
-export default ValuePropsDeuxGallery;
+export default Gallery
