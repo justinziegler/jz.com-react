@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { preventDefault } from '../../../components/utils/preventDefault'
-import { ViewportAnchor } from '../../../components/utils/viewportAnchor';
+import React, { useState } from 'react'
+import { preventDefault }  from '../../../components/utils/preventDefault'
+import { ViewportAnchor }  from '../../../components/utils/viewportAnchor'
 import '../../../scss/section-bed-frames.scss'
 
 function BedFrames(props) {

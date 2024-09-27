@@ -1,13 +1,13 @@
-import { preventDefault } from "../../../components/utils/preventDefault"
+import { preventDefault } from '../../../components/utils/preventDefault'
 
 export const faqs = [
   {
     question: 'How long does a memory foam mattress last?',
-    answer: <p>The Original Premium Lull Mattress has been subjected to rigorous independent testing ensuring years of comfortable and restful sleep. And with Lull\'s Lifetime Warranty, you\'re always covered. <a href="/warranty" target="_blank" role="button" tabIndex="0" onClick={ preventDefault }>Learn more about our warranty</a>.</p>
+    answer: <p>The Original Premium Lull Mattress has been subjected to rigorous independent testing ensuring years of comfortable and restful sleep. And with Lull\'s Lifetime Warranty, you\'re always covered. <a href='/warranty' target='_blank' role='button' tabIndex='0' onClick={ preventDefault }>Learn more about our warranty</a>.</p>
   },
   {
     question: 'How does the 365 night trial work for the mattress?',
-    answer: <p>After you place your Lull mattress order, it will ship for free right to your doorstep. Try it out stress-free for 365 nights. If you don\'t love it within the first 365 nights, arrange a quick and easy return. For more info on our return policy, <a href="/terms" target="_blank" role="button" tabIndex="0" onClick={ preventDefault }>click here</a>.</p>
+    answer: <p>After you place your Lull mattress order, it will ship for free right to your doorstep. Try it out stress-free for 365 nights. If you don\'t love it within the first 365 nights, arrange a quick and easy return. For more info on our return policy, <a href='/terms' target='_blank' role='button' tabIndex='0' onClick={ preventDefault }>click here</a>.</p>
   },
   {
     question: 'Does the mattress sleep hot like other memory foam mattresses?',

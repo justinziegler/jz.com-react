@@ -1,7 +1,6 @@
 import '../../../scss/section-financing-info.scss'
 
 function FinancingInfo(props) {
-
   return (
     <section className='financing-info lazyload' data-product-id='PM'>
       <div className='container'>

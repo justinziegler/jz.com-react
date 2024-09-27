@@ -43,4 +43,4 @@ function ProductDisplayFrame () {
   )
 }
 
-export default ProductDisplayFrame;
+export default ProductDisplayFrame

@@ -58,37 +58,22 @@ function Mattress (props) {
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
       />
-      
       <ScrollToAnchor monthlyPayment={ monthlyPayment } />
-  
       <OurWay ourWay={ ourWay } />
-
       <Upgrade />
-
       <ValueProps vp={ valueProps } />
-
       <Layers />
-
       <FinancingInfo monthlyPayment={ monthlyPayment } />
-
       <FirmnessScale />
-
       <MadeSimple monthlyPayment={ monthlyPayment } />
-
       <Ratings />
-
       <Reviews reviews={ mattressReviews } />
-
       <BedFrames />
-
       <SuggestedItems suggestedItems={ suggestedItems } />
-
       <Faqs faqs={ faqs } />
-
       <Footer />
-      
     </Main>
   )
 }
 
-export default Mattress;
+export default Mattress

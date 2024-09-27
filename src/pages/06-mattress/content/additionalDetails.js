@@ -1,4 +1,4 @@
-import { getProductName } from "../../../components/utils/getProductName"
+import { getProductName } from '../../../components/utils/getProductName'
 
 const additionalDetails = [
   {

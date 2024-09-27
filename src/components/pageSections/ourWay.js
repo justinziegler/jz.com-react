@@ -1,5 +1,5 @@
-import React, { useState }  from 'react';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from 'react'
+import Modal               from 'react-bootstrap/Modal'
 import '../../scss/modal-custom.scss'
 import '../../scss/section-our-way.scss'
 
@@ -12,12 +12,12 @@ function OurWayModal(props) {
     >
       <Modal.Header>
         <button className='close' onClick={ () => props.setShowModal(false) }>
-          <span aria-hidden="true">Close</span>
+          <span aria-hidden='true'>Close</span>
         </button>
       </Modal.Header>
       <Modal.Body>
         { props.ourWay.map((item, index) => 
-          <div className="item" 
+          <div className='item' 
             data-content={ item.className } 
             data-visible={ item.className === props.modalContent }
             key={ `ow-${ index }` }
@@ -25,8 +25,7 @@ function OurWayModal(props) {
             <h2>{ item.title }</h2>
             <p>{ item.content }</p>
           </div>
-        )}
-        
+        )}        
       </Modal.Body>
     </Modal>
   )
@@ -59,8 +58,6 @@ function OurWay(props) {
     )
     
   });
-
-  
 
   return (
     <section className='our-way module'>

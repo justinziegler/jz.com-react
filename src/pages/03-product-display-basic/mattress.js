@@ -43,4 +43,4 @@ function ProductDisplayMattress() {
   )
 }
 
-export default ProductDisplayMattress;
+export default ProductDisplayMattress
