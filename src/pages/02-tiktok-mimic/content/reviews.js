@@ -1,8 +1,8 @@
-import React from 'react';
-import { tweets } from './tweets';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
-import '../../../css/swiper.css';
+import React from 'react'
+import { tweets } from './tweets'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper'
+import '../../../css/swiper.css'
 
 function Reviews(props) {
   return (

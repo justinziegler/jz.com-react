@@ -3,13 +3,8 @@ import { Player } from 'video-react';
 
 function VideoSlide(props) {
   const slide = props.slide
-
   function handleVideoEnd(e) {
-    console.log('its over!!!')
-    // console.log('props.videoSwiper', props.videoSwiper)
-    // if (props.videoSwiper !== undefined) {
-    //   props.videoSwiper.slideNext()
-    // }
+    return
   }
   return (
     <>

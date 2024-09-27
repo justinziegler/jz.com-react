@@ -1,8 +1,8 @@
-import React, { useState }  from 'react';
+import React, { useState }                              from 'react';
 import { Autoplay, Navigation, Pagination, Mousewheel } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import VideoSlide from './videoSlide';
-import { slides } from './slides';
+import { Swiper, SwiperSlide }                          from 'swiper/react';
+import VideoSlide                                       from './videoSlide';
+import { slides }                                       from './slides';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -10,7 +10,6 @@ function VideoSlideshow(props) {
   const [videoSwiper, setVideoSwiper] = useState(null)
 
   function handleVideoSwiperClick(e) {
-    console.log('got here')
     const activeSlide = document.getElementsByClassName('swiper-slide')[videoSwiper.activeIndex];
     const activeSlideVideo = activeSlide.getElementsByTagName('video')[0];
     if (activeSlideVideo.paused) {

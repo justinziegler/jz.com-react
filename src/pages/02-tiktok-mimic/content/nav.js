@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React, { useState }  from 'react'
 
 function Nav(props) {
   const nav = [
@@ -41,9 +41,9 @@ function Nav(props) {
         props.setActiveNavItem(target)
       } else { 
         setMuted(!muted)
-        const videos = document.querySelectorAll('video');
+        const videos = document.querySelectorAll('video')
         videos.forEach(video => {
-          video.muted = !muted;
+          video.muted = !muted
         });
       }
     }

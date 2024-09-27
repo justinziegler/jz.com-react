@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Main                from '../../components/pageSections/main';
-import VideoSlideshow      from './content/videoSlideshow';
+import React, { useState } from 'react'
+import Main                from '../../components/pageSections/main'
+import VideoSlideshow      from './content/videoSlideshow'
 import Nav                 from './content/nav'
-import Reviews             from './content/reviews';
-import Email               from './content/email';
-import Faqs                from './content/faqs';
-import CTA                 from './content/cta';
+import Reviews             from './content/reviews'
+import Email               from './content/email'
+import Faqs                from './content/faqs'
+import CTA                 from './content/cta'
 import 'lazysizes'
 import '../../scss/promotion-tiktok.scss'
 
