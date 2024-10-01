@@ -283,20 +283,12 @@ $bg: transparent;
 }
 
 .case-study {
-  // background: tint($navy, 95%);
-  // color: $white;
-  // padding: 30px 0;
   position: relative;
-  // background-color: #fff;
-  // border-top: solid 1px tint($teal, 30%);
-  // border-bottom: solid 1px tint($teal, 30%);
-  // margin-bottom: vwp(30px);
-  // height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  // width: 100%;
+  width: 100%;
   z-index: 1;
   padding: 0 30px;
   @include mq(xsm) {
@@ -729,18 +721,23 @@ $bg: transparent;
       align-items: flex-start;
       justify-content: flex-end;
       flex-direction: column;
-      font-size: vwp(11px);
-      padding: vwp(5px) vwp(4px) 0 vwp(4px);
+      font-size: vwp(8.5px);
+      padding: vwp(3px) vwp(2px) 0 vwp(2px);
       @include mq(xs) {
-        font-size: vwl(11px);
-        padding: vwl(5px) vwp(4px) 0 vwp(4px);
+        font-size: vwl(10px);
+        padding: vwl(3px) vwp(2px) 0 vwp(2px);
       }
       @include mq(sm) {
-        font-size: 1.5rem;
-        padding: .5rem 1rem 0rem 1rem;
+        font-size: 1.4rem;
+        padding: .5rem .5rem 0rem .5rem;
+      }
+      @include mq(md) {
+        font-size: 1.3rem;
+        padding: .5rem .25rem 0rem .25rem;
       }
       @include mq(lg) {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+        padding: .5rem 1rem 0rem 1rem;
       }
     }
   }
