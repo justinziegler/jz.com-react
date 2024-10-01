@@ -1,0 +1,156 @@
+/* When editing, use the source file for this page in client/resources/sass */
+@import '../compass';
+
+// Core variables and mixins
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+$imgixCrop: 'fit=crop&crop=focalpoint';
+
+.logo {
+  @extend %svg;
+  height: 0;
+  padding-bottom: 85%;
+  background-position: 0 50%;
+}
+.logo-col {
+  padding-right: 0;
+}
+.photo-module {
+  @include mq(md) {
+    padding: 45px 0;
+  }
+  @include mq(lg) {
+    padding: 75px 0;
+  }
+  .container-fluid {
+    > .row {
+      @include mq(md) {
+        display: flex;
+        flex-direction: row;
+        > div {
+          flex: -1;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .photo-frame {
+    @include mq(xmd) {
+      padding: 0;
+    }
+    @include mq(smmd) {
+      float: none;
+    }
+  }
+  .photo {
+    background-color: #fff;
+    position: relative;
+    transition: 0.2s;
+    opacity: 0;
+    @include mq(xsm) {
+      height: 0;
+      padding-bottom: 45%;
+    }
+    @include mq(xxs) {
+      padding-bottom: 82.5%;
+    }
+    @include mq(sm) {
+      height: 400px;
+    }
+    @include mq(md) {
+      min-height: 400px;
+      height: 100%;
+      flex: 1;
+    }
+    @include mq(lg) {
+      min-height: 450px;
+    }
+    @media (min-width: 1660px) {
+      min-height: 500px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: solid 1px rgba(0, 0, 0, 0.025);
+    }
+    &.lazyloaded {
+      opacity: 1;
+    }
+  }
+  .content {
+    @include mq(xssm) {
+      padding: vwl(30px) 20%;
+    }
+    @include mq(xxs) {
+      padding-top: vwp(30px);
+      padding-bottom: vwp(30px);
+    }
+    @include mq(smmd) {
+      width: 750px;
+      margin: 0 auto;
+      float: none;
+    }
+    @include mq(md) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &.photo-left {
+    // photo on left, content on right
+    .photo-frame {
+      @include mq(md) {
+        padding-left: 0;
+      }
+    }
+    .content {
+      @include mq(md) {
+        width: 485px;
+        padding: 0 15px 0 30px;
+      }
+      @include mq(lg) {
+        width: 585px;
+        padding: 0 45px 0 60px;
+      }
+    }
+    &.sustainable {
+      // @include mq(lg) {
+      //   padding-top: 15px;
+      // }
+      .content {
+        @include mq(lg) {
+          padding-right: 75px;
+        }
+      }
+    }
+  }
+  &.photo-right {
+    // photo on right, content on left
+    .photo-frame {
+      @include mq(md) {
+        padding: 0 0 0 30px;
+      }
+      @include mq(lg) {
+        padding: 0 0 0 60px;
+      }
+    }
+    .content {
+      @include mq(md) {
+        padding: 0 15px 0 calc(50% - 440px);
+      }
+      @include mq(lg) {
+        padding: 0 15px 0 calc(50% - 525px);
+      }
+    }
+  }
+}

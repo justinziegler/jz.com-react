@@ -381,4 +381,13 @@
       }
     }
   }
+  &.additional-details {
+    .accordion {
+      h2 {
+        button {
+          background-color: #d5dee3;
+        }
+      }
+    }
+  }
 }

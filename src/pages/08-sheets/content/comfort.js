@@ -1,3 +1,5 @@
+import '../../../scss/08-sheets/comfort.scss'
+
 function Comfort(props) {
   return (
     <section className='comfort photo-module photo-right'>

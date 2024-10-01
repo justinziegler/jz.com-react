@@ -1,3 +1,5 @@
+import '../../../scss/08-sheets/ethical.scss'
+
 function Ethical(props) {
   const items = [
     {

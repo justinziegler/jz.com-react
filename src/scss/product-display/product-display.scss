@@ -139,7 +139,7 @@ h1,
   margin: 15px 0 5px 0;
   margin: vwp(15px) 0 vwp(5px) 0;
   padding: 0;
-  font-weight: 900;
+  font-weight: 700;
   @include mq(xs) {
     font-size: vwl(21px);
     margin: vwl(15px) 0 vwl(5px) 0;
@@ -261,7 +261,7 @@ h5 {
 h6 {
   font-size: 1.2rem;
   font-size: vwp(12px);
-  font-weight: 900;
+  font-weight: 700;
   margin: 5px 0 10px 0;
   margin: vwp(5px) 0 vwp(10px) 0;
   line-height: 1;
@@ -404,7 +404,7 @@ a {
           h6 {
             font-size: 85%;
             color: $white;
-            font-weight: 900;
+            font-weight: 700;
             display: block;
             text-align: center;
             padding-top: 5px;
@@ -1060,7 +1060,7 @@ a {
     }
   }
   h6 {
-    font-weight: 900;
+    font-weight: 700;
     color: $pink;
     position: relative;
     display: inline-block;

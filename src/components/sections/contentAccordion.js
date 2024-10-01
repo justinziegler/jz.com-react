@@ -6,7 +6,10 @@ function ContentAccordion(props) {
   return (
     <>
       { props.accordionContent.map((content, index) =>
-        <section className='content-accordion' key={ `accordion-${ index }` }>
+        <section 
+          className={ `content-accordion ${ content.type }` } 
+          key={ `accordion-${ index }` }
+        >
           <div className='container'>
             <div className='row'>
               <div className='heading col-xs-12'>

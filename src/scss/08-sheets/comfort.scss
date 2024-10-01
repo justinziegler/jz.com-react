@@ -1,0 +1,74 @@
+/* When editing, use the source file for this page in client/resources/sass */
+@import '../compass';
+
+// Core variables and mixins
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.comfort {
+  @include mq(md) {
+    padding: 45px 0;
+  }
+  @include mq(lg) {
+    padding: 75px 0;
+  }
+  h2 {
+    @include mq(md) {
+      margin-top: 0;
+    }
+  }
+  p {
+    &:last-of-type {
+      @include mq(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .photo {
+    &.lazyloaded {
+      background-image: url('../../assets/sheets/closeup-making-bed.jpg');
+      background-size: cover;
+      @include mq(xs) {
+        background-image: url('../../assets/sheets/closeup-making-bed-xs.jpg');
+      }
+      @include mq(sm) {
+        background-image: url('../../assets/sheets/closeup-making-bed-sm.jpg');
+        background-size: 992px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      @include mq(md) {
+        background-image: url('../../assets/sheets/closeup-making-bed-md.jpg');
+        background-size: 570px;
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+      }
+      @include mq(lg) {
+        background-image: url('../../assets/sheets/closeup-making-bed-lg.jpg');
+        background-size: 675px;
+      }
+      @media (min-width: 1440px) {
+        background-image: url('../../assets/sheets/closeup-making-bed-xl.jpg');
+        background-size: 830px;
+      }
+      @media (min-width: 1660px) {
+        background-image: url('../../assets/sheets/closeup-making-bed-xxl.jpg');
+        background-size: 960px;
+      }
+    }
+  }
+  .content {
+    padding: 30px 192px;
+    @include mq(xssm) {
+      padding: vwl(30px) 20%;
+    }
+    @include mq(xxs) {
+      padding: vwp(30px) 30px;
+    }
+  }
+}

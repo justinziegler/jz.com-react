@@ -4,8 +4,7 @@ import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig'
 import Main                 from '../../components/sections/main'
 import ProductDisplay       from '../../components/productDisplay'
-
-import '../../scss/product-cotton-sheets.scss'
+import '../../scss/08-sheets/gallery.scss'
 
 function ProductDisplaySheets () {
   const [productName, setProductName]       = useState(null)

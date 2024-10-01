@@ -154,7 +154,7 @@ footer {
     text-transform: none;
     color: $navy;
     font-size: 22.5px;
-    font-weight: 900;
+    font-weight: 700;
     margin: 0 0 5px 0;
     line-height: 1;
     @include mq(sm) {
@@ -170,7 +170,7 @@ footer {
   }
   h5 {
     font-size: 17.5px;
-    font-weight: 900;
+    font-weight: 700;
     color: $navy;
     margin: 25px 0 5px 0;
     text-transform: none;
@@ -184,7 +184,7 @@ footer {
   }
   h6 {
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1;
     margin: 0 0 15px 0;
     text-transform: none;
@@ -487,7 +487,7 @@ footer {
   h3 {
     font-size: 2.4rem;
     color: $white;
-    font-weight: 900;
+    font-weight: 700;
     margin: 0;
     text-align: left;
     @include mq(xsm) {

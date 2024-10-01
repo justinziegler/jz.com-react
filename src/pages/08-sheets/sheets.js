@@ -19,7 +19,7 @@ import SuggestedItems        from '../../components/sections/suggestedItems'
 import { faqs }              from './content/faqs'
 import Faqs                  from '../../components/sections/faqs'
 import Footer                from '../../components/sections/footer'
-import '../../scss/product-cotton-sheets.scss'
+import                            '../../scss/08-sheets/gallery.scss'
 
 function Sheets () {
   const [productName, setProductName]       = useState(null)
@@ -33,7 +33,7 @@ function Sheets () {
   page.pageId   = getPageId(pageUrl)
   page.pageUrl  = pageUrl
 
-  page.headerTitle = <>Product Detail Page &ndash; Bed Sheets</>
+  page.headerTitle = <>Product Detail Page &ndash; Sheets</>
   page.headerIntro = [
     <>REWRITE This configuration sorts through 42 product skus and over 100 upsell skus from 6 product lines. The upsells update their currently offered product size when the main product size selection changes.</>
   ]

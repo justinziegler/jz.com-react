@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import                                     '../css/bootstrap-grid.css'
+import                                     '../scss/product-display/product-display.scss'
 import Gallery                        from './productDisplay/gallery';
 import Ratings                        from './productDisplay/ratings';
 import SizeSelect                     from './productDisplay/sizeSelect';
@@ -12,8 +14,6 @@ import CartButton                     from './productDisplay/cartButton'
 import Cart                           from './productDisplay/cart'
 import { getUpsellSize }              from './utils/getUpsellSize'
 import { getInitialSelection }        from './utils/getInitialSelection';
-import '../css/bootstrap-grid.css'
-import '../scss/product-display/product-display.scss'
 
 let initial = []
 

@@ -1,3 +1,5 @@
+import '../../../scss/08-sheets/photo-module.scss'
+import '../../../scss/08-sheets/mission.scss'
 
 function Mission(props) {
   const content = [

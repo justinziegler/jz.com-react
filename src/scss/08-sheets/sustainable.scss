@@ -1,0 +1,93 @@
+/* When editing, use the source file for this page in client/resources/sass */
+@import '../compass';
+
+// Core variables and mixins
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.sustainable {
+  background-color: #f7f6f4;
+  h2 {
+    @include mq(md) {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    @include mq(xmd) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  p {
+    &.last {
+      @include mq(md) {
+        margin: 0;
+      }
+    }
+  }
+  .photo {
+    &.lazyloaded {
+      background-image: url('../../assets/sheets/photo-parachute.jpg');
+      background-size: cover;
+      @include mq(xs) {
+        background-image: url('../../assets/sheets/photo-parachute-xs.jpg');
+      }
+      @include mq(sm) {
+        background-image: url('../../assets/sheets/photo-parachute-sm.jpg');
+        background-size: 992px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      @include mq(md) {
+        background-image: url('../../assets/sheets/photo-parachute-md.jpg');
+        background-size: 600px;
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+      }
+      @include mq(lg) {
+        background-image: url('../../assets/sheets/photo-parachute-lg.jpg');
+        background-size: 720px;
+      }
+      @media (min-width: 1440px) {
+        background-image: url('../../assets/sheets/photo-parachute-xl.jpg');
+        background-size: 830px;
+      }
+      @media (min-width: 1660px) {
+        background-image: url('../../assets/sheets/photo-parachute-xxl.jpg');
+        background-size: 960px;
+      }
+    }
+  }
+  .content {
+    @include mq(xssm) {
+      padding: vwl(30px) 20%;
+    }
+    @include mq(xxs) {
+      padding-top: vwp(30px);
+      padding-bottom: vwp(30px);
+    }
+    @include mq(smmd) {
+      padding: 30px 195px;
+    }
+  }
+  .logo {
+    @include mq(xsm) {
+      background-position: 50% 50%;
+      margin-bottom: 15px;
+      margin-bottom: vwl(15px);
+      @include mq(xxs) {
+        margin-bottom: vwp(15px);
+      }
+    }
+    &.oeko-tex {
+      @include mq(xsm) {
+        padding-bottom: 32%;
+      }
+    }
+  }
+}

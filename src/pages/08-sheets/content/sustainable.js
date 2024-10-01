@@ -1,3 +1,5 @@
+import '../../../scss/08-sheets/sustainable.scss'
+
 function Sustainable(props) {
   return (
     <section className='sustainable photo-module photo-left'>
