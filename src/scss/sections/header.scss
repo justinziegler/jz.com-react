@@ -110,7 +110,8 @@ $height: 50px;
     line-height: 1.4;
   }
   p {
-    margin: .5rem 0;
+    margin: .5rem 0 1rem 0;
+    font-size: 1.6rem;
     a {
       font-weight: 500;
       color: shade($teal, 20%);

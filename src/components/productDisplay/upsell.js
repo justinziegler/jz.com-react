@@ -45,7 +45,6 @@ function Upsell(props) {
   
   React.useEffect(()=> {
     const sku = `${ props.prefix }-${ type }-${ color }-${ props.size }`
-    console.log('sku', sku)
     props.setUpsellSku(sku)
     handlePrice(sku)
   }, [props.size]);
