@@ -35,10 +35,9 @@ function Gallery(props) {
   valueProps.push(vp)
   
   return (
-    <>
+    <div className='right-col col-xs-12 col-sm-5 col-lg-4 col-lg-offset-1'>
       <Swiper
         modules={[EffectFlip, Pagination]} effect='flip'
-        className='col-xs-12 col-sm-5 col-lg-4 col-lg-offset-1'
         flipEffect={{
           slideShadows: false
         }}
@@ -65,7 +64,7 @@ function Gallery(props) {
         Shop the Mattress
       </a>
       <div className='clearfix'></div>
-    </>
+    </div>
   )
 }
 

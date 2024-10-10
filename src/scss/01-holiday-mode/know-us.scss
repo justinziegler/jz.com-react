@@ -61,6 +61,9 @@
 				background-image: url('../../assets/holiday-promotion/explainer-video-md.jpg');
 			}
 		}
+		&:focus {
+			outline: none;
+		}
 	}
 	.play {
 		background-color: #f72351;

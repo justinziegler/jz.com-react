@@ -24,11 +24,12 @@ import Footer                  from '../../components/sections/footer'
 import '../../scss/07-bed-frame/gallery.scss'
 
 function BedFrame () {
-  const [productName, setProductName] = useState(null)
-  const [type, setType] = useState(null)
-  const [color, setColor] = useState(null)
-  const [price, setPrice] = useState(0)
+  const [productName, setProductName]       = useState(null)
+  const [type, setType]                     = useState(null)
+  const [color, setColor]                   = useState(null)
+  const [price, setPrice]                   = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
+  const [scrolled, setScrolled]             = useState(false)
 
   const pageUrl = 'bed-frame'
   let page      = getProductConfig('frame');
@@ -55,31 +56,22 @@ function BedFrame () {
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
       />
-      
-      <ScrollToAnchor monthlyPayment={ monthlyPayment } />
-
+      <ScrollToAnchor 
+        monthlyPayment={ monthlyPayment } 
+        scrolled={ scrolled }
+        setScrolled={ setScrolled }
+      />
       <OurWay ourWay={ ourWay } />
-
       <FinancingInfo productName={ productName } monthlyPayment={ monthlyPayment }/>
-
       <Versatile productName={ productName }/>
-
       <Features productName={ productName } Swiper={ Swiper } SwiperSlide={ SwiperSlide } />
-
       <Compare type={ type } color={ color } />
-
       <Assembly />
-
       <Ethical />
-     
       <Reviews reviews={ frameReviews } />
-
       <SuggestedItems suggestedItems={ suggestedItems } />
-
       <Faqs faqs={ faqs } />
-
       <Footer />
-
     </Main>
   )
 }

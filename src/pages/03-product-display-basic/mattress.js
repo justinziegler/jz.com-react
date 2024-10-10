@@ -4,7 +4,7 @@ import { getPageId }        from '../../components/utils/getPageId'
 import { getProductConfig } from '../../components/utils/getProductConfig'
 import Main                 from '../../components/sections/main'
 import ProductDisplay       from '../../components/productDisplay'
-import '../../css/product-shop-opm-gallery.css'
+import                           '../../css/product-shop-opm-gallery.css'
 
 function ProductDisplayMattress() {
   const [productName, setProductName]       = useState(null)
@@ -13,10 +13,11 @@ function ProductDisplayMattress() {
   const [price, setPrice]                   = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
 
-  const pageUrl = 'product-display-mattress'
-  let page      = getProductConfig('mattress')
-  page.pageId   = getPageId(pageUrl)
-  page.pageUrl  = pageUrl
+  const pageUrl   = 'product-display-mattress'
+  let page        = getProductConfig('mattress')
+  page.pageId     = getPageId(pageUrl)
+  page.pageUrl    = pageUrl
+  page.background = '#f7f5f3'
 
   page.headerTitle = <>Product Display &ndash; Basic Config</>
   page.headerIntro = [

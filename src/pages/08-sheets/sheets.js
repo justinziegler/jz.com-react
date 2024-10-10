@@ -27,6 +27,7 @@ function Sheets () {
   const [color, setColor]                   = useState(null)
   const [price, setPrice]                   = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
+  const [scrolled, setScrolled]             = useState(false)
 
   const pageUrl = 'sheets'
   let page      = getProductConfig('sheets')
@@ -53,7 +54,11 @@ function Sheets () {
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
       />
-      <ScrollToAnchor monthlyPayment={ monthlyPayment } />
+      <ScrollToAnchor 
+        monthlyPayment={ monthlyPayment } 
+        scrolled={ scrolled }
+        setScrolled={ setScrolled }
+      />
       <ContentAccordion accordionContent={ valueProps } />
       <Mission />
       <Ethical />

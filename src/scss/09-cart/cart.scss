@@ -76,7 +76,7 @@ h1 {
   }
 }
 h2 {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 2rem;
   margin: 10px 0 15px 0;
   @include mq(xsm) {
@@ -395,7 +395,7 @@ main {
   }
   span {
     color: $pink;
-    font-weight: 900;
+    font-weight: 700;
   }
 }
 .heading {
@@ -1924,7 +1924,7 @@ li.removed-items {
     font-size: 2rem;
     &::before,
     &::after {
-      font-weight: 900;
+      font-weight: 700;
       position: relative;
     }
     &::after {
@@ -1936,7 +1936,7 @@ li.removed-items {
     }
     &.my-order {
       text-align: left;
-      font-weight: 900;
+      font-weight: 700;
       font-size: 2rem;
       margin: 5px 0 10px;
       @include mq(sm) {
@@ -1973,7 +1973,7 @@ li.removed-items {
   &::after {
     content: 'OR';
     font-size: 1.4rem;
-    font-weight: 900;
+    font-weight: 700;
     color: $navy;
     position: absolute;
     left: 100%;

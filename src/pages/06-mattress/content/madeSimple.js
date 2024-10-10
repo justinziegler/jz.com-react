@@ -1,17 +1,21 @@
-import React, { useState, useContext  } from 'react';
-import Accordion from 'react-bootstrap/Accordion';
-import AccordionContext from 'react-bootstrap/AccordionContext';
-import { useAccordionButton } from 'react-bootstrap/AccordionButton';
-import Card from 'react-bootstrap/Card';
-import '../../../scss/06-mattress/made-simple.scss'
+import React, { useState, useContext, useEffect } from 'react';
+import Accordion                                  from 'react-bootstrap/Accordion';
+import AccordionContext                           from 'react-bootstrap/AccordionContext';
+import { useAccordionButton }                     from 'react-bootstrap/AccordionButton';
+import Card                                       from 'react-bootstrap/Card';
+import                                                 '../../../scss/06-mattress/made-simple.scss'
 
-function ContextAwareToggle({ children, eventKey, setActiveIndex }) {
+function ContextAwareToggle({ children, eventKey, callback, setActiveIndex }) {
   const { activeEventKey } = useContext(AccordionContext);
-  const handleClick = useAccordionButton (
+  const handleClick = useAccordionButton(
     eventKey,
-    setActiveIndex(activeEventKey)
+    () => callback && callback(eventKey),
   );
   const isCurrentEventKey = activeEventKey === eventKey;
+
+  useEffect(() => {
+    setActiveIndex(activeEventKey)
+  }, [activeEventKey, setActiveIndex]);
 
   return (
     <h4
@@ -21,7 +25,7 @@ function ContextAwareToggle({ children, eventKey, setActiveIndex }) {
       onClick={ handleClick  }
       key={ `btn${ eventKey }`}
     >
-      {children}
+      { children }
     </h4>
   );
 }
@@ -64,7 +68,9 @@ function MadeSimple(props) {
                           <ContextAwareToggle 
                             eventKey={ index }
                             setActiveIndex={ setActiveIndex }
-                          >{ item.title }</ContextAwareToggle>
+                          >
+                            { item.title }
+                          </ContextAwareToggle>
                         </Card.Header>
                         <Accordion.Collapse eventKey={ index }>
                           <Card.Body>

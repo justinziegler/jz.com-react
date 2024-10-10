@@ -4,15 +4,6 @@
 @import '../bootstrap/variables';
 @import '../bootstrap/mixins';
 
-// Reset and dependencies
-@import '../bootstrap/normalize';
-
-// Core CSS
-@import '../bootstrap/scaffolding';
-@import '../bootstrap/grid';
-@import '../bootstrap/utilities';
-@import '../bootstrap/responsive-utilities';
-
 @import '../partials/variables';
 @import '../partials/mixins';
 @import '../partials/svg';
@@ -161,19 +152,6 @@ $modal-scale-transform:             scale(1.02) !default;
   }
 }
 /////////////////////////////////////////////
-
-body {
-	margin: 0!important;
-	&.banner-margin {
-		margin: 27px 0 0 0 !important;
-		@include mq(md) {
-			margin: 32px 0 0 0 !important;
-		}
-		@include mq(lg) {
-			margin: 35px 0 0 0 !important;
-		}
-	}
-}
 
 main {
 	max-width: 1920px;

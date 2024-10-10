@@ -13,10 +13,11 @@ function ProductDisplayFrame () {
   const [price, setPrice]                   = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
 
-  const pageUrl = 'product-display-frame'
-  let page      = getProductConfig('frame');
-  page.pageId   = getPageId(pageUrl)
-  page.pageUrl  = pageUrl
+  const pageUrl   = 'product-display-frame'
+  let page        = getProductConfig('frame');
+  page.pageId     = getPageId(pageUrl)
+  page.pageUrl    = pageUrl
+  page.background = '#f7f5f3'
 
   page.headerTitle = <>Product Display &ndash; Intermediate Config</>
   page.headerIntro = [

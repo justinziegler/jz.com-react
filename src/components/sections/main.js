@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import Header from './header';
+import React, { useState } from 'react'
+import Header              from './header'
 
 function Main(props) {
-  const p = props.page;
-  const { children } = props;
+  const p = props.page
+  const { children } = props
 
   // Page details
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true)
+  const [showOverlay, setShowOverlay] = useState(true)
   const handleOpen = (e) => {
-    e.preventDefault();
-    setOpen(!open);
+    e.preventDefault()
+    setOpen(!open)
+    setShowOverlay(false)
   }
 
   // Hamburger menu
-  const [openHamburger, setOpenHamburger] = useState(false);
+  const [openHamburger, setOpenHamburger] = useState(false)
   const handleOpenHamburger = (e) => {
-    e.preventDefault();
-    setOpenHamburger(!openHamburger);
+    e.preventDefault()
+    setOpenHamburger(!openHamburger)
   }
 
   const resetHeader = (e) => {
-    setOpen(false);
-    setOpenHamburger(false);
+    setOpen(false)
+    setOpenHamburger(false)
+    setShowOverlay(false)
   }
   return (
     <>
@@ -39,14 +42,15 @@ function Main(props) {
       <main onClick={ resetHeader } 
         data-active-slide={ props.activeIndex } 
         data-active={ props.navActive }
+        style={{ backgroundColor: p.background !== undefined ? p.background : null }}
       >
         { children }
-        { p.header && p.pageUrl !== '/' &&
-          <div className="header-overlay" data-visible={ open }></div>
+        { p.pageUrl !== '/' &&
+          <div className="header-overlay" data-visible={ showOverlay }></div>
         }
       </main>
     </>
   )
 }
 
-export default Main;
+export default Main

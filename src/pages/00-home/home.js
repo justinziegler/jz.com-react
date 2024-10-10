@@ -40,7 +40,7 @@ function Home(props) {
   })
   const startHere = {
     url: startHereUrl,
-    title: 'Start from Beginning »',
+    title: 'Start from Beginning',
     background: collage
   }
   caseStudies.push(startHere);
@@ -55,8 +55,9 @@ function Home(props) {
             </div>
             <div className='case-studies'>
               { caseStudies.map((cs, index) =>
-                <div className='item' 
-                  style={{ backgroundImage: `url('${ cs.background }')` }} 
+                <div
+                  className={ index === 9 ? 'last item' : 'item' }
+                  style={{ backgroundImage: `url('${ cs.background }')` }}
                   key={ `cs${ index }`}
                 >
                   <a href={ cs.url } title={ cs.title }>

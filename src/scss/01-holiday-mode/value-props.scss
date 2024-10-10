@@ -36,6 +36,9 @@
 			text-shadow: 0 0 15px #FFFFFF;
 		}
 	}
+	.right-col {
+		padding: 0;
+	}
 	.slide-content {
 		position: relative;
 		text-align: center;
@@ -71,7 +74,7 @@
 	.swiper {
 		height: 535px;
 		z-index: 10;
-		overflow: visible;
+		// overflow: visible;
 		padding: 0;
 		@media (min-width: 360px) {
 			height: 602px;

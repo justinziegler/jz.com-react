@@ -13,6 +13,7 @@ function Header(props) {
   const pageId = getPageId(p.pageUrl)
   const prevPage = getPrevPage(p.pageUrl)
   const nextPage = getNextPage(p.pageUrl)
+  const mobile = window.innerWidth < 768
 
   return (
     <nav id='nav' data-collapsed={ !props.open } data-current-page={ p.pageUrl }>
@@ -26,30 +27,47 @@ function Header(props) {
             <h2>Justin Ziegler &nbsp;<span>Recent Work</span> </h2>
           </div>
         
-        <div className='nav-col right'>
-          <a href='#' 
-            className='hamburger' 
-            onClick={ props.handleOpenHamburger }
-            aria-controls='nav-links'
-            aria-expanded={ props.openHamburger }>
-            <span></span>
-            <span></span>
-            <span></span>
-          </a>
-          <Collapse in={ props.openHamburger }>
-            <ul className='nav-links'> 
-                { navLinks.map((x, index) =>
-                  <li className={ x.class } key={ `navlink${index}`}>
-                    { x.target !== '' ?
-                      <a href={ x.link } target='_blank' tabIndex='0'>{ x.title }</a>
-                      :
-                      <a href={ x.link } tabIndex='0'>{ x.title }</a>
-                    }
-                  </li>
-                )}
-            </ul>
-          </Collapse>
-        </div>
+          { mobile ?
+            <div className='nav-col right'>
+              <a href='#' 
+                className='hamburger' 
+                onClick={ props.handleOpenHamburger }
+                aria-controls='nav-links'
+                aria-expanded={ props.openHamburger }>
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+              <Collapse in={ props.openHamburger }>
+                <ul className='nav-links'> 
+                    { navLinks.map((x, index) =>
+                      <li className={ x.class } key={ `navlink${index}`}>
+                        { x.target !== '' ?
+                          <a href={ x.link } target='_blank' tabIndex='0'>{ x.title }</a>
+                          :
+                          <a href={ x.link } tabIndex='0'>{ x.title }</a>
+                        }
+                      </li>
+                    )}
+                </ul>
+              </Collapse>
+            </div>
+            :
+            <div className='nav-col right'>              
+              <ul className='nav-links'> 
+                  { navLinks.map((x, index) =>
+                    <li className={ x.class } key={ `navlink${index}`}>
+                      { x.target !== '' ?
+                        <a href={ x.link } target='_blank' tabIndex='0'>{ x.title }</a>
+                        :
+                        <a href={ x.link } tabIndex='0'>{ x.title }</a>
+                      }
+                    </li>
+                  )}
+              </ul>
+            </div>
+          }
+          
       </div>
 
       <div className='header-content bottom'>
@@ -128,10 +146,10 @@ function Header(props) {
                   { p.pageUrl === 'holiday-mode' ?
                     <>
                       <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode } key='toggleOff'>
-                        Holiday Mode Off
+                        Normal Mode
                       </button>
                       <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode } key='toggleOn'>
-                        Holiday Mode On
+                        Holiday Mode
                       </button>
                     </>
                   :

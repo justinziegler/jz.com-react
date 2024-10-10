@@ -31,6 +31,7 @@ function Mattress (props) {
   const [color, setColor]                   = useState(null)
   const [price, setPrice]                   = useState(0)
   const [monthlyPayment, setMonthlyPayment] = useState(0)
+  const [scrolled, setScrolled]             = useState(false)
 
   const pageUrl = 'mattress'
   let page      = getProductConfig('mattress')
@@ -58,14 +59,18 @@ function Mattress (props) {
         monthlyPayment={ monthlyPayment }
         setMonthlyPayment={ setMonthlyPayment }
       />
-      <ScrollToAnchor monthlyPayment={ monthlyPayment } />
+      <ScrollToAnchor 
+        monthlyPayment={ monthlyPayment } 
+        scrolled={ scrolled }
+        setScrolled={ setScrolled }
+      />
       <OurWay ourWay={ ourWay } />
       <Upgrade />
       <ValueProps vp={ valueProps } />
       <Layers />
       <FinancingInfo monthlyPayment={ monthlyPayment } />
       <FirmnessScale />
-      <MadeSimple monthlyPayment={ monthlyPayment } />
+      <MadeSimple />
       <Ratings />
       <Reviews reviews={ mattressReviews } />
       <BedFrames />

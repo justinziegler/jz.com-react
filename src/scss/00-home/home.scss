@@ -629,32 +629,129 @@ $bg: transparent;
     padding-bottom: 22%;
     flex: 1 1 calc((100% / 3) - 3rem);
   }
-  &:last-of-type {
+  &.last {
+    height: auto;
+    background-position: 50% 0;
+    @include mq(xs) {
+      background-image: none!important;
+      padding: vwl(12.5px) 0;
+    }
+    @include mq(sm) {
+      padding: 15px 0;
+      margin-left: calc(66.66666667% + 12px);
+    }
     a {
       &:before, &::after {
         content: '';
         position: absolute;
         background-repeat: no-repeat;
-        background-size: 20%;
+        background-size: 12%;
         @include chevron(#000);
-        @extend %filterNavy;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         opacity: .75;
         transition: .2s;
-      }
-      &:before {
-        background-position: 40% 50%;
+        @include mq(xs) {
+          width: vwl(15px);
+          // height: vwl(20px);
+          top: 0;
+          bottom: 0;
+          left: auto;
+          opacity: 1;
+          background-size: contain;
+          background-position: 50% 50%;
+          // @extend %filterTeal;
+        }
+        @include mq(sm) {
+          width: 20px;
+          // height: 26px;
+          // top: 2px;
+          // bottom: 2px;
+        }
       }
       &:after {
-        background-position: 60% 50%;
+        @include mq(xs) {
+          right: vwl(10px);
+        }
+        @include mq(sm) {
+          right: 12px;
+        }
+      }
+    }
+    a {
+      @include mq(xs) {
+        background: none;
+        border: none;
+        line-height: 2.1;
+      }
+      @include mq(sm) {
+        line-height: 1.7;
+      }
+      &:before, &::after {
+        // @extend %filterTeal;
+        @extend %filterNavy;
+      }
+      &::before {
+        @include mq(xxs) {
+          background-position: 45% 50%;
+        }
+      }
+      &::after {
+        @include mq(xxs) {
+          background-position: 55% 50%;
+        }
       }
       &:hover {
+        @include mq(xs) {
+          border: none;
+          background: none;
+
+        }
         &:before, &::after {
+          // filter: invert(100%) sepia(5%) saturate(0%) hue-rotate(288deg) brightness(106%) contrast(104%); // white
+          
           @extend %filterTeal;
         }
+        .case-title {
+          @include mq(xs) {
+            background: none;
+            color: shade($teal, 20%);
+            // background-color: shade($teal, 10%);\
+            outline: none;
+          }
+        }
+      }
+      .case-title {
+        @include mq(xs) {
+          align-items: flex-end;
+          background: none;
+          color: $navy;
+          padding: 0 vwl(15px) 0 0;
+          top: vwl(3px);
+          bottom: vwl(3px);
+          right: vwl(16px);
+          // background-color: #ccc;
+          @include mq(sm) {
+            right: 20px;
+            top: 5px;
+            bottom: 5px;
+            padding: 0 15px 0 0;
+          }
+        }
+        // &::before {
+        //   filter: invert(100%) sepia(5%) saturate(0%) hue-rotate(288deg) brightness(106%) contrast(104%); // white
+        //   right: vwl(-3px);
+        //   @include mq(sm) {
+        //     top: -3px;
+        //     right: -4px;
+        //     bottom: -3px;
+        //   }
+        // }
+        // &::after {
+        //   background: none;
+        // }
       }
     }
   }

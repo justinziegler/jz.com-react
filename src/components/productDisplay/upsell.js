@@ -43,11 +43,15 @@ function Upsell(props) {
     handlePrice(sku)
   }
   
-  React.useEffect(()=> {
-    const sku = `${ props.prefix }-${ type }-${ color }-${ props.size }`
-    props.setUpsellSku(sku)
-    handlePrice(sku)
-  }, [props.size]);
+  
+
+  const HandleSize = (props) => {
+    React.useEffect(()=> {
+      const sku = `${ props.prefix }-${ props.type }-${ props.color }-${ props.size }`
+      props.setUpsellSku(sku)
+      props.handlePrice(sku)
+    }, [props])
+  }
 
 
   const handleShowModal = (e) => {
@@ -60,6 +64,14 @@ function Upsell(props) {
     <li className='item' 
       key={ `upsell${ index }` }
     >
+      <HandleSize 
+        prefix={ props.prefix }
+        type={ type }
+        color={ color }
+        size={ props.size }
+        setUpsellSku={ props.setUpsellSku }
+        handlePrice={ handlePrice }
+      />
       <UpsellModal 
         showModal={ showModal }
         setShowModal={ setShowModal }
