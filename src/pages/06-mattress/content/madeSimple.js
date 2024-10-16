@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
 import { Swiper, SwiperSlide }                    from 'swiper/react';
 import { Pagination }                             from 'swiper';
 import Accordion                                  from 'react-bootstrap/Accordion';
@@ -33,6 +33,21 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveIndex }) {
 }
 
 function MadeSimple(props) {
+  function useWindowSize() {
+    const [width, setWidth] = useState(0)
+    useLayoutEffect(() => {
+      function updateWidth() {
+        setWidth(window.innerWidth);
+      }
+      window.addEventListener('resize', updateWidth);
+      updateWidth();
+      return () => window.removeEventListener('resize', updateWidth);
+    }, []);
+    return width;
+  }
+  
+  let mobile = useWindowSize() < 768;
+
   const items = [
     {
       title: 'Free Shipping & Easy Returns',
@@ -53,42 +68,41 @@ function MadeSimple(props) {
   ]
 
   const [activeIndex, setActiveIndex] = useState(0)
-  const mobile = window.innerWidth < 768
-
 
   return (
     <section className='made-simple'>
       <div className='container'>
         <div className='row'>
           <div className='col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1'>
-            <h2>Mattress Buying<br /> Made Simple</h2>
+            <h2>Mattress Buying<br /> Made Simple  { mobile }</h2>
             <div className='frame' data-current={ activeIndex }>
               <div className='stage'>
                 { mobile ?
-                  <>
-                    <Swiper 
-                      modules={[Pagination]} 
-                      pagination={{
-                        el: '.simple.swiper-pagination',
-                        clickable: true,
-                      }}
-                      loop={ true }
-                      grabCursor={ true }
-                      centeredSlides={ true }
-                    >
-                      { items.map((item, index) =>
-                        <SwiperSlide key={ `slideshow-${ index }` }>
-                          <div className='content'>
-                            <h4>{ item.title }</h4>
-                            <p>{ item.details }</p>
-                          </div>
-                        </SwiperSlide>
-                      )}
-                    </Swiper>
-                    
-                  </>
+                  <Swiper 
+                    modules={[Pagination]} 
+                    pagination={{
+                      el: '.simple.swiper-pagination',
+                      clickable: true,
+                    }}
+                    loop={ true }
+                    grabCursor={ true }
+                    centeredSlides={ true }
+                  >
+                    { items.map((item, index) =>
+                      <SwiperSlide key={ `slideshow-${ index }` }>
+                        <div className='content'>
+                          <h4>{ item.title }</h4>
+                          <p>{ item.details }</p>
+                        </div>
+                      </SwiperSlide>
+                    )}
+                  </Swiper>
                 :
-                  <Accordion defaultActiveKey={ 0 } flush  key={ `accordion`}>
+                  <Accordion 
+                    defaultActiveKey={ 0 } 
+                    flush  
+                    key={ `accordion`}
+                  >
                     { items.map((item, index) =>
                       <React.Fragment key={ `accordion${ index }`}>
                         <Card>
@@ -116,7 +130,7 @@ function MadeSimple(props) {
               { mobile ?
                 <div className='simple swiper-pagination'></div>
               :
-                <div className='dots'>
+                <div className='dots hidden-xs'>
                   { items.map((item, index) =>
                     <button data-slide={ index } 
                       data-active={ index === activeIndex } 

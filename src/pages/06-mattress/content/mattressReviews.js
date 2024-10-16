@@ -1,6 +1,6 @@
 const mattressReviews = [
 	{
-		heading: <>A Better Night's Sleep from the Internet's<br class="visible-sm visible-md visible-lg" /> Favorite Mattress Company</>,
+		heading: <>A Better Night's Sleep from the Internet's<br className="visible-sm visible-md visible-lg" /> Favorite Mattress Company</>,
 		subheading: '',
     navyBackground: true,
 		reviews: [

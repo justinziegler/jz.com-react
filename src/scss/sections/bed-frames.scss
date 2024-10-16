@@ -29,24 +29,6 @@
   @include mq(lg) {
     padding: 45px 0 75px 0;
   }
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 2px;
-    background-color: #ededed;
-    width: calc(100% - 30px);
-    transform: translateX(-50%);
-    @include mq(sm) {
-      width: 720px;
-    }
-    @include mq(md) {
-      width: 940px;
-    }
-    @include mq(lg) {
-      width: 1140px;
-    }
-  }
   h2 {
     color: $navy;
   }
