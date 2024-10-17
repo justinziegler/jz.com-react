@@ -1,6 +1,7 @@
-import { getColorName } from '../utils/getColorName';
+import { getColorName }    from '../utils/getColorName'
 import { numberWithCommas} from '../utils/numberWithCommas'
-import { getProductSkus } from '../utils/getProductSkus';
+import { getProductSkus }  from '../utils/getProductSkus'
+import                          '../../scss/product-display/size-guide-modal-mattress.scss'
 
 const catIds = [1]
 const discountActual = 200
@@ -36,7 +37,7 @@ const pageMattress = [
         mattressTooltip: true
       }
     ],
-    showSizeGuide: true,
+    sizeGuide: true,
     sizeGuideProductName: 'Mattress',
     sizeGuideMattressModal: true,
     sizeGuideDimensionsLink: true,

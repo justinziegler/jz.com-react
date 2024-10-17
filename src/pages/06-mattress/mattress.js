@@ -23,7 +23,8 @@ import SuggestedItems       from '../../components/sections/suggestedItems';
 import { faqs }             from './content/faqs';
 import Faqs                 from '../../components/sections/faqs';
 import Footer               from '../../components/sections/footer';
-import '../../css/product-shop-opm-gallery.css'
+import                           '../../css/product-shop-opm-gallery.css'
+import                           '../../scss/product-display/size-guide-modal-mattress.scss'
 
 function Mattress (props) {
   const [productName, setProductName]       = useState(null)

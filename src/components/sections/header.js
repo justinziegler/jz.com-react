@@ -1,19 +1,19 @@
-import React           from 'react';
-import Collapse        from 'react-bootstrap/Collapse';
-import { navLinks }    from '../data/navLinks';
-import { getPageId }   from '../utils/getPageId';
-import { getPrevPage } from '../utils/getPrevPage';
-import { getNextPage } from '../utils/getNextPage';
-
-import '../../scss/sections/header.scss';
-import '../../css/bootstrap-grid.css';
+import React           from 'react'
+import Collapse        from 'react-bootstrap/Collapse'
+import { navLinks }    from '../data/navLinks'
+import { getPageId }   from '../utils/getPageId'
+import { getPrevPage } from '../utils/getPrevPage'
+import { getNextPage } from '../utils/getNextPage'
+import { useWidth }    from '../utils/useWidth'
+import                      '../../scss/sections/header.scss';
+import                      '../../css/bootstrap-grid.css';
 
 function Header(props) {
   const p = props.page
   const pageId = getPageId(p.pageUrl)
   const prevPage = getPrevPage(p.pageUrl)
   const nextPage = getNextPage(p.pageUrl)
-  const mobile = window.innerWidth < 768
+  let mobile = useWidth() < 768
 
   return (
     <nav id='nav' data-collapsed={ !props.open } data-current-page={ p.pageUrl }>

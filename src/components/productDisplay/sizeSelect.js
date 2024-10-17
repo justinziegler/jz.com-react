@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
-import { getUpsellSize } from '../utils/getUpsellSize'
-import Dimensions from "./dimensions";
+import { getUpsellSize }   from '../utils/getUpsellSize'
+import Dimensions          from './dimensions'
+import SizeGuideModal      from './sizeGuideModal'
 
 function SizeSelect(props) {
-  const p = props.p;
+  const p = props.p
+  const [showModal, setShowModal] = useState(false)
+
+  const handleShowModal = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    setShowModal(true)
+  }
 
   const handleSize = (e) => {
     let outofstock = e.target.dataset.outofstock === 'true';
@@ -28,7 +36,7 @@ function SizeSelect(props) {
   return (
     <React.Fragment key='size-select'>
       <div className='product-details row' >
-        { p.showSizeGuide ?
+        { p.sizeGuide ?
           <React.Fragment key='product-details'>
             { p.productDimensions ?
               <div className='dimensions left-col col-xs-8'  key='product-details01'>
@@ -42,15 +50,22 @@ function SizeSelect(props) {
               </div>
             }
             <div className='size-guide right-col col-xs-4' key='product-details03'>
-              <p><a data-toggle='modal' role='button' tabIndex='0' 
-              // save for later
-                // {% if sizeGuide.mattressModal %}
-                //   data-target='#mattress-size-guide-modal'
-                // {% else %}
-                //   data-target='#size-guide-modal'
-                // {% endif %}
-                href='#'>Size Guide</a></p>
+              <p>
+                <a 
+                  onClick={ handleShowModal }
+                  role='button' 
+                  tabIndex='0' 
+                  href='./'
+                >
+                  Size Guide
+                </a>
+              </p>
             </div>
+            <SizeGuideModal 
+              p={ p } 
+              showModal={ showModal }
+              setShowModal={ setShowModal }
+            />
           </React.Fragment>
         :
           <div className="delivery-window left-col col-xs-12" key='product-details04'>

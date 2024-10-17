@@ -43,8 +43,6 @@ function Upsell(props) {
     handlePrice(sku)
   }
   
-  
-
   const HandleSize = (props) => {
     React.useEffect(()=> {
       const sku = `${ props.prefix }-${ props.type }-${ props.color }-${ props.size }`

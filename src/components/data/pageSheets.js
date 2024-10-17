@@ -51,14 +51,7 @@ const pageSheets = [
     ],
     deliveryWindowText: <p>Included:<br />Fitted sheet, top sheet and <span className="hidden-xs">matching</span> <span className="pillowcase">pillowcase</span></p>,
     readyToShipMessage: true,
-    sizeGuide: [
-      {
-        show: false,
-        productName: '',
-        mattressModal: false,
-        dimensionsLink: false
-      }
-    ],
+    sizeGuide: false,
     productDimensions: false,
     colorSelection: true,
     colorDisplayOrder: [ 

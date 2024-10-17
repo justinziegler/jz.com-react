@@ -3,6 +3,7 @@ import { numberWithCommas} from '../utils/numberWithCommas'
 import { getProductSkus }  from '../utils/getProductSkus';
 import { getShortName }    from '../utils/getShortName';
 import { getProductName }  from '../utils/getProductName';
+import                          '../../scss/product-display/size-guide-modal.scss'
 
 const catIds = [40, 41]
 const discountActual = 200
@@ -48,14 +49,10 @@ const pageFrame = [
     ],
     deliveryWindowText: <p>Ships in 1&ndash;4 business days</p>,
     readyToShipMessage: true,
-    sizeGuide: [
-      {
-        show: true,
-        productName: getProductName('UU'),
-        mattressModal: false,
-        dimensionsLink: false
-      }
-    ],
+    sizeGuide: true,
+    sizeGuideProductName: getProductName('UU'),
+    sizeGuideMattressModal: false,
+    sizeGuideDimensionsLink: false,
     productDimensions: false,
     colorSelection: true,
     colorDisplayOrder: [ 

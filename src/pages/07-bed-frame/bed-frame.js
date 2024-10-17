@@ -21,7 +21,8 @@ import SuggestedItems          from '../../components/sections/suggestedItems'
 import { faqs }                from './content/faqs'
 import Faqs                    from '../../components/sections/faqs'
 import Footer                  from '../../components/sections/footer'
-import '../../scss/07-bed-frame/gallery.scss'
+import                              '../../scss/07-bed-frame/gallery.scss'
+import                              '../../scss/product-display/size-guide-modal.scss'
 
 function BedFrame () {
   const [productName, setProductName]       = useState(null)

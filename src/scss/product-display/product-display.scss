@@ -466,7 +466,7 @@ a {
   .swiper-pagination {
     width: 100%;
     left: 0;
-    bottom: 0;
+    bottom: 0 !important;
   }
   .swiper-pagination-bullet {
     margin: 2px 4px !important;
@@ -1783,7 +1783,7 @@ a {
   }
 }
 .video-react {
-  position: absolute;
+  position: absolute!important;
   top: 0;
   left: 0;
   right: 0;

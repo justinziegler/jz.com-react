@@ -1,10 +1,11 @@
-import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Swiper, SwiperSlide }                    from 'swiper/react';
 import { Pagination }                             from 'swiper';
 import Accordion                                  from 'react-bootstrap/Accordion';
 import AccordionContext                           from 'react-bootstrap/AccordionContext';
 import { useAccordionButton }                     from 'react-bootstrap/AccordionButton';
 import Card                                       from 'react-bootstrap/Card';
+import { useWidth }                               from '../../../components/utils/useWidth'
 import                                                 '../../../scss/06-mattress/made-simple.scss'
 
 function ContextAwareToggle({ children, eventKey, callback, setActiveIndex }) {
@@ -33,20 +34,7 @@ function ContextAwareToggle({ children, eventKey, callback, setActiveIndex }) {
 }
 
 function MadeSimple(props) {
-  function useWindowSize() {
-    const [width, setWidth] = useState(0)
-    useLayoutEffect(() => {
-      function updateWidth() {
-        setWidth(window.innerWidth);
-      }
-      window.addEventListener('resize', updateWidth);
-      updateWidth();
-      return () => window.removeEventListener('resize', updateWidth);
-    }, []);
-    return width;
-  }
-  
-  let mobile = useWindowSize() < 768;
+  let mobile = useWidth() < 768;
 
   const items = [
     {
@@ -74,7 +62,7 @@ function MadeSimple(props) {
       <div className='container'>
         <div className='row'>
           <div className='col-xs-12 col-sm-6 col-lg-5 col-lg-offset-1'>
-            <h2>Mattress Buying<br /> Made Simple  { mobile }</h2>
+            <h2>Mattress Buying<br /> Made Simple</h2>
             <div className='frame' data-current={ activeIndex }>
               <div className='stage'>
                 { mobile ?

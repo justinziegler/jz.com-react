@@ -163,14 +163,12 @@
       bottom: 0;
       transition: 0.3s;
       z-index: 2;
+      // filter: opacity(0);
       &:last-of-type {
         filter: brightness(500%);
         z-index: 1;
       }
     }
-    // div, &.initial {
-    //   opacity: 0;
-    // }
     &[data-active=true] {
       div:first-of-type {
         filter: opacity(1);
@@ -905,6 +903,10 @@
 .animation-frame[data-current='5'] .numbers .dots {
   top: 72.5%;
 }
+
+// [class^='bounce'] {
+//   filter: opacity(1);
+// }
 
 .bounce1 {
   opacity: 1;

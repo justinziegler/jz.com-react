@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import LayersDetails from './layersDetails'
-import '../../../scss/06-mattress/mattress-animation.scss'
-import '../../../scss/06-mattress/layers.scss'
+import LayersDetails       from './layersDetails'
+import { ViewportAnchor }  from '../../../components/utils/viewportAnchor'
+import                          '../../../scss/06-mattress/mattress-animation.scss'
+import                          '../../../scss/06-mattress/layers.scss'
 
 function Layers(props) {
-  const [activeIndex, setActiveIndex] = useState('default')
+  const [activeIndex, setActiveIndex]     = useState('default')
   const [gallerySwiper, setGallerySwiper] = useState(null) 
+  const [inViewport, setInViewport]       = useState(false)
 
   const handleActiveIndex = (e) => {
     e.preventDefault()
@@ -19,11 +21,18 @@ function Layers(props) {
   const Layers = []
   for (let i = 1; i <=5; i++) {
     Layers.push(
-      <div className='layer lazyload' 
+      <div 
+        className={ inViewport ? `layer lazyload bounce${ i }` : 'layer lazyload' }
+        style={ inViewport ? { opacity: 1 } : { opacity : 0 } }
         data-slide={ i } 
         role='img' 
         aria-label={ `Layer ${ i }` }
-        data-active={ i === activeIndex }
+        data-active={ 
+          activeIndex === 'default' ?
+            null
+          :
+            i === activeIndex 
+        }
         key={ `layer-${ i }`}
       >
         <div className='lazyload'></div>
@@ -41,16 +50,16 @@ function Layers(props) {
         aria-label={ `Layer ${ i }` } 
         tabIndex='0'
         onClick={ handleActiveIndex }
-        className='animate'
+        className={ inViewport ? 'animate' : null }
         key={ `layer-${ i }-btn`}
       >
         <span></span>
       </button>
     )
   }
-
+  
   return (
-    <section className='op-mattress-3d' data-current={ 1 }>
+    <section className='op-mattress-3d' data-current={ activeIndex }>
       <div className='container-fluid'>
         <div className='row visible-xs visible-sm'>
           <div className='heading col-xs-12'>
@@ -91,6 +100,10 @@ function Layers(props) {
           </div>
         </div>
       </div>
+      <ViewportAnchor 
+        inViewport= { inViewport } 
+        setInViewport={ setInViewport } 
+      />
     </section>
   )
 }
