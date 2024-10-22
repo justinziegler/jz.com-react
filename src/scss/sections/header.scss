@@ -61,6 +61,17 @@ $height: 50px;
   @include mq(md) {
     bottom: 0;
   }
+  // Guides
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 32px;
+  //   left: 0;
+  //   right: 0;
+  //   height: 1px;
+  //   background-color: $pink;
+  //   z-index: 1000;
+  // }
   h2, h3 {
     font-family: 'Boogaloo', sans;
     font-weight: normal;
@@ -72,7 +83,7 @@ $height: 50px;
   h2 {
     color: $white;
     font-size: 24px;
-    margin: 2px 0 0 0;
+    margin: 0;
     @include mq(xsm) {
       margin: 5px 0 0 0;
     }
@@ -396,6 +407,10 @@ $height: 50px;
       &:last-of-type {
         justify-content: flex-start;
         position: relative;
+        @include mq(xmd) {
+          border-left: solid 1px $teal;
+          border-right: solid 1px $teal;
+        }
         &::before {
           content: '';
           position: absolute;

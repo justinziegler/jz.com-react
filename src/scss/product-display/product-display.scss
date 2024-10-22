@@ -424,23 +424,23 @@ a {
     }
   }
 }
-.swiper {
-  > .swiper-pagination-bullets {
-    bottom: 0;
-  }
-}
-.swiper-pagination-bullet {
-  background: $teal;
-  opacity: 0.5;
-  &:hover,
-  &:focus {
-    outline: none;
-  }
-  &.swiper-pagination-bullet-active {
-    opacity: 1;
-  }
-}
 .product-display {
+  .swiper {
+    > .swiper-pagination-bullets {
+      bottom: 0;
+    }
+  }
+  .swiper-pagination-bullet {
+    background: $teal;
+    opacity: 0.5;
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
   .product-gallery {
     padding-bottom: 15px;
     @include mq(xmd) {

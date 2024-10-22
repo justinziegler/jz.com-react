@@ -70,119 +70,118 @@ function Header(props) {
           
       </div>
 
-      <div className='header-content bottom'>
-        <div className='case-study-nav'>
-          <div>
-            { p.pageUrl !== '/' &&
+      { p.pageUrl !== '/' &&
+        <div className='header-content bottom'>
+          <div className='case-study-nav'>
+            <div>
               <div className='prev'>
                 <a href={ prevPage }>
                   &laquo; Back
                 </a>
               </div>
-            }
 
-            <div className='expand'>
-              <a
-                href='/'
-                className='toggleLink'                
-                onClick={ props.handleOpen }
-                aria-controls='case-study'
-                aria-expanded={ props.open }
-              >
-                &nbsp;<span className='arrow'>&raquo;</span>
-              </a>
-            </div>
-
-            { nextPage === undefined ?
-              <div className='next'>
-                <a className='nav-btn home' href='../'>
-                  Home
+              <div className='expand'>
+                <a
+                  href='/'
+                  className='toggleLink'                
+                  onClick={ props.handleOpen }
+                  aria-controls='case-study'
+                  aria-expanded={ props.open }
+                >
+                  &nbsp;<span className='arrow'>&raquo;</span>
                 </a>
               </div>
-            :
-              <div className='next'>
-                <a href={ nextPage }>
-                  { p.pageUrl === '/' ?
-                    <span>Start</span>
-                  :
-                    <span>Next</span>
-                  }
-                  &raquo;
-                </a>
-              </div>
-            }
-          </div>
-          <div>
-            <h3>
-              <span className='number'>
-                { pageId < 10 &&
-                  0
-                }
-                { pageId }.
-              </span> { p.headerTitle }
-            </h3>
-          </div>
-        </div>
-        
-        <Collapse in={ props.open }>
-          <div className='case-study'>
-            <div className='case-study-content'>
-              { p.headerIntro.map((item, index) =>
-                <React.Fragment key={ `cs-${index}` }>
-                  <p>{ item }</p>
-                </React.Fragment>
-              )}
-              { p.headerBullets !== undefined &&
-                <ul className='project-details'>
-                  { p.headerBullets.map((bullet, index) =>
-                    <li key={ `bullet${ index }`}>
-                      { bullet }
-                    </li>
-                  )}
-                </ul>
-              }
-              {p.toggleLinks && 
-                <div className='toggle-links'>
-                  { p.pageUrl === 'holiday-mode' ?
-                    <>
-                      <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode } key='toggleOff'>
-                        Normal Mode
-                      </button>
-                      <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode } key='toggleOn'>
-                        Holiday Mode
-                      </button>
-                    </>
-                  :
-                    <>
-                      <button 
-                        onClick={ () => props.setActiveDisplay('mattress') } 
-                        data-active={ props.activeDisplay === 'mattress' }
-                        key='toggleMattress'
-                      >
-                        Mattress
-                      </button>
-                      <button 
-                        onClick={ () => props.setActiveDisplay('frame') } 
-                        data-active={ props.activeDisplay === 'frame' }
-                        key='toggleFrame'
-                      >
-                        Bed Frame
-                      </button>
-                      <button 
-                        onClick={ () => props.setActiveDisplay('sheets') } 
-                        data-active={ props.activeDisplay === 'sheets' }
-                        key='toggleSheets'
-                      >
-                        Sheets
-                      </button>
-                    </>
-                  }
+
+              { nextPage === undefined ?
+                <div className='next'>
+                  <a className='nav-btn home' href='../'>
+                    Home
+                  </a>
+                </div>
+              :
+                <div className='next'>
+                  <a href={ nextPage }>
+                    { p.pageUrl === '/' ?
+                      <span>Start</span>
+                    :
+                      <span>Next</span>
+                    }
+                    &raquo;
+                  </a>
                 </div>
               }
             </div>
+            <div>
+              <h3>
+                <span className='number'>
+                  { pageId < 10 &&
+                    0
+                  }
+                  { pageId }.
+                </span> { p.headerTitle }
+              </h3>
+            </div>
           </div>
-        </Collapse>
-      </div>
+          <Collapse in={ props.open }>
+            <div className='case-study'>
+              <div className='case-study-content'>
+                { p.headerIntro.map((item, index) =>
+                  <React.Fragment key={ `cs-${index}` }>
+                    <p>{ item }</p>
+                  </React.Fragment>
+                )}
+                { p.headerBullets !== undefined &&
+                  <ul className='project-details'>
+                    { p.headerBullets.map((bullet, index) =>
+                      <li key={ `bullet${ index }`}>
+                        { bullet }
+                      </li>
+                    )}
+                  </ul>
+                }
+                {p.toggleLinks && 
+                  <div className='toggle-links'>
+                    { p.pageUrl === 'holiday-mode' ?
+                      <>
+                        <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode } key='toggleOff'>
+                          Normal Mode
+                        </button>
+                        <button onClick={ () => props.setHolidayMode(true) } data-active={ props.holidayMode } key='toggleOn'>
+                          Holiday Mode
+                        </button>
+                      </>
+                    :
+                      <>
+                        <button 
+                          onClick={ () => props.setActiveDisplay('mattress') } 
+                          data-active={ props.activeDisplay === 'mattress' }
+                          key='toggleMattress'
+                        >
+                          Mattress
+                        </button>
+                        <button 
+                          onClick={ () => props.setActiveDisplay('frame') } 
+                          data-active={ props.activeDisplay === 'frame' }
+                          key='toggleFrame'
+                        >
+                          Bed Frame
+                        </button>
+                        <button 
+                          onClick={ () => props.setActiveDisplay('sheets') } 
+                          data-active={ props.activeDisplay === 'sheets' }
+                          key='toggleSheets'
+                        >
+                          Sheets
+                        </button>
+                      </>
+                    }
+                  </div>
+                }
+              </div>
+            </div>
+          </Collapse>
+        </div>
+      }
     </nav>
   )
 }

@@ -52,6 +52,19 @@ function Home(props) {
           <div className='row'>
             <div className='intro'>
               <h1>Justin Ziegler<br className='hidden-sm' /><span>Recent Work</span></h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut rutrum neque. Praesent tincidunt gravida aliquet. Maecenas ac varius purus. Aliquam accumsan mauris quam, at maximus lectus vulputate in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo sed diam id rhoncus. </p>
+              <ul>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+              </ul>
             </div>
             <div className='case-studies'>
               { caseStudies.map((cs, index) =>
