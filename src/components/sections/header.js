@@ -20,11 +20,13 @@ function Header(props) {
       <div className='nav-container'>
         <div className='nav-col left'>
             { p.pageUrl !== '/' &&
-              <a className='nav-btn home' href='../'>
-                <span className='sr-only'>Home</span>
-              </a>
+              <>
+                <a className='nav-btn home' href='../'>
+                  <span className='sr-only'>Home</span>
+                </a>
+                <h2>Justin Ziegler &nbsp;<span>Recent Work</span> </h2>
+              </>
             }
-            <h2>Justin Ziegler &nbsp;<span>Recent Work</span> </h2>
           </div>
         
           { mobile ?

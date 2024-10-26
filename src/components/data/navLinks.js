@@ -1,3 +1,5 @@
+import resume from  '../../pdf/JustinZiegler-Resume2023.pdf'
+
 const navLinks = [
   {
     title: 'Github',
@@ -7,7 +9,7 @@ const navLinks = [
   },
   {
     title: 'Resume',
-    link: '../assets/resume-JustinZiegler-2024.pdf',
+    link: resume,
     target: '_blank',
     class: 'resume'
   },

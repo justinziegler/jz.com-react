@@ -34,18 +34,18 @@ $cat4: $color6;
 
 $height: 50px;
 
-// body {
-//   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-//   margin: $height 0 0 0!important;
-// }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
 
 [role='button'] {
   cursor: pointer;
 }
 
-// html {
-//   scroll-behavior: smooth;
-// }
 #nav {
   background-color: $navy;
   position: fixed;

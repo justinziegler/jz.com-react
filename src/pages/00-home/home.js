@@ -1,7 +1,6 @@
 import { directory }   from '../../components/data/directory';
 import { pageDetails } from './content';
 import Main            from '../../components/sections/main';
-import collage         from '../../assets/holiday-promotion/collage01.jpg';
 import                      '../../css/bootstrap-grid.css';
 import                      '../../scss/00-home/home.scss';
 
@@ -10,10 +9,22 @@ function Home(props) {
     pageUrl: '/',
     headerTitle: 'Home',
     headerIntro: [
-      <>ADD SKILL LIST UNDER LEFT HEADING</>,
-      <>I am a web developer who spent the last few years building and refining the web presence of a bedding startup. After joining the company in its first year, I worked on every corner of the website as the product catalog slowly grew from one line to more than fifteen.</>,
-      <>The links included here contain a few of my favorite recent projects. Code samples for everything on this site can be found on <a href='https://github.com/justinziegler' target='_blank' rel='noreferrer' tabIndex='0'>my Github</a>. Thanks for visiting!</>
+      <>I am a <strong>detail-oriented web developer</strong> specializing in  <strong>compelling user experiences</strong>. The links included here contain a few of my favorite projects, all rebuilt in <strong>React.</strong></>,
+      <><strong>Source code</strong> for everything on this site can be found on <a href='https://github.com/justinziegler' target='_blank' rel='noreferrer' tabIndex='0'>my Github</a>.</>
     ],
+    skills: [
+      <>HTML</>,
+      <>CSS</>,
+      <>SCSS</>,
+      <>JavaScript</>,
+      <>JQuery</>,
+      <>Node.js</>,
+      <>React</>,
+      <>Vue.js</>,
+      <>Nunjucks / Jinja</>,
+      <>Github</>,
+      <>Adobe Photoshop &amp; Illustrator</>
+    ]
   }
 
   let caseStudies = [];
@@ -41,7 +52,6 @@ function Home(props) {
   const startHere = {
     url: startHereUrl,
     title: 'Start from Beginning',
-    background: collage
   }
   caseStudies.push(startHere);
   
@@ -51,20 +61,23 @@ function Home(props) {
         <div className='container'>
           <div className='row'>
             <div className='intro'>
-              <h1>Justin Ziegler<br className='hidden-sm' /><span>Recent Work</span></h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut rutrum neque. Praesent tincidunt gravida aliquet. Maecenas ac varius purus. Aliquam accumsan mauris quam, at maximus lectus vulputate in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo sed diam id rhoncus. </p>
-              <ul>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-                <li>Item</li>
-              </ul>
+              <h1>
+                Justin Ziegler<br /><span>Recent Work</span>
+              </h1>
+              <div className='content'>
+                <div className='info'>
+                  { page.headerIntro.map(item =>
+                    <p>{ item }</p>
+                  )}
+                </div>
+                <div className='skills'>
+                  <ul>
+                    { page.skills.map(skill =>
+                      <li>{ skill }</li>
+                    )}
+                  </ul>
+                </div>
+              </div>
             </div>
             <div className='case-studies'>
               { caseStudies.map((cs, index) =>
