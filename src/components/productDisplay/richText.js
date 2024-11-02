@@ -1,6 +1,6 @@
 
 function RichText(props) {
-  const p = props.page
+  const p = props.product
   return (
     <div id='richtext' style={{ display: 'none' }}>
       { p.skus.map((item, index) =>

@@ -1,6 +1,6 @@
 
 function QuantitySelect(props) {
-  const p = props.page;
+  const p = props.product;
   let addlClass = '';
   if (p.colorSelection && p.qtySelection) addlClass = 'inline';
   let Items = [];

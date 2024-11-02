@@ -3,7 +3,7 @@ import Upsell from './upsell';
 import '../../scss/product-display/upsell-list.scss'
 
 function Upsells(props) {
-  const p = props.page
+  const p = props.product
   const upsells = p.upsells
   let singleUpsell = true
   let additionalClass = 'single'

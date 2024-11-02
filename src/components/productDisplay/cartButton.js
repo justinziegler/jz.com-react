@@ -1,5 +1,5 @@
 function CartButton(props) {
-  const p = props.page
+  const p = props.product
   const displayCart = (e) => {
     props.setShowCart(true)
   }

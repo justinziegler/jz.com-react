@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getPageDetails }  from '../../components/utils/getPageDetails'
 import Main                from '../../components/sections/main'
 import VideoSlideshow      from './content/videoSlideshow'
 import Nav                 from './content/nav'
@@ -10,19 +11,7 @@ import 'lazysizes'
 import '../../scss/02-tiktok-mimic/tiktok.scss'
 
 function TiktokMimic () {
-  const page = {
-    pageUrl: 'tiktok',
-    headerTitle: 'Tiktok Mimic',
-    headerIntro: [
-      <>This promotion was created to engage social media users, and it turned out to be a hit. Features on display include:</>
-    ],
-    headerBullets: [
-      'Slideshow of a dozen short videos that auto-advance when complete',
-      'Popup overlays of user reviews and FAQs',
-      'Email capture redirect to main website'
-    ]
-  }
-  
+  const page                              = getPageDetails('tiktok')  
   const [activeIndex, setActiveIndex]     = useState(0)
   const [navActive, setNavActive]         = useState(false)
   const [activeNavItem, setActiveNavItem] = useState(null)

@@ -8,9 +8,6 @@
 %dot-gradient {
   @include dot-gradient(#000);
 }
-%filterCat1 {
-  filter: invert(18%) sepia(86%) saturate(2685%) hue-rotate(180deg) brightness(95%) contrast(85%);
-}
 %filterNavy {
   filter: invert(11%) sepia(9%) saturate(5091%) hue-rotate(159deg) brightness(98%) contrast(93%); // navy
 }
@@ -31,11 +28,7 @@ body {
 }
 
 main {
-  // padding-top: 30px;
-  // background-color: tint($navy, 90%);
   background-color: $white;
-  // @include mq(md) {
-  //   padding-top: 100px;
   display: flex;
   align-items: center;
   position: relative;
@@ -60,13 +53,6 @@ main {
     @extend %dot-gradient;
     background-size:  vwp(26px);
     background-repeat: repeat-x;
-    // @extend %filterPurple;
-    // filter: invert(78%) sepia(36%) saturate(618%) hue-rotate(123deg) brightness(93%) contrast(90%);
-    // filter: invert(20%) sepia(63%) saturate(314%) hue-rotate(153deg) brightness(92%) contrast(96%);
-    // filter: invert(100%) sepia(5%) saturate(0%) hue-rotate(288deg) brightness(106%) contrast(104%); // white
-    // filter: invert(100%) sepia(69%) saturate(124%) hue-rotate(169deg) brightness(96%) contrast(92%);
-    // filter: invert(11%) sepia(9%) saturate(5091%) hue-rotate(159deg) brightness(98%) contrast(93%); // navy
-    // filter: invert(73%) sepia(16%) saturate(1283%) hue-rotate(129deg) brightness(86%) contrast(91%);
     filter: invert(97%) sepia(6%) saturate(68%) hue-rotate(149deg) brightness(95%) contrast(95%); // light grey
     @include mq(xs) {
       background-size: vwl(18px);
@@ -83,14 +69,36 @@ main {
     background-position: 50% 0%;
   }
   &::after {
-    // background-position: 50% 100%;
     transform: rotate(180deg);
     background-size: 24px;
   }
 }
-// body {
-//   font-family: 'Cabin Condensed', sans-serif;
-// }
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: 0 30px;
+  @include mq(xsm) {
+    width: 100%;
+  }
+  .container {
+    @include mq(xsm) {
+      margin: 0;
+    }
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+}
 
 .intro {
   color: $white;
@@ -100,16 +108,10 @@ main {
   justify-content: center;
   width: 100%;
   position: relative;
-  // @include mq(xsm) {
-  //   display: none;
-  // }
   @include mq(md) {
     width: 33.333333%;
     padding: 0 30px 0 0;
   }
-  // @include mq(lg) {
-  //   padding: 0 30px 0 0;
-  // }
   h1 {
     font-family: 'Boogaloo', sans;
     color: $navy;
@@ -191,7 +193,6 @@ main {
       padding: vwl(10px) vwl(15px);
     }
     @include mq(sm) {
-      // margin: 30px 0 0 0;
       padding: 15px;
     }
     @include mq(md) {
@@ -200,7 +201,6 @@ main {
     @include mq(lg) {
       padding: 15px 20px;
     }
-    // border-radius: 0 0 15px 15px;
     &::before {
       content: 'Skills Include:';
       position: absolute;
@@ -235,19 +235,11 @@ main {
         tint($teal, 80%) 100%);
         z-index: -1;
         border-bottom: solid 1px tint($teal, 70%);
-      // @extend %dot-gradient;
-      // background-size: 10px;
-      // background-position: 50% 0%;
-      // background-repeat: repeat-x;
-      // transform: rotate(180deg);
-      // @extend %filterTeal;
-      // // border-radius: 15px 15px 0 0;
-      // opacity: .25;
     }
   }
   li {
     color: $navy;
-    width: 33%;
+    width: 33.333333%;
     list-style-type: none;
     font-size: vwp(11px);
     line-height: 2.4;
@@ -279,7 +271,7 @@ main {
       text-align: right;
     }
     &:nth-of-type(11) {
-      width: 66%;
+      width: 66.666666%;
     }
 
   }
@@ -337,7 +329,6 @@ main {
   @include mq(md) {
     margin: 0;
   }
-  // padding: 0 2px;
   &::before, &::after {
     content: '';
     position: absolute;
@@ -357,325 +348,6 @@ main {
   }
 }
 
-
-.case-study {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  padding: 0 30px;
-  @include mq(xsm) {
-    width: 100%;
-  }
-  .container {
-    @include mq(xsm) {
-      margin: 0;
-    }
-  }
-  .row {
-    display: flex;
-    flex-direction: column;
-    @include mq(md) {
-      flex-direction: row;
-    }
-  }
-}
-.case {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  // padding: 30px 45px;
-  position: relative;
-  
-  
-  p {
-    font-size: 1.4rem;
-    line-height: 1.4;
-    margin: 0 0 10px 5px;
-    color: $cat1;
-    padding-bottom: 4px;
-    @include mq(sm) {
-      font-size: 1.8rem;
-      // margin-bottom: 30px;
-    }
-  }
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    font-size: 1.6rem;
-    padding: 0 0 0 24px;
-    list-style-type: none;
-    margin-top: 5px;
-    position: relative;
-    font-weight: 500;
-    @include mq(sm) {
-      font-size: 1.8rem;
-    }
-    // @include mq(md) {
-      // font-size: 1.8rem;
-      // padding: 0 0 0 30px;
-    // }
-    &::before {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border: solid 2px $cat2;
-      top: 7px;
-      left: 8px;
-      border-radius: 50%;
-      // @include mq(md) {
-      //   width: 12px;
-      //   height: 12px;
-      //   border: solid 3px $cat2;
-      //   top: 8px;
-      //   left: 8px;
-      // }
-    }
-    a {
-      color: $cat4;
-      border-bottom: dotted 1px $cat4;
-      &:hover, &:focus {
-        color: tint($cat1, 20%);
-        border-bottom-color: tint($cat1, 20%);
-      }
-    }
-  }
-  
-  .thumbnails {
-    display: flex;
-    flex-direction: column;
-    @include background-image(radial-gradient(center, ellipse farthest-corner, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%));
-    justify-content: center;
-    @include mq(xsm) {
-      flex-wrap: wrap;
-    }
-    
-    @include mq(sm) {
-      padding-left: 15px;
-    }
-    @include mq(md) {
-      padding-left: 30px;
-    }
-    > div {
-      @include mq(xmd) {
-        padding: 0 7px;
-      }
-    }
-    .header-nav {
-      height: auto;
-      display: flex;
-      align-items: center;
-      padding: 0;
-      @include mq(xsm) {
-        margin-top: 15px;
-      }
-      @include mq(smmd) {
-        padding-right: 15px;
-      }
-      a {
-        height: 34px;
-        color: shade($teal, 20%);
-        line-height: 1;
-        font-weight: 500;
-        justify-content: center;
-        @include mq(md) {
-          height: 60px;
-          font-size: 2rem;
-          padding-bottom: 18px;
-          padding-right: 48px;
-        }
-        @include mq(xxs) {
-          height: vwp(34px);
-          padding-right: vwp(30px);
-          font-size: vwp(14px);
-          padding-bottom: vwp(8px);
-        }
-        &::after {
-          right: vwp(30px);
-          @include mq(xxs) {
-            width: vwp(30px);
-            height: vwp(30px);
-            top: vwp(2px);
-          }
-          @include mq(xs) {
-            right: 50px;
-          }
-          @include mq(sm) {
-            right: 35px;
-          }
-          @include mq(md) {
-            width: 50px;
-            height: 60px;
-            top: 0;
-            right: 45px;
-          }
-          @include mq(lg) {
-            right: 30px;
-          }
-        }
-        span {
-          border-bottom: solid 2px transparent;
-          transition: .2s;
-        }
-        &:hover, &:focus {
-          color: shade($teal, 35%);
-          span {
-            border-bottom: solid 2px tint($teal, 70%);
-          }
-        }
-      }
-    }
-  }
-  .thumbnail {
-    width: 100%;
-    height: 0;
-    padding-bottom: 85%;
-    position: relative;
-    background-color: rgb(254,255,255); 
-    border-radius: 16px;// Old browsers
-    @include filter-gradient(#ffffff, $teal, vertical); // IE6-9
-    @include background-image(linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(tint($teal, 95%),1) 35%,rgba(tint($teal, 85%),1) 100%));
-    flex-shrink: 0;
-    &:last-of-type {
-      @include mq(xsm) {
-        margin-top: 15px;
-      }
-    }
-    a {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.7rem;
-      text-align: right;
-      line-height: 1;
-      padding: 10px;
-      font-weight: 500;
-      border-radius: 16px;
-      border: solid 3px $teal;
-      transition: .2s;
-      background-color: rgba(255, 255, 255, 0);
-      // @include mq(xsm) {
-      //   font-size: vwl(14px);
-      //   padding: vwl(10px);
-      // }
-      @include mq(xxs) {
-        font-size: vwp(14px);
-        padding: vwp(10px);
-      }
-      @include mq(md) {
-        font-size: 2rem;
-        padding: 15px;
-      }
-      @include mq(lg) {
-        font-size: 2.45rem;
-        padding: 20px;
-      }
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border-radius: 20px;
-        border: solid 4px transparent;
-        transition: .2s;
-      }
-      &:hover, &:focus {
-        background-color: rgba(255, 255, 255, 1);
-        box-shadow:inset 0 0 30px 30px rgba(86,219,214,.1);
-        &::before {
-          top: -8px;
-          left: -8px;
-          right: -8px;
-          bottom: -8px;
-          border: solid 3px tint($teal, 70%);
-        }
-      }
-      span {
-        &::before {
-          content: attr(data-number);
-          color: shade($teal, 20%);
-        }
-      }
-    }
-  }
-}
-.case-details {
-  background-color: rgba($white, .9);
-  padding: 30px;
-  border-radius: 20px;
-  border: solid 10px $cat1;
-}
-.case-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  column-gap: 15px;
-  justify-content: space-around;
-  border-radius: 8px;
-  // align-items: flex-start;
-  > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    width: 100%;
-    &:first-of-type {
-      justify-content: flex-start;
-    }
-    &:last-of-type {
-      justify-content: flex-end;
-    }
-  }
-  img {
-    // align-self: start;
-    // width: 44%;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.25);
-    // height: 87%;
-    width: 100%;
-  }
-}
-#gallery-modal {
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-  }
-  .modal-body {
-    flex-grow: 1;
-    position: relative;
-    display: flex;
-    padding: 0!important;
-  }
-  iframe {
-    position: absolute;
-    border: none;
-    outline: none;
-    top: 0;
-    // left: 0;
-    // right: 0;
-    bottom: 0;
-    flex: 1;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-///////////////////////
 .case-studies {
   display: flex;
   flex-direction: row;
@@ -715,7 +387,6 @@ main {
     flex: 1 1 calc((100% / 3) - 3rem);
     padding-bottom: 22%;
   }
-  
   a {
     position: absolute;
     top: 0;
@@ -770,8 +441,6 @@ main {
       margin-left: calc(66.66666667% + 12px);
     }
     a {
-      // line-height: 2.1;
-      
       &:before, &::after {
         @include chevron(#000);
         @extend %filterNavy;
@@ -800,7 +469,6 @@ main {
         }
       }
     }
-    
   }
 }
 
@@ -843,10 +511,8 @@ main {
   right: 0;
   bottom: 0;
   color: $white;
-  
   font-weight: 500;
   display: flex;
-  
   justify-content: flex-end;
   flex-direction: column;
   font-size: vwp(16px);

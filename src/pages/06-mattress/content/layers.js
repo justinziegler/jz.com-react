@@ -51,6 +51,7 @@ function Layers(props) {
         tabIndex='0'
         onClick={ handleActiveIndex }
         className={ inViewport ? 'animate' : null }
+        style={ inViewport ? { opacity: 1 } : { opacity : 0 } }
         key={ `layer-${ i }-btn`}
       >
         <span></span>

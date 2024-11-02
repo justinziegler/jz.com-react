@@ -423,6 +423,15 @@ a {
       }
     }
   }
+  .video-react {
+    position: absolute!important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0!important;
+    height: auto!important;
+  }
 }
 .product-display {
   .swiper {
@@ -1781,13 +1790,4 @@ a {
   &[data-visible=false] {
     display: none
   }
-}
-.video-react {
-  position: absolute!important;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0!important;
-  height: auto!important;
 }

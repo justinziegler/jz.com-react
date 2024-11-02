@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getPageDetails }  from '../../components/utils/getPageDetails'
 import { getProductSkus }  from '../../components/utils/getProductSkus'
 import Main                from '../../components/sections/main'
 import Hero                from './content/hero'
@@ -19,16 +20,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/effect-flip'
 import '../../scss/01-holiday-mode/holiday-mode.scss'
 
-const page = {
-  pageUrl: 'holiday-mode',
-  headerTitle: 'Holiday Mode',
-  headerIntro: [
-    <>Several times a year we would theme key pages on the site for different holiday sales, then return them to normal after the holiday. In an effort to make this process less time-consuming, I developed <strong>Holiday Mode</strong> for the site. With <strong>Holiday Mode</strong>, we were able to switch between regular and holiday content by simply updating one variable.</>,
-    <>Use the links below to toggle between the two versions.</>
-  ],
-  toggleLinks: true
-}
-
+const page = getPageDetails('holiday-mode')
 let video = '';
 const discountActual = 70;
 

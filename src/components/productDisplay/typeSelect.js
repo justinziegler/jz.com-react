@@ -10,7 +10,7 @@ function TypeSelect(props) {
     props.handleSku();
   }
 
-  const p = props.page
+  const p = props.product
   const c = p.comboProduct[0]
   let addlClass = ''
   if (p.colorSelection) addlClass = 'inline'
@@ -24,10 +24,10 @@ function TypeSelect(props) {
   let difference = 0
   
   function getType(catId) {
-    if (catId === p.defaultCatId && type == '') {
+    if (catId === p.defaultCatId && type === '') {
       type = p.defaultProductType
       typeName = p.shortName 
-    } else if (catId == c.comboProductId) {
+    } else if (catId === c.comboProductId) {
       type = c.comboProductType
       typeName = c.shortName
     }
@@ -44,7 +44,7 @@ function TypeSelect(props) {
           showLabel = false
         } else if (catId !== p.defaultCatId) {
           p.skus.forEach(main => {
-            if (main.catId == p.defaultCatId && main.size === item.size) {
+            if (main.catId === p.defaultCatId && main.size === item.size) {
               mainPrice = main.salePrice
             }
           })
@@ -69,7 +69,6 @@ function TypeSelect(props) {
         <button data-type={ type }
           data-typename={ typeName }
           data-active={ type === props.type }
-          role='button' 
           tabIndex='0'
           onClick={ handleType }
         >

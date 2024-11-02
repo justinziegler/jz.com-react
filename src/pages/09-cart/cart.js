@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { getPageDetails }  from '../../components/utils/getPageDetails'
 import { getProductSkus }  from '../../components/utils/getProductSkus'
 import { getUpsells }      from './content/getUpsells'
 import Main                from '../../components/sections/main'
@@ -7,32 +8,21 @@ import Upsells             from './content/upsells'
 import OrderSummary        from './content/orderSummary'
 // eslint-disable-next-line
 import lazySizes           from 'lazysizes'
-import '../../scss/09-cart/cart.scss'
-import '../../scss/09-cart/cart-images.scss'
+import                          '../../scss/09-cart/cart.scss'
+import                          '../../scss/09-cart/cart-images.scss'
 
 let initialTotal = 0
 let initialDiscount = 0
 
 function Cart () {
-  const page = {
-    pageUrl: 'cart',
-    headerTitle: 'Shopping Cart',
-    headerIntro: [
-      'This page was A/B tested against our existing page for over a year. While it was ultimately shelved, some of the features developed here were later ported over to the existing cart. Features on display here include:'
-    ],
-    headerBullets: [
-      'Upsells are preset to the same size as the primary cart item, but users can select another size if desired.',
-      'Upsells each have a corresponding modal with an image gallery and product details.',
-      'Adding and removing upsells to the cart is visually fluid.'
-    ]
-  }
+  const page = getPageDetails('cart')
   let cart = [];
   const mattressSkus = getProductSkus([1], 300)
-  cart.push(mattressSkus[5]);
+  cart.push(mattressSkus[5])
   const sheetsSkus = getProductSkus([30], 30);
   sheetsSkus.forEach(item => {
     if (item.size === 'CK' && item.color === 'GG') {
-      cart.push(item);
+      cart.push(item)
     }
   })
   const upsells = getUpsells(cart);

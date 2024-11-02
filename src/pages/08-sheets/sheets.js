@@ -1,6 +1,6 @@
 
-import React, { useState }   from 'react';
-import { getPageId }         from '../../components/utils/getPageId'
+import React, { useState }   from 'react'
+import { getPageDetails }    from '../../components/utils/getPageDetails'
 import { getProductConfig }  from '../../components/utils/getProductConfig'
 import Main                  from '../../components/sections/main'
 import ProductDisplay        from '../../components/productDisplay'
@@ -22,6 +22,8 @@ import Footer                from '../../components/sections/footer'
 import                            '../../scss/08-sheets/gallery.scss'
 
 function Sheets () {
+  const page                                = getPageDetails('sheets')
+  const product                             = getProductConfig('sheets')
   const [productName, setProductName]       = useState(null)
   const [type, setType]                     = useState(null)
   const [color, setColor]                   = useState(null)
@@ -29,20 +31,10 @@ function Sheets () {
   const [monthlyPayment, setMonthlyPayment] = useState(0)
   const [scrolled, setScrolled]             = useState(false)
 
-  const pageUrl = 'sheets'
-  let page      = getProductConfig('sheets')
-  page.pageId   = getPageId(pageUrl)
-  page.pageUrl  = pageUrl
-
-  page.headerTitle = <>Product Detail Page &ndash; Sheets</>
-  page.headerIntro = [
-    <>REWRITE This configuration sorts through 42 product skus and over 100 upsell skus from 6 product lines. The upsells update their currently offered product size when the main product size selection changes.</>
-  ]
-
   return (
     <Main page={ page }>
       <ProductDisplay 
-        page={ page } 
+        product={ product } 
         productName={ productName }
         setProductName={ setProductName }
         type={ type }
@@ -73,4 +65,4 @@ function Sheets () {
   )
 }
 
-export default Sheets;
+export default Sheets

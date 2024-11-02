@@ -1,31 +1,12 @@
-import { directory }   from '../../components/data/directory';
-import { pageDetails } from './content';
-import Main            from '../../components/sections/main';
-import                      '../../css/bootstrap-grid.css';
-import                      '../../scss/00-home/home.scss';
+import { directory }      from '../../components/data/directory';
+import { pageDetails }    from '../../components/data/pageDetails';
+import { getPageDetails } from '../../components/utils/getPageDetails';
+import Main               from '../../components/sections/main';
+import                         '../../css/bootstrap-grid.css';
+import                         '../../scss/00-home/home.scss';
 
 function Home(props) {
-  const page = {
-    pageUrl: '/',
-    headerTitle: 'Home',
-    headerIntro: [
-      <>I am a <strong>detail-oriented web developer</strong> specializing in  <strong>compelling user experiences</strong>. The links included here contain a few of my favorite projects, all rebuilt in <strong>React.</strong></>,
-      <><strong>Source code</strong> for everything on this site can be found on <a href='https://github.com/justinziegler' target='_blank' rel='noreferrer' tabIndex='0'>my Github</a>.</>
-    ],
-    skills: [
-      <>HTML</>,
-      <>CSS</>,
-      <>SCSS</>,
-      <>JavaScript</>,
-      <>JQuery</>,
-      <>Node.js</>,
-      <>React</>,
-      <>Vue.js</>,
-      <>Nunjucks / Jinja</>,
-      <>Github</>,
-      <>Adobe Photoshop &amp; Illustrator</>
-    ]
-  }
+  const page = getPageDetails('/')
 
   let caseStudies = [];
   let pageId = -1;
@@ -34,10 +15,10 @@ function Home(props) {
   directory.forEach(url => {
     pageId++
     pageDetails.forEach(page => {
-      if (startHereUrl === undefined) {
-        startHereUrl = page.url;
-      }
-      if (url === page.url) {
+      if (url === page.url && url !== '/') {
+        if (startHereUrl === undefined) {
+          startHereUrl = page.url;
+        }
         const item = {
           url: url,
           pageId: pageId,
@@ -57,7 +38,7 @@ function Home(props) {
   
   return (
     <Main page={ page }>
-      <section className='case-study'>
+      <section>
         <div className='container'>
           <div className='row'>
             <div className='intro'>
@@ -66,7 +47,7 @@ function Home(props) {
               </h1>
               <div className='content'>
                 <div className='info'>
-                  { page.headerIntro.map(item =>
+                  { page.intro.map(item =>
                     <p>{ item }</p>
                   )}
                 </div>

@@ -1,20 +1,19 @@
-import React, { useState }  from 'react';
-import { Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Player } from 'video-react';
-// import ReactPlayer from 'react-player'
-import 'lazysizes';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import "video-react/dist/video-react.css";
+import React                   from 'react'
+import { Pagination }          from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Player }              from 'video-react'
+import                              'lazysizes'
+import                              'swiper/css'
+import                              'swiper/css/pagination'
+import                              'video-react/dist/video-react.css'
 
 function Gallery(props) {
-  const p = props.page;
+  const p = props.product
 
   let Items = []
   for (let i = 1; i <= p.gallerySlides; i++) {
     let additionalClass = ''
-    if (i == p.galleryDimensions) additionalClass = 'dimensions'
+    if (i === p.galleryDimensions) additionalClass = 'dimensions'
     Items.push(
       <SwiperSlide 
         className={ `slide-${i} lazyload ${ additionalClass }`} 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react'
 
 function Financing(props) {
   React.useEffect(()=> {
@@ -8,16 +8,14 @@ function Financing(props) {
     const monthlyPayment = Math.round(total / 18)
     if (total > 0) props.setMonthlyPayment(monthlyPayment)
     props.setCartTotal(total)
-  }, [props.price, props.upsell0Active, props.upsell1Active, props.upsell0Sku, props.upsell1Sku]);
+  }, [props]);
 
-  const p = props.page;
+  const p = props.product;
   let additionalClass = ''
   if (p.discountActual > 0) additionalClass = 'discounted'
   let Items = [];
   for (let i = 1; i <= p.maxQty; i++) {
     p.skus.forEach((item, index) => {
-      let displayRule = 'none'
-      if (index === 0) displayRule = 'block'
       Items.push(
         <div 
           data-sku={ item.sku }

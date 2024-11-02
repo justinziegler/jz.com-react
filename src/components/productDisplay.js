@@ -13,12 +13,12 @@ import Upsells                        from './productDisplay/upsells';
 import CartButton                     from './productDisplay/cartButton'
 import Cart                           from './productDisplay/cart'
 import { getUpsellSize }              from './utils/getUpsellSize'
-import { getInitialSelection }        from './utils/getInitialSelection';
+import { getInitialSelection }        from './utils/getInitialSelection'
 
 let initial = []
 
 function ProductDisplay(props) {
-  const p = props.page
+  const p = props.product
 
   let wrap = false;
   if (p.colorSelection) {
@@ -79,14 +79,19 @@ function ProductDisplay(props) {
       <div className='product-display' data-visible={ props.visible }>  
         <div className='container-fluid'>
           <div className='row'>
-            <Gallery page={ props.page } type={ props.type } color={ props.color } size={ size } />
+            <Gallery 
+              product={ props.product } 
+              type={ props.type } 
+              color={ props.color } 
+              size={ size } 
+            />
             <div className='product col-xs-12 col-sm-6'>
               <div className='row'>
                 <div className='product-description col-xs-12'>
                   <div className='row'>
                     <div className='col-xs-12'>
                       <h1 data-type={ p.defaultProductType } key='heading-0'>{ p.heading }</h1>
-                      <Ratings page={ props.page } />
+                      <Ratings product={ props.product } />
                       <p className='subheading'>{ p.subheading }</p>
                     </div>
                   </div>
@@ -117,7 +122,7 @@ function ProductDisplay(props) {
 
                       { p.colorSelection &&
                         <ColorSelect 
-                          page={ props.page } 
+                          product={ props.product }
                           handleSku={ handleSku }
                           color={ props.color } 
                           colorName={ colorName } 
@@ -127,12 +132,12 @@ function ProductDisplay(props) {
                       }
 
                       { p.qtySelection &&
-                        <QuantitySelect page={ props.page } />
+                        <QuantitySelect product={ props.product } />
                       }
 
                       { p.comboPage &&
                         <TypeSelect 
-                          page={ props.page } 
+                          product={ props.product }
                           type={ props.type } 
                           setType={ props.setType }
                           typeName={ typeName } 
@@ -145,7 +150,7 @@ function ProductDisplay(props) {
                     </div>                
                               
                     <Financing 
-                      page={ props.page } 
+                      product={ props.product }
                       sku={ sku } 
                       setSku={ setSku } 
                       upsell0Active={ upsell0Active }
@@ -163,7 +168,7 @@ function ProductDisplay(props) {
 
                     { p.upsell &&
                       <Upsells 
-                        page={ props.page }
+                        product={ props.product }
                         prefix={ prefix }
                         type={ props.type }
                         color={ props.color } 
@@ -187,7 +192,7 @@ function ProductDisplay(props) {
                     }
 
                     <CartButton 
-                      page={ props.page }
+                      product={ props.product }
                       showCart={ showCart }
                       setShowCart={ setShowCart }
                       upsell0Active={ upsell0Active }
@@ -197,12 +202,12 @@ function ProductDisplay(props) {
                 </div>
               </div>
             </div>
-            <RichText page={ props.page } />
+            <RichText product={ props.product } />
           </div>
         </div>
             
         <Cart 
-          page={ props.page } 
+          product={ props.product }
           initial={ initial }
           showCart={ showCart }
           setShowCart={ setShowCart }

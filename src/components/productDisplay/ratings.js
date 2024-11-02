@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Ratings(props) {
-  const p = props.page
+  const p = props.product
   const ratings = p.ratings[0]
   const ratingsStars = ratings.stars
   const ratingsPercentage = (ratings.average * 20) + '%'

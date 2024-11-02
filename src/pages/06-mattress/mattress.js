@@ -1,32 +1,34 @@
 
-import React, { useState }  from 'react';
-import { getPageId }        from '../../components/utils/getPageId'
-import { getProductConfig } from '../../components/utils/getProductConfig';
-import Main                 from '../../components/sections/main';
-import ProductDisplay       from '../../components/productDisplay';
+import React, { useState }  from 'react'
+import { getPageDetails }   from '../../components/utils/getPageDetails'
+import { getProductConfig } from '../../components/utils/getProductConfig'
+import Main                 from '../../components/sections/main'
+import ProductDisplay       from '../../components/productDisplay'
 import ScrollToAnchor       from '../../components/utils/scrollToAnchor'
-import { ourWay }           from './content/ourWay';
+import { ourWay }           from './content/ourWay'
 import OurWay               from '../../components/sections/ourWay'
-import Upgrade              from './content/upgrade';
-import { valueProps }       from './content/valueProps';
-import ValueProps           from '../../components/sections/valueProps';
-import Layers               from './content/layers';
-import FinancingInfo        from './content/financingInfo';
-import FirmnessScale        from './content/firmnessScale';
-import MadeSimple           from './content/madeSimple';
-import Ratings              from '../../components/sections/ratings';
-import { mattressReviews }  from './content/mattressReviews';
-import Reviews              from '../../components/sections/reviews';
-import BedFrames            from './content/bedFrames';
-import { suggestedItems }   from './content/suggestedItems';
-import SuggestedItems       from '../../components/sections/suggestedItems';
-import { faqs }             from './content/faqs';
-import Faqs                 from '../../components/sections/faqs';
-import Footer               from '../../components/sections/footer';
+import Upgrade              from './content/upgrade'
+import { valueProps }       from './content/valueProps'
+import ValueProps           from '../../components/sections/valueProps'
+import Layers               from './content/layers'
+import FinancingInfo        from './content/financingInfo'
+import FirmnessScale        from './content/firmnessScale'
+import MadeSimple           from './content/madeSimple'
+import Ratings              from '../../components/sections/ratings'
+import { mattressReviews }  from './content/mattressReviews'
+import Reviews              from '../../components/sections/reviews'
+import BedFrames            from './content/bedFrames'
+import { suggestedItems }   from './content/suggestedItems'
+import SuggestedItems       from '../../components/sections/suggestedItems'
+import { faqs }             from './content/faqs'
+import Faqs                 from '../../components/sections/faqs'
+import Footer               from '../../components/sections/footer'
 import                           '../../css/product-shop-opm-gallery.css'
 import                           '../../scss/product-display/size-guide-modal-mattress.scss'
 
 function Mattress (props) {
+  const page                                = getPageDetails('mattress')
+  const product                             = getProductConfig('mattress')
   const [productName, setProductName]       = useState(null)
   const [type, setType]                     = useState(null)
   const [color, setColor]                   = useState(null)
@@ -34,21 +36,10 @@ function Mattress (props) {
   const [monthlyPayment, setMonthlyPayment] = useState(0)
   const [scrolled, setScrolled]             = useState(false)
 
-  const pageUrl = 'mattress'
-  let page      = getProductConfig('mattress')
-  page.pageId   = getPageId(pageUrl)
-  page.pageUrl  = pageUrl
-
-  page.headerTitle = 'Product Display – Basic Config'
-  page.headerIntro = [
-    <>REWRITE The links below highlight the features of a Product Display module that I developed to support a line of bedding products.</>,
-    <><strong>Mattress:</strong> This is the basic configuration, which allows users to add a product to cart and optionally add an upsell from resulting modal.</>
-  ]
-
   return (
     <Main page={ page }>
       <ProductDisplay 
-        page={ page } 
+        product={ product }
         productName={ productName }
         setProductName={ setProductName }
         type={ type }

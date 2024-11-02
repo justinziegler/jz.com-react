@@ -2,7 +2,7 @@ import React from 'react';
 import CartUpsell from './cartUpsell';
 
 function Cart(props) {
-  const p = props.page
+  const p = props.product
 
   const hideCart = (e) => {
     props.setShowCart(false)

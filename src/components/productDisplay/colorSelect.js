@@ -4,7 +4,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import '../../scss/product-display/color+quantity.scss'
 
 function ColorSelect(props) {
-  const p = props.page;
+  const p = props.product;
 
   const handleColor = (e) => {
     props.setColor(e.target.dataset.color)
@@ -29,7 +29,6 @@ function ColorSelect(props) {
         >
           <button 
             className='color' 
-            role='button' 
             tabIndex='0' 
             data-color={ c.color }
             data-color-name={ c.colorName }

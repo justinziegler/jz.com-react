@@ -5,74 +5,74 @@ import { getPageId }   from '../utils/getPageId'
 import { getPrevPage } from '../utils/getPrevPage'
 import { getNextPage } from '../utils/getNextPage'
 import { useWidth }    from '../utils/useWidth'
-import                      '../../scss/sections/header.scss';
-import                      '../../css/bootstrap-grid.css';
+import                      '../../scss/sections/header.scss'
+import                      '../../css/bootstrap-grid.css'
 
 function Header(props) {
-  const p = props.page
-  const pageId = getPageId(p.pageUrl)
-  const prevPage = getPrevPage(p.pageUrl)
-  const nextPage = getNextPage(p.pageUrl)
-  let mobile = useWidth() < 768
+  const p        = props.page
+  const pageId   = getPageId(p.url)
+  const prevPage = getPrevPage(p.url)
+  const nextPage = getNextPage(p.url)
+  let mobile     = useWidth() < 768
 
   return (
-    <nav id='nav' data-collapsed={ !props.open } data-current-page={ p.pageUrl }>
+    <nav id='nav' data-collapsed={ !props.open } data-current-page={ p.url }>
       <div className='nav-container'>
         <div className='nav-col left'>
-            { p.pageUrl !== '/' &&
-              <>
-                <a className='nav-btn home' href='../'>
-                  <span className='sr-only'>Home</span>
-                </a>
-                <h2>Justin Ziegler &nbsp;<span>Recent Work</span> </h2>
-              </>
-            }
-          </div>
-        
-          { mobile ?
-            <div className='nav-col right'>
-              <a href='#' 
-                className='hamburger' 
-                onClick={ props.handleOpenHamburger }
-                aria-controls='nav-links'
-                aria-expanded={ props.openHamburger }>
-                <span></span>
-                <span></span>
-                <span></span>
+          { p.url !== '/' &&
+            <>
+              <a className='nav-btn home' href='../'>
+                <span className='sr-only'>Home</span>
               </a>
-              <Collapse in={ props.openHamburger }>
-                <ul className='nav-links'> 
-                    { navLinks.map((x, index) =>
-                      <li className={ x.class } key={ `navlink${index}`}>
-                        { x.target !== '' ?
-                          <a href={ x.link } target='_blank' tabIndex='0'>{ x.title }</a>
-                          :
-                          <a href={ x.link } tabIndex='0'>{ x.title }</a>
-                        }
-                      </li>
-                    )}
-                </ul>
-              </Collapse>
-            </div>
-            :
-            <div className='nav-col right'>              
+              <h2>Justin Ziegler &nbsp;<span>Recent Work</span> </h2>
+            </>
+          }
+        </div>
+        
+        { mobile ?
+          <div className='nav-col right'>
+            <a href='./' 
+              className='hamburger' 
+              onClick={ props.handleOpenHamburger }
+              aria-controls='nav-links'
+              aria-expanded={ props.openHamburger }>
+              <span></span>
+              <span></span>
+              <span></span>
+            </a>
+            <Collapse in={ props.openHamburger }>
               <ul className='nav-links'> 
                   { navLinks.map((x, index) =>
                     <li className={ x.class } key={ `navlink${index}`}>
                       { x.target !== '' ?
-                        <a href={ x.link } target='_blank' tabIndex='0'>{ x.title }</a>
+                        <a href={ x.link } target='_blank' rel='noreferrer' tabIndex='0'>{ x.title }</a>
                         :
-                        <a href={ x.link } tabIndex='0'>{ x.title }</a>
+                        <a href={ x.link } rel='noreferrer' tabIndex='0'>{ x.title }</a>
                       }
                     </li>
                   )}
               </ul>
-            </div>
-          }
+            </Collapse>
+          </div>
+          :
+          <div className='nav-col right'>              
+            <ul className='nav-links'> 
+                { navLinks.map((x, index) =>
+                  <li className={ x.class } key={ `navlink${index}`}>
+                    { x.target !== '' ?
+                      <a href={ x.link } target='_blank' rel='noreferrer' tabIndex='0'>{ x.title }</a>
+                      :
+                      <a href={ x.link } rel='noreferrer' tabIndex='0'>{ x.title }</a>
+                    }
+                  </li>
+                )}
+            </ul>
+          </div>
+        }
           
       </div>
 
-      { p.pageUrl !== '/' &&
+      { p.url !== '/' &&
         <div className='header-content bottom'>
           <div className='case-study-nav'>
             <div>
@@ -103,7 +103,7 @@ function Header(props) {
               :
                 <div className='next'>
                   <a href={ nextPage }>
-                    { p.pageUrl === '/' ?
+                    { p.url === '/' ?
                       <span>Start</span>
                     :
                       <span>Next</span>
@@ -120,21 +120,21 @@ function Header(props) {
                     0
                   }
                   { pageId }.
-                </span> { p.headerTitle }
+                </span> { p.title }
               </h3>
             </div>
           </div>
           <Collapse in={ props.open }>
             <div className='case-study'>
               <div className='case-study-content'>
-                { p.headerIntro.map((item, index) =>
+                { p.intro.map((item, index) =>
                   <React.Fragment key={ `cs-${index}` }>
                     <p>{ item }</p>
                   </React.Fragment>
                 )}
-                { p.headerBullets !== undefined &&
+                { p.bullets !== undefined &&
                   <ul className='project-details'>
-                    { p.headerBullets.map((bullet, index) =>
+                    { p.bullets.map((bullet, index) =>
                       <li key={ `bullet${ index }`}>
                         { bullet }
                       </li>
@@ -143,7 +143,7 @@ function Header(props) {
                 }
                 {p.toggleLinks && 
                   <div className='toggle-links'>
-                    { p.pageUrl === 'holiday-mode' ?
+                    { p.url === 'holiday-mode' ?
                       <>
                         <button onClick={ () => props.setHolidayMode(false) } data-active={ !props.holidayMode } key='toggleOff'>
                           Normal Mode
@@ -188,4 +188,4 @@ function Header(props) {
   )
 }
 
-export default Header;
+export default Header

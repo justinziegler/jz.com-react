@@ -42,10 +42,10 @@ function Main(props) {
       <main onClick={ resetHeader } 
         data-active-slide={ props.activeIndex } 
         data-active={ props.navActive }
-        style={{ backgroundColor: p.background !== undefined ? p.background : null }}
+        style={{ 'backgroundColor': p.backgroundColor !== undefined ? p.backgroundColor : null }}
       >
         { children }
-        { p.pageUrl !== '/' &&
+        { p.url !== '/' &&
           <div className="header-overlay" data-visible={ showOverlay }></div>
         }
       </main>

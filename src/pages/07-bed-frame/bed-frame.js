@@ -1,7 +1,7 @@
 
 import React, { useState }     from 'react'
+import { getPageDetails }      from '../../components/utils/getPageDetails'
 import { getProductConfig }    from '../../components/utils/getProductConfig'
-import { getPageId }           from '../../components/utils/getPageId'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Main                    from '../../components/sections/main'
 import ProductDisplay          from '../../components/productDisplay'
@@ -25,6 +25,8 @@ import                              '../../scss/07-bed-frame/gallery.scss'
 import                              '../../scss/product-display/size-guide-modal.scss'
 
 function BedFrame () {
+  const page                                = getPageDetails('bed-frame')
+  const product                             = getProductConfig('frame')
   const [productName, setProductName]       = useState(null)
   const [type, setType]                     = useState(null)
   const [color, setColor]                   = useState(null)
@@ -32,20 +34,10 @@ function BedFrame () {
   const [monthlyPayment, setMonthlyPayment] = useState(0)
   const [scrolled, setScrolled]             = useState(false)
 
-  const pageUrl = 'bed-frame'
-  let page      = getProductConfig('frame');
-  page.pageId   = getPageId(pageUrl)
-  page.pageUrl  = pageUrl
-
-  page.headerTitle = <>Product Detail Page &ndash; Bed Frame</>
-  page.headerIntro = [
-    <>REWRITE This product detail page features a number of interactive elements, including a slide-able product comparison module that I also developed the photography for.</>
-  ]
-
   return (
     <Main page={ page }>
       <ProductDisplay 
-        page={ page } 
+        product={ product } 
         productName={ productName }
         setProductName={ setProductName }
         type={ type }
