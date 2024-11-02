@@ -66,7 +66,7 @@ const pageDetails = [
     title: 'Product Display with Options',
     url: 'product-display-frame',
     intro: [
-      <>This is a more complex configuration of the Product Display component that offers customers a choice between fabric colors and model types. Product photos will change depending upon the user's selection, and the final product slide displays the dimensions of the currently selected product size.</>
+      <>This is a more complex configuration of the <strong>Product Display</strong> component that offers customers a choice between fabric colors and model types. Product photos will change depending upon the user's selection, and the final product slide displays the dimensions of the currently selected product size.</>
     ],
     background: productDisplay2,
     backgroundColor: '#f7f5f3'
@@ -75,7 +75,7 @@ const pageDetails = [
     title: 'Product Display with Upsells',
     url: 'product-display-sheets',
     intro: [
-      <>This configuration of the Product Display component sorts through over 40 product variations, plus more than 100 upsell products from 6 product lines. The upsells update their currently offered product size when the main product size selection changes. In addition, the gallery updates with each selected bedding color.</>
+      <>This configuration of the <strong>Product Display</strong> component sorts through over 40 product variations, plus more than 100 upsell products from 6 product lines. The upsells update their currently offered product size when the main product size selection changes. In addition, the gallery updates with each selected bedding color.</>
     ],
     background: productDisplay3,
     backgroundColor: '#f7f5f3'
@@ -92,7 +92,7 @@ const pageDetails = [
     title: <>Product Detail Page &ndash; Frame</>,
     url: 'bed-frame',
     intro: [
-      <>My favorite section on this <strong>Product Detail Page</strong> is the <strong>frame comparison slider</strong> (titled 'Timeless Classic'). You can see the tufted and untufted headboards side-by-side in a bedroom setting, and changing colors in the Product Display section updates the frame color in this section. Creating the images for this section was challenging on its own and required compositing from several source images.</>
+      <>My favorite section on this <strong>Product Detail Page</strong> is the <strong>frame comparison slider</strong> (titled 'Timeless Classic'). You can see the tufted and untufted headboards side-by-side in a bedroom setting, and changing colors in the <strong>Product Display</strong> section updates the frame color in this section. Creating the images for this section was challenging on its own and required compositing from several source images.</>
     ],
     background: frame
   },

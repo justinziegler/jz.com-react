@@ -47,14 +47,14 @@ function Home(props) {
               </h1>
               <div className='content'>
                 <div className='info'>
-                  { page.intro.map(item =>
-                    <p>{ item }</p>
+                  { page.intro.map((item, index) =>
+                    <p key={ `info-${ index }`}>{ item }</p>
                   )}
                 </div>
                 <div className='skills'>
                   <ul>
-                    { page.skills.map(skill =>
-                      <li>{ skill }</li>
+                    { page.skills.map((skill, index) =>
+                      <li key={ `skill-${ index }`}>{ skill }</li>
                     )}
                   </ul>
                 </div>

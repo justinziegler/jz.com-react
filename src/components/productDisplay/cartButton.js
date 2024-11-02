@@ -12,7 +12,7 @@ function CartButton(props) {
           id='btn-addtocart'
           onClick={ displayCart }
           disabled={ props.showCart }
-          role='button'>
+        >
           Add&nbsp; 
             { ((props.upsell0Active && !props.upsell1Active) || 
               (props.upsell1Active && !props.upsell0Active)) &&
