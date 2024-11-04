@@ -1,5 +1,5 @@
 import React from 'react';
-import { social, products, research, support, resources, company } from '../data/footerLinks';
+import { social, products, research, support, resources, company } from '../../data/footerLinks';
 import { preventDefault } from '../utils/preventDefault';
 import '../../scss/sections/footer.scss'
 

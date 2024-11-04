@@ -1,4 +1,4 @@
-import { directory } from '../data/directory';
+import { directory } from '../../data/directory';
 
 export function getPrevPage(pageUrl) {
   let prevPage;

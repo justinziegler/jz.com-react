@@ -1,6 +1,6 @@
 import React           from 'react'
 import Collapse        from 'react-bootstrap/Collapse'
-import { navLinks }    from '../data/navLinks'
+import { navLinks }    from '../../data/navLinks'
 import { getPageId }   from '../utils/getPageId'
 import { getPrevPage } from '../utils/getPrevPage'
 import { getNextPage } from '../utils/getNextPage'

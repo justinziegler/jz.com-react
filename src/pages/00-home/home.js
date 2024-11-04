@@ -1,5 +1,5 @@
-import { directory }      from '../../components/data/directory';
-import { pageDetails }    from '../../components/data/pageDetails';
+import { directory }      from '../../data/directory';
+import { pageDetails }    from '../../data/pageDetails';
 import { getPageDetails } from '../../components/utils/getPageDetails';
 import Main               from '../../components/sections/main';
 import                         '../../css/bootstrap-grid.css';

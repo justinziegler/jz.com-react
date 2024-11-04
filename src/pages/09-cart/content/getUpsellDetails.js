@@ -1,6 +1,6 @@
-import { products } from '../../../components/data/products';
-import { getProductName } from '../../../components/utils/getProductName';
-import { getSizeName } from '../../../components/utils/getSizeName';
+import { products }       from '../../../data/products'
+import { getProductName } from '../../../components/utils/getProductName'
+import { getSizeName }    from '../../../components/utils/getSizeName'
 
 export function getUpsellDetails(skus) {
   let upsellItems = [];

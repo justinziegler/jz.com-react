@@ -1,21 +1,21 @@
-import { products } from '../../../components/data/products'
-import { getColorName } from '../../../components/utils/getColorName'
-import { getSizeName } from '../../../components/utils/getSizeName'
+import { products }         from '../../../data/products'
+import { getColorName }     from '../../../components/utils/getColorName'
+import { getSizeName }      from '../../../components/utils/getSizeName'
 import { getUpsellDetails } from './getUpsellDetails'
-import { getProductName } from '../../../components/utils/getProductName'
-import { getShortName } from '../../../components/utils/getShortName'
+import { getProductName }   from '../../../components/utils/getProductName'
+import { getShortName }     from '../../../components/utils/getShortName'
 
 export function getUpsellItem(catId) {
-  const items = [];    
-  products.forEach(p => p.catId === catId && items.push(p));
-  let skus = [];
+  const items = []
+  products.forEach(p => p.catId === catId && items.push(p))
+  let skus = []
   items.forEach(item => { 
-    const type = item.sku.slice(3, -6);
-    const color = item.sku.slice(6, -3);
-    const colorName = getColorName(color);
-    const size = item.sku.slice(9);
-    const sizeName = getSizeName(size);
-    const details = getUpsellDetails(type);
+    const type = item.sku.slice(3, -6)
+    const color = item.sku.slice(6, -3)
+    const colorName = getColorName(color)
+    const size = item.sku.slice(9)
+    const sizeName = getSizeName(size)
+    const details = getUpsellDetails(type)
     skus.push(
       {
         catId: item.catId,
@@ -41,5 +41,5 @@ export function getUpsellItem(catId) {
       }
     );
   })
-  return skus;
+  return skus
 }

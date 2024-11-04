@@ -1,8 +1,8 @@
-import { getColorName } from '../utils/getColorName';
-import { numberWithCommas} from '../utils/numberWithCommas'
-import { getPageId } from '../utils/getPageId';
-import { getProductSkus } from '../utils/getProductSkus';
-import video from '../../assets/sheets/organic-sheets-16x9-web.mp4';
+import { getColorName }    from '../components/utils/getColorName'
+import { numberWithCommas} from '../components/utils/numberWithCommas'
+import { getPageId }       from '../components/utils/getPageId'
+import { getProductSkus }  from '../components/utils/getProductSkus'
+import video               from '../assets/sheets/organic-sheets-16x9-web.mp4'
 
 const pageUrl = 'sheets'
 const catIds = [30]

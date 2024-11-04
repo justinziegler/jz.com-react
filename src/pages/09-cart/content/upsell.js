@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Collapse from 'react-bootstrap/Collapse'
+import Collapse            from 'react-bootstrap/Collapse'
 
 function Upsell(props) {
   const u = props.u
@@ -25,6 +25,9 @@ function Upsell(props) {
 
   const handleUpsellActive = (e) => {
     e.preventDefault()
+    console.log('got here')
+    console.log('props.cartTotal', props.cartTotal)
+    console.log('props.upsellPrice', props.upsellPrice)
     props.setUpsellActive(true)
     props.setCartTotal(props.cartTotal + props.upsellPrice)
   }

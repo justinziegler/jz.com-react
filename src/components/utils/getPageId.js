@@ -1,11 +1,11 @@
-import { directory } from "../data/directory";
+import { directory } from "../../data/directory"
 
 export function getPageId(pageUrl) {
-  let pageId;
+  let pageId
   directory.forEach(item => {
     if (pageUrl === item) {
-      pageId = directory.indexOf(item);
+      pageId = directory.indexOf(item)
     }
   })
-  return pageId;
+  return pageId
 }

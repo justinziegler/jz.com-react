@@ -1,4 +1,4 @@
-import resume from  '../../pdf/JustinZiegler-Resume2023.pdf'
+import resume from  '../pdf/JustinZiegler-Resume2023.pdf'
 
 const navLinks = [
   {

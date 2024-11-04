@@ -1,12 +1,12 @@
-import holidayModeThumb from '../../assets/home/holiday-mode.jpg'
-import tiktok           from '../../assets/home/tiktok.jpg'
-import productDisplay1  from '../../assets/home/pd1.jpg'
-import productDisplay2  from '../../assets/home/pd2.jpg'
-import productDisplay3  from '../../assets/home/pd3.jpg' 
-import mattress         from '../../assets/home/mattress.jpg'
-import frame            from '../../assets/home/frame.jpg'
-import sheets           from '../../assets/home/sheets.jpg'
-import cart             from '../../assets/home/cart.jpg'
+import holidayModeThumb from '../assets/home/holiday-mode.jpg'
+import tiktok           from '../assets/home/tiktok.jpg'
+import productDisplay1  from '../assets/home/pd1.jpg'
+import productDisplay2  from '../assets/home/pd2.jpg'
+import productDisplay3  from '../assets/home/pd3.jpg' 
+import mattress         from '../assets/home/mattress.jpg'
+import frame            from '../assets/home/frame.jpg'
+import sheets           from '../assets/home/sheets.jpg'
+import cart             from '../assets/home/cart.jpg'
 
 const pageDetails = [
   {

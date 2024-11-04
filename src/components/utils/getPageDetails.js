@@ -1,4 +1,4 @@
-import { pageDetails } from "../data/pageDetails"
+import { pageDetails } from '../../data/pageDetails'
 
 export function getPageDetails(url) {
   let details = []

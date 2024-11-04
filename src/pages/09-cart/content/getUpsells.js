@@ -1,7 +1,7 @@
-import { products } from '../../../components/data/products'
-import { getUpsellItem } from './getUpsellItem'
+import { products }             from '../../../data/products'
+import { getUpsellItem }        from './getUpsellItem'
 import { getUpsellTargetGroups} from './getUpsellTargetGroups'
-import { getUpsellDetails } from './getUpsellDetails';
+import { getUpsellDetails }     from './getUpsellDetails'
 
 // Mattresses
 const origCatId = 1;

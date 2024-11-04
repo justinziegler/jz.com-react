@@ -1,7 +1,6 @@
-import { getColorName }    from '../utils/getColorName'
-import { numberWithCommas} from '../utils/numberWithCommas'
-import { getProductSkus }  from '../utils/getProductSkus'
-import                          '../../scss/product-display/size-guide-modal-mattress.scss'
+import { getColorName }    from '../components/utils/getColorName'
+import { numberWithCommas} from '../components/utils/numberWithCommas'
+import { getProductSkus }  from '../components/utils/getProductSkus'
 
 const catIds = [1]
 const discountActual = 200

@@ -1,9 +1,8 @@
-import { getColorName }    from '../utils/getColorName';
-import { numberWithCommas} from '../utils/numberWithCommas'
-import { getProductSkus }  from '../utils/getProductSkus';
-import { getShortName }    from '../utils/getShortName';
-import { getProductName }  from '../utils/getProductName';
-import                          '../../scss/product-display/size-guide-modal.scss'
+import { getColorName }    from '../components/utils/getColorName'
+import { numberWithCommas} from '../components/utils/numberWithCommas'
+import { getProductSkus }  from '../components/utils/getProductSkus'
+import { getShortName }    from '../components/utils/getShortName'
+import { getProductName }  from '../components/utils/getProductName'
 
 const catIds = [40, 41]
 const discountActual = 200

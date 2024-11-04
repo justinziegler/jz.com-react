@@ -5,7 +5,7 @@ function OrderSummary(props) {
   const [monthlyPayment, setMonthlyPayment] = useState(0)
   React.useEffect(()=> {
     setMonthlyPayment(Math.round(props.cartTotal / 18))
-  }, [props.cartTotal]);
+  }, [props]);
 
   return (
     <div className='order-summary col-xs-12 col-sm-5 col-md-offset-1'>

@@ -1,6 +1,6 @@
-import { pageMattress } from '../data/pageMattress'
-import { pageFrame }    from '../data/pageFrame'
-import { pageSheets }   from '../data/pageSheets'
+import { pageMattress } from '../../data/pageMattress'
+import { pageFrame }    from '../../data/pageFrame'
+import { pageSheets }   from '../../data/pageSheets'
 
 export function getProductConfig(pageUrl) {
 	switch (pageUrl) {
