@@ -25,9 +25,6 @@ function Upsell(props) {
 
   const handleUpsellActive = (e) => {
     e.preventDefault()
-    console.log('got here')
-    console.log('props.cartTotal', props.cartTotal)
-    console.log('props.upsellPrice', props.upsellPrice)
     props.setUpsellActive(true)
     props.setCartTotal(props.cartTotal + props.upsellPrice)
   }
@@ -135,6 +132,7 @@ function Upsell(props) {
                               data-upsell-sizes={ totalUpsellSizes }
                               data-active={ item.sku === props.upsellSku }
                               data-color={ item.color }
+                              data-price={ item.price }
                               style={ item.color !== activeColor ? { display: 'none' } : { display: 'block' } }
                               role='button' 
                               tabIndex='0'
