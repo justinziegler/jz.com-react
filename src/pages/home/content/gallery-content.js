@@ -6,19 +6,20 @@ const galleryContent = [
     group: 'recently',
     category: 'products',
     class: 'divider',
+    groupSlide: 0,
     images: '',
     content: 
       <div>
-        <h2>Recently<span></span></h2>
+        {/* <h2>Recent Work<span></span></h2>
         <p>
           I spent the last few years building and refining the web presence of a bedding startup.<br /> 
           After joining the company in its first year, I worked on every corner of the website<br /> 
           as the product catalog slowly grew from one line to more than fifteen.
         </p>
         <p>
-          The following slides contain a few of my favorite recent projects.<br /> 
-          Many more examples of my work can be seen at <a href="https://lull.com" rel="noopener noreferrer" target="_blank">lull.com</a>.
-        </p>
+          The following slides contain a few of my favorite recent projects.<br />
+          Thanks for visiting!
+        </p> */}
       </div>
   },
   {
@@ -197,7 +198,7 @@ const galleryContent = [
     groupSlide: 1,
     images: ['promos/tiktok-01.jpg', 'promos/tiktok-02.jpg'],
     mobile: true,
-    title: '\'Tiktok Copycat\'',
+    title: '\'Tiktok Takeoff\'',
     type: 'Promo Page',
     description: 'Tiktok-styled mobile promotional page for a social media-targeted marketing campaign. Videos advance manually or automatically.',
     link: 'https://lull.com/tksale',
@@ -211,7 +212,7 @@ const galleryContent = [
     groupSlide: 2,
     images: ['promos/tiktok-03.jpg', 'promos/tiktok-04.jpg'],
     mobile: true,
-    title: '\'Tiktok Copycat\'',
+    title: '\'Tiktok Takeoff\'',
     type: 'Promo Page',
     description: 'Tiktok-styled mobile promotional page for a social media-targeted marketing campaign. Videos advance manually or automatically.',
     link: 'https://lull.com/tksale',
@@ -223,11 +224,11 @@ const galleryContent = [
     category: 'checkout',
     class: 'cat3',
     groupSlide: 1,
-    images: ['checkout/cart-d.jpg'],
+    images: ['checkout/cart-d.png'],
     mobile: false,
     title: 'Shopping Cart',
     type: 'Checkout Page',
-    description: 'Shopping cart with order management features. Upsells offered are tailored to the cart\'s contents.',
+    description: 'Shopping cart with order management features. Upsells offered are tailored to the cart\'s contents while still including customization options.',
     link: 'https://lull.com/cart',
     tools: ['HTML', 'Nunjucks', 'jQuery', 'SCSS / CSS', 'Photoshop', 'Imgix']
   },
@@ -237,11 +238,11 @@ const galleryContent = [
     category: 'checkout',
     class: 'cat3',
     groupSlide: 2,
-    images: ['checkout/cart-m.jpg'],
+    images: ['checkout/cart-m.png'],
     mobile: true,
     title: 'Shopping Cart',
     type: 'Checkout Page',
-    description: 'Shopping cart with order management features. Upsells offered are tailored to the cart\'s contents.',
+    description: 'Shopping cart with order management features. Upsells offered are tailored to the cart\'s contents while still including customization options.',
     link: 'https://lull.com/cart',
     tools: ['HTML', 'Nunjucks', 'jQuery', 'SCSS / CSS', 'Photoshop', 'Imgix']
   },
@@ -300,106 +301,6 @@ const galleryContent = [
     description: '',
     link: 'https://lull.com/checkout/payment',
     tools: ['HTML', 'Nunjucks', 'jQuery', 'SCSS / CSS', 'Photoshop', 'Imgix']
-  },
-  {
-    id: 22,
-    group: 'more',
-    category: 'more',
-    class: 'divider',
-    images: '',
-    content: 
-      <div>
-        <h2>Less Recently<span></span></h2>
-        <p>Here is a selection of sites I designed & developed for earlier employers.</p>
-      </div>
-  },
-  {
-    id: 23,
-    group: 'bg',
-    category: 'more',
-    class: 'cat4',
-    images: ['bg/bg.png'],
-    title: 'Baby Genius',
-    type: 'Website',
-    description: 'Storefront and subscription audio / video streaming site. Built in Drupal Commerce.',
-    tools: ['HTML', 'Drupal Commerce', 'CSS', 'Photoshop']
-  },
-  {
-    id: 24,
-    group: 'dh',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/dh.png'],
-    title: 'DreamHome',
-    type: 'Website',
-    description: 'Website for the Merchandise Mart\'s annual DreamHome event.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 25,
-    group: 'mm',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/60654.png'],
-    title: 'The Mart Center',
-    type: 'Website',
-    description: 'Informational website for a property management company.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 26,
-    group: 'nbm',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/nbm.png'],
-    title: 'National Bridal Market',
-    type: 'Website',
-    description: 'Website for the Merchandise Mart\'s annual bridal industry showcase.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 27,
-    group: 'ad',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/ad.png'],
-    title: 'Architects & Designers Building',
-    type: 'Website',
-    description: 'Informational website for a home furnishings event and showroom property.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 28,
-    group: 'lxh',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/lxh.png'],
-    title: 'LuxeHome',
-    type: 'Website',
-    description: 'Website for the Merchandise Mart\'s annual LuxeHome event.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 29,
-    group: 'mmdc',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/mmdc.png'],
-    title: 'Merchandise Mart Design Center',
-    type: 'Website',
-    description: 'Informational website for a home furnishings event and showroom property.',
-    tools: ['HTML', 'CSS', 'Photoshop']
-  },
-  {
-    id: 30,
-    group: 'wdc',
-    category: 'more',
-    class: 'cat4',
-    images: ['mm/wdc.png'],
-    title: 'Washington Design Center',
-    type: 'Website',
-    description: 'Informational website for a home furnishings event and showroom property.',
-    tools: ['HTML', 'CSS', 'Photoshop']
   }
 ]
 

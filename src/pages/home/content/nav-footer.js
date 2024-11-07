@@ -5,16 +5,10 @@ function NavFooter() {
   const navLinkData = [
     {
       title: 'Justin Ziegler',
-      location: 'Santa Barbara, CA',
+      location: 'Recent Work',
       link: '',
       target: '',
       class: 'title'
-    },
-    {
-      title: 'Recent Work',
-      link: '#',
-      target: '#recently',
-      class: 'recent',
     },
     {
       title: 'Github',
@@ -45,7 +39,7 @@ function NavFooter() {
   const navLinks = navLinkData.map(x => 
     <li className={ x.class } key={ x.class }>
       { x.class === 'title' ? 
-        <span>{ x.title } <span className="bullet">&bull;</span> { x.location }</span> : 
+        <>{ x.title } &nbsp;<span>{ x.location }</span> </> : 
           x.target.slice(0, 1) !== '#' ?
             <a href={ x.link } className={ x.linkClass } target={ x.target } tabIndex="0">
               { x.title }

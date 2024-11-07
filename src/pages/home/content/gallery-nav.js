@@ -11,7 +11,9 @@ function GalleryNav(props) {
               className={ cat.class } 
               target={ cat.target }
               key={ cat.class } 
-              onClick={ props.navigateGallery } >
+              onClick={ props.navigateGallery }
+              onMouseEnter={ props.highlightGroup } 
+              onMouseLeave={ props.clearHighlightGroup } >
               { cat.title }
               <span></span>
             </a>

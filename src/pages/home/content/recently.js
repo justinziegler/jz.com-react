@@ -24,7 +24,8 @@ function Recently () {
   const [gallerySwiper, setGallerySwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [infoSwiper, setInfoSwiper] = useState(null);
-  const [currentGroup, setCurrentGroup] = useState('recently')
+  const [currentGroup, setCurrentGroup] = useState('recently');
+  const [highlightedGroup, setHighlightedGroup] = useState(false);
   
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -40,7 +41,6 @@ function Recently () {
     event.preventDefault();
     const slideTarget = Number(event.target.target);
     if (slideTarget !== gallerySwiper.activeIndex) {
-      setCurrentGroup(event.target.className);
       gallerySwiper.slideTo(slideTarget);
     }
   }
@@ -86,6 +86,14 @@ function Recently () {
     gallerySwiper.slidePrev();
   }
 
+  function highlightGroup(e) {
+    setHighlightedGroup(e.target.className);
+  }
+
+  function clearHighlightGroup(e) {
+    setHighlightedGroup(false);
+  }
+
   return (
     <section id="recently">
       <div className="recently-background" data-current={ currentGroup }>
@@ -93,7 +101,11 @@ function Recently () {
           <div className="content row">
             <div className="col-two" data-current={ currentGroup }>
               <div className="row">
-                <GalleryNav currentGroup={ currentGroup} navigateGallery={ navigateGallery } />
+                <GalleryNav 
+                  currentGroup={ currentGroup} 
+                  navigateGallery={ navigateGallery }  
+                  highlightGroup={ highlightGroup } 
+                  clearHighlightGroup={ clearHighlightGroup }/>
                 <GalleryInfo 
                   currentGroup={ currentGroup} 
                   setInfoSwiper={ setInfoSwiper } 
@@ -103,9 +115,10 @@ function Recently () {
                 />
               </div>
               <div className="gallery-nav prev" data-current={ currentGroup }></div>
+              <div className="gallery-nav next" data-current={ currentGroup }></div>
             </div>
 
-            <div className="col-one">
+            <div className="col-one" data-current={ currentGroup }>
               <Gallery
                 currentGroup={ currentGroup} 
                 thumbsSwiper={ thumbsSwiper } 
@@ -115,12 +128,14 @@ function Recently () {
                 nextSlide={ nextSlide }
                 prevSlide={ prevSlide }
                 handleShow={ handleShow }
+                navigateGallery={ navigateGallery }
+                highlightedGroup={ highlightedGroup }
+                clearHighlightGroup={ clearHighlightGroup }
               />
               <Thumbnails 
                 currentGroup={ currentGroup } 
                 setThumbsSwiper={setThumbsSwiper} 
               />
-              <div className="gallery-nav next" data-current={ currentGroup }></div>
             </div>
             
           </div>
