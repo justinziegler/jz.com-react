@@ -261,12 +261,9 @@ p {
 main {
   margin-top: $navHeight;
   @include mq(xssm) {
-    margin-top: vwl($navHeight);
+    margin-top: 65px;
     padding-left: 20%;
     padding-right: 20%;
-  }
-  @include mq(xxs) {
-    margin-top: vwp($navHeight);
   }
   @include mq(sm) {
     margin-top: $navHeightSm;

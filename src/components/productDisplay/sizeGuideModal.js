@@ -16,7 +16,7 @@ function SizeGuideModal(props) {
       if (item.size.length > 2) {
         size = item.size.slice(9)
         type = item.size.slice(3, -6)
-        if (defaultType == '') {
+        if (defaultType === '') {
           defaultType = item.size.slice(3, -6)
         }
       }
@@ -35,7 +35,7 @@ function SizeGuideModal(props) {
     })
   } else {
     p.skus.forEach((item, index) => {
-      if (item.catId === p.defaultCatId && item.color == p.defaultColor) {
+      if (item.catId === p.defaultCatId && item.color === p.defaultColor) {
         Items.push(
           <li 
             data-size={ item.size } 

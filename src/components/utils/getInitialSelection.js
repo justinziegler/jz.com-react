@@ -20,7 +20,7 @@ export function getInitialSelection(p, initial) {
       let initialItem = { }
       u.skus.forEach(item => {
         if (item.catId === u.defaultCatId && 
-            item.color == initial.color && 
+            item.color === initial.color && 
             getUpsellSize(initial.size, u.catSizes) === item.size) {
           initialItem.sku = item.sku
           initialItem.productName = item.name

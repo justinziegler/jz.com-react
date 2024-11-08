@@ -42,7 +42,7 @@ function Reviews(props) {
                     <SwiperSlide key={ `review${ index }`}>
                       <div className='item'>
                         <div className='star-gauge'>
-                          <div className='stars' style={{ width: `${ review .stars * 20 }` }}></div>
+                          <div className='stars' style={{ 'width': `${ review.stars * 20 }` }}></div>
                         </div>
                         { review.reviewTitle !== '' &&
                           <div className='review-title'>

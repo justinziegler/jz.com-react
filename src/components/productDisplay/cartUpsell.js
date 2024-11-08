@@ -15,7 +15,7 @@ function CartUpsell(props) {
         setSizeName(item.sizeName)
       }
     })
-  }, [props.sku, props.upsell0Sku, props.upsell1Sku]);
+  }, [skus, props.sku, props.upsell0Sku, props.upsell1Sku]);
   if (props.active) {
     return (
       <li>{ sizeName } { productName } &ndash; { colorName }</li>

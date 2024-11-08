@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 export function useWidth() {
   const [width, setWidth] = useState(0)

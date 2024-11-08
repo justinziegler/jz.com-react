@@ -9,6 +9,7 @@ export function getUpsellSize(size, catSizes) {
       case 'KG':
       case 'CK': 
         return 'KG';
+      default: return 'ST';
     }
   }
   switch(size) {
@@ -21,5 +22,6 @@ export function getUpsellSize(size, catSizes) {
     case 'KG':
     case 'CK': 
       return 'KC';
+    default: return 'TT';
   }
 }
