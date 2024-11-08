@@ -7,6 +7,7 @@ import mattress         from '../assets/home/mattress.jpg'
 import frame            from '../assets/home/frame.jpg'
 import sheets           from '../assets/home/sheets.jpg'
 import cart             from '../assets/home/cart.jpg'
+import { githubUrl }    from './navLinks'
 
 const pageDetails = [
   {
@@ -14,7 +15,7 @@ const pageDetails = [
     title: 'Home',
     intro: [
       <>I am a <strong>detail-oriented web developer</strong> specializing in  <strong>compelling user experiences</strong>. The links included here contain a few of my favorite projects, all rebuilt in <strong>React.</strong></>,
-      <><strong>Source code</strong> for everything on this site can be found on <a href='https://github.com/justinziegler' target='_blank' rel='noreferrer' tabIndex='0'>my Github</a>.</>
+      <><strong>Source code</strong> for everything on this site can be found on <a href={ githubUrl } target='_blank' rel='noreferrer' tabIndex='0'>my Github</a>.</>
     ],
     skills: [
       <>HTML</>,

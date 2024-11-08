@@ -66,7 +66,7 @@ body {
     font-size: 24px;
     margin: 0;
     @include mq(xsm) {
-      margin: 5px 0 0 0;
+      margin: 3px 0 0 0;
     }
     span {
       @media (max-width: 359px) {
@@ -81,6 +81,9 @@ body {
     line-height: 1;
     text-align: left;
     padding-bottom: 5px;
+    @include mq(xsm) {
+      margin: .75rem 0 1.1rem 0;
+    }
     span {
       font-weight: 500;
       &.number {
@@ -446,6 +449,9 @@ body {
     justify-content: center;
     background: transparent;
     padding-bottom: 2px;
+    @include mq(xsm) {
+      margin-left: 10px;
+    }
     &::after {
       content: '';
       @extend %svg;

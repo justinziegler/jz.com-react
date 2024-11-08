@@ -1,5 +1,6 @@
-import React from 'react';
-import { scrollTime } from './constants';
+import React          from 'react'
+import { scrollTime } from './constants'
+import { githubUrl  } from '../../../data/navLinks';
 
 function NavFooter() {
   const navLinkData = [
@@ -12,7 +13,7 @@ function NavFooter() {
     },
     {
       title: 'Github',
-      link: 'https://github.com/justinziegler',
+      link: githubUrl,
       target: '_blank',
       class: 'gh'
     },

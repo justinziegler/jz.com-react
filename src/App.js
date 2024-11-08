@@ -21,17 +21,17 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route exact path='/'                   element={ <Home /> } />
-          <Route path='/holiday-mode'             element={ <HolidayMode /> } />
-          <Route path='/tiktok'                   element={ <TiktokMimic /> } />
-          <Route path='/product-display-mattress' element={ <ProductDisplayMattress /> } />
-          <Route path='/product-display-frame'    element={ <ProductDisplayFrame /> } />
-          <Route path='/product-display-sheets'   element={ <ProductDisplaySheets /> } />
-          <Route path='/mattress'                 element={ <Mattress /> } />
-          <Route path='/bed-frame'                element={ <BedFrame /> } />
-          <Route path='/sheets'                   element={ <Sheets /> } />
-          <Route path='/cart'                     element={ <Cart /> } />
-          <Route path='/home'                     element={ <HomeOld /> } />
+          <Route exact path='/'                   element={ <Suspense><Home /></Suspense> } />
+          <Route path='/holiday-mode'             element={ <Suspense><HolidayMode /></Suspense> } />
+          <Route path='/tiktok'                   element={ <Suspense><TiktokMimic /></Suspense> } />
+          <Route path='/product-display-mattress' element={ <Suspense><ProductDisplayMattress /></Suspense> } />
+          <Route path='/product-display-frame'    element={ <Suspense><ProductDisplayFrame /></Suspense> } />
+          <Route path='/product-display-sheets'   element={ <Suspense><ProductDisplaySheets /></Suspense> } />
+          <Route path='/mattress'                 element={ <Suspense><Mattress /></Suspense> } />
+          <Route path='/bed-frame'                element={ <Suspense><BedFrame /></Suspense> } />
+          <Route path='/sheets'                   element={ <Suspense><Sheets /></Suspense> } />
+          <Route path='/cart'                     element={ <Suspense><Cart /></Suspense> } />
+          <Route path='/home'                     element={ <Suspense><HomeOld /></Suspense> } />
         </Routes>
     </Router>
   );

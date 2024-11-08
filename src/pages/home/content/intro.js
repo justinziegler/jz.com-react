@@ -1,5 +1,6 @@
-import React from 'react';
-import { scrollTime } from './constants.js';
+import React          from 'react'
+import { scrollTime } from './constants.js'
+import { githubUrl }  from '../../../data/navLinks.js'
 
 function Intro() {
   const mobile = window.innerWidth < 992;
@@ -11,7 +12,7 @@ function Intro() {
         <>
           <br />
           Scroll to find examples of my <a href="./" onClick={ scrollTime }>Recent Work </a>.<br /> 
-          Most of the projects featured here can be <br /> explored in more depth on my <a href="https://github.com/justinziegler" rel="noreferrer" target="_blank">Github</a>.<br />
+          Most of the projects featured here can be <br /> explored in more depth on my <a href={ githubUrl } rel="noreferrer" target="_blank">Github</a>.<br />
           Thanks for visiting!
         </>
       }
@@ -19,7 +20,7 @@ function Intro() {
         <>
           <br />
           Come back on a larger screen to view some recent<br /> 
-          projects, or visit my <a href="https://github.com/justinziegler" rel="noreferrer" target="_blank">Github</a> for code examples.
+          projects, or visit my <a href={ githubUrl } rel="noreferrer" target="_blank">Github</a> for code examples.
         </> 
       }
     </p>

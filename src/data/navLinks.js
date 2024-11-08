@@ -1,9 +1,10 @@
 import resume from  '../pdf/resume-JustinZiegler-2024.pdf'
+const githubUrl = 'https://github.com/justinziegler/jz.com-react'
 
 const navLinks = [
   {
     title: 'Github',
-    link: 'https://github.com/justinziegler',
+    link: githubUrl,
     target: '_blank',
     class: 'gh'
   },
@@ -28,4 +29,4 @@ const navLinks = [
   }
 ]
 
-export { navLinks };
+export { githubUrl, navLinks }
