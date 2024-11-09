@@ -683,6 +683,7 @@ nav {
         @include mq(xmd) {
           display: none;
         }
+      }
       &.email {
         a {
           span {
