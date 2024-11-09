@@ -1,0 +1,246 @@
+@import '../compass';
+
+// Core variables and mixins
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+@import '../partials/snippets/video-embed';
+@import '../partials/snippets/lull-button-new';
+
+@import '../bootstrap5/mixins';
+
+$prefix: bs- !default;
+$box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
+$zindex-modal-backdrop:             1050 !default;
+$zindex-modal:                      1055 !default;
+$enable-transitions:          true !default;
+$enable-rounded:              true !default;
+$enable-reduced-motion:       true !default;
+$enable-shadows:              false !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+// Modals
+
+// scss-docs-start modal-variables
+$modal-inner-padding:               $spacer !default;
+
+$modal-footer-margin-between:       .5rem !default;
+
+$modal-dialog-margin:               .5rem !default;
+$modal-dialog-margin-y-sm-up:       1.75rem !default;
+
+$modal-title-line-height:           $line-height-base !default;
+
+$modal-content-color:               null !default;
+$modal-content-bg:                  var(--#{$prefix}body-bg) !default;
+$modal-content-border-color:        var(--#{$prefix}border-color-translucent) !default;
+$modal-content-border-width:        var(--#{$prefix}border-width) !default;
+$modal-content-border-radius:       var(--#{$prefix}border-radius-lg) !default;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
+$modal-content-box-shadow-xs:       $box-shadow-sm !default;
+$modal-content-box-shadow-sm-up:    $box-shadow !default;
+
+$modal-backdrop-bg:                 $black !default;
+$modal-backdrop-opacity:            .5 !default;
+
+$modal-header-border-color:         var(--#{$prefix}border-color) !default;
+$modal-header-border-width:         $modal-content-border-width !default;
+$modal-header-padding-y:            $modal-inner-padding !default;
+$modal-header-padding-x:            $modal-inner-padding !default;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-footer-bg:                   null !default;
+$modal-footer-border-color:         $modal-header-border-color !default;
+$modal-footer-border-width:         $modal-header-border-width !default;
+
+$modal-sm:                          300px !default;
+$modal-md:                          500px !default;
+$modal-lg:                          800px !default;
+$modal-xl:                          1140px !default;
+
+$modal-fade-transform:              translate(0, -50px) !default;
+$modal-show-transform:              translate(0, 100px) !default;
+$modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;
+@import '../bootstrap5/modal';
+
+.modal-backdrop.in {
+	opacity: .5;
+}
+
+.hidden-xssm {
+	@media (min-width: 544px) and (max-width: 767px) {
+		display: none!important;
+	}
+}
+@media (max-width: 543px) {
+	.hidden-xxs {
+		display: none !important;
+	}
+}
+.visible-xxs {
+	@include mq(xs) {
+		display: none!important;
+	}
+}
+
+/////////////////////////////////////////////////////
+// Panels
+// --------------------------------------------------
+// Panel contents
+.panel-body {
+  padding: $panel-body-padding;
+  @include clearfix;
+}
+
+// Optional heading
+.panel-heading {
+  padding: $panel-heading-padding;
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil(($font-size-base * 1.125));
+  color: inherit;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+}
+
+// Collapsible panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  margin-bottom: $line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .panel {
+    margin-bottom: 0;
+    + .panel {
+      margin-top: 5px;
+    }
+  }
+
+  .panel-heading {
+    border-bottom: 0;
+  }
+}
+/////////////////////////////////////////////
+
+main {
+	max-width: 1920px;
+	margin: 0 auto;
+	@media (min-width: 1922px) {
+		max-width: 1922px;
+		border-left: solid 1px #efede9;
+		border-right: solid 1px #efede9;
+	}
+	h1, h2 {
+		text-align: center;
+		font-weight: 700;
+		color: $navy;
+		font-size: 2.2rem;
+		line-height: 1.2;
+		margin: 15px 0 10px 0;
+		pointer-events: none;
+		@include mq(md) {
+			font-size: 3rem;
+		}
+		@include mq(lg) {
+			font-size: 4rem;
+		}
+		span {
+			font-family: 'Mr Dafoe', cursive;
+			display: block;
+			color: $pink;
+			font-size: 4rem;
+			line-height: 1;
+			font-weight: 400;
+			@include mq(lg) {
+				font-size: 6.5rem;
+				margin-bottom: 15px;
+			}
+		}
+	}
+	p {
+		color: #666;
+		font-weight: 500;
+		font-size: 1.4rem;
+		line-height: 1.3;
+		margin: 10px 0 15px 0;
+		text-align: center;
+		@include mq(md) {
+			font-size: 1.8rem;
+		}
+		@include mq(lg) {
+			font-size: 2rem;
+		}
+	}
+	.pic {
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $white;
+			opacity: 1;
+			transition: .3s;
+		}
+		&.lazyloaded {
+			&::before {
+				opacity: 0;
+				transition: .3s;
+			}
+		}
+	}
+}
+
+// SVG
+.play {
+	cursor: pointer;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	@include play($white);
+	background-position: 55% 50%;
+	background-size: 17px;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	@include mq(lg) {
+		width: 90px;
+		height: 90px;
+		background-size: 32px;
+	}
+}

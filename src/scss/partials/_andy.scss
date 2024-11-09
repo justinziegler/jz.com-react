@@ -11,6 +11,8 @@
 /// Base font size setting for Andy
 /// @access public
 /// @type Length
+@use "sass:math";
+
 $base-font-size: 16px !default;
 
 
@@ -225,7 +227,7 @@ $base-font-size: 16px !default;
     position: absolute;
     top: 50%;
     height: $height;
-    margin-top: -($height / 2);
+    margin-top: -($height * 0.5);
 }
 
 /// Vertically centers block elements with unknown height.
@@ -324,7 +326,7 @@ $base-font-size: 16px !default;
   }
 
   font-size: $size;
-  font-size: ($size / $base-font-size) * 1rem;
+  font-size: math.div($size, $base-font-size) * 1rem;
 }
 
 
@@ -379,7 +381,7 @@ $base-font-size: 16px !default;
 ///   }
 @mixin line-height($height-value: 12) {
     line-height: $height-value * 1px; //fallback for old browsers
-    line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1rem);
+    line-height: (math.div(1, math.div($base-font-size, $base-font-size * 0 + 1)) * $height-value * 1rem);
 }
 
 

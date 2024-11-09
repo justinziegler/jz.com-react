@@ -1,0 +1,97 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+.size-guide {
+	.panel-heading {
+		padding: 0;
+	}
+	.panel-title {
+		background-color: $teal;
+		font-size: 1.5rem;
+		color: $white;
+		@include mq(sm) {
+			font-size: 2rem;
+		}
+		@include mq(md) {
+			font-size: 2.5rem;
+		}
+		@include mq(lg) {
+			font-size: 3rem;
+		}
+		> div {
+			position: relative;
+			display: block;
+			color: $white;
+			text-align: center;
+			padding: 30px 15px;
+			span {
+				display: inline-block;
+				width: 15px;
+				height: 9px;
+				@include arrow-thin($white);
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				transition: .2s;
+				margin: 0 0 1px 5px;
+				@include mq(sm) {
+					margin: 0 0 2px 5px;
+				}
+				@include mq(md) {
+					margin: 0 0 4px 8px;
+				}
+				@include mq(lg) {
+					width: 20px;
+					height: 12px;
+				}
+			}
+			&[aria-expanded='true'] {
+				span {
+					transform: rotate(180deg);
+					transition: .2s;
+				}
+			}
+		}
+	}
+	.panel-group {
+		margin-bottom: 0;
+	}
+	.panel-body {
+		background-color: $white;
+		padding: 15px 30px;
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 30px;
+			right: 30px;
+			height: 1px;
+			background-color: $teal;
+			@include mq(lg) {
+				width: 1170px;
+				left: 50%;
+				transform: translateX(-50%);
+				right: auto;
+			}
+		}
+		.row {
+			@include mq(lg) {
+				max-width: 1170px;
+				margin: 0 auto;
+			}
+		}
+		.panel-heading {
+			padding: 2px 15px 0 0;
+		}
+	}
+	p {
+		text-align: left;
+	}
+}

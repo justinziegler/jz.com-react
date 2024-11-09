@@ -1,0 +1,161 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+@import '../partials/helpers';
+
+.media-collage {
+	padding-bottom: 30px;
+	.container {
+		@include mq(xssm) {
+			width: 568px;
+		}
+		@media (min-width: 1600px) {
+			width: 1440px;
+		}
+		@media (min-width: 1920px) {
+			width: 1860px;
+		}
+	}
+	div[class^='collage'] {
+		background-size: cover;
+		border-radius: 6px;
+		&.sq {
+			padding-bottom: 80%;
+		}
+		&.tall {
+			height: 100%;
+		}
+		.play {
+			background-color: rgba(0,0,0,.5);
+			transition: .3s;
+			&:hover, &:focus {
+				background-color: rgba($teal, .75);
+			}
+		}
+	}
+	.collection {
+		@include mq(xssm) {
+			width: 50%;
+		}
+		&:nth-of-type(1) {
+			@include mq(xslg) {
+				padding-right: 7px;
+			}
+			@include mq(mdlg) {
+				padding-left: 7px;
+			}
+		}
+		&:nth-of-type(2) {
+			@include mq(xslg) {
+				padding-left: 7px;
+			}
+			@include mq(mdlg) {
+				padding-right: 7px;
+			}
+		}
+		&:nth-of-type(3) {
+			@include mq(xsmd) {
+				display: none;
+			}
+			@include mq(mdlg) {
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+		}
+	}
+	.group {
+		display: flex;
+		margin-bottom: 14px;
+		@include mq(lg) {
+			margin-bottom: 0;
+		}
+	}
+	.col-1 {
+		@include mq(xlg) {
+			padding-right: 7px;
+		}
+	}
+	.col-2 {
+		@include mq(xlg) {
+			padding-left: 7px;
+		}
+	}
+	.collage {
+		&1 {
+			margin-bottom: 14px;
+			@include mq(lg) {
+				margin-bottom: 30px;
+			}
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage01.jpg');
+			}
+		}
+		&2 {
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage02.jpg');
+			}
+		}
+		&3 {
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage03.jpg');
+			}
+		}
+		&4 {
+			padding-bottom: 37.75%;
+			margin-bottom: 14px;
+			@include mq(sm) {
+				padding-bottom: 38.5%;
+			}
+			@include mq(md) {
+				padding-bottom: 38%;
+			}
+			@include mq(lg) {
+				margin-bottom: 30px;
+				padding-bottom: 36.5%;
+			}
+			@media (min-width: 1600px) {
+				padding-bottom: 37.25%;
+			}
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage04.jpg');
+			}
+		}
+		&5 {
+			margin-bottom: 14px;
+			@include mq(lg) {
+				margin-bottom: 0;
+			}
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage05.jpg');
+			}
+		}
+		&6 {
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage06.jpg');
+			}
+		}
+		&7 {
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage07.jpg');
+			}
+		}
+		&8 {
+			margin-bottom: 14px;
+			@include mq(lg) {
+				margin-bottom: 30px;
+			}
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage08.jpg');
+			}
+		}
+		&9 {
+			&.lazyloaded {
+				background-image: url('../../assets/holiday-promotion/collage09.jpg');
+			}
+		}
+	}
+}

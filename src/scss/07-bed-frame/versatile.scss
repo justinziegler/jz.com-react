@@ -1,0 +1,20 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.versatile {
+  padding: 30px 0;
+  @include mq(xsm) {
+    padding: vwl(30px) 0;
+  }
+  @include mq(xxs) {
+    padding: vwp(30px) 0;
+  }
+  @include mq(lg) {
+    padding: 60px 0;
+  }
+}

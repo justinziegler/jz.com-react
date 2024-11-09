@@ -1,0 +1,38 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.assembly {
+  @include mq(sm) {
+    padding-bottom: 75px;
+  }
+  @include mq(mdlg) {
+    padding-bottom: 45px;
+  }
+  .heading {
+    padding: 30px 0;
+    @include mq(xsm) {
+      padding: vwl(30px);
+    }
+    @include mq(xxs) {
+      padding: vwl(30px);
+    }
+    @include mq(lg) {
+      padding: 45px 0 30px 0;
+    }
+    @include mq(lg) {
+      padding: 60px 0 30px 0;
+    }
+    + .col-xs-12 {
+      padding: 0;
+    }
+  }
+  .video-react {
+    position: static;
+    padding: auto !important;
+  }
+}

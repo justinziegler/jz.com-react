@@ -2,7 +2,28 @@ $bootstrap-sass-asset-helper: false !default;
 //
 // Variables
 // --------------------------------------------------
+$eggplant: #2a0136;
+$purple: #5e0f5b;
+// $lipstick: #962756;
+$lipstick: #932755;
+$flame: #C93B30;
+$orange: #FF7132;
 
+$teal: #56dbd6;
+
+$color1: shade($teal, 10%);
+$color2: shade($teal, 20%);
+$color3:  shade($teal, 30%);
+$color4:  shade($teal, 40%);
+$color5: $flame;
+$color6: #e45631;
+$color7: $orange;
+
+// Original Palette
+$cat1: $lipstick;
+$cat2: $color4;
+$cat3: $flame;
+$cat4: $color6;
 
 //== Colors
 //
@@ -42,7 +63,9 @@ $link-hover-decoration: none !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif:  "Avenir", "Trebuchet MS", Helvetica, Arial, sans-serif;
+$font-family-sans-serif:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
 $font-family-serif:       "PT Serif", Palatino, serif;
 
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -369,8 +392,8 @@ $navbar-height:                    68px !default;
 $navbar-height-experiment:				 50px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-border-radius:             $border-radius-base !default;
-$navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
-$navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
+// $navbar-padding-horizontal:        calc(floor(($grid-gutter-width / 2))) !default;
+// $navbar-padding-vertical:          calc(($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       464px !default;
 $navbar-collapse-max-height-experiment: 515px !default;
 

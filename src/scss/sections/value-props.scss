@@ -1,0 +1,140 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/svg';
+@import '../partials/layout';
+
+.value-props {
+  background-color: #0f3c51;
+  color: $white;
+  padding: 30px 0;
+  padding: vwp(30px)0;
+  @include mq(xs) {
+    padding: vwl(30px) 0;
+  }
+  @include mq(md) {
+    padding: 45px 0;
+  }
+  h2,
+  h3 {
+    color: $white;
+  }
+  h3 {
+    margin-bottom: 15px;
+    @include mq(xsm) {
+      margin-bottom: vwl(15px);
+    }
+    @include mq(xxs) {
+      margin-bottom: vwp(15px);
+    }
+    @include mq(md) {
+      margin-bottom: 20px;
+    }
+  }
+  h4 {
+    position: relative;
+    @include mq(sm) {
+      padding-left: 55px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 42px;
+      width: vwp(42px);
+      height: 42px;
+      height: vwp(42px);
+      left: -55px;
+      left: vwp(-55px);
+      top: -10px;
+      top: vwp(-10px);
+      @extend %svg;
+      @include mq(xs) {
+        width: vwl(42px);
+        height: vwl(42px);
+        left: vwl(-55px);
+        top: vwl(-10px);
+      }
+      @include mq(sm) {
+        left: 0;
+        width: 42px;
+        height: 42px;
+        top: -10px;
+      }
+    }
+  }
+  p {
+    color: #a4c8d9;
+    @include mq(sm) {
+      margin-left: 55px;
+    }
+  }
+  @include mq(xssm) {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  $iconColor: #000; 
+  h4 {
+    @include mq(xxs) {
+      font-size: vwp(16.5px);
+    }
+    &::before {
+      filter: $filter-teal;
+    }
+    &.memory-foam {
+      &::before {
+        @extend %bed;
+        background-size: 80%;
+      }
+    }
+    &.support {
+      &::before {
+        @extend %spine;
+      }
+    }
+    &.cooling {
+      &::before {
+        @extend %coolingcomfort;
+      }
+    }
+    &.quilted {
+      &::before {
+        @extend %quilted;
+      }
+    }
+    &.height {
+      &::before {
+        @extend %durable;
+        background-size: 80%;
+      }
+    }
+    &.comfort {
+      &::before {
+        @include star-reviews-outline($iconColor);
+      }
+    }
+  }
+}
+%coolingcomfort {
+  @include cooling-comfort(#000);
+}
+%spine {
+  @include spine(#000);
+}
+%bed {
+  @include bed(#000);
+}
+%quilted {
+  @include quilted(#000);
+}
+%durable {
+  @include durable(#000);
+}
+%layers {
+  @include layers(#000);
+}
+%arrow-thin {
+  @include arrow-thin(#000);
+}

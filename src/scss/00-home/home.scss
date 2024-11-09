@@ -1,0 +1,607 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../partials/svg';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+
+%dot-gradient {
+  @include dot-gradient(#000);
+}
+%filterNavy {
+  filter: invert(11%) sepia(9%) saturate(5091%) hue-rotate(159deg) brightness(98%) contrast(93%); // navy
+}
+%filterTeal {
+  filter: invert(73%) sepia(16%) saturate(1283%) hue-rotate(129deg) brightness(86%) contrast(91%);
+}
+
+html {
+  font-size: 10px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  line-height: 1.42857143;
+  color: #333333;
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: vwp(45px) 0 vwp(60px) 0;
+  @include mq(xs) {
+    padding: vwl(45px) 0 vwl(60px) 0;
+  }
+  @include mq(sm) {
+    padding: 150px 0 90px 0;
+  }
+  @include mq(md) {
+    height: 100vh;
+  }
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    @extend %dot-gradient;
+    background-size:  vwp(26px);
+    background-repeat: repeat-x;
+    filter: invert(97%) sepia(6%) saturate(68%) hue-rotate(149deg) brightness(95%) contrast(95%); // light grey
+    @include mq(xs) {
+      background-size: vwl(18px);
+    }
+    @include mq(sm) {
+      background-size: 29px;
+    }
+    @include mq(md) {
+      background-size:  40px;
+      bottom: 15px;
+    }
+  }
+  &::before {
+    background-position: 50% 0%;
+  }
+  &::after {
+    transform: rotate(180deg);
+    background-size: 24px;
+  }
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: 0 30px;
+  @include mq(xsm) {
+    width: 100%;
+  }
+  .container {
+    @include mq(xsm) {
+      margin: 0;
+    }
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    @include mq(md) {
+      flex-direction: row;
+    }
+  }
+}
+
+.intro {
+  color: $white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  @include mq(md) {
+    width: 33.333333%;
+    padding: 0 30px 0 0;
+  }
+  h1 {
+    font-family: 'Boogaloo', sans;
+    color: $navy;
+    font-size: vwp(54px);
+    margin: vwp(30px) 0 vwp(10px) 0;
+    line-height: 1;
+    font-weight: normal;
+    text-align: center;
+    text-shadow: vwp(2px) vwp(2px) 0 $white;
+    @include mq(xs) {
+      font-size: vwl(54px);
+      margin: vwl(30px) 0 vwl(10px) 0;
+    }
+    @include mq(sm) {
+      font-size: 50px;
+      margin: 0 0 15px 0;
+    }
+    @include mq(md) {
+      margin: 0;
+    }
+    @include mq(lg) {
+      font-size: 58px;
+      margin: 15px 0;
+    }
+     br {
+      @include mq(xsmd) {
+        display: none;
+      }
+     }
+    span {
+      color: shade($teal, 15%);
+      @include mq(xmd) {
+        margin-left: 15px;
+      }
+    }
+  }
+  p {
+    color: $navy;
+    font-size: vwp(13px);
+    text-align: left;
+    margin: vwp(10px) 0 0 0;
+    @include mq(xs) {
+      font-size: vwl(13px);
+    }
+    @include mq(sm) {
+      margin: 10px 0 0 0;
+      font-size: 18px;
+    }
+    @include mq(md) {
+      font-size: 14px;
+    }
+    @include mq(lg) {
+      font-size: 17px;
+    }
+    a {
+      font-weight: 700;
+      color: shade($teal, 20%);
+      border-bottom: dotted 1px $teal;
+      transition: .2s;
+      &:hover, &:focus {
+        border-bottom-color: transparent;
+        color: shade($teal, 45%);
+      }
+    }
+  }
+  ul {
+    margin: vwp(30px) 0 0 0;
+    border-top: solid 1px $teal;
+    border-bottom: solid 1px $teal;
+    padding: vwp(10px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    
+    @include mq(xs) {
+      margin: 0;
+      padding: vwl(10px) vwl(15px);
+    }
+    @include mq(sm) {
+      padding: 15px;
+    }
+    @include mq(md) {
+      margin: 30px 0 0 0;
+    }
+    @include mq(lg) {
+      padding: 15px 20px;
+    }
+    &::before {
+      content: 'Skills Include:';
+      position: absolute;
+      top: -9px;
+      left: 0px;
+      font-size: vwp(13px);
+      color: shade($teal, 20%);
+      font-weight: 700;
+      background-color: #fff;
+      line-height: 1;
+      padding: 0 4px;
+      text-align: right;
+      @include mq(xs) {
+        font-size: vwl(14px);
+        padding: 0 vwl(4px);
+      }
+      @include mq(sm) {
+        font-size: 15px;
+        padding: 0 4px;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 3px;
+      right: 3px;
+      height: 80px;
+      background-image: linear-gradient(to bottom, 
+        $white 0%,
+     
+        tint($teal, 80%) 100%);
+        z-index: -1;
+        border-bottom: solid 1px tint($teal, 70%);
+    }
+  }
+  li {
+    color: $navy;
+    width: 33.333333%;
+    list-style-type: none;
+    font-size: vwp(11px);
+    line-height: 2.4;
+    @include mq(xs) {
+      font-size: vwl(10px);
+    }
+    @include mq(sm) {
+      font-size: 14px;
+      line-height: 2.12;
+    }
+    @include mq(md) {
+      font-size: 12px;
+      line-height: 2.1;
+    }
+    @include mq(lg) {
+      font-size: 14px;
+      line-height: 2.2;
+    }
+    &:nth-of-type(1),
+    &:nth-of-type(4),
+    &:nth-of-type(7),
+    &:nth-of-type(10) {
+      text-align: left;
+    }
+    &:nth-of-type(3),
+    &:nth-of-type(6),
+    &:nth-of-type(9),
+    &:nth-of-type(11) {
+      text-align: right;
+    }
+    &:nth-of-type(11) {
+      width: 66.666666%;
+    }
+
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @include mq(xsmd) {
+    flex-direction: row;
+    padding: 0 0 vwl(30px) 0;
+  }
+  @include mq(md) {
+    margin: 0 0 8px 0;
+  }
+  @include mq(lg) {
+    margin: 0 0 27px 0;
+  }
+  //Guides 
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 30px;
+  //   left: 0;
+  //   right: 0;
+  //   height: 1px;
+  //   background-color: purple;
+  //   z-index: 100;
+  // }
+}
+.info {
+  padding: 0 0 0 vwp(3px);
+  @include mq(xs) {
+    padding: 0 0 0 vwl(3px);
+  }
+  @include mq(xmd) {
+    flex: 1 1 calc(50% - 1.5rem);
+  }
+  @include mq(sm) {
+    padding: 0 0 0 5px;
+  }
+}
+.skills {
+  position: relative;
+  margin: 0 0 vwp(30px) 0;
+  display: flex;
+  align-items: flex-end;
+  @include mq(xsmd) {
+    margin: 0 0 vwl(10px) 15px;
+    flex: 1 1 calc(50% - 1.5rem);
+  }
+  @include mq(sm) {
+    margin: 0 0 0 30px;
+  }
+  @include mq(md) {
+    margin: 0;
+  }
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 1px;
+    background-image: linear-gradient(to bottom, 
+        $white 0%,
+     
+        $teal 100%);
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+}
+
+.case-studies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: vwp(15px);
+  position: relative;
+  @include mq(xs) {
+    row-gap: 1.5rem;
+
+  }
+  @include mq(md) {
+    width: 66.66666667%;
+  }
+  //Guides 
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 10px;
+  //   left: 0;
+  //   right: 0;
+  //   height: 1px;
+  //   background-color: $pink;
+  //   z-index: 100;
+  // }
+}
+.item {
+  display: flex;
+  position: relative;
+  padding-bottom: 69%;
+  flex: 1 1 calc(100% - 1.5rem);
+  @include mq(xs) {
+    padding-bottom: 33.666%;
+    flex: 1 1 calc(50%  - 1rem);
+  }
+  @include mq(sm) {
+    flex: 1 1 calc((100% / 3) - 3rem);
+    padding-bottom: 22%;
+  }
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .2s;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+    }
+  }
+  &:not(.last) {
+    height: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    @include mq(xs) {
+      background-size: 100%;
+    }
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: solid 4px rgba($navy, .8);
+      transition: .2s;
+      &::before {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        border: solid 2px rgba($white, .15);
+      }
+      &::after {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+      }
+    }
+  }
+  &.last {
+    padding: vwp(12.5px) 0;
+    align-items: center;
+    @include mq(xs) {
+      padding: vwl(12.5px) 0;
+    }
+    @include mq(sm) {
+      padding: 15px 0;
+      margin-left: calc(66.66666667% + 12px);
+    }
+    a {
+      &:before, &::after {
+        @include chevron(#000);
+        @extend %filterNavy;
+        width: vwp(15px);
+        height: vwp(20px);
+        @extend %svg;
+        transition: .2s;
+        @include mq(xssm) {
+          width: vwl(15px);
+          height: vwl(20px);
+          top: calc(100% - vwl(20px));
+          margin-top: -3px;
+        }
+        @include mq(sm) {
+          width: 20px;
+          height: 27px;
+        }
+      }
+      &:before {
+        right: vwp(10px);
+        @include mq(xs) {
+          right: vwl(10px);
+        }
+        @include mq(sm) {
+          right: 12px;
+        }
+      }
+    }
+  }
+}
+
+.case-number {
+  background-color: rgba($navy, .8);
+  color: $teal;
+  width: vwp(36px);
+  height: vwp(36px);
+  font-size: vwp(18px);
+  line-height: 1;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  z-index: 1;
+  transition: .2s;
+  @include mq(xs) {
+    width: vwl(36px);
+    height: vwl(36px);
+    font-size: vwl(18px);
+  }
+  @include mq(sm) {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2rem;
+  }
+  @include mq(mdlg) {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.7rem;
+  }
+}
+.case-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $white;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-size: vwp(16px);
+  padding: vwp(18px) vwp(4px) 0 vwp(4px);
+  transition: .2s;
+  @include mq(xs) {
+    font-size: vwl(16px);
+    padding: vwl(18px) vwp(4px) 0 vwp(4px);
+  }
+  @include mq(sm) {
+    font-size: 1.4rem;
+    padding: 2rem .5rem 0rem .5rem;
+  }
+  @include mq(md) {
+    font-size: 1.3rem;
+    padding: 1.5rem .25rem 0rem .25rem;
+  }
+  @include mq(lg) {
+    font-size: 1.5rem;
+    padding: 2rem 1rem 0rem 1rem;
+  }
+}
+.item {
+  &:not(.last) {
+    .case-title {
+      text-shadow: 0 0 2px $navy;
+      align-items: flex-start;
+      @include background-image(linear-gradient(to bottom, 
+        rgba(11,40,54,0) 0%,
+        rgba(11,40,54,0.6) 75%,
+        rgba(11,40,54,0.8) 100%));
+    }
+    a {
+      &:hover {
+        border: solid 4px shade($teal, 10%);
+        box-shadow:inset 0 0 10px 0 rgba(11,40,54,.35);
+        &::before {
+          border-color: $white;
+        }
+        .case-number {
+          background-color: shade($teal, 10%);
+          color: $white;
+          box-shadow: 2px 2px 0 0 rgba($white, 1);
+        }
+        .case-title {
+          @include background-image(linear-gradient(to bottom, 
+          rgba(shade($teal, 10%), 1) 0%,
+          rgba(shade($teal, 10%), 1) 100%));
+          padding-top: .5rem;
+          text-shadow: 0 0 2px shade($teal, 60%);
+          border-top: solid 2px $white;
+        }
+      }
+    }
+  }
+  &.last {
+    .case-title {
+      align-items: flex-end;
+      color: $navy;
+      right: vwp(25px);
+      @include mq(xxs) {
+        padding: 0 0 vwp(5px) 0;
+      }
+      @include mq(xs) {
+        right: vwl(25px);
+        padding: 0 0 vwl(4px) 0;
+      }
+      @include mq(sm) {
+        right: 35px;
+        padding: 0 0 8px 0;
+      }
+    }
+    a {
+      &:hover {
+        box-shadow: none;
+        border: none;
+        background: none;
+        &:before, &::after {
+          border: none;
+          @extend %filterTeal;
+        }
+        .case-title {
+          text-shadow: none;
+          border: none;
+          background: none;
+          color: shade($teal, 20%);
+          outline: none;
+        }
+      }
+    }
+  }
+}

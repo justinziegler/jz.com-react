@@ -1,0 +1,108 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.ethical {
+  padding: 30px 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  @include mq(xsm) {
+    padding: vwl(30px) 0;
+  }
+  @include mq(xxs) {
+    padding: vwp(30px) 0;
+  }
+  &.lazyloaded {
+    background-image: url('../../assets/sheets/sheets-texture.jpg?w=840&h=1200&fp-x=0&fp-y=0');
+    @include mq(sm) {
+      background-image: url('../../assets/sheets/sheets-texture.jpg?w=992&h=750&fp-x=0&fp-y=0');
+      background-size: 992px;
+    }
+    @include mq(md) {
+      background-image: url('../../assets/sheets/sheets-texture.jpg?w=1200&h=800&fp-x=0&fp-y=0');
+      background-size: 1200px;
+    }
+    @include mq(lg) {
+      background-image: url('../../assets/sheets/sheets-texture.jpg?w=1920&h=870&fp-x=0&fp-y=0');
+      background-size: 1920px;
+      padding: 60px 0 75px 0;
+    }
+  }
+  .content {
+    @include mq(xssm) {
+      padding: 0 20%;
+    }
+    @include mq(sm) {
+      margin-top: 15px;
+    }
+    @include mq(md) {
+      display: flex;
+      flex-wrap: wrap;
+      > div {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .row {
+      @include mq(sm) {
+        display: flex;
+        flex-direction: row;
+        > div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+  .logo {
+    margin: 15px auto;
+    @include mq(xssm) {
+      margin: vwl(15px) auto;
+    }
+    @include mq(xxs) {
+      margin: vwp(15px) auto;
+    }
+    @include mq(sm) {
+      width: 100%;
+      padding-bottom: 100%;
+    }
+    &.oeko-tex {
+      @include mq(xsm) {
+        padding-bottom: 50%;
+      }
+      @include mq(sm) {
+        padding-bottom: 33%;
+      }
+    }
+    &.newsweek {
+      padding-bottom: 117%;
+    }
+  }
+  p {
+    @include mq(sm) {
+      margin: 0;
+    }
+    @include mq(lg) {
+      margin: 0 15px;
+    }
+  }
+}
+
+
+.gots {
+  @include logo-GOTS();
+}
+.oeko-tex {
+  @include logo-oeko();
+}
+.sfc {
+  @include logo-sustainable-furnishings-council(#8cc543);
+}
+.newsweek {
+  @include logo-newsweek-award-2021-vertical();
+}

@@ -1,0 +1,64 @@
+/* When editing, use the source file for this page in client/resources/sass */
+@import '../compass';
+
+// Core variables and mixins
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+.mission {
+  background-color: #f7f5f3;
+  .photo {
+    &.lazyloaded {
+      background-image: url('../../assets/sheets/sheets-field-mobile.jpg');
+      background-size: cover;
+      @include mq(xs) {
+        background-image: url('../../assets/sheets/sheets-field-mobile-xs.jpg');
+      }
+      @include mq(sm) {
+        background-image: url('../../assets/sheets/sheets-field-mobile-sm.jpg');
+        background-size: 992px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      @include mq(md) {
+        background-image: url('../../assets/sheets/sheets-field-mobile-md.jpg');
+        background-size: 595px;
+        background-position: 100% 50%;
+      }
+      @include mq(lg) {
+        background-image: url('../../assets/sheets/sheets-field-mobile-lg.jpg');
+        background-size: 720px;
+      }
+      @media (min-width: 1440px) {
+        background-image: url('../../assets/sheets/sheets-field-mobile-xl.jpg');
+        background-size: 830px;
+      }
+      @media (min-width: 1660px) {
+        background-image: url('../../assets/sheets/sheets-field-mobile-xxl.jpg');
+        background-size: 960px;
+      }
+    }
+  }
+  .content {
+    padding: 30px 200px;
+    @include mq(xsm) {
+      padding: vwl(30px) 20%;
+    }
+    @include mq(xxs) {
+      padding: vwp(30px) 30px;
+    }
+    @include mq(md) {
+      width: 485px;
+      padding: 0 15px 0 30px;
+    }
+    @include mq(lg) {
+      width: 585px;
+      padding: 0 45px 0 60px;
+    }
+  }
+}

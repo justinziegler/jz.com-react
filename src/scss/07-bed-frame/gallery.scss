@@ -1,0 +1,723 @@
+@import '../compass';
+@import '../bootstrap/variables';
+@import '../bootstrap/mixins';
+@import '../partials/variables';
+@import '../partials/mixins';
+@import '../partials/layout';
+@import '../partials/svg';
+
+video {
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+}
+
+// Gallery
+.product-gallery {
+  .swiper-container .swiper-slide {
+    padding-bottom: 66.66666667%;
+    &.slide-6 {
+      padding-bottom: 56.25%;
+    }
+  }
+  &[data-type='TU'] {
+    &[data-color='CS'] {
+      .slide-1 {
+        background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=840');
+      }
+      .slide-1,
+      .swiper-pagination-bullet:nth-of-type(1) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-2 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=840');
+        }
+      }
+      .slide-2.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(2) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-altangle-noluxe-TU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-3 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=840');
+        }
+      }
+      .slide-3.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(3) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-silo-TU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-4 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=840');
+        }
+      }
+      .slide-4.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(4) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-TU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-5 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=840');
+        }
+      }
+      .slide-5.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(5) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-TU-CS.jpg?&w=1920');
+          }
+        }
+      }
+    }
+    &[data-color='DS'] {
+      .slide-1 {
+        background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=840');
+      }
+      .slide-1,
+      .swiper-pagination-bullet:nth-of-type(1) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-TU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-2 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=840');
+        }
+      }
+      .slide-2.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(2) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-altangle-withluxe-TU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-3 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=840');
+        }
+      }
+      .slide-3.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(3) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-silo-TU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-4 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=840');
+        }
+      }
+      .slide-4.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(4) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-TU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-5 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=840');
+        }
+      }
+      .slide-5.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(5) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-TU-DS.jpg?&w=1920');
+          }
+        }
+      }
+    }
+  }
+  // End data-type='TU'
+  &[data-type='UU'] {
+    &[data-color='CS'] {
+      .slide-1 {
+        background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=840');
+      }
+      .slide-1,
+      .swiper-pagination-bullet:nth-of-type(1) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-2 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=840');
+        }
+      }
+      .slide-2.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(2) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-altangle-noluxe-UU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-3 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=840');
+        }
+      }
+      .slide-3.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(3) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-silo-UU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-4 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=840');
+        }
+      }
+      .slide-4.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(4) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-UU-CS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-5 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=840');
+        }
+      }
+      .slide-5.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(5) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-UU-CS.jpg?&w=1920');
+          }
+        }
+      }
+    }
+    &[data-color='DS'] {
+      .slide-1 {
+        background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=840');
+      }
+      .slide-1,
+      .swiper-pagination-bullet:nth-of-type(1) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-straighton-withluxe-UU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-2 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=840');
+        }
+      }
+      .slide-2.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(2) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-altangle-withluxe-UU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-3 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=840');
+        }
+      }
+      .slide-3.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(3) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=720');
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=800');
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=960');
+        }
+        @include retina {
+          @include mq(lg) {
+            background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=1440');
+          }
+          @media (min-width: 1440px) {
+            background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=1600');
+          }
+          @media (min-width: 1600px) {
+            background-image: url('../../assets/frame/gallery-silo-UU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-4 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=840');
+        }
+      }
+      .slide-4.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(4) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/gallery-corner-UU-DS.jpg?&w=1920');
+          }
+        }
+      }
+      .slide-5 {
+        &.lazyloaded {
+          background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=840');
+        }
+      }
+      .slide-5.lazyloaded,
+      .swiper-pagination-bullet:nth-of-type(5) {
+        @include mq(md) {
+          background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=1200');
+        }
+        @include mq(lg) {
+          background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=720');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=1440');
+          }
+        }
+        @media (min-width: 1440px) {
+          background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=800');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=1600');
+          }
+        }
+        @media (min-width: 1600px) {
+          background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=960');
+          @include retina {
+            background-image: url('../../assets/frame/dimensions-UU-DS.jpg?&w=1920');
+          }
+        }
+      }
+    }
+  }
+  .slide-5 {
+    span {
+      &[data-visible='false'] {
+        display: none;
+      }
+    }
+    span > span {
+      &::before {
+        position: absolute;
+        font-size: 11px;
+        font-size: vwp(11px);
+        font-weight: 700;
+        display: block;
+        color: $navy;
+        @include mq(xs) {
+          font-size: vwl(11px);
+        }
+        @include mq(sm) {
+          font-size: 1.1rem;
+        }
+        @include mq(lg) {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    [data-width] {
+      &::before {
+        content: attr(data-width);
+        top: 85%;
+        right: 29%;
+        @media (min-width: 1920px) {
+          right: 32%;
+        }
+      }
+    }
+    [data-length] {
+      &::before {
+        content: attr(data-length);
+        top: 78%;
+        left: 22%;
+        @include mq(md) {
+        	left: 23%;
+        }
+        @media (min-width: 1440px) {
+        	left: 25%;
+        }
+        @media (min-width: 1920px) {
+          left: 26%;
+        }
+      }
+    }
+    [data-height] {
+      &::before {
+        content: attr(data-height);
+        top: 33%;
+        left: 7.5%;
+        @include mq(md) {
+        	left: 9.5%;
+        }
+        @media (min-width: 1440px) {
+        	left: 10.5%;
+        }
+      }
+    }
+    [data-totalheight] {
+      &::before {
+        content: attr(data-totalheight);
+        top: 36%;
+        left: 2%;
+        transform: rotate(-90deg);
+        @include mq(xs) {
+          left: 3%;
+          top: 39%;
+          transform: none;
+        }
+        @include mq(sm) {
+          left: 1.5%;
+        }
+        @include mq(md) {
+          left: 3%;
+        }
+        @media (min-width: 1440px) {
+          left: 4%;
+        }
+        @media (min-width: 1920px) {
+          left: 5%;
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,13 @@
 /// Urlencode the SVG string
 /// @param {String} $svg - SVG image to encode
 /// @return {String} - Encoded SVG data uri
+@use "sass:math";
+
 @function swiper-svg-uri($svg) {
   $encoded: '';
   $chunkSize: 2048;
   $index: 0;
-  $loops: ceil(str-length($svg) / $chunkSize);
+  $loops: ceil(math.div(str-length($svg), $chunkSize));
 
   $map: (
    "%": "%25",
